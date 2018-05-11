@@ -1,0 +1,30 @@
+All SIS files in the v1.55 release of the OPL runtime for the Nokia Communicator are now signed with a self signed
+certificate. This means that you will still receive a warning that the supplier cannot be verified when you install
+any of the SIS files in the package, but instead of the question mark you will see the name "OPL developer team" as
+the supplier of the SIS file.
+
+Since everybody can make a self signed certificate with this name, you can check whether or not the SIS file you are
+installing is valid by clicking the "Details" button in the installation dialog and checking the presented information
+against the information below. If the information is the same, you can be pretty sure that this SIS file was created
+by the OPL development team and is safe to install on your device.
+
+Certificate details for Nokia 9300/9500
+
+Issued to: OPL development team
+Issued by: OPL development team
+Valid from: 30th/May/2006
+Valid until: 30th/May/2007
+Serial number: 00
+Fingerprint: 07AB-9918-FCC5-D9A0-8984-83BA-AF7E-D20F
+Type: X.509v3
+
+Certificate details for Nokia 92xx
+
+Signed on: 06:35 2006-06-09
+Signed by: OPL development team
+Issued by: OPL development team
+Valid from: 05:44 2006-05-30
+Valid until: 05:44 2007-05-30
+Serial number: 0
+Version: 3
+

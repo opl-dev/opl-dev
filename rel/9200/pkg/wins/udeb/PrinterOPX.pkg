@@ -1,0 +1,20 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"Printer OPX"}, (0x1000025D), 0, 40, 116, TYPE=SY
+
+; Digitally sign this .sis file
+*"..\..\..\..\Symbian.key","..\..\..\..\Symbian.cer"
+
+;
+; Files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\z\system\opx\Printer.opx"-"!:\System\OPX\Printer.opx", FF
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 55, 001, {"OPL Runtime"}

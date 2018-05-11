@@ -1,0 +1,11 @@
+rem Eval.oxh
+rem
+rem Copyright (c) 2000-2001 Symbian Ltd. All rights reserved.
+rem
+
+CONST KUidOpxEval&=&77774EF5
+CONST KOpxEvalVersion%=$100
+
+DECLARE OPX EVAL,KUidOpxEval&,KOpxEvalVersion%
+	EvEval:(aString$) :1
+END DECLARE

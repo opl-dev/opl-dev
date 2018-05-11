@@ -1,0 +1,45 @@
+; OPL Runtime for Nokia 9500 Communicator Series.
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"OPL Runtime"}, (0x1000904D), 1, 56, 001, TYPE=SA,SHUTDOWNAPPS
+;
+; Include the S80 2.0 id, to prevent the SIS from being loaded on old S80 (9200).
+; But don't use the specific 9500 id, because we want this for the 9300 too.
+;
+; For Series 80 2.0
+(0x101F8ED2),0,0,0,{"Series80ProductID"}
+
+; Digitally sign this .sis file
+*"..\..\..\Symbian.key","..\..\..\Symbian.cer"
+
+;
+; Warning file
+;
+;"\oplr\rom\Release-Readme.txt"-"",FT,TA
+;"\Projects\opl1.55\opl\oplr\pkg\test-warning.txt"-"",FT,TA
+
+;
+; Core OPL Files
+;
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\wins\udeb\z\system\apps\opl\opl.app"-"!:\System\Apps\Opl\Opl.app"
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\wins\udeb\z\system\apps\opl\opl.aif"-"!:\System\Apps\Opl\Opl.aif"
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\data\z\system\data\oplr.rsc"-"!:\System\Data\Oplr.rsc"
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\wins\udeb\oplr.dll"-"!:\System\Libs\Oplr.dll"
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\wins\udeb\oplt.dll"-"!:\System\Libs\Oplt.dll"
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\wins\udeb\z\system\recogs\recopl.rdl"-"!:\System\Recogs\RecOpl.rdl"
+;
+; Core OPXs - no longer supplied as separate SIS files
+;
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\wins\udeb\z\system\opx\AppFrame.opx"-"!:\System\OPX\AppFrame.opx", FF
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\wins\udeb\z\system\opx\SendAs.opx"-"!:\System\OPX\SendAs.opx", FF
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\wins\udeb\z\system\opx\System.opx"-"!:\System\OPX\System.opx", FF
+;
+; Font Support - eon14.gdr
+;
+"..\..\..\..\fonts\eon14.gdr.9500"-"!:\System\Libs\Eon14.gdr"
+;

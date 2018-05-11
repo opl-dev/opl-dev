@@ -1,0 +1,25 @@
+REM SPELL.OXH
+REM
+REM Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+REM
+
+CONST KOpxSpellUid&=&10000B92
+CONST KOpxSpellVersion%=$600
+
+CONST KSpellNoUserDictionary&=0
+CONST KSpellUserDictionary&=1
+
+CONST KSpellContinue&=0
+CONST KSpellNoMore&=1
+
+DECLARE OPX SPELL,KOpxSpellUid&,KOpxSpellVersion%
+	Spell$:(aString$) : 1
+	OpenSpeller:(aUserDictionary&) : 2
+	CloseSpeller: : 3
+	SpellUserDict&: : 4
+	SpellBuffer$:(aBuffer&, aLength&) : 5
+	SpellAlternatives:(aWord$, aMaximumAlternatives&, aCallback$) : 6
+	SpellWhere&: : 7
+	SpellWildcards:(aWord$, aMaximumAlternatives&, aCallback$) : 8
+	SpellAnagrams:(aWord$, aMinimumLength&, aMaximumAlternatives&, aCallbacke$) : 9
+END DECLARE

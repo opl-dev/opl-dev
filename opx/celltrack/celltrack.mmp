@@ -1,0 +1,34 @@
+// SYSTEM.MMP
+//
+// Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+
+TARGET		CellTrack.opx
+TARGETTYPE	dll
+TARGETPATH	\System\OPX
+UID			0x10003A7B 0x101fe660
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH	.
+SOURCE		CellTrack.cpp
+
+USERINCLUDE		..\src
+SYSTEMINCLUDE	\epoc32\include
+
+LIBRARY		euser.lib
+LIBRARY		oplr.lib 
+LIBRARY		PROFILEENGINE.LIB
+library		bafl.lib
+library		cbsserver.lib cbsfroot.lib estor.lib efsrv.lib
+LIBRARY		etel.lib gsmBAS.lib sysagt.lib 
+
+DEFFILE		OPX.DEF
+

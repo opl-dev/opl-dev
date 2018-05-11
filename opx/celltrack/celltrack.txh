@@ -1,0 +1,78 @@
+REM celltrack.oxh
+REM
+REM v1.50 February 04.
+
+CONST KUidOpxCellTrack&=&101fe660
+CONST KOpxCellTrackVersion%=$600
+
+REM For cbs
+CONST KCBSView$="ViewList"
+CONST KCBSTopic$="TopicList"
+CONST KCBSPath$="c:\system\apps\cbs\"
+
+REM for cbsmsginfo (index,count/cellid)
+CONST KCBSCount%=1 : REM no index for count
+CONST KCBSCellId%=2 : REM index represents 1,2,3 (0,1,2) message
+
+REM for cbsonoffstat
+CONST KCBSon%=1
+CONST KCBSoff%=2
+CONST KCBSstat%=3
+
+REM for cbslistsopenclosestat
+CONST KCBSListOpen%=10
+CONST KCBSListClose%=11
+CONST KCBSListStat%=12
+
+REM For cellInfo
+REM ----- int (cellinfo)
+CONST KMCC%=0
+CONST KMNC%=1
+CONST KLocalACode%=2
+CONST KCellId%=3
+CONST KNetStat%=4
+REM ---- string (serial)
+CONST KSerial%=5
+CONST KProvider%=6
+
+REM netstatus (cellinfo(KNetStat%))
+CONST KNetHome%=1
+CONST KNetNo%=2
+CONST KNetRoam%=5
+
+REM uid for info
+CONST KPhoneOFFOn%=1 : REM result is 0=off and 1=on
+CONST KNetOnOff%=2 : REM result is 1=not and 0/other=available
+CONST KProfileInfo%=3 : REM result i dont know
+
+REM for Extraprofilename$
+CONST KExtraProfileHead%=1
+CONST	KExtraProfileCar%=2
+
+DECLARE OPX CellTrack,KUidOpxCellTrack&,KOpxCellTrackVersion%
+	REM profile
+	SwitchProfile%:(aProfile$) :1 : REM profile name to switch to
+	ProfileName$:(aNum&) :2 : REM enter number get name
+	ProfileCount%: :3 : REM count
+	ActiveProfile%: :4
+	ActiveProfileName$: :5
+	ExtraProfileName$:(aCarhead%) :6 : REM 1/2 - result > head/car
+
+	REM cbs
+	CBSOnOffStat%:(aChoice%) :100 :	REM choice - 1/on 2/off 3/stat
+																REM	 res: for stat 1=on 2=off, for on/off 0=ok
+
+	CBSMessageRead$:(aViewlist$,aCellid%,aIndex%) :103 : REM cellid of cbs message
+	CBSMessageInfo&:(aViewlist$,aChoice%,aIndex%) :104 : REM choice: count=1,cellid=2
+
+	CBSListsOpenCloseStat%:(aChoice%) :106 :	REM
+												REM choice - 10/open 11/close 12/stat
+												REM result - 1 on all other off or ok
+	CBSListsInit%:(aViewlist$) :109
+	
+	REM phoneinfo
+	CellInfo&:(aInfoId%) :200 : REM mcc=0,mnc=1,lac=2,cellid=3,netstat=4
+	Serial$:(aInfoId%) :201 : REM serial=5, provider=6
+	Info&:(aInfoId&) :202 : REM phoneonoff=1,netavailable/not=2,profile=3
+	InfoUid&:(aInfoUId&) :203 : REM &10005000-&10006000
+END DECLARE

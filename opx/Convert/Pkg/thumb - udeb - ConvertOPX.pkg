@@ -1,0 +1,16 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"Convert OPX © Symbian Ltd"}, (0x10004EF5), 0, 40, 116, TYPE=SY
+;
+; Files
+;
+"\epoc32\release\thumb\udeb\Convert.opx"-"!:\System\OPX\Convert.opx", FF
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 00, 129, {"OPL Runtime © Symbian Ltd"}

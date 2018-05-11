@@ -1,0 +1,22 @@
+rem Convert.oxh
+rem
+rem Copyright (c) 1999-2002 Symbian Ltd. All rights reserved.
+rem
+
+CONST KUidOpxCharCnv&=&10004EF5
+CONST KOpxCharCnvVersion%=$100
+
+DECLARE OPX CONVERT,KUidOpxCharCnv&,KOpxCharCnvVersion%
+	CVCharSets&: :1
+	CVCharSetName$:(aIndex&) :2
+	CVCharSetUid&:(aIndex&) :3
+	CVSelectCharSet:(aCharSetUid&) :4
+	CVResetToDefaults: :5
+	CVFromUnicode:(aBuffer&,aBufferLength&,aSource$) :6
+	CVUnicode$:(aBuffer&,aBufferLength&) :7
+	CVBadCharCount&: :8
+	CVFirstBadChar&: :9
+	CVSetReplaceChar:(aReplacementChar&) :10
+	CVSetLittleEndian: :11
+	CVSetBigEndian: :12
+END DECLARE

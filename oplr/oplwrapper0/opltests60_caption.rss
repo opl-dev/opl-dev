@@ -1,0 +1,14 @@
+// OpltestS60_Caption.RSS
+//
+
+#include <apcaptionfile.rh>
+#include "oplwrapper.h"
+
+RESOURCE CAPTION_DATA
+    {
+    caption = _OPLWRAPPERNAME;
+    shortcaption = _OPLWRAPPERNAME;
+    }
+
+// End of File
+

@@ -1,0 +1,23 @@
+//
+// opl.hlp.hrh
+//
+
+//
+// File generated on 11:18:29 18/8/2000
+// by cshlpcmp Version 010
+//
+
+#ifndef __OPL_HLP_HRH__
+#define __OPL_HLP_HRH__
+
+
+_LIT(KOPL_HLP_VIEW_MAIN,"OPL_HLP_VIEW_MAIN"); //The Main view of the OPL Editor
+_LIT(KOPL_HLP_DIAL_VIEW_PREFERENCES,"OPL_HLP_DIAL_VIEW_PREFERENCES"); //The View Preferences dialog of the OPL Editor
+_LIT(KOPL_HLP_DIAL_INDENTATION,"OPL_HLP_DIAL_INDENTATION"); //The indentation dialog of the OPL Editor
+_LIT(KOPL_HLP_DIAL_SHOW_PROCEDURES,"OPL_HLP_DIAL_SHOW_PROCEDURES"); //The Show procedures dialog of the OPL Editor
+_LIT(KOPL_HLP_DIAL_TRANSLATION,"OPL_HLP_DIAL_TRANSLATION"); //The translation dialog of the OPL Editor
+_LIT(KOPL_HLP_DIAL_INCLUDE_FILE__The,"OPL_HLP_DIAL_INCLUDE_FILE__The"); //Open included file dialog of the OPL Editor
+_LIT(KOPL_HLP_DIAL_TRANSLATION_C,"OPL_HLP_DIAL_TRANSLATION_C"); //The translation complete dialog of the OPL Editor
+_LIT(KOPL_HLP_DIAL_RUN_PROGRAM,"OPL_HLP_DIAL_RUN_PROGRAM"); //The run program dialog of the OPL Editor
+
+#endif

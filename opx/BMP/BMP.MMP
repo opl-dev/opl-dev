@@ -1,0 +1,29 @@
+// BMP.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+TARGET		bmp.opx
+TARGETTYPE	dll
+TARGETPATH	\System\Opx
+UID			0x10003A7B 0x10000258
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH	..\bmp
+
+SOURCE		opxbmp.cpp
+DOCUMENT	bmp.txh
+
+SYSTEMINCLUDE	\epoc32\include
+
+LIBRARY		oplr.lib euser.lib fbscli.lib ws32.lib
+
+DEFFILE     OPX.DEF

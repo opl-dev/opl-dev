@@ -1,0 +1,35 @@
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\EXPORT.make" EXPORT VERBOSE=-s
+	md "\Symbian\6.0\NokiaCPP\EPOC32\tools"
+	copy "\OPL\OPLTOOLS\opltran\opltran.bat" "\Symbian\6.0\NokiaCPP\EPOC32\tools\opltran.bat"
+        1 file(s) copied.
+	copy "\OPL\OPLTOOLS\rsg2osg\rsg2osg.bat" "\Symbian\6.0\NokiaCPP\EPOC32\tools\rsg2osg.bat"
+        1 file(s) copied.
+	copy "\OPL\OPLTOOLS\rsg2osg\rsg2osg.pl" "\Symbian\6.0\NokiaCPP\EPOC32\tools\rsg2osg.pl"
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" MAKEFILE VERBOSE=-s
+	perl -S makmake.pl -D \OPL\OPLTOOLS\OPLTRAN\OPLTRAN WINC
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\OPLTRAN\OPLTRAN\WINC\OPLTRAN.WINC" LIBRARY
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" RESOURCE CFG=UDEB VERBOSE=-s
+diff: ..\..\..\Symbian\6.0\NokiaCPP\EPOC32\INCLUDE\OPLTRAN.RSG: No such file or directory
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\OPLTRAN\OPLTRAN\WINC\OPLTRAN.WINC" RESOURCEUDEB
+
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\OPLTRAN\OPLTRAN\WINC\OPLTRAN.WINC" RESOURCEUREL
+
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" TARGET CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\OPLTRAN\OPLTRAN\WINC\OPLTRAN.WINC" UDEB
+Opltran.cpp
+Opltran.uid.cpp
+Opltrant.cpp
+Winutil.cpp
+EEXE.LIB(UP_EXE.obj) : warning LNK4099: PDB "eexe.pdb" was not found with "\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINC\UDEB\EEXE.LIB" or at "J:\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINC\UDEB\eexe.pdb"; linking object as if no debug info
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" TARGET CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\OPLTRAN\OPLTRAN\WINC\OPLTRAN.WINC" UREL
+Opltran.cpp
+Opltran.uid.cpp
+Opltrant.cpp
+Winutil.cpp
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" FINAL CFG=UDEB VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" FINAL CFG=UREL VERBOSE=-s

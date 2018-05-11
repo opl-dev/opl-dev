@@ -1,0 +1,256 @@
+// TextEd.loc
+//
+// Copyright (c) 1999-2002 Symbian Ltd. All rights reserved.
+
+//
+// Localization strings for the TextEd (OPL Editor) application
+//
+//
+// NOTE: KTextEdResourceLen is 64 characters. This is the length
+// of the buffer used to read these resource strings.
+//
+
+//  APPLICATION INFORMATION
+
+#define OPL_G_CAPTION_NAME		"Program"		// Caption name
+#define ELanguage				ELangEnglish	// Caption language
+
+// Default resource name
+#define OPL_G_RESOURCE_NAME		"Program"
+
+//
+// Menu strings
+//
+#define OPL_M_FILE				"File"
+#if !defined(__UIQ_RESOURCE__)
+	#define OPL_M_NEW				"New"<KEllipsis>
+	#define OPL_M_OPEN				"Open"<KEllipsis>
+	#define OPL_M_SAVE_AS			"Save as"<KEllipsis>
+	#define OPL_M_IMPORT_TXT_FILE	"Import text"<KEllipsis>
+	#define OPL_M_EXPORT_TXT_FILE	"Export as text"<KEllipsis>
+	#define OPL_M_PRINT				"Print"<KEllipsis>
+	#define OPL_M_PAGE_SETUP		"Page setup"<KEllipsis>
+#else
+	#define OPL_M_NEW				"New"
+	#define OPL_M_OPEN				"Open"
+	#define OPL_M_SAVE_AS			"Save as"
+	#define OPL_M_IMPORT_TXT_FILE	"Import text"
+	#define OPL_M_EXPORT_TXT_FILE	"Export as text"
+	#define OPL_M_PRINT				"Print"
+	#define OPL_M_PAGE_SETUP		"Page setup"
+#endif
+#define OPL_M_SAVE				"Save"
+#define OPL_M_MORE				"More"
+#define OPL_M_SAVE_DOCUMENT		"Save document"
+#define OPL_M_REVERT_TO_SAVED	"Discard changes"
+#define OPL_M_PRINTING			"Printing"
+#define OPL_M_PRINT_PREVIEW		"Print preview"
+#define OPL_M_DELETE			"Delete"
+//For dynamic use
+#define OPL_M_ADDTODESK			"Add to Desk"<KEllipsis>
+
+#define OPL_M_EDIT				"Edit"
+#define OPL_M_UNDO_DELETE		"Undo delete"
+#define OPL_M_CUT				"Cut"
+#define OPL_M_COPY				"Copy"
+#define OPL_M_PASTE				"Paste"
+#define OPL_M_SELECT_ALL		"Select all"
+#if !defined(__UIQ_RESOURCE__)
+	#define OPL_M_FIND				"Find"<KEllipsis>
+	#define OPL_M_SHOW_PROCEDURES	"Show procedures"<KEllipsis>
+	#define OPL_M_FONT				"Font"<KEllipsis>
+	#define OPL_M_INDENTATION		"Indentation"<KEllipsis>
+#else
+	#define OPL_M_FIND				"Find"
+	#define OPL_M_SHOW_PROCEDURES	"Show procedures"
+	#define OPL_M_FONT				"Font"
+	#define OPL_M_INDENTATION		"Indentation"
+#endif
+
+#define OPL_M_VIEW				"View"
+#define OPL_M_FORMAT			"Format"
+
+#define OPL_M_FULL_SCREEN		"Full screen"
+#define OPL_M_SHOW_TITLE		"Show title"
+#define OPL_M_SHOW_SCROLLBAR	"Horizontal scrollbar"
+#define OPL_M_SHOW_LAST_ERROR	"Show last error"
+#define OPL_M_ZOOM				"Zoom"
+#define OPL_M_ZOOM_IN			"Zoom in"
+#define OPL_M_ZOOM_OUT			"Zoom out"
+
+#define OPL_M_BUILD				"Build"
+#define OPL_M_TOOLS				"Tools"
+#define OPL_M_TRANSLATE			"Translate"
+#define OPL_M_TRANSLATE_DEB		"Translate for debugger"
+#if !defined(__UIQ_RESOURCE__)
+	#define OPL_M_RUN_PROGRAM		"Run program"<KEllipsis>
+	#define OPL_M_PREFERENCES		"Preferences"<KEllipsis>
+#else
+	#define OPL_M_RUN_PROGRAM		"Run program"
+	#define OPL_M_PREFERENCES		"Preferences"
+#endif
+#define OPL_M_LOG				"Log"
+
+//
+// Buttons for main view
+//
+#define OPL_B_TRANSLATE			"Translate"	// Starts the translation process
+#define OPL_B_FIND				"Find"		// Opens the 'Find' dialog
+#define OPL_B_GOTO				"Go to"		// Opens the 'Show procedures' dialog
+#define OPL_B_CLOSE				"Close"		// Closes the application
+
+//
+// Dialog buttons
+//
+
+// Show procedures dialog
+#define OPL_B_PROCEDURES_CLOSE		"Close"
+
+// Preferences dialog
+#define OPL_B_PREFERENCES_CHANGE	"Change"
+#define OPL_B_PREFERENCES_CLOSE		"Close"
+
+// Indentation dialog
+#define OPL_B_INDENTATION_CLOSE		"Close"
+
+// Include file dialog
+#define OPL_B_INCLUDE_OPEN_FILE		"Open"
+#define OPL_B_INCLUDE_CANCEL		"Cancel"
+
+// Translate complete dialog
+#define OPL_B_RUN_TRANSLATED		"Run"
+#define OPL_B_RUN_TRANS_CANCEL		"Cancel"
+
+// Revert to saved dialog
+#define OPL_B_REVERT_TO_SAVED		"Discard\nchanges" //	Accept the Revert to saved dialog
+#define OPL_B_REVERT_CANCEL			"Cancel" //	Cancel the Revert to saved dialog
+
+// Delete file dialog
+#define OPL_B_DELETE_FILE			"Delete" //	Accept the Delete file dialog
+#define OPL_B_DELETE_CANCEL			"Cancel" //	Cancel the Delete file dialog
+
+// Import text dialog
+#define OPL_B_IMPORT_TEXT			"Import" //	Accept the Import text dialog
+#define OPL_B_IMPORT_CANCEL			"Cancel" //	Cancel the Import text dialog
+
+// Export text dialog
+#define OPL_B_EXPORT_TEXT			"Export" //	Accept the Export text dialog
+#define OPL_B_EXPORT_CANCEL			"Cancel" //	Cancel the Export text dialog
+
+// Goto procedure dialog
+//
+#define OPL_B_GOTO_PROC				"Go to" //	Accept the Goto proc dialog
+#define OPL_B_GOTO_CANCEL			"Cancel" //	Cancel the Goto proc dialog
+
+// Hotkeys
+//
+
+// Plain hotkeys
+#define OPL_K_SELECT_ALL	'a'
+#define OPL_K_COPY			'c'
+#define OPL_K_DELETE		'd'
+#define OPL_K_FIND			'f'
+#define OPL_K_GOTO			'g'
+#define OPL_K_TRANSLATE		'l'
+#define OPL_K_NEW			'n'
+#define OPL_K_OPEN			'o'
+#define OPL_K_PRINT			'p'
+#define OPL_K_SAVE			's'
+#define OPL_K_FULL_SCREEN	't'
+#define OPL_K_RUN			'u'
+#define OPL_K_PASTE			'v'
+#define OPL_K_CUT			'x'
+#define OPL_K_UNDO			'z'
+
+// Shifted hotkeys
+#define OPL_K_TRANSLATE_DEBUG	'd'
+#define OPL_K_FONT_CHANGE		'f'
+#define OPL_K_IMPORT			'i'
+#define OPL_K_PREFERENCES		'k'
+#define OPL_K_LOG				'l'
+#define OPL_K_SHOW_LAST_ERROR	'r'
+#define OPL_K_SAVE_AS			's'
+#define OPL_K_SHOW_TITLE		't'
+#define OPL_K_PAGE_SETUP		'u'
+#define OPL_K_PRINT_PREVIEW		'v'
+#define OPL_K_EXPORT			'x'
+
+//
+// Field names
+//
+#define OPL_F_EXPORT_OPTIONS			"Export text as"
+#define OPL_F_MONO_FONTS_ONLY			"Monospace fonts only"
+#define OPL_F_SHOW_TABS					"Show tabs"
+#define OPL_F_SHOW_SPACES				"Show spaces"
+#define OPL_F_SHOW_PARAGRAPH_ENDS		"Show paragraph ends"
+#define OPL_F_TAB_SETTING				"Tabs every"
+#if !defined(__UIQ_RESOURCE__)
+	#define OPL_F_TAB_SETTING_CHARACTERS	"characters"
+#else
+	#define OPL_F_TAB_SETTING_CHARACTERS	"chars"
+#endif
+#define OPL_F_AUTOMATIC_INDENT			"Automatic indent"
+
+//
+// Field values
+//
+#define OPL_V_EXPORT_UNICODE			"Unicode"
+#define OPL_V_EXPORT_ASCII_UNIX			"ASCII (Unix)"
+#define OPL_V_EXPORT_ASCII_DOS			"ASCII (MS-DOS)"
+#define OPL_V_MONO_FONTS_ONLY_NO		"No"
+#define OPL_V_MONO_FONTS_ONLY_YES		"Yes"
+#define OPL_V_SHOW_TABS_NO				"No"
+#define OPL_V_SHOW_TABS_YES				"Yes"
+#define OPL_V_SHOW_SPACES_NO			"No"
+#define OPL_V_SHOW_SPACES_YES			"Yes"
+#define OPL_V_SHOW_PARAGRAPH_ENDS_NO	"No"
+#define OPL_V_SHOW_PARAGRAPH_ENDS_YES	"Yes"
+#define OPL_V_AUTOMATIC_INDENT_NO		"No"
+#define OPL_V_AUTOMATIC_INDENT_YES		"Yes"
+
+//
+// Dialog text
+//
+#define OPL_D_IMPORT_SHOW_TEXT	"Show\ntext files"
+#define OPL_D_EXPORT_TEXT		"Export as text"
+
+#define OPL_D_NO_ERROR			"No error to show"
+#define OPL_D_NO_PROC			"No %Ss (procedures) found" 
+								 // where %S=PROC e.g. 'No PROCs (procedures) found'
+
+#define OPL_D_TRANSLATING		"Translating"
+#define OPL_D_TRANSLATED		"Translate finished"
+#define OPL_D_LOCATE_ERROR		"Finding error"<KEllipsis>
+#define OPL_D_ERROR_INCLUDE		"Error in %S file"
+								 // where %S=INCLUDE e.g. 'Error in INCLUDE file'
+
+#define OPL_D_OPEN_QUESTION		"Open the file?"
+#define OPL_D_FILE_UNCHANGED	"File has not changed"
+
+#define OPL_D_INDENTATION		"Indentation"
+#define OPL_D_PREFERENCES		"Preferences"
+#define OPL_D_PROCEDURES		"Procedures"
+
+#define OPL_D_RUN_PROGRAM			"Run program"
+#define OPL_D_RUNNING				"Running"<KEllipsis>
+#define OPL_D_TRANS_RUN_QUESTION	"Run program?"
+#define OPL_D_RUN_SHOW_PROGRAMS		"Show\nProgram files"
+
+#define OPL_D_DELETE_FILE			"Delete current file?"
+
+#define OPL_D_REVERT_TO_SAVED_TITLE	"Discard changes?"
+#define OPL_D_REVERT_TO_SAVED_TEXT	"All changes will be lost"
+
+#define OPL_D_EXPORTING			"Exporting"<KEllipsis>
+#define OPL_D_IMPORTING			"Importing"<KEllipsis>
+
+//
+// Text in main view
+//
+#define OPL_V_READ_ONLY				"This file is read-only"
+#define OPL_V_NOT_WHEN_RUNNING		"Not available while running a program"
+#define OPL_V_NOTHING_TO_TRANSLATE	"Nothing to translate"
+#define OPL_V_NOTHING_TO_EXPORT		"Nothing to export"
+#define OPL_V_NOTHING_TO_IMPORT		"Nothing to import"
+#define OPL_V_CANNOT_IMPORT_FILE	"Cannot import this type of file"
+#define OPL_V_FILE_IN_USE			"File is in use"

@@ -1,0 +1,5 @@
+#{"OPL Font"},(0x10000035),0,1,1,TYPE=SISAPP
+
+;eon14.gdr as required by OPL
+
+"\epoc32\release\wins\udeb\z\system\fonts\eon14.gdr"-"!:\System\Fonts\Eon14.gdr"

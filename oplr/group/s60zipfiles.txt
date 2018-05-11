@@ -1,0 +1,11 @@
+\symbian\6.1\series60\epoc32\release\wins\udeb\oplt.*
+\symbian\6.1\series60\epoc32\release\wins\udeb\oplr.*
+\symbian\6.1\series60\epoc32\release\wins\udeb\z\system\apps\opl\*.*
+\symbian\6.1\series60\epoc32\release\wins\udeb\z\system\recogs\*opl*
+\symbian\6.1\series60\epoc32\release\winc\udeb\oplt*.*
+\symbian\6.1\series60\epoc32\release\winc\udeb\opltran.*
+\symbian\6.1\series60\epoc32\wins\c\system\opl\*.*
+\symbian\6.1\series60\epoc32\tools\rsg2osg.*
+\symbian\6.1\series60\epoc32\tools\opltran.*
+\symbian\6.1\shared\epoc32\tools\rsg2osg.*
+\symbian\6.1\shared\epoc32\tools\opltran.*

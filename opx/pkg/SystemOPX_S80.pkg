@@ -1,0 +1,22 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+; v0.95 - a test version for 9500.
+#{"System OPX"}, (0x1000025C), 6, 50, 001, TYPE=SY
+;
+; Rem only for 9300/9500
+(0x101F8ED2), 0, 0, 0, {"Series80ProductID"}
+
+; Digitally sign this .sis file
+*"\Projects\opl1.55\opl\Symbian.key","\Projects\opl1.55\opl\Symbian.cer"
+
+; Files
+;
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\thumb\urel\System.opx"-"!:\System\OPX\System.opx", FF
+;
+; Depends on OPL.sis being installed - NOT while this OPX is a component SIS inside OPL.sis
+;
+;(0x1000904D), 1, 55, 001, {"OPL Runtime"}

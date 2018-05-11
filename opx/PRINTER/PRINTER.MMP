@@ -1,0 +1,40 @@
+// PRINTER.MMP
+//
+// Copyright (c) 1997-2001 Symbian Ltd. All rights reserved.
+
+TARGET		 Printer.opx
+TARGETTYPE	 dll
+TARGETPATH	 \System\OPX
+UID			0x10003A7B 0x1000025d
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH	..\printer
+
+SOURCE		printer.cpp picbtmap.cpp
+DOCUMENT	printer.txh
+
+USERINCLUDE		..\printer
+SYSTEMINCLUDE	\epoc32\include
+
+LIBRARY		apparc.lib etext.lib print.lib
+LIBRARY		euser.lib oplr.lib bitgdi.lib efsrv.lib
+LIBRARY		fbscli.lib form.lib gdi.lib ws32.lib
+
+// ESTOR only needed for debug build, so ignore link warning
+LIBRARY  estor.lib 
+
+LIBRARY     eikcore.lib 
+//LIBRARY     eikdlg.lib 
+LIBRARY     eikprint.lib 
+LIBRARY     egul.lib 
+
+DEFFILE		OPX.DEF

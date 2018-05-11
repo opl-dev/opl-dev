@@ -1,0 +1,4 @@
+EXPORTS
+; NEW:
+	CreateRecognizer__Fv @ 1 NONAME ; CreateRecognizer(void)
+

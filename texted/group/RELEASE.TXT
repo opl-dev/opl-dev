@@ -1,0 +1,947 @@
+TEXTED
+======
+129 (released as ?????? by ????, ??/??/????)
+ None so far
+
+128 (released as 215813 by PhilS, 09/11/2002)
+ Updated PKG files to depend on new 1.00(129) OPL Runtime package
+ No other changes - increment to 0.40(128) is cosmetic only to coincide with Developer Package Beta 2 release
+
+127 (released as 164183 by PhilS, 16/04/2002)
+ Fixed Print dialog KERN-EXEC 3 when trying to change printer (by using correct CKON dialog instead of UIKON one)
+ Fixed SendAs code to not leave temp files behind
+ Fixed SendAs code to behave more like Word does instead of (nearly) always trying to send content as an attachment
+
+126 (released as 159203 by Rick, 18/03/2002)
+ Changed font (and zoom) usage to match CWord, removing the need for us to use a named font
+ Moved the Unicode import/export code to OPLR so it can be shared with the runtime
+
+125 (released as 145070 by Rick, 17/01/2002)
+ Fixed defect of TextEd always saving to file on Exit, even if it's unchanged
+
+124 (released as 119912 by Rick, 18/09/2001)
+ Further fixes to Find and Find & Replace functionality to fix defects in behaviour
+ Minor change to import code to make falling back to importing as text more reliable
+
+123 (released as 118263 by Rick, 14/09/2001)
+ Fixes to make import/export of ASCII text files work in addition to default Unicode import/export
+ Changed file dialogs to use CKON ones instead of UIKON ones
+
+122 (released as 117631 by Rick, 10/09/2001)
+ Fixed minor mistake of LinkUtils::AddLinkHotKeyL being called in HandleCommandL() (rather than just once in
+  the app elsewhere)
+ Fixed Find always restarting at the beginning of the file!
+ Fixed Replace not working unless to went to Options and confirmed the dialog (now default is
+  EReplaceOnce not ENoReplace)
+ Added ruled line above Add to Desk on File menu like other apps have
+ Moved Send as cascade to below Open on File menu, it doesn't belong right at the bottom
+ Stopped Ctrl+E working as the Exit hotkey (left over from ER5)
+ Other minor hotkey and menu layout changes to conform more closely to some other apps
+
+121 (released as 115660 by Rick, 23/08/2001)
+ Fixed defect EDNRANS-4PHFHD "OPL only runs in ROM"
+ Fixed defect number EDNMHES-4N7HPZ "OPL Save as dialog: default name
+  of the file being saved is incorrect" completely - 
+  previous fix was incomplete
+
+120 (released as 52208 by Rick, 28 August 00)
+ Fixed defect EDNMHES-4N9MRZ "OPL-Show procedures: Show procedures dialog is incorrect."
+ fixed defect EDNPCHY-4MYLPV "OPL needs to build its help file from source" -integrated help file build process
+ Fixed defect EDNJDOD-4MLMTK "OPL Text Ed IAF caption language not localisable"
+
+119 (released as 46153 by Rick, 24 July 00)
+ Corrected SendAs processing: use body text (where possible) for selection, otherwise use an attachment.
+ Corrected Import|Export as text dialogs.
+ Fixed defect EDNRANS-4K7PFJ "OPL has viewsrv problems with EApaCommandOpen'ed docs"
+
+118 (released as 34061 by Rick, 10 May 00)
+ Corrected AIF\OPL_I_EDITOR.BMP file.
+ Corrected LinkUtils AddToHome code.
+
+117 (released as 33643 by Rick, 8 May 00)
+ Further work on 'Goto proc' dialog.
+ Fixed defect EDNRANS-4JQGYC "Texted procedure text listbox is too narrow"
+ Fixed defect EDNIBEL-4FFD4M "Revert To Saved dialog incorrect"
+ Picked up the correct icon BMP files.
+ Removed 'Create standard files...' dialog.
+ Added context-sensitive help support.
+ Improved OPL debugger support.
+
+116 (released as 30794 by Rick, 18 April 00)
+ Fixed defect EDNRANS-4J9ERC "OPL windows no longer visible"
+ Removed stale EIK IR code.
+
+115 (released as 27343 by Rick, 31 March 00)
+ Fixed defect EDNDSEF-4HWHXJ "TEXTED uses defunct header file "indicato.rh""
+
+----------
+Release 114 by Rick, 17 March 00
+ Fixed defect EDNRANS-4GLCL6 "Title bar fails to redraw over invisible indicator status pane"
+ Fixed defect EDNRANS-4H7FXC "Title bar has wrong height"
+ Fixed defect EDNDBEY-4H7K8M "Incorrect type of title bar"
+ Fixed defect EDNRANS-4GMFSF "Leaving functions with missing L"
+ Fixed defect EDNRANS-4HGPRN "Receive via IR incorrectly implemented"
+
+Release 113 by Rick, 6 Feb 00
+ Added Indicator status pane changes.
+
+Release 112 by Rick, 15 December 99
+ Changes to the Send API.
+ Added Log command to menu.
+
+Release 111 by Rick, 10 December 99
+ Changed OplInterpreter UID.
+ Further CBA changes.
+ Ckon title changes.
+ Dropped "Create standard files" menu option as it's not required for a RAM-loaded OPL environment.
+ Removed old PVCS build files: *.prj, depend.bat etc.
+ Removed toolbar source graphics directories "srcdata" and "srcdatac".
+
+Release 110 by Steve, 1 December 99
+ Added SendAs UI support.
+
+----------
+TEXTED 109
+==========
+Released by Rick, 20 September 1999
+ Changed the OPL UIDs.
+
+
+TEXTED 108
+==========
+Release by Rick, 1 September 1999
+ First Crystal release for E1.6
+ No code changes.
+
+
+TEXTED 107
+==========
+Released by Rick, 31 August 1999
+ Added the AIF and AIFC directories for automated AIF file building.
+
+
+TEXTED 104
+==========
+Released by Rob, May 99
+ Release for automated build process
+ UNICODE only
+
+
+TEXTED 103
+==========
+Released by Rick, Jan 99
+Changes:
+ Added color AIF and toolbar icons.
+ Removed TXTAPPLIB file (no longer required with VC++ SP3)
+
+
+TEXTED 102
+==========
+(Released by Rick on 27 November 1998)
+Changed to use version of Eikon with marm debug, hence marm debug 
+builds of Texted can now be released.
+
+
+Version 1.00.046
+================
+(Made by Kevin Dempsey, July 1997)
+
+Uses platform releasables C1(100) and GDITOOLS 042
+
+Wins, release and debug
+Marm, release and debug
+
+1) Fixes CSW3-1355. The cursor keys can now be used to navigate a
+read only file
+
+
+Version 1.00.045
+================
+(Made by Kevin Dempsey, May 1997)
+
+Uses platform releasables C1(100)
+
+Wins, release and debug
+Marm, release and debug
+
+1) Fixed SW3-1059
+2) Fixed SW3-1091
+
+
+Version 1.00.044
+================
+(Made by Kevin Dempsey, May 1997)
+
+Uses platform releasables C1(100)
+
+Wins, release and debug
+Marm, release and debug
+
+1) Fixed SW3-777
+
+
+Version 1.00.043
+================
+(Made by Kevin Dempsey, May 1997)
+
+Uses Eikon 192,Oplr 043,Oplt 034 (for common headers only),
+
+NEEDS Eikon 192 FOR NEW EXPORT (see 1)
+
+Wins, release and debug
+Marm, release and debug
+
+1) Use the CEikonEnv::PictureFactory() when restoring the print setup
+Fixes SW3-159
+
+2) Removed the divider on the File->More cascade. Fixes SW-5343
+
+3) Removed the code checking for EEikBidEnter in dialogs without a button
+with is id. (It is no longer needed due to changes in eikon)
+
+4) When a long caption is used for an Opl app the document name generated
+by texted is now truncated to fit a TFileName. Before this would panic.
+
+
+Version 1.00.042
+================
+(Made by Kevin Dempsey, May 1997)
+
+Uses Eikon 188,Oplr 043,Oplt 034 (for common headers only),
+
+Wins, release and debug
+Marm, release and debug
+
+1) Added 'Create standard files' to tools menu. This actually copies
+the files in z:\system\opl\ to the directory chosen by the user.
+
+2) Added the dialog for (1)
+
+3) When the runtime returns a negative QCode offset as the error
+position, the cursor is placed at the start of the line returned by
+the translator. Fixes SW3-287
+
+4) Removed some old code to deal with 'Save as' overwriting a read-only
+file.
+
+5) Changed resource strings containing ellipsis to use <KEllipsis>
+
+
+Version 0.06.041
+================
+(Made by Kevin Dempsey, May 1997)
+
+Uses Eikon 188,Oplr 042,Oplt 034 (for common headers only),
+
+Wins, release and debug
+Marm, release and debug
+
+
+Version 0.06.040
+================
+(Made by Kevin Dempsey, May 1997)
+
+Uses Eikon 186,Oplr 042,Oplt 034 (for common headers only),
+
+Wins, release and debug
+Marm, release and debug
+
+1) Now links to Oplr and uses static functions for translator error
+mapping and getting the resource file name
+
+
+Version 0.06.039
+================
+(Made by Kevin Dempsey, May 1997)
+
+Uses Eikon 184,Oplt 034 (for common headers only),
+Oplr 041(for common header and resource file only)
+
+Wins, release and debug
+Marm, release and debug
+
+1) New toolbar icons
+
+2) Caption in AIF file changed to 'Program'
+
+
+Version 0.06.038
+================
+(Made by Kevin Dempsey, April 1997)
+
+Uses Eikon 180,Oplt 031 (for common headers only),
+Oplr 041(for common header and resource file only)
+
+Wins, release and debug
+Marm, release and debug
+
+1) Checks the translator it loads has the correct second uid
+
+
+Version 0.06.037
+================
+(Made by Kevin Dempsey, April 1997)
+
+Uses Eikon 178, Oplt 030, Oplr 039(for common header and resource
+file only)
+
+Wins, release and debug
+Marm, release and debug
+
+Intermediate release to use Oplt 030, the runtime needs rebuilding to
+use this version of the translator
+
+1) Loads OPLT at start up rather than statically linking so that the
+translator can be replaced with one in ram. This assumes that the
+first export of and OPLT.DLL returns a fully constructed
+COplTranslatorBase derived object, leaving otherwise. The object
+should NOT be on the cleanup stack
+
+
+Version 0.06.036
+================
+(Made by Kevin Dempsey, April 1997)
+
+Uses Eikon 178, Oplt 029, Oplr 039(for common header and resource
+file only)
+
+Wins, release and debug
+Marm, release and debug
+
+1) Print setup is now saved to the document file so that headers and
+footers are not lost. This is saved to a separate stream and if this
+stream doesn't exist the default print setup is used (hence old OplEdit
+files will still work)
+
+2) Now uses the undo facilities provided by Eikon edwins. Hence added
+Ctrl+Z as a hot key and the resource
+
+MENU_ITEM
+	{
+	command=EEikCmdEditUndo;
+	txt="Undo delete";
+	flags=EEikMenuItemSeparatorAfter;
+	},
+
+to the top of the edit menu.
+
+3) The extensions added to the output of the translator and the path
+used for apps are now capitalized correctly
+
+
+Version 0.06.035
+================
+(Made by Kevin Dempsey, April 1997)
+
+Uses Eikon 176, Oplt 027, Oplr 038(for common header and resource
+file only)
+
+Wins, release and debug
+Marm, release and debug
+
+1) Last used font, zoom state, scroll bar settings and toolbar
+visibility are saved to the ini file on exit and restored on starting
+
+2) Apps can no longer be run using the "Run program" command and the
+dialog is restricted to showing only OPOs. Apps can still be run
+immediately after translation.
+
+3) Save is now dimmed on the menu when the file is unchanged
+
+4) Added the resource 
+
+    RESOURCE TBUF r_txed_file_unchanged { buf="File has not changed"; }
+
+5) When a running program exits the RThread that was used to logon to
+the runtime is now closed
+
+
+Version 0.06.034
+================
+(Made by Kevin Dempsey, April 1997)
+
+Uses Eikon 175, Oplt 026, Oplr 037(for common header and resource
+file only)
+
+Wins, release and debug
+Marm, release and debug
+
+
+Version 0.06.033
+================
+(Made by Kevin Dempsey, April 1997)
+
+Uses Eikon 173, Oplt 025, Oplr 036(for common header and resource
+file only)
+
+Wins, release and debug
+Marm, release build only
+
+1) When the translator finds an error in an INCLUDE'd file the user
+is asked if they want to open the file. If they do the file is opened
+and the cursor is positioned to the error
+
+2) When INCLUDE'd files are specified without a path the file is
+searched for first in the root source file's directory and then in
+\system\opl\ on all disks
+
+3) Added print setup to the prining cascade as per the style guide
+
+4) Other changes to the resource file as requested by Terry
+
+
+Version 0.06.032
+================
+(Made by Kevin Dempsey, March 1997)
+
+Uses Eikon 171, Oplt 024, Oplr 035(for common header and resource
+file only)
+
+Wins, release and debug
+Marm, release and debug
+
+
+Version 0.06.031
+================
+(Made by Kevin Dempsey, March 1997)
+
+Uses Eikon 169, Oplt 023, Oplr 034(for common header and resource
+file only)
+
+Wins, release and debug
+Marm, release and debug
+
+1) Changed to using Eikon's print range dialog
+2) Now handles read-only files
+3) When running a program texted is marked as busy
+
+
+Version 0.06.030
+================
+(Made by Kevin Dempsey, March 1997)
+
+Uses Eikon 167, Oplt 021 , Oplr 033(for common header and resource
+file only)
+
+Wins, release and debug
+Marm, release build only
+
+Upgraded to the above components
+
+1) Fixed bugs SW-985,SW-1196
+2) Changes made to print range dialog
+    - NB changing the print device can cause the preview to fail
+          (the number of pages changing seems to be the cause)
+
+
+Version 0.05.029
+================
+(Made by Kevin Dempsey, March 1997)
+
+Uses Eikon 165, Oplt 020, Oplr 032(for common header and resource
+file only), PrintDrv 029
+
+Wins, release and debug
+Marm, release build only
+
+Upgraded to the above components
+
+
+Version 0.05.028
+================
+(Made by Kevin Dempsey, Feb 1997)
+
+Uses Eikon 164, Oplt 018, Oplr 031(for common header and resource
+file only), PrintDrv 027
+
+Wins, release and debug
+Marm, release build only
+
+1) Translation is no longer cancelled by pressing enter (bug SW-743)
+2) Passes window group identifier to the runtime so texted is
+    returned to when the runtime exits
+
+
+Version 0.05.027
+================
+(Made by Kevin Dempsey, Feb 1997)
+
+Uses Eikon 163, Oplt 018, Oplr 028(For common header and resource
+file only), PrintDrv 027
+
+Wins, release and debug
+Marm, release build only
+
+1) Changed the way the output name is generated
+    - If the source file name has .OPL  extension the this is
+        replaced with .OPO (or .APP)
+    - Otherwise .OPO (or .APP) is appended to the name
+
+
+Version 0.04.024
+================
+(Made by Kevin Dempsey, Jan 1997)
+
+Uses Eikon 156, Oplt 013, Oplr 027(For common header and resource
+file only), PrintDrv 026
+
+Added dependency on PRINTDRV 
+
+Wins, release and debug
+Marm, release build only
+
+Changes made by Vamsi:
+1) As required by new printing design in Eikon
+
+Changes made by Howard:
+1) Apparc's OpenNewDocumentL() now needs extra args (see APPARC 034
+   release notes)
+   CStreamDictionary*& and fileMode.
+   Declared a temporary dictionary and just deleted it in both calls.
+   Used EFileShareExclusive›EFileWrite
+2) ExportAsTextL() now needs a line-wrap arg
+   Uses new const KExportLineWrap=512 (is that a reasonbale value?)
+3) Gets E32Utils
+4) Now supports runtime error location
+   (Still todo: needs a new message instead of dialog "Translating...", 
+   maybe "Locating error..." InfoMsg or new dialog class)
+
+Changes made by Kevin:
+1) Preferences now saved to ini file
+2) Goto implemented
+	- presents a list of the proc's in the file
+	- jumps to the proc selected
+3) Added show toolbar menu item
+4) Fixed handling of the global editors paginate flags
+5) The output file name is saved and is used to seed the run file
+	dialog (NB if there is a output name (ie. the current file has
+	been translated) then the dialog is NOT restricted to any Uid)
+6) Looks for the opl debugger DLL and if found a "translate for debugger"
+	menu item is available
+7) Translation is now done by an idle object and can be cancelled
+	- also means the redraws while translation can occur
+8) While running the editor is switched to a read only mode
+	- navigation and text selection is still possible
+		- hence, copy to cliboard and ir send are possible
+	- menu items that would change files or the editor's state are disallowed
+9) Menu items that are not allowed are dimmed and suitable infomsg's are
+	displayed if these items are selected
+10) Changed the auto-indent code to ignore Ctrl-Enter and Ctrl-M 
+	- fixes bug SW-39 (B4 problems)
+11) Shift-Enter inserts a paragraph break rather than a line break
+	- this means the translator doesn't need two line terminating chars
+	- see problem SW-91 (B4 problems)
+12) Added Export as text menu item
+13) If an opl runtime error occurs the error text is stored and can be
+	displayed using "Show last error" menu item
+******	- the same will be the case for translator errors
+14) Current file is no longer saved when launching Open/New file dialogs
+	- saving is done just before opening or creating the file
+15) Small menu layout changes and ellipses added as appropriate
+16) Loads oplr resource file as startup as this contains the translator error
+     messages
+
+
+Version 0.04.023
+================
+(Made by Kevin Dempsey,  Dec 1996)
+
+Uses:	Eikon 148,Oplt 012, Oplr 025
+
+Standard set of releases
+
+1) Revert to saved now asks for confirmation before reverting
+2) Added auto indenting switchable in the indentation dialog
+3) small menu rearrangment
+
+
+Version 0.04.022
+================
+(Made by Kevin Dempsey,  Dec 1996)
+
+Uses:	Eikon 144,Oplt 012, Oplr 025
+
+B4 release
+
+Standard set of releases
+
+1) Changed to the new command line spec
+2) Toolbar now has the current files name at the top
+3) Removed all references to fields
+4) Default font is now monospaced
+
+
+Version 0.04.021
+================
+(Made by Kevin Dempsey,  Dec 1996)
+
+Uses:	Eikon 141,Oplt 011, Oplr 024
+
+Wins, release and debug
+Marm, release build only
+Sizes:	wins debug 	46592
+	wins release	25088
+	arm release	17940 (size on pc)
+
+1) Preferences now work, ie. show tabs,spaces etc. 
+2) Menu tidied, and hot-keys rationalized
+3) Run File menu item launches a file selection dialog seeded to the current files expected output 
+	NB. texted doesn't know if the program is an app so it assumes ProgramName.OPO
+
+
+Version 0.01.019
+================
+(Made by Kevin Dempsey,  Nov 1996)
+Uses:	Eikon 123 OplT 009
+
+B3 release
+MARM sizes:
+TEXTED.APP		13048
+TEXTED.ICN		1293
+TEXTED.RSC		1835
+
+Only changes are in the resource file.
+Prog pane added to the menu and Translate replaces Tab on the toolbar
+
+
+Version 0.01.018
+================
+(Made by Howard Price,  Nov 1996)
+
+Uses:	Eikon 120, Oplt 009
+
+B3 test release
+MARM sizes:
+TEXTED.APP		11532
+TEXTED.ICN		1301
+TEXTED.RSC		1757
+
+Note: Texted translates OPL programs ok (Control+Shift+T) but fails with KERN-EXEC 3 when you try to run it.
+After translation, you will therefore need to go to the Shell to run the program.
+
+
+Version 0.01.017
+================
+(Made by Kevin Dempsey,  Oct 1996)
+
+Uses:   EIKON 108 (other dependencies as for EIKON 108), OPLT 008
+
+ARM sizes:
+APP	11580
+ICN	1301
+RSC	1757
+
+"Standard set" of variants: WINS Ascii/Release and GCC Release
+
+1) Now uses the document handling of AppArc so that the shell will handle the files created correctly
+
+2) Fixed bug where if the text filled more than one segment in the buffer the translation failed
+
+3) When translating the current main document file name is used to generate the output name, so there is no longer the need to save the file before translating.
+
+4) Hot-key Shift-control-t to translate.
+
+Still to do:
+1) File saving on exit (or changing files) if the file has changed
+2) Some menu items (eg. New file,Revert to saved etc.) need implementing
+3) Maybe changing to translating using an idle object so that the translation can be cancelled - will have to see how fast the translations are to decide if this is important.
+
+
+Version 0.01.015
+================
+(Made by Vamsi Kamineni,  Oct 1996)
+
+Uses:   EIKON 103 (other dependencies as for EIKON 103)
+
+ Debug variant only
+		
+	Size:	texted.app	39,424
+
+  1) 	Taken new components as shown above
+  2)	Commented back printsetup and Paginate code.
+
+
+Version 0.01.014
+================
+(Made by Vamsi Kamineni,  Sept 1996)
+
+Uses:   EIKON 085 (other dependencies as for EIKON 085)
+
+"Standard set" of variants: WINS Ascii/Release and GCC Release
+
+This is for B1 release.
+
+Commented printsetup and Paginate code(Because it panics on exit on the the rack). 
+
+
+Version 0.01.013
+================
+(Made by Vamsi Kamineni,  Sept 1996)
+
+Uses:   EIKON 085 (other dependencies as for EIKON 085)
+
+"Standard set" of variants: WINS Ascii/Release and GCC Release
+
+Sizes (GCC build on the rack)
+-----------
+texted.exe  14,020   	
+texted.rsc	1,617		
+
+1) Taken new components as shown above
+2) B1 release
+3) Implemented zooming
+
+
+Version 0.01.012
+================
+(Made by Vamsi Kamineni,  Sept 1996)
+
+Uses:   EIKON 082 (other dependencies as for EIKON 082)
+
+"Standard set" of variants: WINS Ascii/Release and GCC Release
+
+Sizes (GCC build on the rack)
+-----------
+txted.exe   13,452    	
+txted.rsc	1,559		
+
+Txteditor has been converted to new EIKON  and changed over to the new
+directory structure. 
+
+Made changes to MNT.CMD file for the new directory structure. 
+
+
+Version 0.01.011
+================
+(Made by Vamsi Kamineni,  June 1996)
+
+Uses:   EIKON 079 (other dependencies as for EIKON 079)
+
+An interim release to allow eikon work to be tested.
+
+
+Version 0.01.010
+================
+(Made by Vamsi Kamineni,  June 1996)
+
+Uses:   EIKON 076 (other dependencies as for EIKON 076)
+
+Ascii Debug and GCC Release variants only.
+
+DLL Size - from \work\emarm	TextEd.prg:	21,508 bytes
+
+Minor changes to 
+-	HandleCommandL()
+-	ZoomIn,ZoomOut commands 
+-	HandleControlEventL()
+-	CmdTogglePrinterLayoutL(), 
+	subtracted left and right margins to pass in correct width.
+	From Ian, fixed a minor bug in the above function.
+-	CmdFileOpenL() //iPaginated and EWordPaginateCalled flags are set to false.
+
+Removed functions
+	- RunPrintPaginateDialogL()
+	- RunPreviewPaginateDialogL() 
+	- CTextedGoToDialog class //this is supported by eikon
+	- CmdGoLineL()
+	- Removed flags - EikEdwinAutoHScrollBar,EikEdwinAutoVScrollBar.  Now the constructer creates scrollbarframe and sets horizontal/vertical scrollbars to auto.
+
+Added new 
+	- functions 
+		RunPaginateDependentDialogs()
+		CheckPagination()
+	- enum
+		ETextEdPaginateGoTo
+
+
+Version 0.01.009
+================
+(Made by Vamsi Kamineni,  June 1996)
+
+Uses:   EIKON 075 (other dependencies as for EIKON 075)
+
+Ascii Debug and GCC Release variants only.
+
+DLL Size - from \work\emarm	TextEd.prg:	21,508 bytes
+
+1) Modified mnt.cmd in line with recommended Eikon changes.
+..added ncp component etc.
+
+2) Modified texted.oby file in line with recommended Eikon changes.
+
+
+Version 0.01.008
+================
+(Made by Vamsi Kamineni,  May 1996)
+
+Uses:   EIKON 073 (other dependencies as for EIKON 073)
+
+Ascii Debug and GCC Release variants only.
+
+DLL Size - from \work\emarm	TextEd.prg:	21,508 bytes
+
+1) TextEd now supports:
+
+- Zoom commands
+
+- Print
+
+- Print Preview
+
+- LineCursor
+
+- WYSIWYG mode
+
+2) Added new functions -
+	RunPrintPaginateDialogL();
+	RunPreviewPaginateDialogL();
+	RunPreviewDialogL();
+	RunPrintDialogL();
+	RunPaginateDialogL();
+
+and private properties -
+	CArrayFix<TInt>* iCharsPerPage;
+	TZoomFactor* iAppZoom;
+	TInt iPaginateFlags;
+	TBool iPaginated;
+to support the above commands.
+
+3) TextEd stores printerdevice name in its profile(earlier, it used to save the index number).
+
+4) Improved menu layout.
+
+5) Rack image files are on my u: drive: ted008b.img and ted008c.img
+
+
+Version 0.01.007
+================
+(Made by Vamsi Kamineni,  May 1996)
+
+Uses:   EIKON 063 (other dependencies as for EIKON 063)
+
+Ascii Debug and GCC Release variants only.
+
+Now Texted-Profile stores IsMonoSpaced(fonts) flag in its profile.
+
+Coming soon
+-----------
+- Zoom
+- Printdialogs 
+
+
+Version 0.01.006
+================
+(Made by Vamsi Kamineni,  May 1996)
+
+Uses:   EIKON 059 (other dependencies as for EIKON 059)
+
+An interim release to allow eikon work to be tested.
+
+Now TextedAppControl has CEikEdwinCmp(previously it had CEikEdwin).
+
+Implemented PrintDialog. It should work with next release of Form(cannot print with Form\050).
+
+
+Version 0.01.005
+================
+(Made by Vamsi Kamineni,  May 1996)
+
+Uses:   EIKON 054 (other dependencies as for EIKON 054)
+
+Debug variant only released
+
+1)Rearranged code in all the files to follow the new design.
+
+2)Introduced new class "CCmpTextEditor" (derived from MCoeControlObserver).
+  This class is mainly concerned with all the dialogs (e.g. Print-Preview,setup, Find, 
+  FindAgain, Font, Zoom, etc.).
+
+3)Moved some of the EikEdwin code to CCmpTextEditor.  
+  Now, EikEdwin is not responsible to create any text\formatlayers or apply character\paragraph formats 
+ (now dialogs are responsible).
+
+4)Added EIXFONTDD.* files (font dialog) in the TextEd for testing purpose.
+
+Coming soon
+-----------
+Implement Print dialogs.
+
+
+Version 0.01.004
+================
+(Made by Vamsi Kamineni,  April 1996)
+
+Uses:   EIKON 050 (other dependencies as for EIKON 050)
+
+Debug variant only released
+
+1) Few changes to Find Dialog.
+
+2) Implemented Replace dialog.  Both Find and Replace dialogs use combo boxes.
+
+3) Set the flag "EEikEdwinCreateOwnFormats" in CTextEdAppControl to improve the display of the line cursor
+
+
+Version 0.01.003
+================
+(Made by Vamsi Kamineni,  March 1996)
+
+Uses:   EIKON 039 (other dependencies as for EIKON 039)
+
+1)The header file has been changed in CTextEdModel.H (It is totally independent of eikon).
+
+2)Rearranged code in all the files to follow the TextEd design.
+
+3)Now TextEd stores the result of the dialogs (eg. tabs and wordwrap) in its profile file. 
+
+4)Few changes in CTextEdAppControl.* files. 
+A new function called HandleProfileChangedL() is implemented to update corresponding changes when profile is changed.  Set the flag "EEikEdwinInclusiveSizeFixed" in CTextEdAppControl to avoid vertical scrollbar overwriting part of the toolbar.
+
+5) Created dummy dialog for spell check.
+
+Coming soon
+-----------
+Fix minor bugs in Find and Vertical scrollbars.
+Implement Print dialogs.
+
+
+Version 0.01.002
+================
+(Made by DunkenS, 4 April 1996)
+
+Uses:   EIKON 037 (other dependencies as for EIKON 037)
+
+1) An interim release to allow eikon work to be tested.
+
+2) Begun modularising the code a little.  The following headers are defined;
+	TEDMODEL.H		- Defines the information model and the profile model
+	TEAPPRFL.H		- The concrete CTextEdAppProfile class
+	TEAPCTRL.H		- The concrete CTextEdAppControl class
+	TEXTEDOC.H		- The concrete CTextEdDocument class and other miscellany
+...there are source *.cpp files to match each of these headers.
+
+
+Version 0.01.001
+================
+(Made by DavidW, 26 March 1996)
+
+Uses:   EIKON 032 (other dependencies as for EIKON 032)
+
+The first ever "standalone" release of TEXTED
+
+The contents of this release is materially the same as the version of
+TEXTED in EIKON 032.  However, TEXTED is now built in its own group,
+has its own version number, gets PVCSed separately, and has its own
+releaseables:
+
+*) r:\texted\zip\ewins.<ver> contains TEXTED.PRG and TEXTED.PRD, the
+Release mode and Debug mode "Eikon executables" respectively
+
+*) r:\texted\zip\ewinsdb.<ver> contains TEXTED.PDB, the program
+database file to help debugging through TEXTED source code
+
+*) r:\texted\zip\resource.<ver> contains TEXTED.RSC, the application
+resource file
+
+(If you do a clean "GETBLD", don't forget you may need to copy
+ESTORD.DLL from r:\eikon\temp into your \e32sys)

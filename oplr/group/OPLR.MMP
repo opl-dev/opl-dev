@@ -1,0 +1,92 @@
+// OPLR.MMP
+//
+// Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+
+TARGET			oplr.dll
+TARGETTYPE		dll
+UID				0x10003A65 0x10000077
+
+#include "..\..\opl-target.mmpi"
+
+//Pick up the right oplr.rss and .pkg files
+#if defined(__SERIES60_MMP__)
+SOURCEPATH	..\opl61
+DOCUMENT	..\pkg\opl-os61.pkg
+#elif defined(__UIQ_MMP__)
+SOURCEPATH ..\opluiq
+#else
+// Plain old Symbian OS 6.0
+SOURCEPATH ..\opl60
+//DOCUMENT	..\pkg\opl.pkg ..\pkg\opl-9500.pkg
+#endif
+SYSTEMRESOURCE	oplr.rss
+
+SOURCEPATH		.
+DOCUMENT		release.txt bld.inf
+DOCUMENT		oplinc.mk test.mk
+DOCUMENT		_portOS61.txt
+LANG			SC
+
+SOURCEPATH		..\src
+SYSTEMINCLUDE	..\inc
+SYSTEMINCLUDE	\epoc32\include
+USERINCLUDE		..\src
+
+SOURCE		 oplutil.cpp debugger.cpp eik_key.cpp en_aparc.cpp
+SOURCE		 en_arith.cpp en_cmp.cpp en_ctrl.cpp
+SOURCE		 en_error.cpp en_main.cpp history.cpp
+SOURCE		 opcodes.cpp oplapi.cpp stack.cpp
+SOURCE		 conkywd.cpp console.cpp lb_misc.cpp module.cpp
+SOURCE		 oplconv.cpp oplfile.cpp filekey.cpp
+SOURCE		 assign.cpp frame.cpp globtbl.cpp iodev.cpp
+SOURCE		 iokeywrd.cpp iomain.cpp peekpoke.cpp pushoc.cpp
+SOURCE		 lb_date.cpp lb_dbase.cpp lb_maths.cpp
+SOURCE		 graphics.cpp g_keywrd.cpp
+SOURCE		 ut_file.cpp
+
+#if defined(__SERIES60_MMP__)
+SOURCE		 s60en_entry.cpp s60oplruntimeappui.cpp s60oplruntimedialog.cpp
+#elif defined(__UIQ_MMP__)
+SOURCE		 uiqen_entry.cpp uiqoplruntimeappui.cpp uiqoplruntimedialog.cpp
+#elif defined(__SERIES90_MMP__)
+SOURCE		 s90en_entry.cpp
+#else
+SOURCE		 en_entry.cpp
+#endif
+
+// LIBRARY  flogger.lib
+LIBRARY	 apparc.lib bafl.lib bitgdi.lib c32.lib
+LIBRARY	 cone.lib edbms.lib efsrv.lib
+LIBRARY	 estor.lib fbscli.lib fepbase.lib fntstr.lib
+LIBRARY	 gdi.lib ws32.lib
+LIBRARY	 oplt.lib
+
+LIBRARY  eikcore.lib eikcoctl.lib eikctl.lib eikdlg.lib
+LIBRARY  egul.lib charconv.lib
+LIBRARY  MediaClientAudio.lib
+
+#if defined(__SERIES60_MMP__)
+LIBRARY  avkon.lib
+#elif defined(__UIQ_MMP__)
+LIBRARY	 eikfile.lib apgrfx.lib qikctl.lib clock.lib  qikutils.lib
+#else
+LIBRARY	 eikfile.lib clock.lib ckndlg.lib apgrfx.lib hlplch.lib
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+LIBRARY  euser.lib
+
+#if defined(__SERIES60_MMP__)
+DEFFILE		OPLRS60.DEF
+#elif defined(__UIQ_MMP__)
+DEFFILE		OPLRUIQ.DEF
+#else
+DEFFILE		OPLR.DEF
+#endif
+
+START WINS
+	BASEADDRESS	 0x43800000
+END

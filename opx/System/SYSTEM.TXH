@@ -1,0 +1,370 @@
+rem System.oxh
+rem
+rem Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+rem
+
+CONST KUidOpxSystem&=&1000025C
+CONST KOpxSystemVersion%=$650
+
+rem HAL values.
+CONST KSyManufacturer&=0
+CONST KSyManufacturerHardwareRev&=1
+CONST KSyManufacturerSoftwareRev&=2
+CONST KSyManufacturerSoftwareBuild&=3
+CONST KSyModel&=4
+CONST KSyMachineUid&=5
+CONST KSyDeviceFamily&=6
+CONST KSyDeviceFamilyRev&=7
+CONST KSyCPU&=8
+CONST KSyCPUArch&=9
+CONST KSyCPUABI&=10
+CONST KSyCPUSpeed&=11
+CONST KSySystemStartupReason&=12
+CONST KSySystemException&=13
+CONST KSySystemTickPeriod&=14
+CONST KSyMemoryRAM&=15
+CONST KSyMemoryFreeRAM&=16
+CONST KSyMemoryROM&=17
+CONST KSyMemoryPageSize&=18
+CONST KSyPowerGood&=19
+CONST KSyPowerBatteryStatus&=20
+CONST KSyPowerBackup&=21
+CONST KSyPowerBackupStatus&=22
+CONST KSyPowerExternal&=23
+CONST KSyKeyboard&=24
+CONST KSyKeyboardDeviceKeys&=25
+CONST KSyKeyboardAppKeys&=26
+CONST KSyKeyboardClick&=27
+CONST KSyKeyboardClickState&=28
+CONST KSyKeyboardClickVolume&=29
+CONST KSyKeyboardClickVolumeMax&=30
+CONST KSyDisplayXPixels&=31
+CONST KSyDisplayYPixels&=32
+CONST KSyDisplayXTwips&=33
+CONST KSyDisplayYTwips&=34
+CONST KSyDisplayColors&=35
+CONST KSyDisplayState&=36
+CONST KSyDisplayContrast&=37
+CONST KSyDisplayContrastMax&=38
+CONST KSyBacklight&=39
+CONST KSyBacklightState&=40
+CONST KSyPen&=41
+CONST KSyPenX&=42
+CONST KSyPenY&=43
+CONST KSyPenDisplayOn&=44
+CONST KSyPenClick&=45
+CONST KSyPenClickState&=46
+CONST KSyPenClickVolume&=47
+CONST KSyPenClickVolumeMax&=48
+CONST KSyMouse&=49
+CONST KSyMouseX&=50
+CONST KSyMouseY&=51
+CONST KSyMouseState&=52
+CONST KSyMouseSpeed&=53
+CONST KSyMouseAcceleration&=54
+CONST KSyMouseButtons&=55
+CONST KSyMouseButtonState&=56
+CONST KSyCaseState&=57
+CONST KSyCaseSwitch&=58
+CONST KSyCaseSwitchDisplayOn&=59
+CONST KSyCaseSwitchDisplayOff&=60
+CONST KSyLEDs&=61
+CONST KSyLEDmask&=62
+CONST KSyIntegratedPhone&=63
+CONST KSyDisplayBrightness&=64
+CONST KSyDisplayBrightnessMax&=65
+CONST KSyKeyboardBacklightState&=66
+CONST KSyAccessoryPower&=67
+CONST KSyNumHALAttributes&=68
+
+rem HAL attribute properties
+CONST KSyHALAttributeValid&=&01
+CONST KSyHALAttributeSettable&=&02
+		
+rem Manufacturer
+CONST KSyManufacturer_Ericsson&=0
+CONST KSyManufacturer_Motorola&=1
+CONST KSyManufacturer_Nokia&=2
+CONST KSyManufacturer_Panasonic&=3
+CONST KSyManufacturer_Psion&=4
+CONST KSyManufacturer_Intel&=5
+CONST KSyManufacturer_Cogent&=6
+CONST KSyManufacturer_Cirrus&=7
+CONST KSyManufacturer_Linkup&=8
+
+rem DeviceFamily
+CONST KSyDeviceFamily_Crystal&=0
+CONST KSyDeviceFamily_Pearl&=1
+CONST KSyDeviceFamily_Quartz&=2
+
+rem CPU
+CONST KSyCPU_ARM&=0
+CONST KSyCPU_MCORE&=1
+CONST KSyCPU_X86&=2
+
+rem CPUABI
+CONST KSyCPUABI_ARM4&=0
+CONST KSyCPUABI_ARMI&=1
+CONST KSyCPUABI_THUMB&=2
+CONST KSyCPUABI_MCORE&=3
+CONST KSyCPUABI_MSVC&=4
+
+rem SystemStartupReason
+CONST KSySystemStartupReason_Cold&=0
+CONST KSySystemStartupReason_Warm&=1
+CONST KSySystemStartupReason_Fault&=2
+CONST KSySystemStartupReason_Unknown&=3
+
+rem Keyboard (mask value)
+CONST KSyKeyboard_Keypad&=$1
+CONST KSyKeyboard_Full&=$2
+
+rem MouseState
+CONST KSyMouseState_Invisible&=0
+CONST KSyMouseState_Visible&=1
+
+rem MachineUid
+CONST KSyMachineUid_Series5mx&=&1000118A
+CONST KSyMachineUid_Brutus&=&10005F60
+CONST KSyMachineUid_Cogent&=&10005F61
+CONST KSyMachineUid_Linda&=&10005E33
+CONST KSyMachineUid_Win32Emulator&=&10005F62
+CONST KSyMachineUid_WinC&=&10005F63
+CONST KSyMachineUid_CL7211_Eval&=&1000604F
+CONST KSyMachineUid_LinkUp&=&00000000
+CONST KSyMachineUid_Assabet&=&100093F3
+CONST KSyMachineUid_IQ80310&=&1000A681
+CONST KSyMachineUid_Integrator&=&1000AAEA
+
+rem PowerBatteryStatus
+CONST KSyPowerBatteryStatus_Zero&=0
+CONST KSyPowerBatteryStatus_Replace&=1
+CONST KSyPowerBatteryStatus_Low&=2
+CONST KSyPowerBatteryStatus_Good&=3
+
+rem PowerBackupStatus
+CONST KSyPowerBackupStatus_Zero&=0
+CONST KSyPowerBackupStatus_Replace&=1
+CONST KSyPowerBackupStatus_Low&=2
+CONST KSyPowerBackupStatus_Good&=3
+
+CONST KSyComputeModeOn&=1
+CONST KSyComputeModeOff&=2
+CONST KSyComputeModeDisabled&=0
+
+rem For MediaType&:
+CONST KSyMediaNotPresent&=0
+CONST KSyMediaUnknown&=1
+CONST KSyMediaFloppy&=2
+CONST KSyMediaHardDisk&=3
+CONST KSyMediaCdRom&=4
+CONST KSyMediaRam&=5
+CONST KSyMediaFlash&=6
+CONST KSyMediaRom&=7
+CONST KSyMediaRemote&=8
+
+rem For CaptureKey&:
+CONST KSyModifierAutorepeatable&=&00000001
+CONST KSyModifierKeypad&=&00000002
+CONST KSyModifierLeftAlt&=&00000004
+CONST KSyModifierRightAlt&=&00000008
+CONST KSyModifierAlt&=&00000010
+CONST KSyModifierLeftCtrl&=&00000020
+CONST KSyModifierRightCtrl&=&00000040
+CONST KSyModifierCtrl&=&00000080
+CONST KSyModifierLeftShift&=&00000100
+CONST KSyModifierRightShift&=&00000200
+CONST KSyModifierShift&=&00000400
+CONST KSyModifierLeftFunc&=&00000800
+CONST KSyModifierRightFunc&=&00001000
+CONST KSyModifierFunc&=&00002000
+CONST KSyModifierCapsLock&=&00004000
+CONST KSyModifierNumLock&=&00008000
+CONST KSyModifierScrollLock&=&00010000
+CONST KSyModifierKeyUp&=&00020000
+CONST KSyModifierSpecial&=&00040000
+CONST KSyModifierDoubleClick&=&00080000
+CONST KSyModifierPureKeycode&=&00100000
+CONST KSyAllModifiers&=&001fffff
+
+rem Backlight
+CONST KSyBacklightNone&=0
+CONST KSyBacklightSupported&=1
+CONST KSyBacklightStateOff&=0
+CONST KSyBacklightStateOn&=1
+
+rem Timer identities
+CONST KSyTimerScreenTimeout&=0
+CONST KSyTimerBacklightTimeout&=1
+CONST KSyTimerPasswordTimeout&=2
+CONST KSyTimerSaveTimeout&=3
+
+rem Constants from SysInfo
+CONST KSyDateFormatAmerican&=0
+CONST KSyDateFormatEuropean&=1
+CONST KSyDateFormatJapanese&=2
+
+CONST KSyTimeFormat12Hour&=0
+CONST KSyTimeFormat24Hour&=1
+
+CONST KSyDaylightSavingZoneHome&=0
+CONST KSyDaylightSavingZoneEuropean&=1
+CONST KSyDaylightSavingZoneNorthern&=2
+CONST KSyDaylightSavingZoneSouthern&=4
+
+CONST KSyUnitsImperial&=0
+CONST KSyUnitsMetric&=1
+
+CONST KSySwitchOffDisabled&=0
+CONST KSySwitchOffEnabledOnBatteries&=1
+CONST KSySwitchOffEnabledAlways&=2
+
+CONST KSyBacklightBehaviorTimed&=0
+CONST KSyBacklightBehaviorUntimed&=1
+
+CONST KSyRemoteLinkDisabled&=0
+CONST KSyRemoteLinkDisconnected&=1 
+CONST KSyRemoteLinkConnected&=2
+
+CONST KSyXYInputNone&=0
+CONST KSyXYInputPointer&=1
+CONST KSyXYInputMouse&=2
+CONST KSyXYInputDeltaMouse&=3
+
+rem For launching apps.
+CONST KSyRunAppOpen%=0
+CONST KSyRunAppCreate%=1
+CONST KSyRunAppRun%=2
+CONST KSyRunAppBackground%=3
+CONST KSyRunAppViewActivate%=4
+CONST KSyRunAppWithoutViews%=5
+
+rem Additional consts for launching OPL apps.
+CONST KSyRunAppOpl$="R"
+CONST KSyRunAppOplFromEditor$="E"
+CONST KSyRunAppOplFromDebugger$="D"
+
+rem For Remote Link status/setting
+CONST KLinkTypeUnknown%=0
+CONST KLinkTypeCable%=1
+CONST KLinkTypeIrDA%=2
+
+CONST KLinkBpsUnknown%=0
+CONST KLinkBps9600%=1
+CONST KLinkBps19200%=2
+CONST KLinkBps38400%=3
+CONST KLinkBps57600%=4
+CONST KLinkBps115200%=5
+CONST KLinkBps230400%=6
+CONST KLinkBps460800%=7
+CONST KLinkBps576000%=8
+CONST KLinkBps1152000%=9
+CONST KLinkBps4000000%=10
+
+rem For Phone Info
+CONST KPhoneInfoManufacturer%=0
+CONST KPhoneInfoModelId%=1
+CONST KPhoneInfoRevisionId%=2
+CONST KPhoneInfoSerialNumber%=3
+
+DECLARE OPX SYSTEM,KUidOpxSystem&,KOpxSystemVersion%
+	SyGetHAL&:(attribute&,BYREF value&) :1
+	SySetHAL&:(attribute&,value&) :2
+
+	SyGetTimer:(timerId&,BYREF duration&) :3
+	SySetTimer:(timerId&,duration&) :4
+	SyResetTimer:(timerId&) :5
+
+	SyIsReadOnly&:(file$) :6
+	SyIsHidden&:(file$) :7
+	SyIsSystem&:(file$) :8
+	SySetReadOnly:(file$,state&) :9
+	SySetHiddenFile:(file$,state&) :10
+	SySetSystemFile:(file$,state&) :11
+	SyVolumeSize&:(drive&) :12
+	SyVolumeSpaceFree&:(drive&) :13
+	SyVolumeUniqueID&:(drive&) :14
+	SyMediaType&:(drive&) :15
+	SyFileSize&:(file$) :16
+
+	SyIsDirectory&:(path$) :17
+	SyVolumeName$:(drive&) :18
+	SyUniqueFilename$:(filename$) :19
+	SyIsPathVisible&:(path$) :20
+
+	SyLogonToThread:(threadId&, BYREF aGlobalStatusW&) :21
+	SyRunApp&:(lib$,doc$,tail$,cmd&) :22
+	SyRunExe&:(name$) :23
+	SyRunExeWithCmd&:(aExeName$,aCommandLine$) :24
+	SyRunDocument&:(aDocumentName$,aSwitchToIfRunning%) :25
+	SyTerminateCurrentProcess:(reason&) :26
+	SyTerminateProcess&:(process$,reason&) :27
+	SyKillCurrentProcess:(reason&) :28
+	SyKillProcess:(process$,reason&) :29
+	SyEndTask&:(threadId&,previous&) :30
+	SyKillTask&:(threadId&,previous&) :31
+	SySetComputeMode:(state&) :32
+	SyThreadIdFromOpenDoc&:(doc$,BYREF previous&) :33
+	SyThreadIdFromAppUid&:(uid&,BYREF previous&) :34
+	SyThreadIdFromCaption&:(caption$, BYREF previous&) :35
+	SySetBackground: :36
+	SySetForeground: :37
+        SySetForegroundByThread&:(threadId&,previous&) :38
+        SySetBackgroundByThread&:(threadId&,previous&) :39
+	SyNextWindowGroupName$:(threadId&,BYREF previous&) :40
+	SyNextWindowId&:(threadId&,previous&) :41
+	SySendSwitchFilesMessageToApp&:(aThreadID&,aPrevious&,aFile$,aCreateNotOpen%) :42
+	SySendKeyEventToApp&:(threadId&,previous&,code&,scanCode&,modifiers&,repeats&) :43
+	SyCaptureKey&:(keyCode&, mask&, modifier&) :44
+	SyCancelCaptureKey:(handle&) :45
+	SyClaimPointerGrab:(winId&,state&) :46
+	SySetPointerGrabOn:(winId&,state&) :47
+	SySetPointerCapture:(winId&,state&) :48
+
+	SyLoadRsc&:(file$) :49
+	SyUnLoadRsc:(id&) :50
+	SyReadRsc$:(id&) :51
+	SyReadRscLong&:(id&) :52
+
+	SyOpenFileDialog$:(seedFile$,uid1&,uid2&,uid3&) :53
+	SyCreateFileDialog$:(seedPath$) :54
+	SySaveAsFileDialog$:(seedPath$,BYREF useNewFile%) :55
+
+	SyROMVersionMajor&: :56
+	SyROMVersionMinor&: :57
+	SyROMVersionBuild&: :58
+	SyOSVersionMajor&: :59
+	SyOSVersionMinor&: :60
+	SyOSVersionBuild&: :61
+
+	SyPWIsEnabled%: :62
+	SyPWSetEnabled:(password$,enable%) :63
+	SyPWIsValid%:(password$) :64
+	SyPWSet:(oldPassword$,newPassword$) :65
+
+	SyRemoteLinkStatus&: :66
+	SyRemoteLinkDisable: :67
+	SyRemoteLinkEnable: :68
+	SyRemoteLinkEnableWithOptions:(aLinkType%,aBaudRate%) :69
+	SyRemoteLinkConfig:(BYREF aLinkType%, BYREF aBaudRate%) :70
+
+	SyDisplayTaskList: :71
+	SyUidCheckSum$:(uid1&,uid2&,uid3&) :72
+	SyMod&:(left&,right&) :73
+	SyXOR&:(left&,right&) :74
+	SyLanguageIndex&: :75
+	SyGetOPXVersion&:(aOPXName$) :76
+
+	SyRandom&: :77
+
+	SyInactivityTime&: :78
+	SyResetInactivityTime: :79
+
+	SySetSoundEnabled:(state&) :80
+	SySetSoundDriverEnabled:(state&) :81
+
+	SyMemoryInfo:(BYREF aTotalRamInBytes&,BYREF aTotalRomInBytes&,BYREF aMaxFreeRamInBytes&,BYREF aFreeRamInBytes&) :82
+	SyDefaultDocumentFolder$: :83
+	
+	SyGetPhoneInfo$:(aInfoId%) :84
+END DECLARE

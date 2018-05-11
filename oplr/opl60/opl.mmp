@@ -1,0 +1,35 @@
+// OPL.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+
+TARGET		OPL.APP
+TARGETTYPE	APP
+TARGETPATH	\SYSTEM\APPS\OPL
+UID			0x100039CE 0x10005D2E
+
+#include "..\..\opl-target.mmpi"
+
+SOURCEPATH	..\OPL60
+SOURCE		OPLAPP.CPP
+DOCUMENT	oplaif.rss
+
+SYSTEMINCLUDE	..\INC
+SYSTEMINCLUDE	\EPOC32\INCLUDE  
+USERINCLUDE 	..\src
+
+LIBRARY		euser.lib apparc.lib
+LIBRARY		oplr.lib
+LIBRARY		eikcore.lib
+
+LIBRARY		efsrv.lib apgrfx.lib 
+LIBRARY		cone.lib
+
+START WINS
+	BASEADDRESS 0x43900000
+END
+
+// color resources
+
+SOURCEPATH	..\AIF
+AIF opl.aif ..\aif\ ..\opl60\oplaif.rss c8 opl_i_applic.bmp opl_i_applic_mask.bmp opl_i_applic_list.bmp opl_i_applic_list_mask.bmp

@@ -1,0 +1,2205 @@
+OPLR 
+====
+130 (released as ?????? by ????, ??/??/????)
+ None so far
+
+129 (released as 215813 by PhilS, 09/11/2002)
+ RickA: Fixed E32User-CBase 46 Panic by consuming any outstanding events missed by sequencer
+ PhilS: Changes to support files (e.g. PKG) to make runtime 1.00 (non-beta) release
+
+128 (released as 159203 by Rick, 18/03/2002)
+ PhilS: Fixes (i.e. TRAPs) to all ViewSrv calls to make OPL work on LOAK21+ (and continue to work on older builds too)
+ PhilS: MENU(Init%) now stores the last selected item even if the menu is cancelled with Esc, this matches the
+ behaviour of C++ apps at last (but for compatibility, a new SETFLAGS CONST is available to turn this off if desired)
+ PhilS: Made OFF Leave with KErrNotSupported since it doesn't work on Crystal hardware and there's no immediate quick fix either :(
+ Can be changed later if we need to, of course.
+ PhilS: Fixed LPRINT and IOWRITE text file writing to write 'proper' Unicode files with 0xFEFF at the start
+ PhilS: New SETFLAGS value (KAlwaysWriteASCIITextFiles&) to force LPRINT/IOWRITE to write ASCII not Unicode files
+ PhilS: Made OPLR look for EON14.GDR in \System\Libs\ by default to avoid compatibility problems when it's installed in
+ \System\Fonts\. If it's not found in \System\Libs\ we still fall back to \System\Fonts\ (e.g. for WINS)
+
+127 (released as 145070 by Rick, 17/01/2002)
+ RickA: Fixed OPL BEEP not working (BEEP now works but is still very quiet)
+ PhilS: Fixed being able to pass values <1 to SCREEN for width/height
+ PhilS: Fixed inefficient use of TheRuntime() in LB_MISC.CPP
+
+126 (released as 140887 by Rick, 20/12/2001)
+ RickA: Fixed EDNRANS-4K8LFE "EVALuating rich statement produces nonaligned Qcode name"
+ PhilS: Added CONST to CONST.TPH for Chr+Space (IncreaseBrightness key)
+ PhilS: Fixed defect found by Stress Testing: ~COplDbManager() tries to access an object which
+ may not exist (Access Violation)
+ PhilS: Removed unnecessary NULL setting in COplRuntime's DTOR
+
+125 (released as 136646 by Rick, 30/11/2001)
+ PhilS: Fix for OPL apps not responding to Chr+Space to increase screen brightness
+ PhilS: Fixed Help key CONST being wrong, added CONSTs for Zoom In/Out to CONST.TPH
+
+124 (released as 117631 by Rick, 10/09/2001)
+ PhilS: Better fix for OPL fading problems
+ PhilS: Fixed OPL status panes not updating properly when OPL apps came to the foreground
+
+123 (released as 115660 by Rick, 23/08/2001)
+ PhilS: Better fix to COplDialog::SetSizeAndPosition to bound all dialogs by CBA/Status Pane properly
+ PhilS: Fixed dFILE ghost cursors defect thanks to suggestion from Darren Jones
+ PhilS: Fixed dFILE folder selector not displaying ROM folders
+ PhilS: Fixed dFILE disk selector not being changed if user changes disks in the folder browser
+ PhilS: New folder selector flags for showing hidden folders and allowing new folders to be created
+ PhilS: Fixed (work-arounds) for ViewSrv problems with changes to OPLAPP.APP and the way it returns AppDllUid()
+ PhilS: Made sure two new TApaCommand values are detected by OPL's commandline (and new CONST added for these to CONST.TPH)
+ PhilS: Fixed OPL apps not closing if you try to use the task pane on the OPL app's own menu
+ PhilS: Fixed defect of switching away with Task pane on show and trying to use task pane in other apps causing OPL
+ screen to be permanently faded.
+ PhilS: Fixed OPL dialogs not fading screen behind them (removed EEikDialogFlagNoBackup flag from OpCode::dInit)
+ PhilS: Fixed EDNPSPR-4SGNDX (MENU(Init%) where Init%>Last card causes EIKCOCTL 25) in OPL since UIKON deferred it
+
+122 (released as ????? by Rick, 02 April 01)
+ Fixed defect EDNRANS-4UTGCR "Profiles not added to OPL menus"
+ Fixed defect EDNHPAL-4U5MKG "Cannot run program written in OPL" -- dynamic usage of EON14 font.
+ 
+121 (released as 78749 by Rick, 30 January 01)
+ Fixed defect EDNRANS-4PHFHD "OPL only runs in ROM"
+ Fixed defect EDNRANS-4PCGKB "OPL: SendAs OPX panics on startup"
+ Added Gus's stacked Uikon dialog support.
+ Added _DEBUG guards around all RDebug::Print()s.
+ PhilS: Minor fixes to CONST.TPH
+ PhilS: Added SETHELPUID keyword
+ PhilS: Updated dEDITMULTI to allow an optional ReadOnly% parameter
+ PhilS: Updated dCHOICE to allow an optional IncrementalMatching% parameter
+ PhilS: Updated dXINPUT to allow an optional SeedTextContents% parameter
+ PhilS: Allowed the possibility of blank dBUTTONS (specify zero as hotkey)
+ PhilS: Fixed ER1 defect of dCHOICE wrapping initial values to 255
+ PhilS: Fixed ER5 defect of USER-21 panic (UREL)/hitting an ASSERT (UDEB) for SETDOC ""
+ PhilS: dCHECKBOX support removed (commented out) since Crystal doesn't use these
+ PhilS: Fixed dEDITMULTI defect of losing last 2 characters each time the dialog was actioned.
+ PhilS: EApaSystemEventBroughtToForeground is now reported to GETCMD$() using the letter "F"
+ PhilS: Fixed COplDialog::SetSizeAndPosition so dialogs are always bounded by CBA
+
+120 (released as 52211 by Rick, 28 August 00)
+ Refactored Opl1993util::ErrorEraToOpl1993() into OplUtil to lose dependence on Opl1993Util.dll.
+ Fixed defect EDNRANS-4MWL6Z "OPL choice list dialog incorrectly drawn."
+
+119 (released as 46147 by Rick, 24 July 00)
+ Fixed EVAL problem and Escape panic -- thanks to DavidB for the solutions.
+ Added consts for the CBA key values: KKeyCBA1& etc.
+ Changed the default order for dBUTTONS to match the Crystal style guide.
+ Fixed defect EDNRANS-4K7PFJ "OPL has viewsrv problems with EApaCommandOpen'ed docs"
+ Added the __UHEAP_MARK/__UHEAP_MARKEND heap check macros to the runtime.
+ Added ENoScreenFurniture to CEikAppUi::BaseConstructL() flags
+ to fix defect EDNGTHN-4KMMTB "Program displays an icon...".
+ Added PrepareToExit() for viewsrv changes.
+
+118 (released as 33644 by Rick, 08 May 00)
+ Added unique panic for old Apparc launch via EApaCommandRun: "OPL parameters 2" 
+ Further changes to opltest following ViewSrv changes.
+ Fixed defect EDNRANS-4JQN4Y "OPL CBA dialog appears across the top of the screen".
+ Picked up the correct OPL BMP files for OPL icon.
+ Fixed defect EDNRANS-4JZENP "OPL menu should start with focus on second pane by default". 
+ Removed old __32_BIT_ADDRESS__ literals.
+ Removed stale OPX headers.
+ Cleaned up TDEBUG, the OPL debugger test.
+ Added tDebugInstaller.opo to 'install' opldbg.dll for testers.
+
+117 (released as 30792 by Rick, 18 April 00)
+ Fixed ER5 defect EDNJWAD-47TFP2 "OPL memory leak"
+ Fixed defect EDNRANS-4HWH8R "Debug panic when IOREADing zero bytes"
+ Fixed defect EDNRANS-4GMPUT "Panic when using IOCLOSE"
+ Fixed defect EDNRANS-4J9ERC "OPL windows no longer visible"
+ Added debug info for ARMI global defect EDNSLYS-4JAKUE "OPL: Application panic when running program containing global command"
+ Removed __FAST_GLOBALS__ literal definition -- that code is now used in all cases.
+
+116 (released as 27341 by Rick, 31 March 00)
+ Fixed defect EDNRANS-4BZDK4 "OPL windows not displayed".
+ Context-sensitive help support now in every OPLR build.
+ Fixed defect EDNRANS-4GKGFS "Unable to display first pane of menu"
+ Fixed defect EDNRANS-4HUQU9 "Opl apps with icons in menu lose icon on redraw"
+ Fixed defect EDNRANS-4HNLTN "Laf panic when displaying sunken button"
+
+115 (released as 25677 by Rick, 23 March 00)
+ mCARD and mCASC now ignore items whose hotkey value is 0.
+ Removed support for narrow build-only (non-Unicode) OPL. This means the removal of narrow exported functions from OplApi.h (a loss of BC, but still source-compatible for Crystal projects)
+ IOWRITE keyword takes the number of Unicode chars when in Text mode (was number of bytes).
+ Added custom makefiles for OPL header (OPH) files and OPL test suite.
+ Added opltest suite source code, based on Tharn1 code.
+ Tidied up Const.oph header file.
+ Deleted PVCS support files (li.prj etc)
+ [Added later:]
+ Fixed defect EDNJHAS-4GWUUP "Use of deprecated UserHal::SoundInfo API"
+
+114
+Release by Rick on 3 December 1999
+Crystal release, based on Crystal build level 00066
+Changes:
+ Added runtime support for context-sensitive help: SETHELP and SHOWHELP
+ Fixed bugs in runtime initialisation of CKON dialogs.
+ Improved file inclusion in Opldb.h
+ Added FontByName tests.
+
+
+OPLR 113
+========
+Release by Rick on 20 September 1999.
+ER5u release, using ER5u baseline 00016
+Changes:
+ Added SIZE() keyword to return size in *bytes* of OPL string. Similar to LEN(),
+  which returns number of chars.
+ Further ARM Thumb alignment work on strings.
+ Added new OPL error KOplErrBadAlignment to allow the runtime to report misaligned 
+  strings.
+ Changed the OPL Uids and runtime version number.
+
+OPLR 112
+========
+Released by Rick on 4 September 1999.
+ER5u release, using ER5u baseline 00006.
+Changes:
+ Yet more word-alignment fixes for ARM Thumb: VECTOR keyword.
+
+OPLR 111
+========
+Released by Rick on 2 September 1999.
+ER5u release, using ER5u baseline 00006.
+Changes:
+ Further word-alignment fixes for ARM Thumb.
+
+OPLR 110
+========
+Released by Rick on 1 September 1999.
+Crystal release, using Crystal 010.
+Changes:
+ Removed references to ROM subdirectory.
+ No other changes.
+
+
+OPLR 109
+========
+Released by Rick on 31 August 1999.
+ER5u release, using ER5u baseline 00006.
+Changes:
+ Removed narrow Samples directory (all future work takes place in SamplesU area).
+ Added 4K colour support.
+ Re-added use of OPLTRAN to generate OPL files from ASCII text TPL files.
+ Added ARM Thumb support -- OPL strings are now word-aligned.
+ Stopped disabling redundant compiler warnings.
+ Added EBLD INSTALLTEST to ebld file.
+ Moved to MSVC6.
+ Added AIF and AIFC autogeneration of AIF file.
+ Added support for mCARDX OPL keyword.
+
+OPLR 108
+========
+Released by William Roberts on 08 August 1999
+Candidate ER5u release.
+ Added #include <eikbtgpc.h> to EIK_KEYS.CPP so that it compiles with EIKON 313
+ Added TBool return type to operator=() declaration in COplDbManager class
+ Added missing TInt declarations to various constants, e.g. KOplTypeArray
+ Avoided taking a pointer to a temporary object in CModuleReader::CreateL
+ Removed the #pragmas used to turn off the warnings about CModuleReader::CreateL
+ Fixed the inclusion guards in several .h files
+
+
+OPLR 107
+========
+Released by Rick on 04 July 1999
+Candidate ER5u release.
+ Moved OPXs to the OPX component. This comp now only releases OPLR, OPL.APP and RECOPL.
+ Dropped TReal96 usage in favour of TRealX.
+ Moved from Eikon to Uikon.
+ Fixed ER5u defect "OPL filename with spaces doesn't run from Unicode TextEd" EDNRANS-48ENKY
+ Fixed ER5u defect "Unable to create OPL DB files" EDNRANS-46AMQ4
+ Fixed ER5u defect "CHR$() doesn't work for unicode chars > 256" EDNSWAR-47VGL3
+ Fixed ER5u defect "Need to remove all references to TReal96" EDNDMAY-49CE83
+ 
+
+OPLR 106
+========
+Released by ChrisD on 21 May 99
+
+This release is for ER5u and is on the \\Symbian-epoc1\Src_EPOC5u share
+Re-release for automated build system using new standard set of components.
+
+
+OPLR 105
+========
+Released by Rick on 7 Feb 99
+Changes:
+  Fixed PlaySound OPX in System.OPX
+  Unfixed OPL toolbar clock bug fix.
+  Further Symbianization changes (this time in TOPX).
+
+OPLR 104
+========
+Released by Rick on 1 Feb 1999
+Uses: ER5 components.
+Changes:
+  Added call to SetAllWindowsMustBeBackedUpWindowsL() in OPL.app for FEP support.
+  Changed OPL function gColorInfo() to populate three array elements (DisplayMode,#color,#gray).
+  Colorised the OPL.app program.
+  Tidied the mnt file to ensure putrel, delrel and getrel all operate on the same files.
+  OPXAPI.H is now part of the OPL \inc releaseables, and is exported to \epoc32\include.
+  Added a new export to all ROM OPXs to expose the OPX version number.
+  Const.oph changes:
+     Added new color mode consts.
+	 Added some RGB color consts.
+     Added MIME datatype priority consts.
+  Samples and Samplesu are installed by Opltran.
+  Fixed OPL toolbar clock position.
+
+OPLR 103
+========
+Released by Rick on 7 December 1998
+Uses: ER5 components:
+ APPARC/108 BAFL/086 BITGDI/077 BRDCST/002 C32/502 CLOCK/061 CONE/158
+ DBMS/054 DIAL/502 E32/156 EALWL/069 EIKON/247 EIKONEX/003 ESOCK/504
+ ETEXT/099 EMIME/002 F32/122 FBSERV/082 FEPBASE/006 FONTS/079 FNTSTORE/052
+ FORM/129 GDI/061 GDITOOLS/048 GRID/115 INTERNET/507 IRDA/077 OPLT/102
+ PDRSTORE/052 PLP/502 PRINT/054 PRINTDRV/055 OPL1993UTIL/500 STORE/050
+ WLDDATA/025 WSERV/102
+Changes:
+  Using _LIT() constant descriptors in place of _L().
+  Rebuilt using VC5 SP3.
+  Boilerplated the source files.
+  Improved SamplesU release (note that these are still handbuilt though.)
+------------------------------------------------------------------------------------------
+
+Making a release of OPL runtime
+===============================
+- Ensure that OPLT group is built and released first
+- Put all source on network
+- Ensure whole team has put there locked source
+- group\mnt difsrc to difference whole OPLR group (must be no differences)
+- exit from MSDEV
+- close any running WSEXE.EXE sessions
+- ensure you have enough disk space to download the dependencies
+- if  serious release, use clean drive (eg. md c:\q ; subst q: c:\q ; q:)
+                                       or else xdel \epoc32\*.* /s/d)
+  - if changed to new drive
+    - tools gcc <your build drive>:      (i.e. q: or c: or d: if changed)
+  - pgetbld OPLR group
+- elseif any new components
+  - del group\oplr.mdp & sopx2\*.mdp and sopx3\*.mdp
+  - group\mnt delwork         (not needed if clean drive)
+  - xdel \epoc32\include\*.*
+  - mnt getbld
+- else
+  - group\mnt delwork
+- In Dos \oplr\group\ do EIKRS OPLR    (to make .rsg file)
+- Update all dependencies for all configurations in MSDEV
+- In DOS do: group\mnt bld				(in DOS so that resource file builds)
+- test debug build
+- In DOS: group\mnt bldall
+- group\mnt armrel (or group\mnt armall if ARM debug build possible - ie. if released by EIKON)
+- check *.aer in group, sopx2 and sopx3 directories (need no errors or warnings)
+- make a Rom for the rack
+  - in OPLR\ROM: copy \eikon\rom\*.iby, and \eikon\rom\eikon.oby
+  - windiff eikopl.oby and eikon.oby changing what's needed
+  - change eikopl.oby to use LSHELL or SHELL as required (ensure WSINI.INI consistent)
+  - BLDIMG PB (for rack B)
+  - peiger OPL<ver>PB.IMG (or whatever it's called)
+- when ready to do release:
+  - change version number in group\SETVER.CMD
+  - edit release notes below, specifying used components, who did the release and date
+    as well as any special info (like if it's a B5 rom release)
+  - group\mnt putsrc  (just for RELEASE.TXT and SETVER.CMD changes above)
+  - group\mnt versrc
+  - ensure that APP, ICN, resource files exist in \epoc32\release\wins\rel|deb\system\apps\oplr\
+	and in \epoc32\release\marm\rel|deb\
+  - ensure \oplr\samples\*.* ready for release (released from \epoc32\release\wins\deb\z\system\samples\)
+  - test samples
+  - group\mnt putrel
+  - check that releasables same as in previous release in case PKZIP failed to put some without warning (unless changed)
+- group\mnt valid
+- if valid fails
+  - group\mnt delrel and group\mnt putrel again when fixed
+- write release notes below in Lotus Notes.
+
+----------------------------------------------------------------------
+OPLR 100
+--------
+(Released by Rick 18 Oct 98)
+
+ER4 alpha release.
+First Unicode release, with color support changes.
+
+
+OPLR 050
+--------
+(Released by Rick - 31/07/98)
+
+NOT FOR ER4!
+
+Uses: (completely different from 049)
+ FONTS/078    E32/141    F32/112       STORE/049 
+ C32/051      BAFL/078   ESOCK/070     IRDA/068 
+ PLP/033      GDI/060    FNTSTORE/049  FBSERV/079
+ BITGDI/068   WSERV/097  CLOCK/060     CONE/145
+ ETEXT/094    FORM/123   PDRSTORE/050  PRINT/052
+ GRID/114     EALWL/068  APPARC/086    OPL1993UTIL/020
+ DIAL/014     WLDDATA/014 PRINTDRV/049 E32UTILS/019
+ EIKON/226
+ OPLT/035     DBMS/043   TEXTED/046    SHELL/049
+ EIKTOOLS\125 E32TOOLS\094 E32TOOLP\093 RCOMP\314
+
+This is a 'modern' version of OPLR using VC5, makmake etc to be used as a 
+baseline narrow build for the first Unicode build next month.
+
+No defects fixed; the only source changes are to allow a clean build with
+VC5. Also made changes to the build system to support ebld & makmake. And
+made the following reorg (prefer one mmp per subdirectory):
+  App -> Opl which generates Opl.app etc.
+  Recog -> Recopl generating Recopl.rdl
+  SDeb -> TDebug containing TDebug.opl, TDebug.mmp etc
+  SOpx2 -> Opxbmp with opxbmp.mmp generating Bmp.opx
+  SOpx3 -> Opxdate
+           Opxdbase
+           Opxsys
+  SOpx5 -> Opxprn 
+           TOpxprn
+
+Finally, following the arrival of OPLTRAN, all OPL source is now stored as 
+ASCII instead of both ASCII and EPOC-native format (allowing difsrc to 
+highlight any OPL code changes etc).
+
+Note: No marm debug releasables (waiting for Eikon to resume marmd rels).
+
+Still to-do:
+  * Fix \tharn1\pnewfont (OPL test suite code) which hasn't worked since at 
+    least 048, and possibly earlier.
+  * Generally optimise the OPL test code to reduce the release effort.
+  * Tidy up the release procedure following the switch to the new tools. 
+
+
+OPLR 049
+--------
+(Released by Rick - 11/7/98)
+(Re-released by Rick - 14/7/98 as toolbar.opo missing. Also ensured WOPXSDDB complete.)
+
+Uses: as 048, but with Apparc 086 for MRU changes.
+
+1) Fixed defect SW1-794 (S5 Software Problems db) "File selector in System 
+   directory" where hitting Tab in a file selector that's using System can
+   kern-exec 3.
+2) Added CApaRecentFile::AddLastUsedEntry() call to the SETDOC keyword. 
+   This updates the Most recently used (MRU) list. And fixes Defect SW1-252
+   in (ER3) Defects db.
+3) Fixed Date.OPX where the incorrect month was used to check the day range 
+   limit for a new date/time object. See defect SW1-481 in (ER3) Defects 
+   db.
+Plus the following that were in the tip but missed the 048 release:
+4) S5 Software Problems: SW1-373 "Panic switching clock format with low
+   memory".
+5) S5 Software Problems: SW1-397 "Panic 23 using FIND with greater than 16
+   fields".
+6) S5 Software Problems: SW1-545 "dFILE with UID restriction doesn't
+   restrict the list in the initial folder".
+7) S5 Software Problems: SW1-779 "Incorrect comment in CONST.OPH"
+
+
+v0.48
+-----
+(Released by Howard - 11/7/97)
+
+Uses: Platform 001
+
+For ROM 125
+
+1) MNT GETREL gets OPL freeze files into \epoc32\release\winsÝmarm
+2) Random number seed now stored as TInt64 rather than TUint32 as
+required by Math::FRand().
+3) Randomize now sets both the high and low parts of the TInt64 with
+the seed - this prevents RANDOMIZE always producing a very small
+number like 1e-5 when passed a small argument such as 1 to 100.
+4) BEEP volume now follows system settings: quiet, loud, off
+Used to beep loudly always.
+5) gXPRINT used to leave 1 pixel border around the text when existing
+text was XORed.
+6) SYSTEM.OPX (SYSTEM.OXH) has new function 
+IsExternalPowerPresent&: : 78
+Returns -1 if external power is present and otherwise 0.
+7) Test OPX PRNTST.OPX uid changed. It used to clash with a system
+component.
+
+v0.47
+-----
+(Released by Howard - 2/6/97)
+
+Uses: Platform 001
+
+For ROM 106
+
+
+1) dEDITMULTI now raises error if negative (or uninitialised) length
+passed. Used to panic.
+
+2) PRINT chr$(7) beeps using CEikonEnv::Beep() rather than
+User::Beep().
+
+3) Database documents weren't being saved properly and so weren't
+recognised. Wrong test of CompareF() was used.
+
++           1408  |    if (rt->CurrentDocumentName().CompareF(aDbaseName)==0)
+-   1408          |    if (rt->CurrentDocumentName().CompareF(aDbaseName))
+
+4) The system.opx standard dialog procedures:
+	OpenFileDialog$:(SeedFile$,Uid1&,Uid2&,Uid3&) : 75
+	CreateFileDialog$:(SeedPath$) : 76
+	SaveAsFileDialog$:(SeedPath$,BYREF UseNewFile%) : 77
+now parse the filename to ensure there is a drive. Raise the error if any.
+
+5) System.oxh now has required:
+	SaveAsFileDialog$:(SeedPath$,BYREF UseNewFile%) : 77
+Was incorrectly specifying UseNewFile&
+
+
+v0.46
+-----
+(Released by Howard - 28/5/97)
+
+Uses: Platform 001
+
+For ROM 102
+
+NB!!! Rom builders note: New samples.prj file released (required by TBARAPP):
+        - z:\System\Opl\SkelOpl.mbm
+
+1) OPX*.FRZ and OPX*.DEF removed from INCC.PRJ
+2) OPL.MAP added to AEMARM*.PRJ and RECOPL.MAP added to REMARM*.PRJ
+3) TBARAPP now has a proper ICON - SKELOPL.MBM
+4) ALERT wasn't cancelling outstanding Wserv event, causing panic
+5) System.opx additions:
+   - SetPointerCapture:(winId&, flags&) :73
+   - ClaimPointerGrab:(winId&, state&) :74
+   - OpenFileDialog$:(SeedFile$,Uid1&,Uid2&,Uid3&) : 75
+   - CreateFileDialog$:(SeedPath$) : 76
+   - SaveAsFileDialog$:(SeedPath$,BYREF UseNewFile%) : 77
+6) PRNTST test OPX had the wrong Uid3 set 
+7) OplAPI::NotifyActiveSchedulerStopped() added. Must be called
+by an OPX after it has stopped - to redraw cursors and to flush any
+events that occurred while scheduler was running
+8) SetDoc no longer collates - that was the wrong thing to do.
+9) CREATE no longer collates - compares folded filename instead.
+9) Tbarapp no handles switch files and exit message.
+10) Demo handles exit message.
+
+
+v0.45
+-----
+For ROM 100
+
+(Released by Howard 22/5/97)
+
+1) Was getting a non-word aligned word directly. Now uses GetLong()
+
+2) gPrintClip wasn't positioning cursor correctly.
+
+3) ROM directory tidied a little.
+
+4) MNT gets Shell properly.
+
+
+v0.44
+-----
+Bad release - non-word boundary addressing for CProcDef loading.
+
+(Released by Howard 21/5/97)
+
+
+Uses: Platform versions except:
+- PDRSTORE 062 for fix to CPdrGc::DrawText().
+
+1) Added link map file (.MAP) to:
+        EMARM.PRJ,EMARMD.PRJ,MOPXS.PRJ,MOPXSD.PRJ
+
+2) INC directory no longer has OPX[D].FRZÝDEF. OPLR released OPXs use:
+   - \OPLR\BMARM\OPX.FRZ in ARM.CMD's EIKARM line
+   - \OPLR\BWINS\OPX.DEF in WINS Release Build settings
+   - \OPLR\BWINS\OPXD.DEF in WINS Debug Build settings
+
+3) Added to const.oph: const KStatusPending32&=&80000001
+   To be used with IOWAITSTAT32 and for comparison with 32-bit status word
+   used e.g. for asynchronous sound file playback.
+
+4) Test code moved to \oplr\tharn1\ (*.OPL are text,  *. are for
+Opler1 Program editor):
+- POPXDATE      Date.opx/.oxh
+- POPXDBAS      Dbase.opx
+- POPXPRNT      Printer.opx
+- POPXSYS       System.opx except IrDA
+- POPXIRRV      System.opx IrDA receive
+- POPXIRSD      System.opx IrDA send
+- POPXBMP       Bmp.opx bitmap handling
+- POPXSPR       Bmp.opx sprite handling
+
+5) Added to System.oxh:
+        MainBatteryStatus&: :69
+        BackupBatteryStatus&: :70
+        CaptureKey&:(keyCode&, mask&, modifier&) :71
+        CancelCaptureKey:(handle&) :72             
+
+        const KBatteryZero&=0
+        const KBatteryVeryLow&=1
+        const KBatteryLow&=2
+        const KBatteryGood&=3
+        
+        rem For MediaType&:
+        const KMediaNotPresent&=0  
+        const KMediaUnknown&=1
+        const KMediaFloppy&=2
+        const KMediaHardDisk&=3
+        const KMediaCdRom&=4
+        const KMediaRam&=5
+        const KMediaFlash&=6
+        const KMediaRom&=7
+        const KMediaRemote&=8
+        
+        rem For IrDA protocols
+        const KIrmux$="Irmux"
+        const KIrTinyTP$="IrTinyTP"
+        
+        rem For CaptureKey&:
+        const KModifierAutorepeatable&=&00000001
+        const KModifierKeypad&=&00000002
+        const KModifierLeftAlt&=&00000004
+        const KModifierRightAlt&=&00000008
+        const KModifierAlt&=&00000010
+        const KModifierLeftCtrl&=&00000020
+        const KModifierRightCtrl&=&00000040
+        const KModifierCtrl&=&00000080
+        const KModifierLeftShift&=&00000100
+        const KModifierRightShift&=&00000200
+        const KModifierShift&=&00000400
+        const KModifierLeftFunc&=&00000800
+        const KModifierRightFunc&=&00001000
+        const KModifierFunc&=&00002000
+        const KModifierCapsLock&=&00004000
+        const KModifierNumLock&=&00008000
+        const KModifierScrollLock&=&00010000
+        const KModifierKeyUp&=&00020000
+        const KModifierSpecial&=&00040000
+        const KModifierDoubleClick&=&00080000
+        const KModifierPureKeycode&=&00100000
+        const KAllModifiers&=&001fffff
+        
+
+   and fixed the following System.opx bugs:
+   -  CheckUid$:(Uid1&,Uid2&,Uid3&) : 47 replaces panicking UidCheckSum&: replaced by 
+   -  GetNextWindowGroupName$:(threadId&,BYREF previous&) : 59 didn't have BYREF arg
+   -  IrDAConnectToSend&: and IrDACOnnectToReceive&: now need protocol
+      name to be passed. The following CONSTs declared in System.oxh:
+        const KIrTinyTP$="IrTinyTP"
+        const KIrmux$="Irmux"
+      KIrTinyTP beams to another Opler1
+      KIrmux$ beams to an IrDA printer      New prototypes:
+           IrDAConnectToSend&:(protocol$, port&) : 62
+           IrDAConnectToReceive:(protocol$, port&, BYREF statusW&) : 63
+
+   - Sound now cancelled on destruction
+   - Waits for sound thread to exit before unloading module
+                +            550  |    TRequestStatus tr;
+                +            551  |    iThread.Logon(tr);
+                     544     552  |        iThread.RequestComplete(iCancel,KErrNone);
+                +            553  |    User::WaitForRequest(tr); 
+                
+   - TMachineInfoV1 wasn't being set for:
+        IsBacklightPresent
+        MachineName
+        MachineUniqueId
+
+6) Added to DATE.OXH:
+    LCThousandsSeparator$: : 36
+     
+7) tharn1\PGET LI now gets all test code: 
+Was missing Ben's tests for:
+- runtime dbase
+- SYSTEM.OPX
+- DBASE.OPX
+- DATE.OPX
+- IrDA tests
+
+
+8) THARN1 was not getting VERSRC'd as noticed by Duncan.
+
+
+9) Optimised module loading and procedure calling for speed.
+LOADM with of 7 modules each with 100 procs is now about 20 times
+faster.
+
+10) Optimised 1st loading of procedure for speed.
+
+11) Optimised global name storage mechanism
+
+12) Tidied up and fixed some problems with PRINTER.
+
+13) Pause/resume keys Ctrl+Fn+S/Q weren't working on PC with recent
+mapping of Alt to Fn.
+
+14) SecsToDate fixed to handle full range of unsigned long int secs
+
+15) Unloading a font that isn't loaded now raises an argument error (-2)
+
+16) Removed general OPX test procs from BMP.TXH/BMP.OPH
+
+17) PRINTER.OPX code tidied and integrated. See Printer.oxh for
+details.
+- Added:          SendBufferToPrinter:(ADDR&) : 32
+- Changed:        InsertBitmap:(bitmapHandle&, pos&) : 22
+                from
+                InsertBitmap:(pos&, bitmapHandle&) : 22
+
+- Changed:        InsertScaledBitmap:(bitmapHandle&, pos&, xScale&, yScale&) : 24
+                from
+                InsertScaledBitmap:(pos&, bitmapHandle&, xScale&, yScale&) : 24
+
+18) Const.oph definitions:
+- KDecember% instead of EDecember%
+- KStatusPending32&=&80000001
+
+19) Sample Tbarapp:
+Still todo:
+- Good icon
+- FLAGS=1 to be properly file-based
+
+
+Done:
+- Caption changed to SkelOpl (for skeleton OPL app)
+- Now uses a reserved UID and gives the following warning:
+
+	rem !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	rem !!!               IMPORTANT  W A R N I N G                         !!!
+	rem !!! The following UID has been reserved for the Skeleton app       !!!
+	rem !!! Don't use it for your own app - it will cause serious problems !!!
+	rem !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	rem The UID and name defined here must be changed to your own official UID
+	rem before use in your own application.
+	rem Not changing it will result in incorrect identification of your application
+	rem and of its documents by the System screen and by other system components.
+	rem Each application requires its own unique identifier (UID) - contact Symbian
+	rem to reserve a set of UIDs for use in your applications.
+	rem Official UIDs have values greater than &10000000
+
+	const KUidOplSkeletonApp&=&100002C4
+	const KAppName$="SkelOpl"
+
+	APP SkelOpl,KUidOplSkeletonApp&
+		CAPTION KAppName$,KLangEnglish%
+	ENDA
+
+- Also does the following check at the very start to stop developers accidentally using
+  the skeleton's UID and just changing the caption:
+
+	if KUidOplSkeletonApp&=&100002C4
+	  if KAppName$<>"SkelOpl"
+	    alert("The UID &"+hex$(KUidOplSkeletonApp&)+" has been reserved", "You need to reserve your own through Symbian")
+	    rem The UID defined above must be changed. Not changing it will result in incorrect identification of your application
+	    rem and of its documents by the System screen and by other system components.
+	    stop
+	  endif
+	endif
+
+
+- Support INI file using IOOPEN,  with App's Uid3 as required
+- Handles "R" command-line parameter using INI file
+- Saves the bitmap file on exit and last opened file used to INI
+
+The new procedures and code to do this:
+- OpenIniFile%:(AppUid&) 
+This opens and existing ini file and checks  the uids. If there are any errors doing this
+(other than access denied, in which case it returns the error) it replaces the file with a
+new ini file and puts in the uids. It returns the file handle leaving the file position at
+the end of the uids
+
+- SetLastUsedFile%:(FileName$,AppUid&) 
+This opens the ini file using the above function and then writes the filename (always 256 
+bytes) to the file. The file is then closed and any errors are returned.
+
+- GetLastUsedFile$:(AppUid&) Similar to the above only errors trying to read the name result
+in a zero length string being returned.
+
+- The processCmdLine procedure has been modified to handle the 'R' command letter. Basically
+it tries to get the last used file, if the name returned is null or the file doesn't exist it
+changes to using the cmd$(2) file name. If this file exists the cmd3$ copy of the command
+letter is changed to "O", otherwise it is changed to "C"
+
+- Also added SetLastUsedFile%:(GetDoc$,970406151) call to the exit command to set this in the
+INI file
+
+
+v0.43
+-----
+For ROM 017, 019 and 020
+
+Uses: FBSERV 058, DBMS 034, OPLT 034, EIKON 188 and dependencies
+
+(Released by Howard on 12 May 1997)
+
+Rebuilt for APPARC 064
+
+1) Fixed group\MNT VALID. Now validates all ARM release DLLs:
+opl.app     
+oplr.dll    
+system.opx  
+date.opx    
+dbase.opx   
+bmp.opx     
+printer.opx 
+recopl.rdl  
+
+2) Fixed discrepancy between count of IMPORT_C decl. in released
+headers and exports in DEF/FRZ files:
+Component      MARM exp.   WINS exp.   IMPORT_C decl. 
+=========      =========   =========   ==============
+OPL            138         138         135 
+
+- 2 exports in OPLDOC.H now released in INCC.PRJ:
+        void TOplDocRootStream::ExternalizeL(RWriteStream& aStream) const;
+	void TOplDocRootStream::InternalizeL(RReadStream& aStream);
+- 2 extra IMPORT_Cs explained by OPLR.H not being released:
+	IMPORT_C COplRuntime();
+	IMPORT_C TDesC& CurrentDocumentName();
+  These are for internal use only. OPL.APP needs them to exist in OPLR.DLL.        
+- 1 export removed from OPLDB.H (function does not exist at all!):
+	IMPORT_C COplRowSet::PositionAnyL(TUint aPos)
+
+3) MAKTRAN for RECOPL.RDL was missing -z..\..\epoc32\release\marm\rec.frz
+
+4) OplAPI::MapTranslatorError() now calls OplUtil::GetErrResource()
+with 16-bit value as required. Was 32-bit value with some extra flag
+bits.
+
+5) OplAPI::MapTranslatorError() was mapping EErrLineTooLong and
+EErrAssignToConstant incorrectly (to IllegalOpcode and
+ArgumentError).
+Now mapped to RecordTooLarge and BadAssignment instead.
+
+6) COplWindow::GetClockPositionAndSize() now ignores minimum size
+passed except for first time - i.e. uses original size.
+
+7) SYSTEM.OPX:
+        - IrDARead() fixed
+        - IrDAReadA() added
+
+   The OPLR release notes haven't previously listed the following SYSTEM.OPX 
+   procedures added last week:
+        SendKeyEventToApp&:(threadId&,previous&,code&,scanCode&,modifiers&,repeats&) : 61
+        IrDAConnectToSend&:(port&) : 62
+        IrDAConnectToReceive:(port&, BYREF statusW&) : 63
+        IrDAWrite:(chunk$, BYREF statusW&) : 64
+        IrDARead$: : 65
+        IrDAReadA:(stringAddr&, BYREF statusW&): 66
+        IrDAWaitForDisconnect: : 67
+        IrDADisconnect: : 68
+
+
+v0.42
+-----
+For ROM 016 Test (No ROM 016)
+
+(Released by Howard on 8/5/97)
+
+Uses: Oplt 034,Dbms 034, Fbserv 058, Eikon 184 and Eikon's dependencies
+
+For Rom 016
+
+Ready for freeze verification.
+
+New releasables (debugger interface coming soon):
+MARM freeze release MARMFRZ.PRJ:
+        - \epoc32\release\marm\OPX.FRZ
+        - \epoc32\release\marm\OPXD.FRZ
+WINS freeze release WINSFRZ.PRJ:
+        - \epoc32\release\wins\OPX.FRZ
+        - \epoc32\release\wins\OPXD.FRZ
+
+\System\Opx\Eon.opx renamed to \System\Opx\System.opx
+\System\Opl\Eon.oxh renamed to \System\Opl\System.oxh
+
+All OPX loading modules will need retranslating with that release.
+
+GETTEXTED, GETSHELL and GETREL all now do INSTLANG UK on
+completion.
+
+
+Resource changes
+----------------
+1) OPLR.DSC released.
+
+2) Added resource for "Incompatible declaration" translator error
+
+3) Resource file changed as recommended by Terry.
+Also "Service not supported" changed to less specific "Not supported".
+
+
+Configuration changes
+---------------------
+1) BMARM/BWINS directories now exist just to contain the freeze
+files for the moment. MAKs aren't yet stored there, nor is building
+done there. FRZs/DEFs must be copied/generated to there.
+
+2) OPX[D].FRZ/.DEF temporarily exist in both INC and BMARM/BWINS
+directories - because current OPX builds need them in INC. 
+Released from BMARM/BWINS though using MARMFRZ.PRJ and WINSFRZ.PRJ.
+
+3) WINS OPLR uses Names configs and links against the DEFs.
+
+
+4) Program.h changed so OPLEDIT needs to use it
+
+
+Other changes
+-------------
+1) Implemented calling OPX procedures by ordinal for efficiency.
+
+OPXs must now have a 3rd Uid which is specified after the OPX name in the DECLARE OPX statement. This is checked
+on loading the OPX and a 'This item is unavailable' error is presented if incorrect.
+
+New syntax:
+DECLARE OPX fred,&12345678,$1234
+	func:(1rg2,arg2) : 23
+ENDP
+
+i.e. the function name is followed by a colon and the function number. The function number is
+the number for linking by ordinal. In the qcode this is emitted in place of the function index used previously.
+ALIAS is no longer required - just change the name declared itself (and comment the original name for documentation).
+
+In the module, the OPX table is as before except that the function count and function names
+are no longer included.
+
+2) The name of the OPX is now given in the error messages when an invalid OPX version or Uid is used.
+
+3) OplAPI::MapTranslatorError() now maps 
+	EErrIconMaskMissing to KOplErrIconMaskMissing  (-132)
+	EErrIncompatibleDeclaration to KOplErrIncompatibleDeclaration (-133)
+
+4) Changed resource "Media is corrupt" to "File is corrupt" because
+OPL doesn't have enough information to know when media is corrupt in
+fact. Better to say file is corrupt and leave it to the Shell to
+confirm the worst. (The problem is that OPL maps KErrCorrupt via
+Opl1993Util, which gives error -66 E_FILE_CORRUPT which has error text
+"Media is corrupt" maybe OPL1993UTIL should change - KErrCorrupt is used
+e.g. by FBSERV to mean a corrupt file).
+
+5) Manual change needed: Translator now supports TRAP RAISE err%.
+This clears the TRAP flag and sets ERR value to err%.
+
+(Not for manual: Being able to clear the flag is helpful in case forgotten in a runtime
+- as occurred with some graphics keywords in Opl1993. The POKEing Opl1993 fix is not possible in
+OPL32.)
+
+6) gCLOCK now takes offset& rather than offset%. If you OR $100 with
+mode%, offset& now specifies seconds offset rather than minutes.
+
+7) Font Uid is now returned in gINFO32 info&() as info&(9)
+
+
+Important changes affecting OPX authors
+---------------------------------------
+1) The interface to OPXs has now been changed. See \OPLR\TOPX\TOPX.MAK for new template code. All the following
+extracts are from that project.
+
+Instead of the 3 exports previously required, the OPL runtime now requires only 1 export.
+This must be the 1st export of an OPX (note that it has similar body to the previously exported OpxSetTlsL()):
+
+EXPORT_C COpxBase* NewOpxL(OplAPI& aOplAPI)
+// Creates a COpxBase instance as required by the OPL runtime
+// This object is to be stored in the OPX's TLS as shown below
+	{
+	COpxRoot* tls=((COpxRoot*)Dll::Tls());
+	if (tls==NULL)
+		{
+        tls=COpxRoot::NewL(aOplAPI);
+	    Dll::SetTls(tls);				// this object must be stored in the Tls
+        }
+    return (COpxBase *)tls;
+	}
+
+
+
+The COpxRoot class above derives from the abstract class COpxBase defined 
+by OPLR in released header OPX.H as:
+
+class OplAPI;
+class COpxModule;
+class COpxBase : public CBase
+	{
+	friend class COpxModule;
+public:
+	IMPORT_C COpxBase(OplAPI& aOplAPI);
+	virtual void RunL(TInt aProcNum)=0;		// run extension procedure aProcNum
+	virtual TInt CheckVersion(TInt aVersion) =0;	// check DECLARE OPX version is ok
+protected:
+	OplAPI& iOplAPI;
+private:
+	IMPORT_C void IncAccessCount();
+	IMPORT_C TInt DecAccessCount();
+private:
+	TInt iAccessCount;
+	};
+
+The COpxRoot class can be renamed as appropriate to your OPX.
+
+class COpxRoot : public COpxBase 
+// An instance of this class is created immediately after the OPX is loaded (using LOADM)
+// and the object pointer must be stored in the Tls (Thread local static).
+// See the 1st EXPORT function NewOpxL(), which does this for you.
+// The Tls contains the single global (32-bit) value available to any EPOC32 DLL.
+// No other non-const static data may be used.
+//
+    {
+public:
+    static COpxRoot* NewL(OplAPI& aOplAPI);
+	virtual void RunL(TInt aProcNum);
+	virtual TInt CheckVersion(TInt aVersion);
+	// Add any other members specific to your OPX
+	// ...    
+private:
+	// the language extension procedures
+	enum TExtensions
+		{
+		EAdd3=1,
+		EIncNumericArgsPassedByref
+		};
+	void Add3() const;
+	void IncNumericArgsPassedByref() const;
+private:
+	void ConstructL();
+    COpxRoot(OplAPI& aOplAPI);
+    ~COpxRoot() ;
+    };
+
+
+With dynamic linkage by ordinal, the function name table is no longer required. An OPX's COpxRoot must now implement
+the COpxBase interface providing RunL() and CheckVersion() functions.
+
+The OPL runtime calls CheckVersion() immediately after calling the exported NewOpxL().
+RunL() is passed the ordinal of the OPX procedure to be called.
+
+All OPX extension procedures are now private members of the COpxBase
+derived class, so the COpxRoot and OplAPI references no longer need
+to be passed to these procedures.
+
+v0.41
+-----
+For ROM 015
+
+Uses: eikon=180,fbserv=058+,dbms=034,oplt=031 and Eikon's dependencies
+
+Compatible with OplEdit (TEXTED) 038
+
+FBSERV 058 needed by translator - otherwise get 'Not found' error in ICON
+instead of 'Eof' error when bitmap index out of range, making ICON fail
+
+
+1) Added:
+	gCIRCLE radius[,fill%]
+	gELLIPSE w%,h%[,fill%]
+	fill%<>0 means fill
+
+2) Added:
+	gSETPENWIDTH width%
+	width% in pixels
+
+3) Added:
+	dEditMulti ptrData&,prompt$,widthInChars%,numberLines%,maxLength%
+	Defines a multi-line edit box, to go in a dialog.
+	ptrData& is the address of a buffer to take the edited data. It can be the address
+	of an array as returned by ADDR, or of a heap cell, as returned by ALLOC.
+        Special characters from \epoc32\include\txtetext.h still need adding to const.oph:
+		EParagraphDelimiter=0x06,
+		ELineBreak=0x07,
+		EPageBreak=0x08,
+		ETabCharacter=0x09,
+		ENonBreakingTab=0x0a,
+		ENonBreakingHyphen=0x0b,
+		EPotentialHyphen=0x0c,
+		ENonBreakingSpace=0x10,
+		EPictureCharacter=0x0e,
+		EVisibleSpaceCharacter=0x0f
+        
+	prompt$ be displayed on the left side of the edit box.
+	widthInChars% is the width of the edit box within which the text is wrapped.
+	numberLines% is the number of lines displayed. Any more lines will be scrolled.
+	maxLength% is the length in bytes of the buffer provided.
+
+4) You can now read 'Data app' files with OPL (opening them  via OPEN "file" and 
+OPEN "file SELECT f1 FROM table1".
+This has actually been available since OPLR 038.
+
+Types not supported by OPL will be ignored. The Opl field handle types  and order,
+must match the types and  their order of the  'Data app' file's OPL supported types.
+e.g. if the data app file "dat" contains a long, followed by a datetime, followed
+by a string, followed by a long binary,  followed by a string ......
+you could obtain access to those fields supported by OPL  with OPEN 'dat',A, f1&,f2$,f2$
+
+Using SQL SELECT provides a more suitable method for accessing required fields. For this
+to be possible it will be necessary to publish the default column naming mechanism that
+data app uses when initially creating the columns.
+Write enabled access is easily possible but dangerous as the data app file's LongBinary
+fields would need to be set to NULL. This would through away the 'Rich text' formatting
+information in the data app's file.
+
+The OPL programmer could always copy the relevant DATA app information into an OPL
+database and then (probably coming soon) view that database in data app.
+
+5) Toolbar code now sets Compute mode off. Any app using a toolbar is required not to be
+deaf to events unless it has set LOCK ON, so it can't be running compute intensively.
+
+6) New dFILE flags%:
+- KDFileSelectorWithSystem% ($200) to show system folder
+
+7) New dDATE flags%:
+- KDDateNoHours% (4) for no hours
+- KDDate24Hour% (8) to force 24-hour clock
+Const.oph now also has consts for OPL16 flags:
+- KDDateWithSeconds% (1) for seconds
+- KDDateDuration% (2) for duration
+
+8) Font consts and sizes changed - UIDs unchanged:
+- to Arial 8,11,13,27 (from 9,12,14,28)
+- to Times 8,11 (from 9,12)
+
+9) Eon.opx additions:
+- IsBackLightPresent&: returns -1 if present
+- ReadRscLong&:(id&) reads a 32-bit value from a resource file
+- UidCheckSum&:(Uid1&,Uid2&,Uid3&) returns the Uid checksum
+- SetPointerGrabOn:(WinId&,state&)
+- MachineName$:
+- MachineUniqueId:(BYREF high&,BYREF low&) sets high& and low& to the
+  machine's unique id
+- EndTask&:(threadId&,previous&) Set previous& to 0 to end first window group in thread
+- KillTask&:(threadId&,previous&)
+rem The rest are not fully tested yet 
+- GetThreadIdFromOpenDoc&:(doc$,BYREF previous&)
+- GetThreadIdFromAppUid&:(uid&,BYREF previous&)
+- SetForeground:
+- SetBackground:
+- SetForegroundByThread&:(threadId&,previous&)
+- SetBackgroundByThread&:(threadId&,previous&)
+- GetNextWindowGroupName$:(threadId&,previous&)
+- GetNextWindowId&:(threadId&,previous&)
+
+10) Dbase.opx additions:
+- DbGetFieldCount&:(dbase$,table$)
+- DbGetFieldName$:(dbase$,table$,fieldNum&)
+- DbGetFieldType&:(dbase$,table$,fieldNum&)
+
+11) New Printer.opx:
+	SendStringToPrinter:(string$)
+	InsertString:(string$,pos&)
+	SendNewParaToPrinter:
+	InsertNewPara:(pos&)
+	SetAlignment:(alignment%)
+	InitialiseParaFormat:(Red&, Green&, Blue&, LeftMarginInTwips&, RightMarginInTwips&, IndentInTwips&,	HorizontalAlignment%, VerticalAlignment%, LineSpacingInTwips&, LineSpacingControl%, SpaceBeforeInTwips&, SpaceAfterInTwips&, KeepTogether%, KeepWithNext%, StartNewPage%, WidowOrphan%, Wrap%, BorderMarginInTwips&, DefaultTabWidthInTwips&)
+	SetLocalParaFormat:
+	SetGlobalParaFormat:
+	RemoveSpecificParaFormat:
+	SetFontName:(name$)
+	SetFontHeight:(height%)
+	SetFontPosition:(pos%)
+	SetFontWeight:(weight%)
+	SetFontPosture:(posture%)
+	SetFontStrikethrough:(strikethrough%)
+	SetFontUnderline:(underline%)
+	SetGlobalCharFormat:
+	RemoveSpecificCharFormat:
+	SendBitmapToPrinter:(bitmapHandle&)
+	InsertBitmap:(pos&, bitmapHandle&)
+	SendScaledBitmapToPrinter:(bitmapHandle&, xScale&, yScale&)
+	InsertScaledBitmap:(pos&, bitmapHandle&, xScale&, yScale&)
+	SendRichTextToPrinter:(richTextAddress&)
+	ResetPrinting:
+	PageSetupDialog:
+	PrintPreviewDialog:
+	PrintRangeDialog:
+	PrintDialog:
+
+v0.40
+-----
+For ROM 014
+
+(Released by Howard 24 April 1997)
+
+Uses: Same as 039
+
+1) Tidied OPL.IBY and changed OPXBMP.OPX to BMP.OPX
+
+2) OPXBMP.OPX renamed to BMP.OPX
+
+
+
+
+
+v0.39
+-----
+Not used in any ROM
+
+(Released by Howard 23 April 1997)
+Uses: e32=099,e32utils=012,f32=069,store=042,bafl=070,apparc=058
+c32=043,esock=051,irda=053,opl1993util=016,plp=014,ealwl=054,wlddata=001
+gdi=050,fntstore=039,fbserv=057,bitgdi=055,wserv=080,clock=055,cone=135
+fonts=064,etext=080,form=103,pdrstore=038,printdrv=038,print=044
+grid=103,dial=005,e32tools=063,gditools=033,rcomp=314,eiktools=122
+eikon=177,dbms=034,oplt=028,texted=036,shell=018
+
+
+1) OPLERR.H added to releasables for use by OPX developers.
+2) CONST.OPH changed to use new font UIDs (for FONTS 064)
+3) Lots of bugs fixed
+
+v0.38
+-----
+Rom 011 - sent to some developers
+
+1) Caption length defined to be the same as for Apparc (KApaMaxAppCaption==256)
+and uses TApaAppCaption for the buffer declaration.
+2) SETFLAGS and CLEARFLAGS now support:
+        const KRestrictTo64K&=&0001
+        const KAutoCompact&=&0002
+        const KTwoDigitExponent&=&0004
+        const KSendSwitchOnMessage=&010000
+These consts are in CONST.OPH.
+No other flags will be supported.
+3) Data app docs now can be opened read-only. Details coming soon.
+4) More release notes coming later.
+
+v0.37
+-----
+
+ROM builders note: 
+- sample OplEdit file added: z:\system\opl\TBARAPP
+  This provides a minimal Opler1 Opl app, using command-line, all
+  toolbar features including new support for latched toolbar
+  buttons. Also supports CMD$(3)="C" and "O" but not yet "R")
+  The sample doesn't yet support GETCMD$ to allow switch files.
+
+As usual for samples:
+- copy z:\system\opl\*.* to new folder c:\documents\opl\*.*
+- open and translate DEMO or TBARAPP before programs can be run
+
+
+Resource file change:
+        "Icon mask missing" was missing from resource file.
+
+Changes affecting OPL developers (manual still needs updating)
+
+********************************************************************
+NB. OPLR.DLL has swapped UIDs with OPL.APP so that OplEdit files
+appear on the left of a folder sorted by type.
+This means that all existing OPOs will no longer be recognised
+and will need retranslation.
+********************************************************************
+
+1) TOOLBAR
+   TbOffer%: name changed to TBarOffer%: in line with other public
+   toolbar procedure names.
+
+   z:\system\opl\TOOLBAR.OPH now specifies the public interface to TOOLBAR.OPO in the ROM
+   as follows:
+     rem Public procedures
+     external TBarLink:(appLink$)
+     external TBarInit:(title$,scrW%,scrH%)
+     external TBarInitNonStd:(name$,scrW%,scrH%,width%)
+     external TBarButt:(shortcut$,pos%,text$,state%,bit&,mask&,flags%)
+     external TBarSetTitle:(name$)
+     external TBarOffer%:(winId&,ptrType&,ptrX&,ptrY&)
+     external TBarLatch:(comp%)
+     external TBarShow:
+     external TBarHide:
+
+     rem The following are global toolbar variables usable by Opl programs
+     rem or libraries: usable after toolbar initialisation:
+     rem   TbWidth%      the pixel width of the toolbar
+     rem   TbVis%        -1 if visible and otherwise 0
+     rem   TbMenuSym%    the current 'Show toolbar' menu symbol (to be ORed with shortcut letter)
+
+     rem Flags for toolbar buttons
+     const KTbFlgCmdOnPtrDown%=$01
+
+     rem The order and values of the following are significant so don't change without due care
+     const KTbFlgLatchStart%=$12		rem start of latchable set
+     const KTbFlgLatchMiddle%=$22	rem middle of latchable set
+     const KTbFlgLatchEnd%=$32			rem end of latchable set
+     const KTbFlgLatched%=$04			rem set for current latched item in set
+
+   New support for latched toolbar buttons.
+      A set of latchable option toolbar buttons can be specified in TBarButt:
+      by setting flags% to:
+        KTbFlgLatchStart%       for the first button in the latchjable set
+        KTbFlgLatchMiddle%      for any middle buttons
+        KTbFlgLatchEnd%         for the last button in the latchable set
+
+      Only one button in a set is ever latched and pressing another
+      button unlatches the one that was previously set.
+
+      To latch a button down initially to represent the initial
+      setting of the set, OR KTbFlgLatched% with one of the above
+      settings.
+
+      After pressing and releasing a previously unlatched button in a 
+      latchable set, TOOLBAR.OPO will, as usual, call your command-handling
+      procedure. If the command (such as to change view) has been successful
+      set the new state of the button by calling TBarLatch:(<tbarComp>) where
+      <tbarComp> is the button number to be latched. The trivial
+      example below shows how a 'View1' button press, with "v" as
+      shortcut, should be handled. The other latchable button in this
+      rather set might be 'View2' with shortcut "w":
+        proc cmdV%:
+          if SetView1%:=0   rem if no error
+            TBarLatch:(KView1TbarButton%) rem your const KView1TBarButton%
+            CurrentView%=1
+          endif
+        endp
+
+        proc cmdW%:
+          if SetView2%:=0   rem if no error
+            TBarLatch:(KView2TbarButton%) rem your const KView2TBarButton%
+            CurrentView%=2
+          endif
+        endp
+
+   New support for calling command on pointer down on toolbar button
+      For TBarButt: pass flags%=KTbFlgCmdOnPtrDown% and provide a
+      procedure named cmdTbDown<shortcut$>%: which could provide a
+      popup menu:
+
+        proc cmdTbDownC%:
+          rem popup next to button with point specifying the top right corner of the popup
+          if mPopup(ScrWid%-TbWidth%,97,KMPopupPosTopRight%,"Cancel",0,"Clear",%c)
+            cmdC%: rem Do the command itself
+          endif
+        endp
+
+
+2) dCHOICE supports an unrestricted number of items (up to memory limits).
+   To extend a dCHOICE list, add a comma after the last item on the line 
+   followed by "..."
+
+   E.g. the following specifies items i1,i2,i3,i4,i5,i6:
+        - dCHOICE ch%,prompt$,"i1,i2,..."
+          dCHOICE ch%,"",     "i3,14,..."
+          dCHOICE ch%,"",     "i5,i6"
+   ch% must be the same on all the lines, otherwise an error is raised.
+
+   This is a workaround really for a major deficiency in OPL. There's
+   no time for a more elegant fix using a block construct or multiple
+   string args. Anyway this looks ok.
+
+3) Fixed bug where failure to load a module left the file open
+
+4) Reworked the file handling keywords to be more stack efficient
+
+5) When running an OPO, set the window group name flags to say we
+   won't respond to switch files and exit messages
+
+6) When running an app the window group name is set to match the
+   caption in the ICN file if one exists for the current language,
+   otherwise it is set to the .APP file name
+
+
+Internal changes affecting OPL team only:
+
+1) Converted group\MNT.CMD to standard format. Doesn't use Eikon's
+   MNT any more.
+2) Type-safe linkage on OPX loading. Returns 'Not supported' error
+   for a bad Uid2.
+
+
+v0.36
+-----
+(Released by Howard 2/4/97)
+
+Uses: dbms=031 oplt=025 texted=032 opl1993util=014 eikon=173 (and eikon 173's dependencies)
+
+
+1. gINFO32 rewritten - still needs documentation in manual.
+2. gCLOCK now supports mode=11. See manual \oplr\group\oplman32.doc
+for details. Supports same format string as used in TTime::Format().
+3. dCHECKBOX chk%,prompt$ implemented.
+Set live variable chk%=0 for unchecked and any other value for
+checked. The dialog sets chk% to 0 if unchecked and to -1 if checked.
+4. Fixed bug in PAUSE where timer was not getting deleted.
+5. BEEP uses unsigned pitch to avoid a divide by zero bug for pitch==-1.
+
+v0.35
+-----
+(Released by Kevin on 26 March 1997)
+Uses: d32=031, oplt=024, texted=032, opl1993util=014, eikon=171 (and eikon's dependencies)
+
+1. New TOOLBAR.OPH:
+- just defines two consts for now - more in next release:
+const KTbFlgCmdOnPtrDown%=1
+const KTbFlgLatch%=2
+
+See TBarButt: changes below for usage of KTbFlgCmdOnPtrDown%.
+KTbFlgLatch% is not yet fully implemented
+
+
+2. TOOLBAR.OPO:
+
+- uses locale conformat clock type (gCLOCK 6) and changes the system clock
+type for all apps when OPL toolbar clock tapped (using new DATE.OPX
+procs: LCSetClockFormat:(format&), LCClockFormat&:())
+
+- TBarButt: now has an extra final parameter flags%:
+        TBarButt:(shortCut$,pos%,text$,state%,bit&,mask&,flags%)
+        flags% has KTbFlgCmdOnPtrDown% set to call command on pen down
+
+        If flag is set, toolbar.opo calls integer-returning command proc
+        in your app with name "CmdTbDown"+shortCut$:
+        So, for example, you could provide CmdTbDownP%: for a popup menu
+        as shown in the Demo app in the rom.
+- 
+
+3. CONST.OPH
+- lots new definitions
+
+
+4. DBASE: FOLDED and COLLATED Sql SELECTIONs supported.
+eg. OPEN "Name COLLATED SELECT field1,field2",A,f1%,f2$
+View is not collated or folded by default.
+
+5. Locale conformant clocks (gClock 6) now responds to changes in the
+system clock type.
+
+
+6. DATE.OXH now has locale supporting procedures:
+	DTSetHomeTime:(id&)
+	LCCountryCode&:()       
+	LCDecimalSeperator$:()
+	LCSetClockFormat:(format&)
+	LCClockFormat&:()        
+	LCStartOfWeek&:()
+
+Also has consts for format& in LCSetClockFormat:
+
+7. DBASE.OPX
+        DbIsDamaged&:(dbase$)
+        DbRecover:(dbase$)
+
+8. New EON.OPX provides a lot of common BASE and other low-level functions
+DECLARE OPX EON,$10
+	BackLightOn:(state&)                                 
+	SetBackLightOnTime:(seconds&)
+	SetBacklightBehavior:(behaviour&)               
+	SetAutoSwitchOffBehavior:(behaviour&)               
+	SetAutoSwitchOffTime:(seconds&)
+	ResetAutoSwitchOffTimer:
+	SwitchOff:                          
+	SetSoundEnabled:(state&)               
+	SetSoundDriverEnabled:(state&)               
+	SetKeyClickEnabled:(state&)               
+	SetPointerClickEnabled:(state&)               
+	SetDisplayContrast:(value&)               
+	MaxDisplayContrast&:
+	IsReadOnly&:(file$)
+	IsHidden&:(file$)
+	IsSystem&:(file$)
+	SetReadOnly:(file$,state&)
+	SetHiddenFile:(file$,state&)
+	SetSystemFile:(file$,state&)
+	VolumeSize&:(drive&)
+	VolumeSpaceFree&:(drive&)
+	VolumeUniqueID&:(drive&)
+	MediaType&:(drive&)
+	GetFileTime:(file$,DateTimeId&)
+	SetFileTime:(file$,DateTimeId&)
+	DisplayTaskList:
+END DECLARE
+
+
+9. Bugs fixed.
+
+10. OPL32 EPOC World presentation in ..\ppt\EPOCWOPL.PPT
+
+
+11. Bitmaps saved using gSAVEBIT can now be documents. Create a document using SETDOC in the
+same way as for database docs.
+
+12. GETCMD$ implemented. As well as OPL16 codes 'C', 'O' and 'X', OPL32 can also return
+'U' for unknown, 'S' for 'Starting backup', 'R' for 'Restart after backup'
+
+13. GETEVENT ev%() now returns the same codes in ev%(1) as GETEVENT32 ev&() returns in ev&(1).
+The other array elements aren't filled in - program must use GETEVENT32 to get these.
+This at least tells the Opl1993 code which event has occurred.
+Previously it returned $400 - unknown event.
+
+14. Comma-separated prompt list in dFILE now supported.
+dFile f$,"File,Folder,Disk",1 will give a filename editor with the standard prompts.
+
+15. Set flag $100 in flags% for dFILE to see ROM files too.
+
+16. dFILE now supports file restriction by UID type for selectors:
+		dFILE f$,prompt$,flags%[,uid1=0,uid2=0,uid3=0]
+You can either use 3 or 0 UIDs.
+Uids are ignored for editors.
+
+
+v0.34
+-----
+1. Extended the Opcode table to 512 items padding with IllegalOpcode pointer. Was causing
+access violation if opcode beyond end of list used (eg. with corrupt Qcode or when adding
+a new qcode to translator before adding to runtime).
+
+2. Implemented accessing non-array right-side externals in EVAL. This means that you can now
+implement a graphics calculator. On the S3a you needed to replace the user's 'x' by calc memories
+m0 to m9, but these are no longer available on Opler1:
+A very noddy example (assuming max height of expr$ function is 1 on domain 0 to 640)
+could be something like:
+
+	local expr$(255)
+	global x
+
+	while 1
+		dInit "Calculator"
+			dEdit expr$,"Expression",30	rem Use types expression using global x
+		until dialog=0
+		gAt 0,gHeight/2
+		gCls
+		onerr errHand
+		while gx<gWidth
+			x=gX
+			gLineTo gX+1,gHeight/2+gHeight/2*EVAL(expr$)
+		errHand::
+			rem just skip error point
+			gMove 1,0
+		endwh
+	endwh
+
+
+3. Partial fix to Opx loading mechanism. SOpxData still needs to be
+changed to COplrOpxData (COpxData is used by OPXs).
+Failing to find an OPX proc now doesn't panic anyway.
+
+4. Fixed some other bugs.
+
+5. New release of CONST.OPH version 1.02 providing some new consts and some names shortened:
+
+const KEvAPtrWindowId%=3				was ...OplWindowId...
+
+const KEvPtrPenDown&=0
+const KEvPtrPenUp&=1
+const KEvPtrButton1Down&=KEvPtrPenDown&
+const KEvPtrButton1Up&=KEvPtrPenUp&
+
+const KButtTextRight%=0
+const KButtTextBottom%=1
+const KButtTextTop%=2
+const KButtTextLeft%=3
+const KButtExcessShare%=$00
+const KButtExcessToText%=$10
+const KButtExcessToPicture%=$20
+
+const KAutoCompact& = &004
+const KUntrappableErrors& =&008     // not yet implemented
+const KTwoDigitExponent& = &010
+const KDiffSidebarMenuKey&=&020     // not yet implemented
+const KComputeModeOff&=    &0100000 // not yet implemented
+
+SETFLAGS flags set in COplRuntime state variable (but some still need to be acted on)
+SETFLAGS KTwoDigitExponent& tells OPL32 to raise an error instead of allowing 3-digit exponents.
+SETFLAGS KAutoCompact& tells OPL32 to compact a database on closing.
+
+6. For buttons with no text label underneath, OR flag $100 with the short-cut.
+
+7. dBUTTONS now supports negative short-cut keys as in OPL16. You must negate the short-cut *with*
+any flags.
+
+v0.33
+-----
+(Released by Howard on 12/03/97)
+
+Uses: dbms=031, oplt=021, texted=030, opl1993util=014, eikon=167 (and Eikon's dependencies)
+
+
+ROM builders note: 	RECINT.RDL removed from Eikon's MESON.IBY
+			RECOPL.RDL added to OPLR.IBY
+			SAMPLES go to  z:\system\opl\
+
+1. Took ownership of the OPL recogniser. Each interpreted language must now supply its own 
+recogniser. The original plan to have one recogniser for all interpreted languages
+was flawed. This solution is much neater anyway and was made possible by having separate RDLs.
+Each interpreted language now has full control of its own command-line requirements.
+
+For some strange reason, which I'll look into after the B6 rom release, this doesn't always
+build from DOS but does from MSDEV.
+
+OPLR.IBY now includes line:
+	file=RELDIR\recopl.rdl       system\recogs\recopl.rdl  EXEUID uid2=0x1000013e uid3=0x10000148
+
+
+2. The Opl recogniser DLL is called RECOPL.RDL, with source in the new \OPLR\RECOG\ project.
+Changed the name of the recogniser's uid from KUidInterpretedRecogniser to KUidOPLRecogniser
+in the source.
+
+3. Added GETTEXTED verb for group\MNT
+
+4. Added check-list file group\GETBLD.TXT specifying fully a safe way to
+get new OPLR and its dependencies, OPLEDIT, and SHELL.
+
+5. Fixed lots of bug.
+
+6. Improved oplr\THARN1\ further
+
+7. Sorted out some Maths - 3-digit exponents still need supporting though
+
+8  CONST.OPH (& group\CONST.TXT) now have gBUTTON excess spec for ORing with layout%:
+	const KButtExcessShare%=$00
+	const KButtExcessToText%=$10
+	const KButtExcessToPicture%=$20
+
+
+9. TOOLBAR.OPO changes:
+	- uses KButtExcessToText% in gBUTTON to give the standard layout.
+        - standard toolbar sizes used
+        
+
+v0.32
+-----
+Uses: DBMS 031, OPLT 020, OPL1993UTIL 014, Eikon 165 and dependencies
+
+B5(04) release
+
+Released by Howard (05/03/97)
+
+Explicit dependency on Opl1993Util 014 required for test code. OPL1993UTIL 014 used for new error codes (Divide by zero)
+EIKON 164 uses OPL1993UTIL 013.
+
+
+To run OPLR from LSHELL set the command-line tailend to:
+	R<fullPathModuleName>
+The 'R' tells the runtime that it is running from the Shell rather than from OplEdit or
+a debugger, so the rest of the tailend is not interpreted as IPC info.
+ 
+
+1. Rationalised the test harness directory \oplr\tharn1\ to support individual
+   locking of files, by using %vcsid%.prj. LI.PRJ lists all the files in the
+   for use by MNT CHECK, but has no locks. HOWARD.PRJ lists LI.PRJ MNT.PRJ and
+   other maintenance files for the moment. Run MNT with no args for a fairly
+   comprehensive Help screen explaining the use of this directory.
+
+   tharn1\MNT DEV <module> replaces z\system\data\WSINI.INI to run OPLEDIT directly,
+   passing the name of the module document on the command-line. Using this, all works
+   well except obviously the Side-bar and Shell etc are not available.
+   tharn1\MNT RESWsINI restores the original.
+
+2. Kevin rewrote the Console classes for OPL removing all dependencies on the
+   Eikon console. Any bugs in the Console (default) window should therefore now
+   be reported as OPL runtime bugs.
+
+   The default console font used is currently Swiss 11 normal, defined in CONST.OPH as:
+		const KScreenFontUidSwi11n&=268435472
+   Use the FONT keyword to change this if necessary.
+	
+   Console todos (ie. don't report bugs in these yet): 
+	- gUPDATE ON|OFF and gUPDATE (no arg)
+	- I/O keywords using handle -2 (eg. IOC(-2,...))
+
+3. Embedded spaces in module-names now supported.
+
+4. Reads debug flag in module root stream after OPX table stream ID:
+     TUint16(CTextTranslator::EDebug) or TUint16(CTextTranslator::ERelease)
+   Find out whether a module was built for debugging using:
+     CTextTranslator::TDebugFlag CModule::DebugFlag();
+
+5. The OPL maths has now been checked to use only TReal96 rather than TReal64s,
+   except where allowed (for comparisons etc.). This is necessary because OPL does not
+   support IEEE 754 specials like NaN, Infinity etc. If these were to be supported,
+   several new keywords would be required, like IsNan(), IsInfinity() - as provided 
+   eg. in Java.
+
+   Using TReal64s avoids exceptions being raised in Arm and specials being produced in
+   WINS when floating point operators give results beyond the normalised IEEE 754 bounds. 
+   OPL32 therefore should produce the same floating point errors as in Opl1993.
+
+   OPL32 does support numbers in the full normalised IEEE 754 range (approx. 
+   positive and negative 1e-308 to 1e+308). Denormals are not supported. In Opl16, the 
+   same range was used for intermediate results but the range was limited to 1e-99 to 1e+100
+   for conversion to and from text, because this was the maximum range supported by
+   the Epoc16 conversion functions.
+
+6. The OPL32 differences manual is now almost complete in r:\oplr\dspec\oplman32.doc.
+
+7. Lots of graphics, database and other bench-marks have been written for the epocWorld
+   Conference.
+
+Bugs:
+
+1. Changed the window shadow height factor from 8 to 1. WSERV seems to have increased
+   the factor it uses.
+
+2. gFONT wasn't using the current style for non-GC settings.
+
+
+
+v0.31
+-----
+Uses: DBMS 030, OPLT 018, Eikon 164 and dependencies
+
+B5 (03) release
+
+Released by Howard (26/02/97)
+
+
+New OplEdit samples:    TBARAPP
+                        TOOLBAR
+
+1. SCREEN with 4 arguments wasn't clearing the full-screen flag.
+2. Pause key handling in WINS: Ctrl+Alt+S/Q
+                      in ARM:  Ctrl+Fn+S/Q
+   Kill key in WINS: Shift+Esc
+                ARM: Ctrl+Esc
+3. 'File not found' error changed to 'Not found'
+4. 'File already exists' error changed to 'Already exists'
+5. Killing an OPL program from the task list panicked OPL.
+6. Lots of bug fixes.
+
+v0.30
+-----
+Uses: DBMS 030, OPLT 018, EIKON 163 (and Eikon dependencies)
+
+B5(02) Release
+
+(Released by Howard 20/02/97)
+
+1. Now returns to OplEdit after running from there.
+2. Bug fix: gCLOSE 1 now raises an error as required.
+3. DBASE OPX changes
+4. Changed error resource that was too long to "INCLUDE file cannot contain procedures"
+
+5. gCOLOR wasn't invalidating the GC mode so line drawing used the wrong colour.
+
+6.gBORDER & gXBorder weren't setting the GC draw mode
+
+7. Now delete the menubar before any other controls that can gain focus.
+Shift+Esc to quit program when menu was active caused access violation because the menu was
+deleted after the console control. The focus was set to the non-existent console control by 
+removing the menu from the control stack.
+
+8. Changed COplStartUp active object priority to EPriorityHigh (was
+100)
+
+9. Now construct Eikon console with flag ENoInitialCursor - the Eikon console seems to ignore
+this flag still.
+
+10. gBUTTON's fast drawing is now integrated. MINES' buttons are now draw very fast.
+(It wasn't integrated in the previous release where it was claimed to be fixed).
+
+11. ALERT() fully implemented as on OPL1993. Uses sleeping dialogs, so it is guaranteed not
+to run out of memory.
+
+12. Added mPOPUP(x%,y%,posType%,item$,hotKey%,itemx$,hotKeyx%,...)
+
+posType% is the position type controlling the relative position of the popup from x%,y%.
+It specifies which corner of the popup is given by the coordinates.
+0 - top-left
+1 - top-right
+2 - bottom-left
+3 - bottom-right
+
+item$ and hotKey% can take the same values as for mCARD, hotKey% having flag bits to specify
+check-boxes etc. Note that cascades in popups are not supported.
+
+Returns 0 if cancelled or else the shortcut value.
+
+
+v0.29
+-----
+(Released by Howard, 12 February)
+
+Uses: Dbms 030,Oplt 017,Eikon 159 (and Eikon's dependencies)
+
+B5 Test Rom (release 2)
+
+1. Runtime now returns 1 less for the Qcode error position - required by the translator for error
+location. This is needed because the runtime has already read the QCode that caused the error.
+
+2. Bug fix: OPL sets the button observer in a labelled button to labelled button allowing
+pointer events to be detected for OPL's auto-dialog buttons.
+This should probably be done by Eikon, so this code will be removed if Eikon fixes it.
+
+3. dINIT title$[,flags%] now supported (it's reasonable to require a title if flags are used
+but anyway, if title$="", a flag can be set to have no title.
+flags% can be and ORed combination of:
+- KDlgButRight% (1)
+- KDlgNoTitle% (2)
+- KDlgFillScreen% (4)
+- KDlgNoDrag% (8)
+- KDlgDensePack% (16)
+These consts are now defined in CONST.OPH (master text file is \oplr\group\const.txt)
+
+4. dFILE now supports ROM paths if you OR 256 into flags%.
+
+v0.28
+-----
+(Released by Howard, 10 February)
+
+Uses: Dbms 030,Oplt 016,Eikon 159 (and Eikon's dependencies)
+
+B5 test rom
+
+
+1. Changed maximum size of OPL variable heap to maximum memory on the machine as suggested
+by Lane.
+
+2. LENALLOC, ADJUSTALLOC and REALLOC now check cell pointer is not NULL, returning
+argument error if it is. Otherwise kernel panics. Other values can't be checked easily.
+
+3. Error from UserHeap::ChunkHeap() wasn't being checked causing an access violation on
+out of memory for a huge chunk heap.
+
+4. App architecture interface for startup changed as required.
+
+5. If a sidebar key was pressed with a menu active - it was panicking. Now OPL just 
+cancels the menu.
+
+6. Switched on 32-bit addressing #define now that translator supports it. Needs further testing.
+The previous releases still had a 64K address space limit. Fixed a few bugs in this - it couldn't be tested 
+before now.
+
+v0.27
+-----
+(Released by Howard, 4 February)
+Uses: DBMS 029, OPLT 014, Eikon 156 (and Eikon's dependencies)
+
+(NOTE: Dependency FORM 089 stops releasing FORMLINE.H, FRMTBOX.H and
+FRMTBOX.INL but FRMLAYDT.H still requires them. OPLR uses old
+versions)
+
+External changes (affecting OplEdit)
+
+1. Added EXPORT_C TInt OplAPI::MapTranslatorError(TInt aErr,TInt& aResId) so that
+OPLEDIT can get the resource id corresponding to a positive translator error or 
+R_OPLR_UNKNOWN_ERROR for a system error.
+Returns the mapped OPLR code with extra ORed signature bits in the high 16 bits to
+mark as OPL errors.
+Returns the error code unchanged for a system error code.
+
+2. Added new E32 translator error messages to OPLR.RSS so that OPLEDIT can read them:
+-127, "INCLUDE file cannot contain procedure code"         (not yet used by translator)
+-128, "Too many OPXs"                    (Module can have up to 255)
+-129, "Too many OPX functions"    (OPX can have up to 65535)
+-130, "Undefined variable"           Used when proc requires explicit variable declaration
+-131, "Undefined procedure"       Used when module requires explicit proc declaration
+
+3. Added the following to PROGRAM.H:
+#define KOplDebuggerDllPath _L("\\SYSTEM\LIBS\\")
+#define KOplDebuggerDllFilename _L("OPLDBG.DLL")
+
+4. Changed to PROGRAM.H, adding TRuntimeResBuf::iProcLineNumber to return the line number of the procedure causing the error:
+class TRuntimeResBuf
+    {
+public:
+    TInt  iError;           		// runtime error or KErrNone if no error
+    TInt  iProcLineNumber;  	// line number of the procedure in the source module ( from OPO Module)
+    TUint iOffset;          		// Q code offset to runtime error within proc
+    TBuf<40> iErrMsg;       	// runtime error string
+    TFileName iSrcFile;	    	// to take source file name causing error
+    TBuf<32> iProcName;	// to take name of procedure causing error
+    };
+
+5. Changed TRuntimeResBuf::iOffset to give the QCode error offset relative to 
+   the start of procedure causing the error. (It used to return the Qcode
+   offset from start of file for more convenient debugging.)
+   The Qcode offset does not include the procedure data definition.
+
+
+Internal changes
+
+1. Console cursor state now handled properly. It was changing it to on or off in several
+places and not restoring it to it's original state - eg. over EDIT, INPUT, PRINT, etc.
+
+2. Console cursor is now not drawn initially.
+
+3. Console now scrolls when required with a non-full-size SCREEN.
+
+4. CURSOR OFF now implemented through the console, so that it knows its state - it was
+previously just changing the window's cursor directly.
+
+5. gGREY now uses KRgbLightGrey instead of gGray16(7). This produces
+a non-dithered grey so that an xor'd cursor is visible on it.
+
+6. Grey cursor for CURSOR keyword now uses KRgbLightGrey.
+
+7. CURSOR id%,... now hides the console cursor
+
+8. Speeded up graphics by not setting the graphics context mode except
+when changed. Added COplDrawable::SetGcModeInvalid() and COplDrawable::iCurrentGcMode 
+for this.
+Whenever the drawable GC is changed directly (rather than using SetGcMode()), 
+SetGcModeInvalid() must be called. (This change has been made for all existing code).
+SetGcMode() now just returns if the same mode is passed as previously. Making
+it invalid ensures that it will change the GC next valid setting.
+
+9. Changed CONST.TXT to have KMenuOption.. instead of KMenuRadio..
+because the term "radio buttons" is no longer used in Epoc32.
+
+10. Speeded up gBUTTON by using new CONE method allowing button to be
+drawn in OPL window directly. (Note: CONE change not yet released, so 
+commented out for now).
+
+11. Added support for bitmaps in gBUTTON. Three extra optional
+arguments can be passed giving the Bitmap and mask ids and the layout:
+        gBUTTON text$,type%,width%,height%,state%[,bitMapId&[,maskId&[,layout%]]]
+where maskId% can be 0 for to specify no mask.
+layout% takes values:
+	const KButtLayoutTextRightPictureLeft%=0
+	const KButtLayoutTextBottomPictureTop%=1
+	const KButtLayoutTextTopPictureBottom%=2
+	const KButtLayoutTextLeftPictureRight%=3
+layout% can be ORed with the excess values (Eikon has this as a spearate enum)
+	const KButtExcessShare%=$00
+	const KButtExcessToText%=$10
+	const KButtExcessToPicture%=$20
+
+So for example layout%=$13 for text on left and text centred in any excess space horizontally.
+For standard toolbar buttons you would use layout%=$10 for the text on the right.
+For a picture only use text$="" 
+
+Normal OPL bitmaps can be used. 'Invalid arguments' error is raised if you use OPL windows
+for gBUTTON.
+
+Alternatively, read-only bitmaps can be loaded using OPX functions in the OPXBMP.OPX
+(released with OPLR) as follows:
+        INCLUDE "OPXBMP."
+        PROC test:
+          LOCAL bit&,mask&
+
+          bit&=BITMAPLOAD&:("myMbm",0) rem load bitmap at index 0
+          mask&=BITMAPLOAD&:("myMbm",1) rem and mask at index 1
+          gBUTTON "Test"+chr$(10)+"more"+chr$(133),2,100,50,bit&,mask&
+          BITMAPUNLOAD:(bit&)
+          BITMAPUNLOAD:(mask&)
+        ENDP
+
+Notice that chr$(10) provides a text line break and chr$(133) displays ellipsis.
+These have been defined in CONST.TXT as:
+const KScreenEllipsis%=133
+const KScreenLineFeed%=10
+
+
+Note: OPL will panic if an OPX bitmap passed doesn't represent a loaded OPX bitmap 
+(type CFbsBitMap*). OPL cannot verify that the address passed is good and attempts
+to call the C++ bitmap's member functions.
+The speed benefits of using OPX bitmaps outweigh these potential panicking problems.
+
+13. gLOADFONT no longer uses default extension .GDR
+
+14. BUSY ignores any delay% argument - follows EIKON default of 1 second always for now
+
+15. Removed all AutoFlushing from runtime. OPL now flushes WSERV messages itself.
+
+16. SETFLAGS now uses the COplRuntime::iUserStateFlags member so that
+the numbers could be rationalised. Used to share a word with the
+runtime proper.
+
+17. .ODB, .MBM and .FON default extensions no longer used.
+
+18. Changed EVAL to map translator errors
+
+19. SetPointerFilter filter%,mask% added using same settings as WSERV and added
+the following to CONST.TXT:
+	const KPointerFilterEnterExit%=$1
+	const KPointerFilterMove%=$2
+	const KPointerFilterDrag%=$4
+
+20. mCASC added. Works exactly as mCARD but for a cascade card. Previously releases
+of OPL runtime provided a temporary mechanism to support cascades by adding a leading ">"
+to the front of the title:
+
+mCARD ">Casc","ItemX on casc1",%x,"ItemY",%y    rem cascade card (Casc not displayed)
+mCARD "Card1","ItemA",%a,">Casc",16             rem normal card with cascade as 2nd item
+
+With mCASC the leading ">" in the cascade title is removed and you must now have a *trailing* 
+">" rather than a leading ">" in the item declaration, but remember that the cascade card must
+still be declared before the normal card.
+
+mCASC "Casc","ItemX on casc1",%x,"ItemY",%y rem cascade card ("Casc" not displayed)
+mCARD "Card1","ItemA",%a,"Casc>",16         rem normal card with cascade as 2nd item
+
+A cascade menu can in turn specify another cascade item.
+
+A "Too wide" error is raised if the title length >= 40 (this includes cascade titles) 
+
+Items names can display a trailing ">" without specifying a cascade, if required. To display
+one trailing ">" in the name of a cascade item use ">>".
+
+21. dBUTTONS now maps values 8, 9, 13, 27, 32 to Del, Tab, Enter, Esc and Tab and these 
+input values are also returned by DIALOG. Only 27 or -27 represent the Esc button 
+(on Opl1993 any negative value was mapped to the escape key).
+
+
+22. gCLOCK now supported except for mode=10 (formatted clocks)
+Note bug (in WSERV?): The clock is not drawn in the default
+window initially - you have to task away and back again.
+Hand-movement is drawn : every second for mode 9.
+
+23. New gCREATE support for bordered windows:
+gCREATE(x%,y%,width%,height%,vis%,flags%)
+
+The least significant 4 bits gives the grey mode as before 0,1,2,3
+The next 4 bits are true if the window has a shadow
+The next 4 bits give the shadow height relative to window behind it (currently a height of N
+gives a shadow of N pixels, but this may change on higher resolution machines)
+
+This argument is most easily specified in hex:
+So $412 specifies a 16 colour-mode ($2), shadowed window ($1), with 4 units ($4)
+above the previous window.
+$010 specifies a black and white shadowed window at the same height as the previous window.
+$001 specifies a 4 colour mode window with no shadow (height ignored if shadow disabled).
+
+
+Unreported bugs fixed
+1. Fixed bug where menu title or item too wide was panicking. Now raises "Too wide" error if
+more than Eikon's maxima.
+
+2. Any error between mINIT and menu was leaving the menu components allocated. mINIT itself
+was freeing them but they caused a panic if runtime exits before mINIT next called.
+Now call CloseMenu() in ~COplRuntime().
+
+3. Panicked if cascade item specified before any cascade titles specified.
+
+4. KEYC used to hang.
+
+5. m%=MENU(prev%) now works - using new info from Eikon
+
+
+Reported bugs fixed
+1. Rewrote gPOLY fixing bug where odd number pixels in x-direction were not drawn.
+
+2. Shift+Esc not causing exit when in active scheduler (GET, INPUT, MENU, DIALOG etc)
+
+0.26
+-----
+1. Fixed BUSY bug - message length > 40 was panicking. Now raises
+Invalid Arg error -2.
+
+2. GetEvent32 ev&() now returns $404 for system message, with ev&(3) giving the reason:
+1 for shutdown, 2 for BackupStarting, 3 for BackupComplete.
+
+3. GetEvent32 ev&() now returns code EOplEventUnknown (0x1000 | 0x400) ORed with the 
+code returned by Wserv for unknown events and fills the array with
+the code, timestamp, handle/id and TPointerEvent data.
+It used to return just 0x400.
+
+4. MOPXSD.PRJ had \epoc32\release\wins\deb\opxbmp.opx instead of \marm\
+and MOPXS.PRJ had \epoc32\release\wins\rel\opxbmp.opx instead of \marm\
+
+5. Added CONST.TXT to project containing useful constants. Currently only has a
+few definitions.
+To be released to OPL developers.
+This file needs importing into, say, CONST.OPH to convert to OplEdit format.
+
+6. Menu hotkey code binary 0 to 32 now specifies no hotkey rather than
+just 0. 
+This allows these items to be underlined by passing a negative hotkey code
+in the normal way, and cause 0 to 32 to be returned as the item id.
+
+7. Implemented support for all Eikon flags in menus. The following flags can be ORed
+together with the hotkey code:
+
+const KMenuDimmed%=$1000
+const KMenuSymbolOn%=$2000
+const KMenuSymbolIndeterminate%=$4000
+const KMenuCheckBox%=$0800
+const KMenuRadioStart%=$0900
+const KMenuRadioMiddle%=$0A00
+const KMenuRadioEnd%=$0B00
+
+A negative hotkey specifies that the item should be underlined. Negate the hotkey code
+*after* ORing in these values.
+
+
+v0.25
+-----
+Uses EIKON 144, DBMS 028, OPLT 012
+
+B4 candidate rom
+
+1. group\MNT GETCOMPS now gets OPLT (needed for EVAL)
+
+2. group\MNT now supports verbs GETOPLT and OPLTGETSRC
+
+3. gLineTo and gLineBy now don't try to emulate Opl1993 by swapping
+start and end points if drawing right to left or bottom to top.
+This makes it more efficient and removes a bug where one pixel gap
+was left between two steep lines drawn from top left to bottom right.
+
+4. Fixed some menu problems.
+
+5. Made some command-line changes in preparation for when the
+translator produces OPAs with ICN files.
+
+
+v0.24
+-----
+B4 test rom
+
+NB. Existing Opler1 OPOs and OPAs will need retranslating because the
+module format has changed (see item 1 below)
+
+1. Supports new module format. The translator now outputs a file with
+the following Root Stream structure:
+        TUid            KOplInterpreterId
+        TUint16         TranslatorVersion
+        TUint16         RuntimeVersion required
+        TStreamId       Id of stream containing source name
+        TStreamId       Id of stream containing procedure table
+        TStreamId       Id of Stream containing Opx info
+
+The Opx count is now stored in the Opx stream itself
+The Source name stream just contains an Lbc with the source name
+
+2. Program.h now released by OPL rather than by OplEdit. Gives interface 
+classes between OplEdit and OplRuntime. Also added TRuntimeResBuf::iProcName
+needed by translator for error location. The runtime currently
+returns the file offset rather than the procedure offset of the error
+to make human error location easier using DUMP.
+
+3. Handles module versions properly: ie. if module's minimum runtime
+version is less than the runtime module-handling version, OPL raises
+error -107 'Incompatible translator version' as on Opl1993
+
+4. Added lots of User::LeaveIfError()s to module file reading code
+and also added the 'L' to member functions.
+
+5. Copy keyword now uses CFileMan::NewCopy() to overwrite existing
+copies
+
+6. Fixed EVAL by:
+        - adding ReturnFromEval Qcode to runtime and translator
+        - maintaining nesting level to control exit from sequencer on error
+7. Added SETFLAGS flags&, which currently supports :
+                 const KFilterEnterExit% = $10000
+                 const KFilterMove% = $20000
+                 const KFilterChangeEnterExit% = $40000
+                 const KFilterChangeMove% = $80000
+
+8. Added DaysToDate days&,var year%,var month%,var day%
+   Inverse of dDate result - converts days since 1/1/1900 to date
+
+9. Added SETDOC doc$ which replaces Opl1993's SETNAME. Use this before
+creating an AppArch document and it will be saved with the Apps UID
+as set by APP myApp,myUid&. This was previously using the SETNAME
+Qcode.
+
+10. gCOLOR red%,green%,blue% now has a proper Qcode. It was
+previously using gDrawObject's Qcode.
+
+
+11. GetEvent32 ev&() with ev&() needing at least 16 elements, now has
+its own Qcode (OPL was previously using GetEvent ev%() with ev%(1) and
+ev%(2) both == -1 to signal GetEvent32)
+
+All events return a time stamp. 
+The OplWindowId mentioned below refers to the value returned by the gCreate()
+keywords.
+
+Scancodes correspond to a single keypress specifying a location on
+the keyboard. (But the scanCode returned for e.g. Ctrl+100 (ascii for
+'d')  is not yet specified).
+
+GETEVENT32 ev&() gets all event types handled by GETEVENT ev%() and
+others too, in some cases returning extra information as follows
+(where each item corresponds to an OPL long integer array element):
+    EventKey (keycode, timeStamp, scanCode, modifier, repeat)
+    EventFocusGained ($401,timeStamp)
+    EventFocusLost ($402,timeStamp)
+    (other Opl1993 events found from other sources? - ie. Switch on 
+    (TBS in WSERV), Date changed (TBS in WSERV), Exit (specified in EIKON???)
+    : note that Switch files not applicable on Opler1)
+    EventKeyDown, ($406, timeStamp,scanCode,modifiers)
+    EventKeyUp ($407, timeStamp,scanCode,modifiers)
+    EventPointer, ($408, see below)
+    EventPointerEnter ($409, timeStamp,OplWindowId)
+    EventPointerExit, ($40A, timeStamp,OplWindowId)
+    EventBufferedPointer ($40B) - 
+TBS in WSERV (reads multiple events into buffer of size we specify 
+- how is the buffer structured and what events are included).
+
+For Pointer event code the message returned is: 
+{timeStamp,OplWindowId,pointerType, modifiers, positionPoint,
+positionPointRelParent } where type can be
+{button1Down,button1Up,button2Down,button2Up,button3Down,button3Up,
+touch,removed,drag,move}
+button2Down,button2Up,button3Down,button3Up and move  apply only to
+non-pen pointers.
+
+12. Added GetEventA32 var stat%,ev&() with ev&() needing at least 16
+elements. Async version of GetEvent32
+
+13. Added GetEventC(var stat%) to cancel a GetEventA32
+(Function syntax used to match IOCANCEL etc. - a bit mad)
+
+14. Implemented ESCAPE ON/OFF - use Shift+Esc to break for now
+
+15. Long font ids supported for gFONT, FONT
+   (font ids 3-13 are still mapped by runtime to rom fonts as required)
+
+16. gLOADFONT changed back to Opl1993 args (UID is required for gFONT/FONT only)
+
+17. e$=ERRX$ gives extended error message "Error in module\proc,missExt1,missExt2,..."
+- useful when error trapped in OPL program but need to find details
+
+18. id%=gCREATEBIT(width%,height%[,mode%]) - new optional colour arg mode%.
+	INTERNAL_RELEASE switch allows old syntax too.
+
+19. ALERT implemented but User::Alert seems to ignore all button args.
+
+20. Removed gINFO opcode and added gINFO32 opcode (gINFO used to do gINFO32)
+
+21. Added:
+- gCOLOR red%,green%,blue%                      extended 0x24
+- SETFLAGS f&                                   extended 0x25
+  - only PointerFilter settings supported for now
+- SETDOC doc$ replaces SETNAME name$            extended 0x26
+- DaysToDate days&,var y%, var m%, var d%       extended 0x27
+- gINFO32 var info&()                           extended 0x28
+- doc$=GETDOC$                                  func 0xD9
+           gives extended error message "Error in module\proc,missExt1,missExt2,..."
+           useful when error trapped in OPL program but need to find details
+
+Added to sequencer but still in not_yet:
+- IOWAITSTAT32 var stat&                        extended 0x29
+- COMPACT dbase$                                extended 0x2A
+- DBMS transaction keywords:
+        - BEGINTRANS                            extended 0x2B
+        - COMMITTRANS                           extended 0x2C
+        - ROLLBACK                              extended 0x2D
+        - r%=INTRANS                            func 0x57
+
+22. Added space character at the end of Error text in case '&' at end
+    (temporary fix for B4)        
+
+23. Removed COMPRESS (replaced by COMPACT) and RECSIZE
+
+24. void OplAPI::OpenCheckL() added. Checks there is a current data file
+
+25. Changed gPeekLine to take optional mode% arg, with default -1 for
+    S3a equivalence.
+    -1 for black/white, black sets pixels,
+    0 for black/white, white sets pixels,
+    1 for 2 color mode, white sets pixels,
+    2 for 4 color mode, white sets pixels,
+    3 for 16 color mode, white sets pixels.
+
+26. gButton now supported - type% 3 is used for Opler1 buttons with
+    state% as per the C++ enums for button states.
+
+Known bugs:
+1. menu(pos%) is broken when menu has cascades
+
+
+v0.23 27/11/96
+-----
+Uses Eikon 132, DBMS 027
+
+1.  Upgraded to new Eikon etc.
+2.  Logical files A-Z supported
+3.  Error message changed to 'Logical device must be A-Z'
+4.  Todo.txt completed
+5.  List function was directly accessing unaligned doubles
+6.  Some console bugs fixed
+7.  Opl command line supports command E and error result buffer IPC info from OplEdit
+8.  If called from OplEdit sends IPC message containing error info on runtime exit
+9.  EVAL partially supported (except strings and procedure calls)
+10. Main test harness now fully running on Opler1
+
+

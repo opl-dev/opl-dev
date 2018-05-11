@@ -1,0 +1,32 @@
+; DemoOPL Installation Package
+; for 9200 SDK
+; v1.55
+;
+&EN
+#{"DemoOPL Application"},(0x1000913C),1,51,001
+;
+
+; Digitally sign this .sis file
+*"..\..\..\..\Symbian.key","..\..\..\..\Symbian.cer"
+
+; Files to remove on uninstallation
+
+""-"C:\System\Apps\DemoOPL\DemoOPL.ini",FN
+
+; Component SIS files
+;
+@"sis\DBaseOPX.sis",(0x1000025B)
+
+;
+; Essential Application Files
+"\Symbian\6.0\NokiaCPP\epoc32\wins\c\System\Apps\DemoOPL\DemoOPL.aif"-"!:\System\Apps\DemoOPL\DemoOPL.aif"
+"\Symbian\6.0\NokiaCPP\epoc32\wins\c\System\Apps\DemoOPL\DemoOPL.app"-"!:\System\Apps\DemoOPL\DemoOPL.app"
+"\Symbian\6.0\NokiaCPP\epoc32\wins\c\System\Apps\DemoOPL\DemoOPL.mbm"-"!:\System\Apps\DemoOPL\DemoOPL.mbm"
+;
+; Optional Help File
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\urel\z\System\Help\DemoOPL.hlp"-"!:\System\Help\DemoOPL.hlp"
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 55, 001, {"OPL Runtime"}
+;

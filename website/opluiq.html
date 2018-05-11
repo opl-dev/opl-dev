@@ -1,0 +1,129 @@
+<!-- opluiq.html
+15 February 04 - First draft.
+16 Feb 04 - Revisions.
+19 June 04 - Released v0.52 of OPL for UIQ.
+8 January 05 - Released v0.54 for UIQ.
+-->
+
+<html><head>
+<title>OPL UIQ phones</title>
+</head>
+
+<body>
+<a name="anchortop"></a>
+<table border="0" summary="Layout">
+<tr>
+<td valign="top" align="left">
+<table border="0" cellspacing="0" cellpadding="0" width="104" summary="layout">
+<tr valign="top" align="left">
+<td width="100"><FONT FACE="Verdana" SIZE="2">
+<A HREF="abouticon.html"><IMG SRC="images/opl-devicon.png" ALT="opl-dev icon"></A>
+<P>
+<a href="#status">Current status</a>
+<p>
+<a href="#user">UIQ user package</a>
+<p>
+<a href="#release">Release notes</a>
+<p>
+<a href="#screenshots">Screenshots</a>
+<p>
+<a href="#dialogs">Dialogs</a>
+<p>
+<a href="index.html">Back to homepage</a>
+<br>
+
+</td>
+<td><br></td>
+</tr>
+</table>
+</td>
+
+<td valign="top" align="left"><FONT FACE="Verdana" SIZE="2">
+<h2>OPL for UIQ phones</h2>
+<p>
+The user package for UIQ phones is available for download here. This will run OPL on the following phones:
+<br>
+<ul>
+<li>Sony Ericsson P800, P900 and P910</li>
+<li>Motorola A920, A925 and A1000 (<a HREF="#dialogs">see below</a>)</li>
+<li>BenQ P30</li>
+<li>Other UIQ phones</li>
+</ul>
+Simply download the .SIS file to your phone, and install it.
+<br>
+
+<h3><a name="status">Current status</a></h3>
+OPL for UIQ phones is a Beta v0.54 release. This means the software is still 
+subject to change, but the functionally is almost complete.
+<p>
+(For more information about developing for this version, please take a look at the 
+<a href="opldev.html#uiq">UIQ section on the OPL developer page</a>.)
+
+
+<h3><a name="user">UIQ OPL users package SIS file v0.54 (about 120 KB)</a></h3>
+The UIQ OPL users package is available under the <a href="lgpl.txt">LGPL 
+license</a>. To download the OPL-UIQ-054a.SIS file, 
+<a href="http://prdownloads.sourceforge.net/opl-dev/OPL-UIQ-054a.SIS?download">click here</a>.
+<p>
+Note: If you also wish to write OPL programs, you will need an <a href="opldev.html">
+OPL developers pack</a>.
+
+<h3><a name="release">Release notes</a></h3>
+The changes for this v0.54 release of OPL are:
+<ul>
+
+<li>Fixed bug 
+<A HREF="https://sourceforge.net/tracker/index.php?func=detail&aid=922555&group_id=76695&atid=547965">
+[922555] UIQ: dINIT Problems with Buttons.</A></li>
+Empty dialogs were incorrectly created with three buttons labelled 
+"Continue","Other","OK". With this fix, just one button "OK" is shown.
+<li>Fixed bug 
+<A HREF="https://sourceforge.net/tracker/index.php?func=detail&aid=908415&group_id=76695&atid=547965">
+[908415] dButton Command - Four buttons as default on UIQ (p800).</A></li>
+Unwanted blank buttons are now removed from dialogs. 
+</ul>
+</ul>
+There's further info in the <a href="opldev.html#uiq">UIQ section on the OPL 
+developer page</a> if you require technical details on developing for UIQ.
+<p>
+
+<h3><a name="dialogs">Dialog problems</a></h3>
+OPL doesn't run correctly on some (early?) versions of Motorola A920 and A925. Specifically, there 
+are problems with OPL dialogs. e.g. CONE 4 panic when using an OPL dialog, or inability to use the 
+touchscreen to edit a field in a dialog.<br>
+We're looking into this. However, we've only had a couple of reports on the problem. You can help 
+- if you have one of these phones and you've seen this OPL dialog problem, please 
+<a HREF="https://sourceforge.net/tracker/?group_id=76695&atid=547965">submit a bug report</a>.
+<p>
+
+<h3><a name="screenshots">Screenshots</a></h3>
+Here are some screenshots of OPL running on UIQ. Click on the thumbnail for the full-size image.
+<p>
+
+<!-- Cut n paste from here... -->
+<p>
+Here's the DemoOPL app running on a UIQ emulator:
+<p><a href="images/demoopluiq.png">
+<img src="images/demoopluiqthumb.png" alt="thumbnail of DemoOPL app on UIQ"></a>
+<!-- ...to here-->
+
+<br>
+<br>
+<a href="index.html">Back to opl-dev project homepage</a>
+
+<br>
+<br>
+<a href="http://sourceforge.net">
+<img src="http://sourceforge.net/sflogo.php?group_id=76695&amp;type=1" width="88" height="31" 
+border="0" align=right alt="SourceForge.net Logo" />
+</a> 
+
+<a href="http://www.symbian.com/">
+<img src="images/symbian.png" alt="Symbian logo" align=left />
+</a>
+
+</td>
+</tr>
+</table>
+</body>
+</html>

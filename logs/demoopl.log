@@ -1,0 +1,59 @@
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\DEMOOPL\GROUP\EXPORT.make" EXPORT VERBOSE=-s
+	md "\Symbian\6.0\NokiaCPP\EPOC32\wins\c\OPL"
+	md "\Symbian\6.0\NokiaCPP\EPOC32\wins\c\OPL\DemoApp"
+	copy "\OPL\DEMOOPL\Help\DemoOPL.hlp.oph" "\Symbian\6.0\NokiaCPP\EPOC32\wins\c\OPL\DemoApp\DemoOPL.hlp.oph"
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\DEMOOPL\GROUP\WINS.make" MAKEFILE VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\DEMOOPL.MK" PLATFORM=WINS MAKMAKE
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\BLDDEMOHELP.MK" PLATFORM=WINS MAKMAKE
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\DEMOOPL\GROUP\WINS.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\DEMOOPL.MK" PLATFORM=WINS LIB
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\BLDDEMOHELP.MK" PLATFORM=WINS LIB
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\DEMOOPL\GROUP\WINS.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\DEMOOPL.MK" PLATFORM=WINS CFG=UDEB RESOURCE
+Building \Symbian\6.0\NokiaCPP\epoc32\wins\c\System\Apps\DemoOPL\DemoOPL.mbm
+Building ..\..\DemoOPL\src\DemoIcon.mbm
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\BLDDEMOHELP.MK" PLATFORM=WINS CFG=UDEB RESOURCE
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\DEMOOPL\GROUP\WINS.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\DEMOOPL.MK" PLATFORM=WINS CFG=UREL RESOURCE
+Building \Symbian\6.0\NokiaCPP\epoc32\wins\c\System\Apps\DemoOPL\DemoOPL.mbm
+Building ..\..\DemoOPL\src\DemoIcon.mbm
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\BLDDEMOHELP.MK" PLATFORM=WINS CFG=UREL RESOURCE
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\DEMOOPL\GROUP\WINS.make" TARGET CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\DEMOOPL.MK" PLATFORM=WINS CFG=UDEB BLD
+Building ..\..\DemoOPL\src\DemoIcon.mbm
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\BLDDEMOHELP.MK" PLATFORM=WINS CFG=UDEB BLD
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\DEMOOPL\GROUP\WINS.make" TARGET CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\DEMOOPL.MK" PLATFORM=WINS CFG=UREL BLD
+Building ..\..\DemoOPL\src\DemoIcon.mbm
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+        1 file(s) copied.
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\BLDDEMOHELP.MK" PLATFORM=WINS CFG=UREL BLD
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\DEMOOPL\GROUP\WINS.make" FINAL CFG=UDEB VERBOSE=-s
+
+Sorry, the file "\DemoOPL\Help\Help.rtf" is listed in the project file, yet is not present. Either ensure there is a file there, or correct the project file.
+
+Critical Error at J:/Symbian/6.0/Shared/epoc32/tools\cshlpcmp\perl/ProjFile.pm line 756
+NMAKE : fatal error U1077: '\Symbian\6.0\Shared\epoc32\tools\cshlpcmp' : return code '0x2'
+Stop.
+NMAKE : fatal error U1077: 'c:\apps\msvc6\VC98\bin\nmake.exe' : return code '0x2'
+Stop.
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\DEMOOPL.MK" PLATFORM=WINS CFG=UDEB FINAL
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\BLDDEMOHELP.MK" PLATFORM=WINS CFG=UDEB FINAL
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\DEMOOPL\GROUP\WINS.make" FINAL CFG=UREL VERBOSE=-s
+
+Sorry, the file "\DemoOPL\Help\Help.rtf" is listed in the project file, yet is not present. Either ensure there is a file there, or correct the project file.
+
+Critical Error at J:/Symbian/6.0/Shared/epoc32/tools\cshlpcmp\perl/ProjFile.pm line 756
+NMAKE : fatal error U1077: '\Symbian\6.0\Shared\epoc32\tools\cshlpcmp' : return code '0x2'
+Stop.
+NMAKE : fatal error U1077: 'c:\apps\msvc6\VC98\bin\nmake.exe' : return code '0x2'
+Stop.
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\DEMOOPL.MK" PLATFORM=WINS CFG=UREL FINAL
+	nmake -nologo -s  -f "\OPL\DEMOOPL\GROUP\BLDDEMOHELP.MK" PLATFORM=WINS CFG=UREL FINAL

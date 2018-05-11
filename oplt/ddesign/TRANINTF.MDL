@@ -1,0 +1,340 @@
+
+(object Petal
+    version    	37)
+
+(object Design "<Top Level>"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    defaults   	(object defaults
+	rightMargin 	0.250000
+	leftMargin 	0.250000
+	topMargin  	0.250000
+	bottomMargin 	0.500000
+	pageOverlap 	0.250000
+	clipIconLabels 	TRUE
+	autoResize 	FALSE
+	snapToGrid 	TRUE
+	gridX      	16
+	gridY      	16
+	defaultFont 	(object Font
+	    size       	10
+	    face       	"Arial"
+	    bold       	FALSE
+	    italics    	FALSE
+	    underline  	FALSE
+	    strike     	FALSE
+	    color      	0
+	    default_color 	TRUE)
+	showMessageNum 	3
+	showClassOfObject 	TRUE
+	notation   	"Booch")
+    root_category 	(object Class_Category "<Top Level>"
+	exportControl 	"Public"
+	global     	TRUE
+	subsystem  	"<Top Level>"
+	logical_models 	(list unit_reference_list
+	    (object Class "CTextTranslator"
+		documentation 	"Abstract base class for an unspecified translator (such as OPL)"
+		fields     	(list has_relationship_list
+		    (object Has_Relationship
+			label      	"iTextSource"
+			supplier   	"MTextSource"
+			supplier_cardinality 	(value cardinality "0..n")))
+		used_nodes 	(list uses_relationship_list
+		    (object Uses_Relationship
+			label      	"iSourceSystem"
+			supplier   	"MTextSourceSystem"
+			supplier_cardinality 	(value cardinality "1")
+			client_cardinality 	(value cardinality "1"))
+		    (object Uses_Relationship
+			label      	"iTranslateError"
+			supplier   	"TTranslateError"
+			supplier_cardinality 	(value cardinality "1")
+			client_cardinality 	(value cardinality "1")))
+		abstract   	TRUE
+		operations 	(list Operations
+		    (object Operation "StartTranslate"
+			documentation 	"Called prior to calling TranslateChunk repeatedly and also use to set the mode to actually produce the translated output (by providing a file name) or just to check the source."
+			parameters 	(list Parameters
+			    (object Parameter "aTextSystem"
+				type       	"MTextSystem *")
+			    (object Parameter ""
+				type       	"TTranslateError&")
+			    (object Parameter "aSource")
+			    (object Parameter "aTarget"))
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "TranslateChunk"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0))
+		statediagram 	(object State_Diagram ""
+		    title      	""
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list)))
+	    (object Class "MNestedTextSource"
+		documentation 	"Mixin used to read a text source that can include named included files"
+		abstract   	TRUE
+		operations 	(list Operations
+		    (object Operation "ReadText"
+			documentation 	"Reads text into the buffer from the specified line"
+			parameters 	(list Parameters
+			    (object Parameter "aPos")
+			    (object Parameter "aBuf"
+				type       	"TDes"))
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "Open"
+			parameters 	(list Parameters
+			    (object Parameter "aName"))
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "Include"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "CloseAlI"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class "TTextPosition"
+		documentation 	"Class used to reference a position within a text source"
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "iFile"
+			documentation 	"The name of the text file"
+			type       	"TFileName")
+		    (object ClassAttribute "iPos"
+			documentation 	"The position within the file"
+			type       	"TInt")))
+	    (object Class "TTranslateError"
+		operations 	(list Operations
+		    (object Operation "ErrorText"
+			parameters 	(list Parameters
+			    (object Parameter "aBuf"
+				type       	"TDes&"))
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0))
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "TFileName iFileName")
+		    (object ClassAttribute "TInt iPosition")
+		    (object ClassAttribute "TInt iError")))
+	    (object Class "MTextSourceSystem"
+		documentation 	
+|The thing that maps (file) names onto a RTextSources. One of these is passed to the Translator which can then open RTextSources as it needs them.  
+|RTextSource is a friend and has access to the Do... member functions
+|
+|
+		
+		used_nodes 	(list uses_relationship_list
+		    (object Uses_Relationship
+			label      	"rSource"
+			supplier   	"MTextSource"))
+		abstract   	TRUE
+		operations 	(list Operations
+		    (object Operation "DoOpenSource"
+			parameters 	(list Parameters
+			    (object Parameter "aSource"
+				type       	"RTextSource&")
+			    (object Parameter "aName"
+				type       	"TDesC&"))
+			concurrency 	"Sequential"
+			opExportControl 	"Protected"
+			uid        	0)))
+	    (object Class "MTextSource"
+		documentation 	"c.f RFile. This is a handle to a source of blocks of text. It is opened wrt to an MTextSystem."
+		operations 	(list Operations
+		    (object Operation "Read"
+			documentation 	"Reads as much as is possible into aBuf from the current position in the ReadSource. Returns as for RFile.Read()."
+			parameters 	(list Parameters
+			    (object Parameter "aBuf"
+				type       	"TDes&"))
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "Read"
+			parameters 	(list Parameters
+			    (object Parameter "aPos"
+				type       	"TInt")
+			    (object Parameter "aBuf"
+				type       	"TDes&"))
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "Close"
+			documentation 	"Closes the TextSource"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class "RHandle"))
+	logical_presentations 	(list unit_reference_list
+	    (object ClassDiagram "Main"
+		title      	"Main"
+		zoom       	95
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object ClassView "Class" "CTextTranslator" @1
+			location   	(944, 656)
+			label      	(object ItemLabel
+			    Parent_View 	@1
+			    location   	(767, 512)
+			    nlines     	2
+			    max_width  	417
+			    justify    	0
+			    label      	"CTextTranslator")
+			compartment 	(object Compartment
+			    Parent_View 	@1
+			    location   	(806, 577)
+			    anchor     	2
+			    nlines     	2
+			    max_width  	338
+			    justify    	0
+			    compartmentItems 	(list Compartment
+				"StartTranslate( )"
+				"TranslateChunk( )"))
+			width      	605
+			height     	427)
+		    (object ClassView "Class" "TTranslateError" @2
+			location   	(944, 1456)
+			label      	(object ItemLabel
+			    Parent_View 	@2
+			    location   	(760, 1301)
+			    nlines     	2
+			    max_width  	435
+			    justify    	0
+			    label      	"TTranslateError")
+			compartment 	(object Compartment
+			    Parent_View 	@2
+			    location   	(778, 1366)
+			    anchor     	2
+			    nlines     	4
+			    max_width  	390
+			    justify    	0
+			    compartmentItems 	(list Compartment
+				"ErrorText( )"
+				"TFileName iFileName"
+				"TInt iPosition"
+				"TInt iError"))
+			width      	631
+			height     	456)
+		    (object ClassView "Class" "MTextSourceSystem" @3
+			location   	(2144, 656)
+			label      	(object ItemLabel
+			    Parent_View 	@3
+			    location   	(1986, 525)
+			    nlines     	2
+			    max_width  	371
+			    justify    	0
+			    label      	"MTextSourceSystem")
+			compartment 	(object Compartment
+			    Parent_View 	@3
+			    location   	(2002, 639)
+			    anchor     	2
+			    nlines     	1
+			    max_width  	338
+			    justify    	0
+			    compartmentItems 	(list Compartment
+				"DoOpenSource( )"))
+			width      	539
+			height     	388)
+		    (object ClassView "Class" "MTextSource" @4
+			location   	(2144, 1472)
+			label      	(object ItemLabel
+			    Parent_View 	@4
+			    location   	(2014, 1366)
+			    nlines     	2
+			    max_width  	304
+			    justify    	0
+			    label      	"MTextSource")
+			compartment 	(object Compartment
+			    Parent_View 	@4
+			    location   	(2089, 1431)
+			    anchor     	2
+			    nlines     	2
+			    max_width  	151
+			    justify    	0
+			    compartmentItems 	(list Compartment
+				"Read( )"
+				"Close( )"))
+			width      	441
+			height     	316)
+		    (object HasView "iTextSource" @5
+			label      	(object ItemLabel
+			    Parent_View 	@5
+			    location   	(1573, 1082)
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"iTextSource")
+			client     	@1
+			supplier   	@4
+			line_style 	0)
+		    (object UsesView "iSourceSystem" @6
+			label      	(object ItemLabel
+			    Parent_View 	@6
+			    location   	(1539, 656)
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"iSourceSystem")
+			client     	@1
+			supplier   	@3
+			line_style 	0)
+		    (object UsesView "iTranslateError" @7
+			label      	(object ItemLabel
+			    Parent_View 	@7
+			    location   	(944, 1057)
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"iTranslateError")
+			client     	@1
+			supplier   	@2
+			line_style 	0)
+		    (object UsesView "rSource" @8
+			label      	(object ItemLabel
+			    Parent_View 	@8
+			    location   	(2144, 1084)
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	"rSource")
+			client     	@3
+			supplier   	@4
+			line_style 	0)))))
+    root_subsystem 	(object SubSystem "<Top Level>"
+	physical_models 	(list unit_reference_list)
+	physical_presentations 	(list unit_reference_list
+	    (object Module_Diagram "Main"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    process_structure 	(object Processes
+	ProcsNDevs 	(list
+	    (object Process_Diagram ""
+		title      	""
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    properties 	(object Properties))

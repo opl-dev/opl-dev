@@ -1,0 +1,31 @@
+// ARRAY.MMP
+//
+// Copyright (c) 2005 Arjen Broeze. All rights reserved.
+
+TARGET		Array.opx
+TARGETTYPE	dll
+TARGETPATH	\System\Opx
+UID			0x10003A7B 0x10204D05
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH	..\Array
+SOURCE		Array.cpp
+DOCUMENT	Array.txh
+
+SOURCEPATH	..\TSrc
+
+USERINCLUDE	..\src
+SYSTEMINCLUDE	\epoc32\include
+
+LIBRARY         euser.lib oplr.lib fbscli.lib
+
+DEFFILE		OPX.DEF

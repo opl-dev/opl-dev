@@ -1,0 +1,31 @@
+// OPLWRAPPER.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+
+target		VEXED.APP
+targettype	APP
+targetpath	\SYSTEM\APPS\VEXED
+UID			0x100039CE 0x100069ac
+
+SOURCEPATH	..\OPLWRAPPER
+
+document	vexedaif.rss
+source		OPLAPPWRAPPER.CPP 
+
+resource	..\oplwrapper\vexed_caption.rss 
+resource	..\oplwrapper\vexed.rss
+LANG     	SC
+
+systeminclude	..\INC \EPOC32\INCLUDE  
+userinclude		..\src
+
+USERINCLUDE . ..\inc
+
+LIBRARY oplr.lib
+LIBRARY euser.lib 
+LIBRARY apparc.lib 
+LIBRARY eikcore.lib
+LIBRARY avkon.lib
+
+AIF vexed.aif ..\oplwrapper vexedaif.rss c8 icon2_large.bmp mask2_large.bmp icon_small.bmp mask_small.bmp

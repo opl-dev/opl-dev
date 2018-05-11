@@ -1,0 +1,18 @@
+; contactopx.pkg
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"Contacts OPX"}, (0x10003ED7), 0, 40, 116, TYPE=SY
+;
+; Files
+;
+"\Symbian\6.1\Series60\epoc32\release\thumb\urel\contact.opx"-"!:\System\OPX\Contact.opx", FF
+;
+; Depends on OPL.sis being installed, atleast v0.30(001)
+;
+(0x1000904D), 0, 30, 001, {"OPL Runtime - Series 60 - Alpha release"}
+;

@@ -1,0 +1,202 @@
+// RELEASE.TXT
+//
+// Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+
+OPX
+===
+117 (released as ?????? by ???, ??/??/????)
+ None so far
+
+116 (released as 215813 by PhilS, 09/11/2002)
+ AppFrame/System/SendAs: Updated PKG files to 1.00 for release
+ All other OPXs: Updated all other PKG files to to 0.40(116) with 1.00 runtime dependency
+ Buffer OPX: Added into main OPX tree (and builds)
+ Data OPX: Added into main OPX tree (and builds)
+ Spell OPX: Added into main OPX tree (and builds)
+ Spell OPX: Added dependency on Spell SIS file being installed
+
+115 (released as 159203 by Rick, 18/03/2002)
+ All OPXs: Provided new Perl script and Batch file (NewOPXVersion.*) to automate version changes
+ All OPXs: Using the new tool, updated all PKG files to 0.30 plus current OPX group build number
+ All OPXs: Made all OPX PKG files include a dependency on the current OPL.sis package
+ AppFrame OPX: Added function to give access to CCknInfoDialog
+ MediaServerOPX: Added Rick's changes to make the OPX work
+ System OPX: Added function to get basic phone info (e.g. IMEI)
+
+114 (released as 140887 by Rick, 20/12/2001)
+ All OPXs: Updated PKG file versions to at least 0.20 for DevNet Beta Release
+ All OPXs: Updated TXH file copyright dates to include 2002 for DevNet Beta Release
+ AppFrame OPX: Added function to give access to CCknConfirmationDialog (same as one removed above)
+ AppFrame OPX: Now creates an IrListenerAppUi to let the developer Toggle IrDA status
+ AppFrame OPX: Now adds links to Desk correctly for non-document based applications
+ AppFrame OPX: Fixed OfferKey bug where Ctrl+(Shift)+(Alt)+M would be treated (and consumed) as Enter
+ AppFrame OPX: Removed unnecessary NULL setting in DTOR
+ Bmp OPX: Removed unnecessary NULL setting in DTOR
+ Locale OPX: Fixed release build compiler warning
+ SComms OPX: Removed unnecessary NULL setting in DTOR
+ SendAs OPX: Fixed "EDNDCAH-55DGWE STAB: COpxSendAsEngine cleanup stack problem" in LaunchSend method
+ System OPX: Removed CCknConfirmationDialog access function (too UI specific)
+
+113 (released as 136646 by Rick, 30/11/2001)
+ System OPX: Fixed SyLogonToThread crashing WINS (by uncommenting previous Resume() call)
+ 
+112 (released as 118263 by Rick, 14/09/2001)
+ System OPX: Added new function to give access to CCknConfirmationDialog
+
+111 (released as 117631 by Rick, 10/09/2001)
+ AppFrame OPX: Changes to make it work better if OPLR has its own status pane. The OPX now changes
+               the narrow/wide setting, sets visibility, etc. for any StatusPane present in the
+               AppUiFactory in the same way as it does it's own iStatusPane one.
+ Locale OPX: Major re-write! This fixes wrong and missing enum values and functions. Now in-line with
+             Crystal_Opx_Changes.xls proposals (but with some alterations from the plan)
+ System OPX: Changed RunApp to cope with new EApaCommandRunWithoutViews possibility
+ System OPX: Extended Link Bps values to include new higher Bps possibilities in V6
+ System OPX: Added CONSTs for SyRemoteLinkEnableWithOptions: to header file
+ System OPX: Changes to all functions using RRemoteLink to use CleanupClosePushL()
+ System OPX: Add function to return current the system's default document folder
+ System.opx: Fixed all the wrong HAL CONSTs! Added some new values to bring it inline with current hal_data.h
+
+110 (released as 115660 by Rick, 23/08/2001)
+ DBUtils merged into DBase
+ Agenda2 renamed to Agenda
+ Cnvopx renamed to Convert
+ Cntopx renamed to Contact
+ Many other changes to Alarm, System, SendAs and AppFrame
+
+109 (released as ????? by Rick, xx June 2000)
+ Fixed defect EDNRANS-4K7PFJ "OPL has viewsrv problems with EApaCommandOpen'ed docs"
+ Renamed BGOPX as AppFrame.OPX.
+ Fixed a parameter-type bug in SySetComputeMode:(state&)
+
+108 (released as 33642 by Rick, 8 May 2000)
+ Minor changes to System OPX for ViewSrv changes.
+ Started to rationalise the names of system constants e.g. KSy....
+ Added wrapper for User::InactivityTime.
+
+//
+// Old (ER5) releases
+//
+RELEASE.TXT for the OPX group
+=============================
+This OPX GROUP contains a collection so the OPX's available for OPL developers 
+to use in OPL programs. 
+
+Contents of GROUP
+---------------
+The group contains the following files & directories
+
+\agnopx		!! AGNOPX.OPX 
+
+\alarm      !! ALARM.OPX - 
+
+\arrayopx	!! ARRAY.OPX - descriptor arrays 
+
+\buffer     !! buffer opx 
+ 
+\cntopx		!! CONTACT.OPX 
+
+\damodel    !! DAMODEL.OPX - this reads labels from the data app engine, 
+					in releases <=005, this was known as DATA.OPX 
+
+\dbutils    !! DBUTILS.OPX - (used to refresh a view in DBMS) 
+
+\message    !! MESSAGE.OPX - 
+ 
+\music      !! MUSIC.OPX = 
+
+\opldb		!! DATA.OPX - 
+\scomms		!! SCOMMS.OPX - IrDA communications via IrCOMM (suitable for 
+					talking to data modem equipped mobile phones 
+
+\spell      !! SPELL.OPX - 
+
+\sstore		!! stream store opx
+
+\subst      !! SUBST.OPX - 
+
+\sysinfo	!! System and Shell utility functions.
+
+\sysram1	!! SYSRAM1.OPX
+
+
+Revision history
+****************
+
+release 006
+===========
+General
+-------
+
+New "MNT INSTSDK" now builds the directories/files needed for the OPL ER5 SDK. 
+
+Added the following OPXs: Alarm, Buffer, Message, Music, Data(OPLDB), 
+Spell, Subst.
+
+Names of some of the OPXs needed changing to strip them of their prefix.  
+This also required new UIDs for them.  The ones affected were:
+
+			Old Uid     New UID
+	Alarm	10000d3c	10004ec8
+	Buffer  10000d3b	10004ec9
+    Data    10000d3a	10004ec7
+    Subst   10000d39    10004eca
+
+Changed dependancies.
+
+Emulator now includes Agenda for testing the AGNOPX.
+
+CONTACT
+-------
+Uids and VcardMap order changed to match documentation.
+
+Test code changed to reflect review comments.
+
+SCOMMS
+------
+Changes to reflect latest version in OPXER3.
+
+SYSRAM1
+-------
+Upped the minor version number.  Now 1.01 rather than 1.00
+
+SYSINFO
+-------
+Test code changes, so that it will pass when the emulator has been freshly 
+rebuilt.
+
+
+release 005
+===========
+General
+-------
+Added dbutils to the group. This is used to fix a change in DBMS for ER5 which 
+requires a view to be refreshed after changes.
+
+Dependancies updated.
+
+Getcomps now gets OPLTRAN.
+
+EBLD INSTALL ALL now converts and moves test programs to C:\OPXTest on the emulator.
+
+Contact
+-------
+Changes to behaviour of contact OPX to reflect API improvements identified whilst
+writing docs for the ER5 SDK.  Behaviour is now as described in the docs.
+
+Procedure ordinals changed.
+
+VCard mapping CONSTS added to OXH.
+
+Sysinfo
+-------
+Updated to fix bugs when running on ER5.
+
+OwnerInfo now uses Richtext object rather than hacking a value out of the 
+shell.ini stream.
+
+Gcc warnings removed.
+
+OXH modified to use full english identifiers in parameters.  Also several useful
+consts defined.
+
+Test code written to test procedures that have been updated.

@@ -1,0 +1,6 @@
+declare opx fred,&1,$10
+    proc1:() : 1
+    proc2&:(w%) : 12
+    proc3&:(f4,x%,y$) : 3
+    proc4&:(BYREF f4,x%,y$) : 125
+end declare

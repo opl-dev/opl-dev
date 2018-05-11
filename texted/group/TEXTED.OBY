@@ -1,0 +1,29 @@
+#define ZSYSDATA		\epoc32\wins\z\system\data
+#define ZSYSFONTS 		\epoc32\wins\z\system\fonts
+#define ZSYSPRINTERS	\epoc32\wins\z\system\printers
+#define KUidAppDll		268435569
+#define EXEUID			uid1=0x10000079
+
+romname=txt##ROMVER##ROMVAR##.img
+version=0.01(##ROMVER##)
+
+#include "header.iby"	/* data definitions */
+#include "base.iby"		/* standard Base components */
+#include "sockets.iby" 	/* standard Sockets components */
+#include "graphics.iby" /* standard Graphics components */
+#include "meson.iby"	/* standard Meson components */
+#include "eikon.iby"	/* standard Eikon components */
+
+file=RELDIR\econs.dll 	\system\libs\econs.dll EXEUID
+file=RELDIR\eshell.exe	\system\programs\eshell.exe EXEUID
+
+#include "printers.iby"	/* printer drivers */
+
+file=RELDIR\lshell.app 		system\apps\lshell\lshell.app EXEUID uid2=KUidAppDll uid3=101
+data=ZSYSDATA\lshell.rsc 	system\data\lshell.rsc
+
+file=RELDIR\word.app 	system\apps\texted\texted.app EXEUID uid2=KUidAppDll uid3=268435589
+data=ZSYSDATA\texted.rsc 	system\data\texted.rsc
+
+data=RELDIR\repro.exe 	ram\repro.exe
+											 

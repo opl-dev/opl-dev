@@ -1,0 +1,39 @@
+rem AppFrame.oxh
+rem Series60 version.
+
+CONST KUidAfOpx&=&10005235
+REM Still an alpha OPX on Series 60.
+CONST KVersionAfOpx%=$025
+
+CONST KAfStatusPaneTypeNarrow%=1
+CONST KAfStatusPaneTypeWide%=2
+
+CONST KAfTitleTypeMainTitle%=1
+CONST KAfTitleTypeTitleExtension%=2
+
+DECLARE OPX APPFRAME,KUidAfOpx&,KVersionAfOpx%
+	AfOfferEvent%:(aEv1&,aEv3&,aEv4&,aEv5&,aEv6&,aEv7&) :1
+	AfSetCBAButton:(aButtonIndex%,aText$,aBitmapId%,aMaskId%,aCallback$) :2
+	AfSetCBAButtonDefault:(aButtonIndex%) :3
+	AfSetCBAButtonDimmed:(aButtonIndex%,aVisibility%) :4
+	AfCBAButtonDimmed%:(aButtonIndex%) :5
+	AfSetCBAButtonVisible:(aButtonIndex%,aVisibility%) :6
+	AfCBAButtonVisible%:(aButtonIndex%) :7
+	AfSetCBAVisible%:(aVisibility%) :8
+	AfCBAVisible%: :9
+	AfCBAMaxButtons%: :10
+	AfSetStatus%:(aType%) :11
+	AfSetStatusVisible%:(aVisibility%) :12
+	AfStatusVisible%:(BYREF aType%) :13
+	AfSetTitle:(aTitle$,aTitleType%) :14
+	AfSetTitleAreaWidth:(aTitleType%,aWidth%) :15
+	AfSetTitleVisible%:(aVisibility%) :16
+	AfTitleVisible%: :17
+	AfScreenInfo:(BYREF aXOrigin%, BYREF aYOrigin%, BYREF aWidth%, BYREF aHeight%) :18
+	AfAddToDesk: :19
+	AfMenuPaneToStartShowing%: :20
+	AfLaunchSystemLog: :21
+	AfToggleIrDA: :22
+	AfConfirmationDialog%:(aTitle$,aMessage$,aConfirmButtonTitle$) :23
+	AfInformationDialog%:(aTitle$,aMessage$) :24
+END DECLARE

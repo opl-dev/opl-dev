@@ -1,0 +1,50 @@
+rem SendAs.oxh
+rem
+rem Copyright (c) 1999-2002 Symbian Ltd. All rights reserved.
+rem
+
+CONST KUidSendAsOpx&=&100055BF
+CONST KVersionSendAsOpx%=$100
+
+CONST KMaxSendAsTypes%=32
+CONST KMaxSendAsCaptionLen%=40
+CONST KSendAsHotkeyStart&=1
+
+CONST KCapabilityAllMTMs&=0
+CONST KCapabilityAttachments&=1
+CONST KCapabilityBodyText&=2
+CONST KCapabilityBioSending&=4
+CONST KCapabilityAttachmentOrBody&=8
+
+rem UIDs for some possible message bearers
+CONST KUidMtmEmailSyncValue&	= &1000412A
+CONST KUidMtmSMTPValue&			= &10001028
+CONST KUidMtmPOP3Value&			= &10001029
+CONST KUidMtmIMAP4Value&		= &1000102A
+CONST KUidMtmFaxValue&			= &1000102B
+CONST KUidMtmSMSValue&			= &1000102C
+CONST KUidMtmIrDAValue&			= &100053A4
+
+DECLARE OPX SendAs,KUidSendAsOpx&,KVersionSendAsOpx%
+	SaScanSendAsTypes: :1
+	SaMaximumTypes&: :2
+	SaCapabilitySupported%:(aIndex&,aCapability&) :3
+	SaCascName$:(aIndex&) :4
+	SaHotkeyValue&:(aIndex&) :5
+	SaNextAvailableHotkey&: :6
+	SaUid&:(aIndex&) :7
+
+	SaPrepareMessage:(aIndex&) :8
+
+	SaSetSubject%:(aSubject$) :9
+	SaAddFile:(aFileName$) :10
+	SaAddRecipient:(aAddress$) :11
+
+	SaNewBody&: :12
+	SaDeleteBody: :13
+	SaAppendToBody:(aString$) :14
+	SaResetBody: :15
+	SaSetBody:(aRichTextHandle&) :16
+
+	SaLaunchSend: :17
+END DECLARE

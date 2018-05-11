@@ -1,0 +1,57 @@
+// BLD.INF
+//
+// Copyright (c) 1999 Symbian Ltd.  All rights reserved.
+//
+// For OPLR component.
+//
+
+#include "..\..\opl-target.mmpi"
+
+PRJ_PLATFORMS
+#if defined(__UIQ_MMP__) 
+WINSCW THUMB
+#else
+WINS THUMB
+#endif
+#if defined(__UIQ_MMP_WINS_TOO__)
+WINS
+#endif
+
+PRJ_EXPORTS
+..\inc\OPLDOC.H
+..\inc\OPX.H
+..\inc\OPLAPI.H
+..\inc\OPLDB.H
+..\inc\OPLDB.INL
+..\inc\OPLDBDEF.H
+..\inc\OPLERR.H
+..\inc\PROGRAM.H
+..\inc\OPLDBG.H
+..\inc\OPXAPI.H
+#if !defined(__SERIES60_MMP__)
+..\inc60\bldvariant.hrh
+#endif
+
+PRJ_MMPFILES
+..\group\oplr.mmp
+..\recopl\recopl.mmp
+#if defined(__SERIES60_MMP__)
+// Pick up the Symbian OS 6.1 files.
+..\opl61\opl.mmp
+..\oplwrapper0\oplwrapper0.mmp
+#elif defined(__UIQ_MMP__)
+..\opluiq\opl.mmp
+#else
+// Pick up the Symbian OS 6.0 crystal files.
+..\opl60\opl.mmp
+#endif
+makefile ..\group\oplinc.mk
+
+PRJ_TESTMMPFILES
+..\tdebug\tdebug.mmp
+#if defined(__SERIES60_MMP__)
+..\oplWrapper\oplWrapper.mmp
+..\oplWrapper2\oplWrapper2.mmp
+#endif
+makefile ..\group\test.mk
+

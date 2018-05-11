@@ -1,0 +1,102 @@
+rem Symbian OS v6.0 OPL Demo Application - Header File
+rem
+rem Copyright © 2000-2002 Symbian Ltd.
+rem
+rem Last updated 29/02/2004
+
+rem
+rem Our EXTERNAL procedure definitions
+rem
+EXTERNAL MainSetup:
+EXTERNAL HandleCBA:(aButtonId&)
+EXTERNAL MainLoop:
+EXTERNAL ProcessKeyEvent:(aKey&,aMod&,aScanCode&)
+EXTERNAL Menu&:
+EXTERNAL DrawScreen:(aClearScreen%)
+EXTERNAL SwitchStatusSize:
+EXTERNAL SwitchView:(aSwitchType%)
+EXTERNAL HotKeyHandler:
+EXTERNAL Exit:
+EXTERNAL SettingsDialog:
+EXTERNAL GeneralDialogDemo:
+EXTERNAL SimpleDBCreate:(aFileName$)
+EXTERNAL SimpleDBQuery:(aFileName$)
+EXTERNAL _AddItemToFile:(aOutput%,aString$)
+EXTERNAL _AddItemToMultiDisplayBuffer:(_aBuffer&,_aTotalBufferLen&,aString$,aNewLine%)
+EXTERNAL _AddArtistToDB:(aArtist$)
+EXTERNAL _AddItemToDB:(aItem$,aArtist$,aPrice,aGot%,aWant%)
+EXTERNAL RunOPXTest:
+EXTERNAL HandleSendAs:(aKey&)
+EXTERNAL LaunchLog:
+EXTERNAL InitialiseDefaultSettings:
+EXTERNAL ReadINI:
+EXTERNAL WriteINI:(aDefault%)
+EXTERNAL SetupSendAsKeysAndMenu:
+EXTERNAL IOReadString:(aFileHandle%,_aAddr&)
+EXTERNAL CannotAccessFile:(aFile$,aMode%,aStopAfterError%)
+EXTERNAL SetColor:(aColourMapping%)
+EXTERNAL InfoDialog:(aTitle$,aLine1$,aLine2$)
+EXTERNAL AboutBox:
+EXTERNAL PrintableVersionNo$:
+EXTERNAL Gi:(aMsg$,aPos%,aPause&)
+rem Needs to be defined to allow the RunOPXTest:
+rem procedure to translate. This EXTERNAL will
+rem be the PROC in the OPX test code module
+rem which begins the tests...
+EXTERNAL BeginOPXTests:
+
+rem
+rem Application-specific constants
+rem
+
+rem !!! This is a RESERVED UID for DemoOPL !!!
+rem Do **NOT** under ANY circumstances use this
+rem UID in your own applications.
+CONST KApplicationUID&=&1000913C
+
+rem Application specific constants
+CONST KApplicationName$="DemoOPL"
+CONST KMaxVersionStringLen%=4
+CONST KMaxBuildStringLen%=4
+CONST KApplicationVersion$="1.51"
+CONST KApplicationBuild$="0001"
+CONST KCopyrightDate$="2000-2002"
+CONST KMainScreenDescription$="Symbian OS v6.0 Feature Rich OPL Demonstration Application"
+CONST KAboutBoxDescription$="Symbian OS v6.0 OPL Demo"
+
+rem File locations which can be hard-coded
+CONST KINIFile$="C:\System\Apps\DemoOPL\DemoOPL.ini"
+CONST KMBMFileName$="DemoOPL.mbm"
+CONST KDefaultOPXTestPath$="C:\OPL\OPXTests\"
+
+rem For bitmap handling
+CONST KMaxBitmapsNeeded%=1
+CONST KBitmapSymbianLogo%=1
+
+rem Simple DB demo related
+CONST KMaxArtistNameLen%=50
+CONST KMaxArtistNames%=20
+CONST KHardcodedDBFile$="C:\DemoOPL.db"
+
+rem Screen views
+CONST KViewToggle%=0
+CONST KViewMainScreen%=1
+CONST KViewKeyDebugScreen%=2
+
+rem CBA Function Identifiers
+CONST KCBAButtonFlipStatus%=1
+CONST KCBAButtonChangeView%=2
+CONST KCBAButtonAbout%=3
+CONST KCBAButtonClose%=4
+
+rem Default Application HotKey setting (4='D')
+CONST KDefaultAppHotKey%=4
+
+rem Value for the Toggle IrDA key on Crystal hardware
+CONST KToggleIrDAKey%=154
+
+rem Relative positions after SendAs OPX has finished being
+rem initialised for any menu items which using blank hotkeys
+CONST KFreeKeyAddToDesk%=1
+CONST KFreeKeyToggleIrDA%=2
+CONST KFreeKeyDatabaseCascade%=3

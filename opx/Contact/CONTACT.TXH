@@ -1,0 +1,148 @@
+rem Contact.oxh
+rem
+rem Copyright (c) 1998-2002 Symbian Ltd. All rights reserved.
+rem
+
+CONST KUidContactOpx&=&10003ED7
+CONST KOpxContactVersion%=$600
+
+rem Item Types
+CONST KContactCard&     =1
+CONST KContactOwnCard&  =2
+CONST KContactAnyCard&  =3
+CONST KContactTemplate& =4
+CONST KContactGroup&    =8
+
+rem Field UIDs
+CONST KUidCntFieldAddress&        =&1000130C
+CONST KUidCntFieldPostOffice&     =&10004DF4
+CONST KUidCntFieldExtendedAddress&=&10004DF5
+CONST KUidCntFieldLocality&       =&10004DF6
+CONST KUidCntFieldRegion&         =&10004DF7
+CONST KUidCntFieldPostCode&       =&10004DF8
+CONST KUidCntFieldCountry&        =&10004DF9
+CONST KUidCntFieldCompanyName&    =&1000130D
+CONST KUidCntFieldPhoneNumber&    =&1000130E
+CONST KUidCntFieldGivenName&      =&1000137C
+CONST KUidCntFieldFamilyName&     =&1000137D
+CONST KUidCntFieldAdditionalName& =&1000178A
+CONST KUidCntFieldSuffixName&     =&1000178B
+CONST KUidCntFieldPrefixName&     =&1000178C
+CONST KUidCntFieldHidden&         =&1000178D
+CONST KUidCntFieldEMail&          =&1000178E
+CONST KUidCntFieldMsg&            =&1000178F
+CONST KUidCntFieldSms&            =&10001790
+CONST KUidCntFieldFax&            =&10001791
+CONST KUidCntFieldDefinedText&    =&10001792
+CONST KUidCntFieldNote&           =&1000401C
+CONST KUidCntFieldBirthday&       =&10004034
+CONST KUidCntFieldUrl&            =&10004035
+CONST KUidCntFieldStorageInline&  =&10004036
+CONST KUidCntFieldNone&           =&00000000
+
+rem Field VCard type
+CONST KIntCntFieldVCardTypeWORK&  =&100039DA
+CONST KIntCntFieldVCardTypeHOME&  =&100039DB
+CONST KIntCntFieldVCardTypeMSG&   =&100039DC
+CONST KIntCntFieldVCardTypeVOICE& =&100039DD
+CONST KIntCntFieldVCardTypeFAX&   =&100039DE
+CONST KIntCntFieldVCardTypePREF&  =&10003E70
+CONST KIntCntFieldVCardTypeCELL&  =&10003E71
+CONST KIntCntFieldVCardTypePAGER& =&10003E72
+CONST KIntCntFieldVCardTypeBBS&   =&100039D5
+CONST KIntCntFieldVCardTypeMODEM& =&100039D6
+CONST KIntCntFieldVCardTypeCAR&   =&100039D7
+CONST KIntCntFieldVCardTypeISDN&  =&100039D8
+CONST KIntCntFieldVCardTypeVIDEO& =&100039D9
+CONST KIntCntFieldVCardTypeDOM&   =&10003E80
+
+rem Field VCard mappings
+CONST KIntCntFieldVCardMapADR&           =&1000401D
+CONST KIntCntFieldVCardMapPOSTOFFICE&    =&10004DEA
+CONST KIntCntFieldVCardMapEXTENDEDADR&   =&10004DEB
+CONST KIntCntFieldVCardMapLOCALITY&      =&10004DEC
+CONST KIntCntFieldVCardMapREGION&        =&10004DED
+CONST KIntCntFieldVCardMapPOSTCODE&      =&10004DEE
+CONST KIntCntFieldVCardMapCOUNTRY&       =&10004DEF
+CONST KIntCntFieldVCardMapAGENT&         =&1000401E
+CONST KIntCntFieldVCardMapBDAY&          =&1000401F
+CONST KIntCntFieldVCardMapEMAILINET&     =&10004020
+CONST KIntCntFieldVCardMapGEO&           =&10004021
+CONST KIntCntFieldVCardMapLABEL&         =&10004022
+CONST KIntCntFieldVCardMapLOGO&          =&10004023
+CONST KIntCntFieldVCardMapMAILER&        =&10004024
+CONST KIntCntFieldVCardMapNOTE&          =&10004025
+CONST KIntCntFieldVCardMapORG&           =&10004026
+CONST KIntCntFieldVCardMapPHOTO&         =&10004027
+CONST KIntCntFieldVCardMapROLE&          =&10004028
+CONST KIntCntFieldVCardMapSOUND&         =&10004029
+CONST KIntCntFieldVCardMapTEL&           =&1000402A
+CONST KIntCntFieldVCardMapTELFAX&        =&1000402B
+CONST KIntCntFieldVCardMapTITLE&         =&1000402C
+CONST KIntCntFieldVCardMapURL&           =&1000402D
+CONST KIntCntFieldVCardMapUnusedN&       =&1000402E
+CONST KIntCntFieldVCardMapUnusedFN&      =&1000402F
+CONST KIntCntFieldVCardMapNotRequired&   =&10004030
+CONST KIntCntFieldVCardMapUnknownXDsh&   =&10004031
+CONST KIntCntFieldVCardMapUnknown&       =&10004032
+CONST KIntCntFieldVCardMapUID&           =&10004033
+
+DECLARE OPX Contact,KUidContactOpx&,KOpxContactVersion%
+	CoCreateContactFile:(aFileName$):1
+	CoOpenContactFile:(aFileName$):2
+	CoCloseContactFile: :3
+	CoCountItems&: :4
+	CoSortItems:(aMappingArray&):5
+	CoFindItem&:(aString$,aMappingArray&):6
+	CoSortedItemsAt:(aIndex&):7
+	CoItemId&: :8
+	CoReadItem:(aContactItemId&):9
+	CoOpenItem:(aContactItemId&):10
+	CoCloseItem: :11
+	CoCreateItem:(aItemType&,aTemplateItemId&) :12
+	CoAddNewItem: :13
+	CoDeleteItem: :14
+
+	CoItemFieldDisable:(aBool%) :17
+	CoItemFieldIsDisabled%: :18
+	CoSetContactHidden:(aHidden%):19
+	CoIsContactHidden%: :20
+	CoSetContactSystem:(aSystem%):21
+	CoIsContactSystem%: :22
+	CoCompressContactFile: :23
+	CoCompressNeeded%: :24
+	CoItemFieldCount&: :25
+	CoItemFieldArrayAt:(aIndex&):26
+	CoItemFieldFind%:(aTypeArrayHandle&):27
+	CoItemFieldReset: :28
+	CoItemFieldCreate: :29
+	CoItemFieldInsert:(aIndex&):30
+	CoItemFieldAdd: :31
+	CoItemFieldDelete: :32
+	CoItemFieldMove:(aPosFrom&,aPosTo&):33
+	CoItemFieldContent:(aContentTypeArray&):34
+	CoItemFieldSetHidden:(aHidden%):35
+	CoItemFieldIsHidden%: :36
+	CoItemFieldSetReadOnly:(aReadOnly%):37
+	CoItemFieldIsReadOnly%: :38
+	CoItemFieldSetLabel:(aLabel$):39
+	CoItemFieldLabel$: :40
+	CoItemFieldSetMapping:(aMapping&):41
+	CoItemFieldAddType:(aType&):42
+	CoItemFieldSetText:(aString$):43
+	CoItemFieldSetLong:(aStringAddr&,aLength&):44
+	CoItemFieldText$: :45
+	CoItemFieldLength&: :46
+	CoItemFieldLong:(aBufHandle&) :47
+
+	CoGroupSetName:(aName$):100
+	CoGroupName$: :101
+	CoGroupCount&: :102
+	CoGroupItemIdAt&:(aIndex&) :103
+	CoGroupAddItem:(aGroupId&,aItemId&) :104
+	CoGroupRemoveItem:(aGroupId&,aItemId&) :105
+
+	CoTemplateGoldenId&: :200
+	CoOwnCardId&: :201
+	CoItemType&: :202
+END DECLARE

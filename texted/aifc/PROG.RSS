@@ -1,0 +1,22 @@
+// PROG.RSS
+//
+// Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+
+#include <aiftool.rh>
+#include "texted.loc"
+
+RESOURCE AIF_DATA
+	{
+	caption_list=
+		{ 
+		CAPTION { code=ELanguage; caption=OPL_G_CAPTION_NAME; }
+		};
+	//
+	app_uid=0x10003A63;
+	//
+	num_icons=2;
+	//
+	hidden=KAppNotHidden;
+	embeddability=KAppNotEmbeddable;
+	newfile=KAppSupportsNewFile;
+	}

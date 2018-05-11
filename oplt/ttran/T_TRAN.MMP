@@ -1,0 +1,17 @@
+// T_TRAN.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+TARGET		t_tran.exe
+TARGETTYPE	exe
+
+#include "..\..\opl-target.mmpi"
+
+SOURCEPATH	.
+
+SOURCE		textfile.cpp t_tran.cpp
+
+SYSTEMINCLUDE	..\inc \epoc32\include
+
+LIBRARY		oplt.lib econs.lib efsrv.lib euser.lib
+

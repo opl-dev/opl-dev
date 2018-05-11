@@ -1,0 +1,100 @@
+rem Agenda.oxh
+rem 
+rem Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+rem 
+
+CONST KUidOpxAgenda&=&10000547
+CONST KOpxAgendaVersion%=$600
+
+rem values returned by AgnEnGetType%:()
+CONST KAgnApptEntry%=0
+CONST KAgnTodoEntry%=1
+CONST KAgnEventEntry%=2
+CONST KAgnAnnivEntry%=3
+
+rem values used with AgnAnSetShow:() and AgnAnGetShow%:()
+CONST KAgnAnShowNone%=0
+CONST KAgnAnShowBase%=1
+CONST KAgnAnShowElapsed%=2
+CONST KAgnAnShowBoth%=3
+
+rem values used with AgnLiSetOrder:() and AgnLiGetOrder%:()
+CONST KAgnLiOrderManual%=0
+CONST KAgnLiOrderDate%=1
+CONST KAgnLiOrderPriority%=2
+
+DECLARE OPX AGENDA,KUidOpxAgenda&,KOpxAgendaVersion%
+	AgnOpen:(filename$) :1
+	AgnClose: :2
+
+	AgnAdd&:(entry&) :3
+	AgnModify:(entry&) :4
+	AgnDelete:(entry&) :5
+	AgnFetch&:(id&) :6
+
+	AgnFirstEntry&: :7
+	AgnNextEntry&: :8
+
+	AgnEnNewAppt&: :9
+	AgnEnNewTodo&: :10
+	AgnEnNewEvent&: :11
+	AgnEnNewAnniv&: :12
+
+	AgnEnSetText:(entry&,text$) :13
+	AgnEnSetSymbol:(entry&,symbol$) :14
+	AgnEnSetAlarm:(entry&,dayswarning&,hour&,minute&,alarm$) :15
+	AgnEnSetCrossOut:(entry&,flag%) :16
+	AgnEnSetTentative:(entry&,flag%) :17
+
+	AgnEnGetId&:(entry&) :18
+	AgnEnGetType%:(entry&) :19
+	AgnEnGetText$:(entry&) :20
+	AgnEnGetSymbol$:(entry&) :21
+	AgnEnGetAlarm$:(entry&,BYREF dayswarning&,BYREF hour&,BYREF minute&) :22
+	AgnEnGetCrossOut%:(entry&) :23
+	AgnEnGetTentative%:(entry&) :24
+
+	AgnEnFree:(entry&) :25
+
+	AgnApSetStartTime:(appt&,year&,month&,day&,hour&,minute&) :26
+	AgnApSetEndTime:(appt&,year&,month&,day&,hour&,minute&) :27
+	AgnApGetStartTime:(appt&,BYREF year&,BYREF month&,BYREF day&,BYREF hour&,BYREF minute&) :28
+	AgnApGetEndTime:(appt&,BYREF year&,BYREF month&,BYREF day&,BYREF hour&,BYREF minute&) :29
+
+	AgnTdAt&:(list&,index&) :30
+	AgnTdSetList:(todo&,list&) :31
+	AgnTdSetPriority:(todo&,priority&) :32
+	AgnTdSetDueDate:(todo&,year&,month&,day&) :33
+	AgnTdSetDuration:(todo&,days&) :34
+	AgnTdGetList&:(todo&) :35
+	AgnTdGetPriority&:(todo&) :36
+	AgnTdGetDueDate:(todo&,BYREF year&,BYREF month&,BYREF day&) :37
+	AgnTdGetDuration&:(todo&) :38
+
+	AgnEvSetStartDate:(event&,year&,month&,day&) :39
+	AgnEvSetEndDate:(event&,year&,month&,day&) :40
+	AgnEvGetStartDate:(event&,BYREF year&,BYREF month&,BYREF day&) :41
+	AgnEvGetEndDate:(event&,BYREF year&,BYREF month&,BYREF day&) :42
+
+	AgnAnSetDate:(anniv&,year&,month&,dayofmonth&) :43
+	AgnAnSetShow:(anniv&,flag%) :44
+	AgnAnGetDate:(anniv&,BYREF year&,BYREF month&,BYREF dayofmonth&) :45
+	AgnAnGetShow%:(anniv&) :46
+
+	AgnLiAdd&:(list&) :47
+	AgnLiModify:(list&) :48
+	AgnLiDelete:(list&) :49
+	AgnLiFetch&:(id&) :50
+
+	AgnLiNew&: :51
+	AgnLiAt&:(index&) :52
+	AgnLiSetTitle:(list&,name$) :53
+	AgnLiSetOrder:(list&,order%) :54
+	AgnLiSetViewDisplay:(list&,display%,hour&,minute&) :55
+	AgnLiGetId&:(list&) :56
+	AgnLiGetTitle$:(list&) :57
+	AgnLiGetOrder%:(list&) :58
+	AgnLiGetViewDisplay%:(list&,BYREF hour&,BYREF minute&) :59
+	AgnLiFree:(list&) :60
+	AgnLiChangePosition:(oldPos&, newPos&) :61
+END DECLARE

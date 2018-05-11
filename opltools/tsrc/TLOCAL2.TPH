@@ -1,0 +1,4 @@
+REM tlocal2.tph
+REM A test file for Opltran
+
+CONST Ktlocal2%=2

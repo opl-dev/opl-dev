@@ -1,0 +1,303 @@
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\EXPORT.make" EXPORT VERBOSE=-s
+	md "\Symbian\6.1\Series60\EPOC32\release\marm"
+	copy "\OPL\OPX\bwins\opx.def" "\Symbian\6.1\Series60\EPOC32\release\wins\opx.def"
+        1 file(s) copied.
+	copy "\OPL\OPX\bmarm\opx.def" "\Symbian\6.1\Series60\EPOC32\release\marm\opx.def"
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\WINS.make" MAKEFILE VERBOSE=-s
+
+WARNING: Can't find following headers in System Include Path
+ <CKNTITLE.H> <LINKBASE.H> <LINKAPPLICATION.H> <LINKDOCUMENT.H> <LINKUTILS.H> <CKNCONF.H> <CKNINFO.H> <IRLISTENUI.H>
+(Sys Inc Paths "\Symbian\6.1\Series60\EPOC32\INCLUDE\")
+Dependency list for "\OPL\OPX\APPFRAME\APPFRAME.CPP" may be incomplete
+
+
+WARNING: Can't find following headers in System Include Path
+ <EIKCFDLG.H> <EIKPPROB.H> <EIKPRTDG.H> <EIKPRTPV.H> <EIKCHKBX.H>
+(Sys Inc Paths "\Symbian\6.1\Series60\EPOC32\INCLUDE\")
+Dependency list for "\OPL\OPX\PRINTER\PRINTER.CPP" may be incomplete
+
+
+WARNING: Can't find following headers in System Include Path
+ <MTMSTORE.H> <MTMSTORE.H> <MUIUSERV.H> <MTMEXTENDEDCAPABILITIES.HRH> <OBEXCLIENTMTM.H> <OBEXMTMUTIL.H> <MSGARRAYS.H>
+(Sys Inc Paths "\Symbian\6.1\Series60\EPOC32\INCLUDE\")
+Dependency list for "\OPL\OPX\SENDAS\SENDAS.CPP" may be incomplete
+
+
+WARNING: Can't find following headers in System Include Path
+ <SYSTIMER.H> <EIKCFDLG.H> <SYSTIMER.H> <ETELBGSM.H>
+(Sys Inc Paths "\Symbian\6.1\Series60\EPOC32\INCLUDE\")
+Dependency list for "\OPL\OPX\SYSTEM\SYSTEM.CPP" may be incomplete
+
+	perl -S makmake.pl -D \OPL\OPX\AGENDA\AGENDA WINS
+	perl -S makmake.pl -D \OPL\OPX\ALARM\ALARM WINS
+	perl -S makmake.pl -D \OPL\OPX\APPFRAME\APPFRAME WINS
+	perl -S makmake.pl -D \OPL\OPX\BMP\BMP WINS
+	perl -S makmake.pl -D \OPL\OPX\BUFFER\BUFFER WINS
+	perl -S makmake.pl -D \OPL\OPX\CONTACT\CONTACT WINS
+	perl -S makmake.pl -D \OPL\OPX\CONVERT\CONVERT WINS
+	perl -S makmake.pl -D \OPL\OPX\DATA\DATA WINS
+	perl -S makmake.pl -D \OPL\OPX\DATE\DATE WINS
+	perl -S makmake.pl -D \OPL\OPX\DBASE\DBASE WINS
+	perl -S makmake.pl -D \OPL\OPX\LOCALE\LOCALE WINS
+	perl -S makmake.pl -D \OPL\OPX\MEDIASERVEROPX\MEDIASERVEROPX WINS
+	perl -S makmake.pl -D \OPL\OPX\PRINTER\PRINTER WINS
+	perl -S makmake.pl -D \OPL\OPX\SCOMMS\SCOMMS WINS
+	perl -S makmake.pl -D \OPL\OPX\SENDAS\SENDAS WINS
+	perl -S makmake.pl -D \OPL\OPX\SPELL\SPELL WINS
+	perl -S makmake.pl -D \OPL\OPX\SYSTEM\SYSTEM WINS
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=WINS MAKMAKE
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\THUMB.make" MAKEFILE VERBOSE=-s
+
+WARNING: Can't find following headers in System Include Path
+ <CKNTITLE.H> <LINKBASE.H> <LINKAPPLICATION.H> <LINKDOCUMENT.H> <LINKUTILS.H> <CKNCONF.H> <CKNINFO.H> <IRLISTENUI.H>
+(Sys Inc Paths "\Symbian\6.1\Series60\EPOC32\INCLUDE\")
+Dependency list for "\OPL\OPX\APPFRAME\APPFRAME.CPP" may be incomplete
+
+
+WARNING: Can't find following headers in System Include Path
+ <EIKCFDLG.H> <EIKPPROB.H> <EIKPRTDG.H> <EIKPRTPV.H> <EIKCHKBX.H>
+(Sys Inc Paths "\Symbian\6.1\Series60\EPOC32\INCLUDE\")
+Dependency list for "\OPL\OPX\PRINTER\PRINTER.CPP" may be incomplete
+
+
+WARNING: Can't find following headers in System Include Path
+ <MTMSTORE.H> <MTMSTORE.H> <MUIUSERV.H> <MTMEXTENDEDCAPABILITIES.HRH> <OBEXCLIENTMTM.H> <OBEXMTMUTIL.H> <MSGARRAYS.H>
+(Sys Inc Paths "\Symbian\6.1\Series60\EPOC32\INCLUDE\")
+Dependency list for "\OPL\OPX\SENDAS\SENDAS.CPP" may be incomplete
+
+
+WARNING: Can't find following headers in System Include Path
+ <SYSTIMER.H> <EIKCFDLG.H> <SYSTIMER.H> <ETELBGSM.H>
+(Sys Inc Paths "\Symbian\6.1\Series60\EPOC32\INCLUDE\")
+Dependency list for "\OPL\OPX\SYSTEM\SYSTEM.CPP" may be incomplete
+
+	perl -S makmake.pl -D \OPL\OPX\AGENDA\AGENDA THUMB
+	perl -S makmake.pl -D \OPL\OPX\ALARM\ALARM THUMB
+	perl -S makmake.pl -D \OPL\OPX\APPFRAME\APPFRAME THUMB
+	perl -S makmake.pl -D \OPL\OPX\BMP\BMP THUMB
+	perl -S makmake.pl -D \OPL\OPX\BUFFER\BUFFER THUMB
+	perl -S makmake.pl -D \OPL\OPX\CONTACT\CONTACT THUMB
+	perl -S makmake.pl -D \OPL\OPX\CONVERT\CONVERT THUMB
+	perl -S makmake.pl -D \OPL\OPX\DATA\DATA THUMB
+	perl -S makmake.pl -D \OPL\OPX\DATE\DATE THUMB
+	perl -S makmake.pl -D \OPL\OPX\DBASE\DBASE THUMB
+	perl -S makmake.pl -D \OPL\OPX\LOCALE\LOCALE THUMB
+	perl -S makmake.pl -D \OPL\OPX\MEDIASERVEROPX\MEDIASERVEROPX THUMB
+	perl -S makmake.pl -D \OPL\OPX\PRINTER\PRINTER THUMB
+	perl -S makmake.pl -D \OPL\OPX\SCOMMS\SCOMMS THUMB
+	perl -S makmake.pl -D \OPL\OPX\SENDAS\SENDAS THUMB
+	perl -S makmake.pl -D \OPL\OPX\SPELL\SPELL THUMB
+	perl -S makmake.pl -D \OPL\OPX\SYSTEM\SYSTEM THUMB
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=THUMB MAKMAKE
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\WINS.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\AGENDA.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\AGENDA.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\AGENDA.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\ALARM.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\ALARM.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\ALARM.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\APPFRAME\APPFRAME\WINS\APPFRAME.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\APPFRAME.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\APPFRAME.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BMP\BMP\WINS\BMP.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\BMP.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\BMP.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BUFFER\BUFFER\WINS\BUFFER.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\BUFFER.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\BUFFER.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONTACT\CONTACT\WINS\CONTACT.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\CONTACT.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\CONTACT.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONVERT\CONVERT\WINS\CONVERT.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\CONVERT.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\CONVERT.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATA\DATA\WINS\DATA.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\DATA.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\DATA.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATE\DATE\WINS\DATE.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\DATE.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\DATE.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DBASE\DBASE\WINS\DBASE.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\DBASE.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\DBASE.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\LOCALE\LOCALE\WINS\LOCALE.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\LOCALE.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\LOCALE.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\MEDIASERVEROPX\MEDIASERVEROPX\WINS\MEDIASERVEROPX.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\MEDIASERVEROPX.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\MEDIASERVEROPX.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\PRINTER\PRINTER\WINS\PRINTER.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\PRINTER.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\PRINTER.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SCOMMS\SCOMMS\WINS\SCOMMS.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\SCOMMS.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\SCOMMS.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SENDAS\SENDAS\WINS\SENDAS.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\SENDAS.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\SENDAS.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SPELL\SPELL\WINS\SPELL.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\SPELL.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\SPELL.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SYSTEM\SYSTEM\WINS\SYSTEM.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\SYSTEM.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\SYSTEM.exp
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=WINS LIB
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\THUMB.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\THUMB\AGENDA.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\THUMB\ALARM.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\APPFRAME\APPFRAME\THUMB\APPFRAME.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BMP\BMP\THUMB\BMP.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BUFFER\BUFFER\THUMB\BUFFER.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONTACT\CONTACT\THUMB\CONTACT.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONVERT\CONVERT\THUMB\CONVERT.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATA\DATA\THUMB\DATA.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATE\DATE\THUMB\DATE.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DBASE\DBASE\THUMB\DBASE.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\LOCALE\LOCALE\THUMB\LOCALE.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\MEDIASERVEROPX\MEDIASERVEROPX\THUMB\MEDIASERVEROPX.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\PRINTER\PRINTER\THUMB\PRINTER.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SCOMMS\SCOMMS\THUMB\SCOMMS.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SENDAS\SENDAS\THUMB\SENDAS.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SPELL\SPELL\THUMB\SPELL.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SYSTEM\SYSTEM\THUMB\SYSTEM.THUMB" LIBRARY
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=THUMB LIB
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\WINS.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\AGENDA.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\ALARM.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\APPFRAME\APPFRAME\WINS\APPFRAME.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BMP\BMP\WINS\BMP.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BUFFER\BUFFER\WINS\BUFFER.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONTACT\CONTACT\WINS\CONTACT.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONVERT\CONVERT\WINS\CONVERT.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATA\DATA\WINS\DATA.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATE\DATE\WINS\DATE.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DBASE\DBASE\WINS\DBASE.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\LOCALE\LOCALE\WINS\LOCALE.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\MEDIASERVEROPX\MEDIASERVEROPX\WINS\MEDIASERVEROPX.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\PRINTER\PRINTER\WINS\PRINTER.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SCOMMS\SCOMMS\WINS\SCOMMS.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SENDAS\SENDAS\WINS\SENDAS.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SPELL\SPELL\WINS\SPELL.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SYSTEM\SYSTEM\WINS\SYSTEM.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=WINS CFG=UDEB RESOURCE
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\WINS.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\AGENDA.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\ALARM.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\APPFRAME\APPFRAME\WINS\APPFRAME.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BMP\BMP\WINS\BMP.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BUFFER\BUFFER\WINS\BUFFER.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONTACT\CONTACT\WINS\CONTACT.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONVERT\CONVERT\WINS\CONVERT.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATA\DATA\WINS\DATA.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATE\DATE\WINS\DATE.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DBASE\DBASE\WINS\DBASE.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\LOCALE\LOCALE\WINS\LOCALE.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\MEDIASERVEROPX\MEDIASERVEROPX\WINS\MEDIASERVEROPX.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\PRINTER\PRINTER\WINS\PRINTER.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SCOMMS\SCOMMS\WINS\SCOMMS.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SENDAS\SENDAS\WINS\SENDAS.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SPELL\SPELL\WINS\SPELL.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SYSTEM\SYSTEM\WINS\SYSTEM.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=WINS CFG=UREL RESOURCE
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\THUMB.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\THUMB\AGENDA.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\THUMB\ALARM.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\APPFRAME\APPFRAME\THUMB\APPFRAME.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BMP\BMP\THUMB\BMP.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BUFFER\BUFFER\THUMB\BUFFER.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONTACT\CONTACT\THUMB\CONTACT.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONVERT\CONVERT\THUMB\CONVERT.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATA\DATA\THUMB\DATA.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATE\DATE\THUMB\DATE.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DBASE\DBASE\THUMB\DBASE.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\LOCALE\LOCALE\THUMB\LOCALE.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\MEDIASERVEROPX\MEDIASERVEROPX\THUMB\MEDIASERVEROPX.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\PRINTER\PRINTER\THUMB\PRINTER.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SCOMMS\SCOMMS\THUMB\SCOMMS.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SENDAS\SENDAS\THUMB\SENDAS.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SPELL\SPELL\THUMB\SPELL.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SYSTEM\SYSTEM\THUMB\SYSTEM.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=THUMB CFG=UDEB RESOURCE
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\THUMB.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\THUMB\AGENDA.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\THUMB\ALARM.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\APPFRAME\APPFRAME\THUMB\APPFRAME.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BMP\BMP\THUMB\BMP.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\BUFFER\BUFFER\THUMB\BUFFER.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONTACT\CONTACT\THUMB\CONTACT.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\CONVERT\CONVERT\THUMB\CONVERT.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATA\DATA\THUMB\DATA.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DATE\DATE\THUMB\DATE.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\DBASE\DBASE\THUMB\DBASE.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\LOCALE\LOCALE\THUMB\LOCALE.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\MEDIASERVEROPX\MEDIASERVEROPX\THUMB\MEDIASERVEROPX.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\PRINTER\PRINTER\THUMB\PRINTER.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SCOMMS\SCOMMS\THUMB\SCOMMS.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SENDAS\SENDAS\THUMB\SENDAS.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SPELL\SPELL\THUMB\SPELL.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\SYSTEM\SYSTEM\THUMB\SYSTEM.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=THUMB CFG=UREL RESOURCE
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\WINS.make" TARGET CFG=UDEB VERBOSE=-s
+NMAKE : fatal error U1073: don't know how to make '"\Symbian\6.1\Series60\EPOC32\INCLUDE\INDICATO.RSG"'
+Stop.
+NMAKE : fatal error U1077: 'C:\apps\MSVC6\VC98\Bin\nmake.exe' : return code '0x2'
+Stop.
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\AGENDA.WINS" UDEB
+Agenda.cpp
+Agenda.uid.cpp
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\UDEB\AGENDA.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\UDEB\AGENDA.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "S:\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\UDEB\edll.pdb"; linking object as if no debug info
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\UDEB\AGENDA.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\UDEB\AGENDA.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "S:\Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\Z\SYSTEM\OPX\edll.pdb"; linking object as if no debug info
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\ALARM.WINS" UDEB
+Alarm.cpp
+Alarm.uid.cpp
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\UDEB\ALARM.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\UDEB\ALARM.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "S:\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\UDEB\edll.pdb"; linking object as if no debug info
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\UDEB\ALARM.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\UDEB\ALARM.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "S:\Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\Z\SYSTEM\OPX\edll.pdb"; linking object as if no debug info
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\APPFRAME\APPFRAME\WINS\APPFRAME.WINS" UDEB
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\WINS.make" TARGET CFG=UREL VERBOSE=-s
+NMAKE : fatal error U1073: don't know how to make '"\Symbian\6.1\Series60\EPOC32\INCLUDE\INDICATO.RSG"'
+Stop.
+NMAKE : fatal error U1077: 'C:\apps\MSVC6\VC98\Bin\nmake.exe' : return code '0x2'
+Stop.
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\AGENDA.WINS" UREL
+Agenda.cpp
+Agenda.uid.cpp
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\UREL\AGENDA.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\UREL\AGENDA.exp
+LINK : warning LNK4005: no objects used from library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\ESTOR.LIB
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\UREL\AGENDA.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\WINS\UREL\AGENDA.exp
+LINK : warning LNK4005: no objects used from library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\ESTOR.LIB
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\ALARM.WINS" UREL
+Alarm.cpp
+Alarm.uid.cpp
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\UREL\ALARM.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\UREL\ALARM.exp
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\UREL\ALARM.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\WINS\UREL\ALARM.exp
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\APPFRAME\APPFRAME\WINS\APPFRAME.WINS" UREL
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\THUMB.make" TARGET CFG=UDEB VERBOSE=-s
+NMAKE : fatal error U1073: don't know how to make '"..\..\..\Symbian\6.1\Series60\EPOC32\RELEASE\THUMB\UDEB\EDLL.LIB"'
+Stop.
+NMAKE : fatal error U1077: 'C:\apps\MSVC6\VC98\Bin\nmake.exe' : return code '0x2'
+Stop.
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\THUMB\AGENDA.THUMB" UDEB
+""  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\THUMB.make" TARGET CFG=UREL VERBOSE=-s
+NMAKE : fatal error U1073: don't know how to make '"\Symbian\6.1\Series60\EPOC32\INCLUDE\INDICATO.RSG"'
+Stop.
+NMAKE : fatal error U1077: 'C:\apps\MSVC6\VC98\Bin\nmake.exe' : return code '0x2'
+Stop.
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\AGENDA\AGENDA\THUMB\AGENDA.THUMB" UREL
+""
+PETRAN - PE file preprocessor V01.00 (Build 175)
+Copyright (c) 1996-2001 Symbian Ltd.
+
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\ALARM\ALARM\THUMB\ALARM.THUMB" UREL
+""
+PETRAN - PE file preprocessor V01.00 (Build 175)
+Copyright (c) 1996-2001 Symbian Ltd.
+
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\APPFRAME\APPFRAME\THUMB\APPFRAME.THUMB" UREL
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\WINS.make" FINAL CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=WINS CFG=UDEB FINAL
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\WINS.make" FINAL CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=WINS CFG=UREL FINAL
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\THUMB.make" FINAL CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=THUMB CFG=UDEB FINAL
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPX\GROUP\THUMB.make" FINAL CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\OPX\GROUP\OPX.MK" PLATFORM=THUMB CFG=UREL FINAL

@@ -1,0 +1,21 @@
+// VEXEDAIF.RSS
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+#include <aiftool.rh>
+
+RESOURCE AIF_DATA
+	{
+	caption_list=
+		{ 
+		CAPTION { code=ELangEnglish; caption="Vexed"; } // not localized.
+		};
+	//
+	app_uid=0x100069ac;
+	//
+	num_icons=2;
+	//
+	embeddability=KAppNotEmbeddable;
+	newfile=KAppDoesNotSupportNewFile;
+	}
+

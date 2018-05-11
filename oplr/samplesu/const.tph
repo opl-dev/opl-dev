@@ -1,0 +1,934 @@
+rem CONST.OPH 6.02
+rem Constants for OPL - Last updated June 16, 2005
+ 
+rem
+rem GENERAL CONSTANTS
+rem
+
+CONST KTrue%=-1
+CONST KFalse%=0
+
+rem Data type ranges
+CONST KMaxStringLen%=255
+CONST KMaxFloat=1.7976931348623157E+308
+CONST KMinFloat=2.2250738585072015E-308 rem Minimum with full precision in mantissa
+CONST KMinFloatDenorm=5e-324 rem Denormalised (just one bit of precision left)
+CONST KMinInt%=$8000 rem -32768 (translator needs hex for maximum ints)
+CONST KMaxInt%=32767
+CONST KMinLong&=&80000000 rem -2147483648 (hex for translator)
+CONST KMaxLong&=2147483647
+CONST KMaxdTIMEValue&=86399
+
+rem Data type sizes
+CONST KShortIntWidth&=2
+CONST KLongIntWidth&=4
+CONST KFloatWidth&=8
+
+rem Error codes
+CONST KErrNone%=0
+CONST KErrGenFail%=-1
+CONST KErrInvalidArgs%=-2
+CONST KErrOs%=-3
+CONST KErrNotSupported%=-4
+CONST KErrUnderflow%=-5
+CONST KErrOverflow%=-6
+CONST KErrOutOfRange%=-7
+CONST KErrDivideByZero%=-8
+CONST KErrInUse%=-9
+CONST KErrNoMemory%=-10
+CONST KErrNoSegments%=-11
+CONST KErrNoSemaphore%=-12
+CONST KErrNoProcess%=-13
+CONST KErrAlreadyOpen%=-14
+CONST KErrNotOpen%=-15
+CONST KErrImage%=-16
+CONST KErrNoReceiver%=-17
+CONST KErrNoDevices%=-18
+CONST KErrNoFileSystem%=-19
+CONST KErrFailedToStart%=-20
+CONST KErrFontNotLoaded%=-21
+CONST KErrTooWide%=-22
+CONST KErrTooManyItems%=-23
+CONST KErrBatLowSound%=-24
+CONST KErrBatLowFlash%=-25
+CONST KErrExists%=-32
+CONST KErrNotExists%=-33
+CONST KErrWrite%=-34
+CONST KErrRead%=-35
+CONST KErrEof%=-36
+CONST KErrFull%=-37
+CONST KErrName%=-38
+CONST KErrAccess%=-39
+CONST KErrLocked%=-40
+CONST KErrDevNotExist%=-41
+CONST KErrDir%=-42
+CONST KErrRecord%=-43
+CONST KErrReadOnly%=-44
+CONST KErrInvalidIO%=-45
+CONST KErrFilePending%=-46
+CONST KErrVolume%=-47
+CONST KErrIOCancelled%=-48
+rem OPL specific errors
+CONST KErrSyntax%=-77
+CONST KOplStructure%=-85
+CONST KErrIllegal%=-96
+CONST KErrNumArg%=-97
+CONST KErrUndef%=-98
+CONST KErrNoProc%=-99
+CONST KErrNoFld%=-100
+CONST KErrOpen%=-101
+CONST KErrClosed%=-102
+CONST KErrRecSize%=-103
+CONST KErrModLoad%=-104
+CONST KErrMaxLoad%=-105
+CONST KErrNoMod%=-106
+CONST KErrNewVer%=-107
+CONST KErrModNotLoaded%=-108
+CONST KErrBadFileType%=-109
+CONST KErrTypeViol%=-110
+CONST KErrSubs%=-111
+CONST KErrStrTooLong%=-112
+CONST KErrDevOpen%=-113
+CONST KErrEsc%=-114
+CONST KErrMaxDraw%=-117
+CONST KErrDrawNotOpen%=-118
+CONST KErrInvalidWindow%=-119
+CONST KErrScreenDenied%=-120
+CONST KErrOpxNotFound%=-121
+CONST KErrOpxVersion%=-122
+CONST KErrOpxProcNotFound%=-123
+CONST KErrStopInCallback%=-124
+CONST KErrIncompUpdateMode%=-125
+CONST KErrInTransaction%=-126
+rem -127 to -133 translator errors
+CONST KErrBadAlignment%=-134
+
+rem Month numbers
+CONST KJanuary%=1
+CONST KFebruary%=2
+CONST KMarch%=3
+CONST KApril%=4
+CONST KMay%=5
+CONST KJune%=6
+CONST KJuly%=7
+CONST KAugust%=8
+CONST KSeptember%=9
+CONST KOctober%=10
+CONST KNovember%=11
+CONST KDecember%=12
+
+rem For DOW
+CONST KMonday%=1
+CONST KTuesday%=2
+CONST KWednesday%=3
+CONST KThursday%=4
+CONST KFriday%=5
+CONST KSaturday%=6
+CONST KSunday%=7
+
+rem DATIM$ offsets
+CONST KDatimOffDayName%=1
+CONST KDatimOffDay%=5
+CONST KDatimOffMonth%=8
+CONST KDatimOffYear%=12
+CONST KDatimOffHour%=17
+CONST KDatimOffMinute%=20
+CONST KDatimOffSecond%=23
+
+rem Help location values
+CONST KHelpView%=0
+CONST KHelpDialog%=1
+CONST KHelpMenu%=2
+
+rem For BUSY and GIPRINT
+CONST KBusyTopLeft%=0
+CONST KBusyBottomLeft%=1
+CONST KBusyTopRight%=2
+CONST KBusyBottomRight%=3
+CONST KBusyMaxText%=80
+
+rem For CMD$
+CONST KCmdAppName%=1 rem Full path name used to start program
+CONST KCmdUsedFile%=2
+CONST KCmdLetter%=3
+rem For CMD$(3)
+CONST KCmdLetterCreate$="C"
+CONST KCmdLetterOpen$="O"
+CONST KCmdLetterRun$="R"
+CONST KCmdLetterBackground$="B"
+CONST KCmdLetterViewActivate$="V"
+CONST KCmdLetterRunWithoutViews$="W"
+
+rem For GETCMD$
+CONST KGetCmdLetterCreate$="C"
+CONST KGetCmdLetterOpen$="O"
+CONST KGetCmdLetterExit$="X"
+CONST KGetCmdLetterBroughtToFGround$="F"
+CONST KGetCmdLetterBackup$="S"
+CONST KGetCmdLetterRestart$="R"
+CONST KGetCmdLetterUnknown$="U"
+
+rem PARSE$ array subscripts
+CONST KParseAOffFSys%=1
+CONST KParseAOffDev%=2
+CONST KParseAOffPath%=3
+CONST KParseAOffFilename%=4
+CONST KParseAOffExt%=5
+CONST KParseAOffWild%=6
+rem Wild-card flags
+CONST KParseWildNone%=0
+CONST KParseWildFilename%=1
+CONST KParseWildExt%=2
+CONST KParseWildBoth%=3
+
+rem For CURSOR
+CONST KCursorTypeNotFlashing%=2
+CONST KCursorTypeGray%=4
+
+rem For FINDFIELD
+CONST KFindCaseDependent%=16
+CONST KFindBackwards%=0
+CONST KFindForwards%=1
+CONST KFindBackwardsFromEnd%=2
+CONST KFindForwardsFromStart%=3
+
+rem For LOC (optional third argument)
+CONST KLocFindExact%=0
+CONST KLocFindCollated%=1
+CONST KLocFindFolded%=2
+
+rem SCREENINFO array subscripts
+CONST KSInfoALeft%=1
+CONST KSInfoATop%=2
+CONST KSInfoAScrW%=3
+CONST KSInfoAScrH%=4
+CONST KSInfoAReserved1%=5
+CONST KSInfoAFont%=6
+CONST KSInfoAPixW%=7
+CONST KSInfoAPixH%=8
+CONST KSInfoAReserved2%=9
+CONST KSInfoAReserved3%=10
+
+rem Unicode ellipsis, linefeed and carriage-return
+CONST KEllipsis&=&2026
+CONST KLineFeed&=10
+CONST KCarriageReturn&=13
+
+rem For SETFLAGS
+CONST KRestrictTo64K&=&0001
+CONST KAutoCompact&=&0002
+CONST KTwoDigitExponent&=&0004
+CONST KMenuCancelCompatibility&=&0008
+CONST KAlwaysWriteAsciiTextFiles&=&0016
+CONST KSendSwitchOnMessage&=&10000
+
+rem To aid porting to Unicode OPL
+CONST KOplAlignment%=1
+CONST KOplStringSizeFactor%=2
+
+rem
+rem EVENT HANDLING
+rem
+
+rem Special keys
+CONST KKeyDel%=8
+CONST KKeyTab%=9
+CONST KKeyEnter%=13
+CONST KKeyEsc%=27
+CONST KKeySpace%=32
+
+rem Scan code values
+CONST KScanDel%=1
+CONST KScanTab%=2
+CONST KScanEnter%=3
+CONST KScanEsc%=4
+CONST KScanSpace%=5
+
+rem GETEVENT32 array indexes
+CONST KEvAType%=1
+CONST KEvATime%=2
+CONST KEvAScan%=3
+CONST KEvAKMod%=4
+CONST KEvAKRep%=5
+
+rem Pointer event array subscripts
+CONST KEvAPtrOplWindowId%=3
+CONST KEvAPtrWindowId%=3
+CONST KEvAPtrType%=4
+CONST KEvAPtrModifiers%=5
+CONST KEvAPtrPositionX%=6
+CONST KEvAPtrPositionY%=7
+CONST KEvAPtrScreenPosX%=8
+CONST KEvAPtrScreenPosY%=9
+
+rem Event types
+CONST KEvNotKeyMask&=&400
+CONST KEvFocusGained&=&401
+CONST KEvFocusLost&=&402
+CONST KEvSwitchOn&=&403
+CONST KEvCommand&=&404
+CONST KEvDateChanged&=&405
+CONST KEvKeyDown&=&406
+CONST KEvKeyUp&=&407
+CONST KEvPtr&=&408
+CONST KEvPtrEnter&=&409
+CONST KEvPtrExit&=&40A
+
+rem Pointer event types
+CONST KEvPtrPenDown&=0
+CONST KEvPtrPenUp&=1
+CONST KEvPtrButton1Down&=KEvPtrPenDown&
+CONST KEvPtrButton1Up&=KEvPtrPenUp&
+CONST KEvPtrButton2Down&=2
+CONST KEvPtrButton2Up&=3
+CONST KEvPtrButton3Down&=4
+CONST KEvPtrButton3Up&=5
+CONST KEvPtrDrag&=6
+CONST KEvPtrMove&=7
+CONST KEvPtrButtonRepeat&=8
+CONST KEvPtrSwitchOn&=9
+
+rem For PointerFilter
+CONST KPointerFilterEnterExit%=$1
+CONST KPointerFilterMove%=$2
+CONST KPointerFilterDrag%=$4
+
+rem Key constants (for 32-bit keywords like GETEVENT32)
+CONST KKeyHelp32&=&f83a
+CONST KKeyMenu32&=&f836
+CONST KKeySidebarMenu32&=&f700
+CONST KKeyPageLeft32&=&f802
+CONST KKeyPageRight32&=&f803
+CONST KKeyPageUp32&=&f804
+CONST KKeyPageDown32&=&f805
+CONST KKeyLeftArrow32&=&f807
+CONST KKeyRightArrow32&=&f808
+CONST KKeyUpArrow32&=&f809
+CONST KKeyDownArrow32&=&f80a
+rem For the command button array
+CONST KKeyCBA1&=&f842
+CONST KKeyCBA2&=&f843
+CONST KKeyCBA3&=&f844
+CONST KKeyCBA4&=&f845
+rem Special keys
+CONST KKeyZoomIn32&=&f703
+CONST KKeyZoomOut32&=&f704
+CONST KKeyIncBrightness32&=&f864
+
+rem For 32-bit status words IOWAIT and IOWAITSTAT32
+rem Use KErrFilePending% (-46) for 16-bit status words
+CONST KStatusPending32&=&80000001
+
+rem For KMOD
+CONST KKmodShift%=2
+CONST KKmodControl%=4
+CONST KKmodCaps%=16
+CONST KKmodFn%=32
+
+rem
+rem DIALOGS
+rem
+
+rem For ALERT
+CONST KAlertEsc%=1
+CONST KAlertEnter%=2
+CONST KAlertSpace%=3
+
+rem For dBUTTON
+CONST KDButtonNoLabel%=$100
+CONST KDButtonPlainKey%=$200
+CONST KDButtonBlank$=""
+CONST KDButtonBlank%=0
+CONST KDButtonDel%=8
+CONST KDButtonTab%=9
+CONST KDButtonEnter%=13
+CONST KDButtonEsc%=27
+CONST KDButtonSpace%=32
+
+rem DIALOG return values
+CONST KDlgCancel%=0
+
+rem For dEDITMULTI and printing
+CONST KParagraphDelimiter&=$2029	rem $06 under ASCII
+CONST KLineBreak&=$2028			rem $07 under ASCII
+CONST KPageBreak&=$000c			rem $08 under ASCII
+CONST KTabCharacter&=$0009		rem $09 under ASCII
+CONST KNonBreakingHyphen&=$2011		rem $0b under ASCII
+CONST KPotentialHyphen&=$00ad		rem $0c under ASCII
+CONST KNonBreakingSpace&=$00a0		rem $10 under ASCII
+CONST KPictureCharacter&=$fffc		rem $0e under ASCII
+CONST KVisibleSpaceCharacter&=$0020	rem $0f under ASCII
+
+rem For dFILE
+CONST KDFileNameLen%=255
+rem flags
+CONST KDFileEditBox%=$0001
+CONST KDFileAllowFolders%=$0002
+CONST KDFileFoldersOnly%=$0004
+CONST KDFileEditorDisallowExisting%=$0008
+CONST KDFileEditorQueryExisting%=$0010
+CONST KDFileAllowNullStrings%=$0020
+CONST KDFileAllowWildCards%=$0080
+CONST KDFileSelectorWithRom%=$0100
+CONST KDFileSelectorWithSystem%=$0200
+CONST KDFileSelectorAllowNewFolder%=$0400
+CONST KDFileSelectorShowHidden%=$0800
+
+rem Current OPL-related UIDs (for dFILE UID restriction)
+CONST KUidDirectFileStore&=&10000037
+CONST KUidOplInterpreter&=&10005D2E
+CONST KUidOpo&=&100055C0
+CONST KUidOplApp&=&100055C1
+CONST KUidOplDoc&=&100055C2
+CONST KUidOplFile&=&1000008A
+CONST KUidOpxDll&=&10003A7B
+
+rem dINIT flags
+CONST KDlgButRight%=1
+CONST KDlgNoTitle%=2
+CONST KDlgFillScreen%=4
+CONST KDlgNoDrag%=8
+CONST KDlgDensePack%=16
+
+rem For dPOSITION
+CONST KDPositionLeft%=-1
+CONST KDPositionCenter%=0
+CONST KDPositionRight%=1
+CONST KDPositionTop%=-1
+CONST KDPositionBottom%=1
+
+rem For dTEXT
+CONST KDTextLeft%=0
+CONST KDTextRight%=1
+CONST KDTextCenter%=2
+CONST KDTextBold%=$100 rem Currently ignored
+CONST KDTextLineBelow%=$200
+CONST KDTextAllowSelection%=$400
+CONST KDTextSeparator%=$800
+
+rem For dTIME
+CONST KDTimeAbsNoSecs%=0
+CONST KDTimeAbsWithSecs%=1
+CONST KDTimeDurationNoSecs%=2
+CONST KDTimeDurationWithSecs%=3
+rem Flags for dTIME (for ORing combinations)
+CONST KDTimeWithSeconds%=1
+CONST KDTimeDuration%=2
+CONST KDTimeNoHours%=4
+CONST KDTime24Hour%=8
+
+rem For dXINPUT
+CONST KDXInputMaxLen%=32
+
+rem For Standard No/Yes dCHOICEs
+CONST KNoYesChoiceNo%=1
+CONST KNoYesChoiceYes%=2
+
+rem
+rem MENUS
+rem
+
+rem For mCARD and mCASC
+CONST KMenuDimmed%=$1000
+CONST KMenuSymbolOn%=$2000
+CONST KMenuSymbolIndeterminate%=$4000
+CONST KMenuCheckBox%=$0800
+CONST KMenuOptionStart%=$0900
+CONST KMenuOptionMiddle%=$0a00
+CONST KMenuOptionEnd%=$0b00
+
+rem mPOPUP position type - Specifies which corner
+rem of the popup is given by supplied coordinates
+CONST KMPopupPosTopLeft%=0
+CONST KMPopupPosTopRight%=1
+CONST KMPopupPosBottomLeft%=2
+CONST KMPopupPosBottomRight%=3
+
+rem
+rem GRAPHICS
+rem
+
+rem For DEFAULTWIN
+CONST KDefaultWin2GrayMode%=0
+CONST KDefaultWin4GrayMode%=1
+CONST KDefaultWin16GrayMode%=2
+CONST KDefaultWin256GrayMode%=3
+CONST KDefaultWin16ColorMode%=4
+CONST KDefaultWin256ColorMode%=5
+CONST KDefaultWin64KMode%=6
+CONST KDefaultWin16MMode%=7
+CONST KDefaultWinRGBMode%=8
+CONST KDefaultWin4KMode%=9
+
+CONST KDefaultWin%=1
+CONST KgModeSet%=0
+CONST KgModeClear%=1
+CONST KgModeInvert%=2
+CONST KtModeSet%=0
+CONST KtModeClear%=1
+CONST KtModeInvert%=2
+CONST KtModeReplace%=3
+
+CONST KgStyleNormal%=0
+CONST KgStyleBold%=1
+CONST KgStyleUnder%=2
+CONST KgStyleInverse%=4
+CONST KgStyleDoubleHeight%=8
+CONST KgStyleMonoFont%=16
+CONST KgStyleItalic%=32
+
+rem RGB color masking
+CONST KRgbRedPosition&=&10000
+CONST KRgbGreenPosition&=$100
+CONST KRgbBluePosition&=$1
+CONST KRgbColorMask&=$ff
+
+rem RGB color values
+CONST KRgbBlack&=&000000
+CONST KRgbDarkGray&=&555555
+CONST KRgbDarkRed&=&800000
+CONST KRgbDarkGreen&=&008000
+CONST KRgbDarkYellow&=&808000
+CONST KRgbDarkBlue&=&000080
+CONST KRgbDarkMagenta&=&800080
+CONST KRgbDarkCyan&=&008080
+CONST KRgbRed&=&ff0000
+CONST KRgbGreen&=&00ff00
+CONST KRgbYellow&=&ffff00
+CONST KRgbBlue&=&0000ff
+CONST KRgbMagenta&=&ff00ff
+CONST KRgbCyan&=&00ffff
+CONST KRgbGray&=&aaaaaa
+CONST KRgbDitheredLightGray&=&cccccc
+CONST KRgb1in4DitheredGray&=&ededed
+CONST KRgbWhite&=&ffffff
+
+rem Easy mappings to the above RGB color combinations
+CONST KColorSettingBlack%=1
+CONST KColorSettingDarkGrey%=2
+CONST KColorSettingDarkRed%=3
+CONST KColorSettingDarkGreen%=4
+CONST KColorSettingDarkYellow%=5
+CONST KColorSettingDarkBlue%=6
+CONST KColorSettingDarkMagenta%=7
+CONST KColorSettingDarkCyan%=8
+CONST KColorSettingRed%=9
+CONST KColorSettingGreen%=10
+CONST KColorSettingYellow%=11
+CONST KColorSettingBlue%=12
+CONST KColorSettingMagenta%=13
+CONST KColorSettingCyan%=14
+CONST KColorSettingGrey%=15
+CONST KColorSettingLightGrey%=16
+CONST KColorSettingLighterGrey%=17
+CONST KColorSettingWhite%=18
+
+rem For gBORDER and gXBORDER
+CONST KBordSglShadow%=1
+CONST KBordSglGap%=2
+CONST KBordDblShadow%=3
+CONST KBordDblGap%=4
+CONST KBordGapAllRound%=$100
+CONST KBordRoundCorners%=$200
+CONST KBordLosePixel%=$400
+
+REM gXBORDER32 predefined borders
+CONST KgXBorder32None&=&00                     REM No border
+CONST KgXBorder32SingleGray&=&400001           REM Border is a 1 pixel wide grey outline
+CONST KgXBorder32SingleBlack&=&80001           REM Border is a 1 pixel wide black outline
+CONST KgXBorder32SingleDotted&=&03             REM Border is a 1 pixel wide dotted outline
+CONST KgXBorder32ShallowRaised&=&1140          REM A 3D raised border, with 1 pixel thickness
+CONST KgXBorder32ShallowSunken&=&1120          REM A 3D sunken border, with 1 pixel thickness
+CONST KgXBorder32DeepRaised&=&2141             REM A 3D raised border, with outline, and 2 pixel thickness
+CONST KgXBorder32DeepSunken&=&2121             REM A 3D sunken border, with outline, and 2 pixel thickness
+CONST KgXBorder32ThickDeepRaised&=&3141        REM A 3D raised border, with outline, and 3 pixel thickness
+CONST KgXBorder32ThickDeepSunken&=&3121        REM A 3D raised border, with outline, and 3 pixel thickness
+CONST KgXBorder32VerticalBar&=&202140          REM A 3D raised border, with 2 pixels thickness and no outline on the left and right hand sides
+CONST KgXBorder32HorizontalBar&=&302140        REM A 3D raised border, with 2 pixels thickness and no outline on the top and bottom
+
+CONST KgXBorder32Window&=&800041               REM Raised border around a window
+CONST KgXBorder32FlatContainer&=&800012        REM Flat border around a container
+CONST KgXBorder32RaisedContainer&=&800042      REM Raised border around a container
+CONST KgXBorder32SunkenContainer&=&800022      REM Sunken border around a container
+CONST KgXBorder32FlatControl&=&800013          REM Flat border around a control
+CONST KgXBorder32RaisedControl&=&800043        REM Raised border around a control
+CONST KgXBorder32SunkenControl&=&800023        REM Sunken border around a control
+CONST KgXBorder32FocusedRaisedControl&=&800143 REM Raised border around a control with focus
+CONST KgXBorder32FocusedSunkenControl&=&800123 REM Sunken border around a control with focus
+
+REM gXBORDER32 Flags
+
+REM Defines the border outline style
+CONST KgXBorder32WithOutline&=&01              REM The border has a single pixel outline, either solid (by default) or dotted
+CONST KgXBorder32DottedOutline&=&02            REM The border outline is drawn using a dotted pen
+CONST KgXBorder32WithInline&=&04               REM The border has an interior border
+
+REM Defines the 3D border style
+CONST KgXBorder32Flat&=&10                     REM A flat border
+CONST KgXBorder32Sunken&=&20                   REM A 3D effect sunken border
+CONST KgXBorder32Raised&=&40                   REM A 3D effect raised border
+
+REM Defines the border's construction style.
+CONST KgXBorder32OneStep&=&100                 REM One step border construction
+                                               REM This type of border is drawn using the mid light and mid dark colours on opposite sides of the border
+CONST KgXBorder32TwoStep&=&200                 REM Two step border construction
+                                               REM This type of border uses light and dark colours for the main border frame (or mid light for the flat border), and an additional half frame using mid light or mid dark colours
+CONST KgXBorder32ThreeStep&=&400               REM Three step border construction
+                                               REM This type of border is drawn with an outer frame, a repeating one pixel band in mid tones, and an inner frame
+CONST KgXBorder32InvertedTwoStep&=&800         REM Inverted two step border construction
+                                               REM This is the same as ETwoStep except that for raised and sunken borders, the additional half frame is drawn on the opposite side to that used in ETwoStep
+
+REM Defines the number of pixels to add to the border thickness. The border thickness is the central part of the border, coloured in the mid-tone highlights and lowlights
+REM For two step-constructed borders, the additional pixels are only added to either the top left or bottom right hand sides
+CONST KgXBorder32AddOnePixel&=&1000            REM The border has one extra pixel
+CONST KgXBorder32AddTwoPixels&=&2000           REM The border has two extra pixels
+CONST KgXBorder32AddFourPixels&=&4000          REM The border has four extra pixels
+
+REM Defines the number of pixels that are removed to produce rounded corners
+CONST KgXBorder32AddOneRoundingPixel&=&10000   REM Border rounded by removing one extra pixel
+CONST KgXBorder32AddTwoRoundingPixels&=&20000  REM Border rounded by removing two extra pixels
+CONST KgXBorder32AddFourRoundingPixel&=&40000 REM Border rounded by removing four extra pixels
+
+REM Legacy styles
+CONST KgXBorder32Horizontal&=&100000
+CONST KgXBorder32WithOverlap&=&200000
+CONST KgXBorder32Gray&=&400000
+CONST KgXBorder32Black&=&80000
+
+rem For gBUTTON
+CONST KButtSinglePixel%=0
+CONST KButtSinglePixelRaised%=0
+CONST KButtSinglePixelPressed%=1
+CONST KButtDoublePixel%=1
+CONST KButtDoublePixelRaised%=0
+CONST KButtDoublePixelSemiPressed%=1
+CONST KButtDoublePixelSunken%=2
+CONST KButtStandard%=2
+CONST KButtStandardRaised%=0
+CONST KButtStandardSemiPressed%=1
+
+CONST KButtLayoutTextRightPictureLeft%=0
+CONST KButtLayoutTextBottomPictureTop%=1
+CONST KButtLayoutTextTopPictureBottom%=2
+CONST KButtLayoutTextLeftPictureRight%=3
+CONST KButtTextRight%=0
+CONST KButtTextBottom%=1
+CONST KButtTextTop%=2
+CONST KButtTextLeft%=3
+CONST KButtExcessShare%=$00
+CONST KButtExcessToText%=$10
+CONST KButtExcessToPicture%=$20
+
+rem For gCLOCK
+CONST KClockLocaleConformant%=6
+CONST KClockSystemSetting%=KClockLocaleConformant%
+CONST KClockAnalog%=7
+CONST KClockDigital%=8
+CONST KClockLargeAnalog%=9
+rem gClock 10 no longer supported (use slightly changed gCLOCK 11)
+CONST KClockFormattedDigital%=11
+
+rem For gCREATE
+CONST KgCreateInvisible%=0
+CONST KgCreateVisible%=1
+CONST KgCreateHasShadow%=$0010
+rem Color mode constants
+CONST KgCreate2GrayMode%=$0000
+CONST KgCreate4GrayMode%=$0001
+CONST KgCreate16GrayMode%=$0002
+CONST KgCreate256GrayMode%=$0003
+CONST KgCreate16ColorMode%=$0004
+CONST KgCreate256ColorMode%=$0005
+CONST KgCreate64KColorMode%=$0006
+CONST KgCreate16MColorMode%=$0007
+CONST KgCreateRGBColorMode%=$0008
+CONST KgCreate4KColorMode%=$0009
+
+rem gCOLORINFO array subscripts
+CONST gColorInfoADisplayMode%=1
+CONST gColorInfoANumColors%=2
+CONST gColorInfoANumGrays%=3
+rem DisplayMode constants
+CONST KDisplayModeNone%=0
+CONST KDisplayModeGray2%=1
+CONST KDisplayModeGray4%=2
+CONST KDisplayModeGray16%=3
+CONST KDisplayModeGray256%=4
+CONST KDisplayModeColor16%=5
+CONST KDisplayModeColor256%=6
+CONST KDisplayModeColor64K%=7
+CONST KDisplayModeColor16M%=8
+CONST KDisplayModeRGB%=9
+CONST KDisplayModeColor4K%=10
+
+rem For gINFO
+CONST KgInfoSize%=32
+CONST KgInfoLowestCharCode%=1
+CONST KgInfoHighestCharCode%=2
+CONST KgInfoFontHeight%=3
+CONST KgInfoFontDescent%=4
+CONST KgInfoFontAscent%=5
+CONST KgInfoWidth0Char%=6
+CONST KgInfoMaxCharWidth%=7
+CONST KgInfoFontFlag%=8
+CONST KgInfoFontName%=9
+rem 9-17 Font name
+CONST KgInfogGMode%=18
+CONST KgInfogTMode%=19
+CONST KgInfogStyle%=20
+CONST KgInfoCursorState%=21
+CONST KgInfoCursorWindowId%=22
+CONST KgInfoCursorWidth%=23
+CONST KgInfoCursorHeight%=24
+CONST KgInfoCursorAscent%=25
+CONST KgInfoCursorX%=26
+CONST KgInfoCursorY%=27
+CONST KgInfoDrawableBitmap%=28
+CONST KgInfoCursorEffects%=29
+CONST KgInfogGray%=30
+CONST KgInfoDrawableId%=31
+
+rem For gINFO32
+CONST KgInfo32Size%=48
+rem 1,2 reserved
+CONST KgInfo32FontHeight%=KgInfoFontHeight%
+CONST KgInfo32FontDescent%=KgInfoFontDescent%
+CONST KgInfo32FontAscent%=KgInfoFontAscent%
+CONST KgInfo32Width0Char%=KgInfoWidth0Char%
+CONST KgInfo32MaxCharWidth%=KgInfoMaxCharWidth%
+CONST KgInfo32FontFlag%=KgInfoFontFlag%
+CONST KgInfo32FontUID%=9
+rem 10-17 unused
+CONST KgInfo32gGMode%=KgInfogGMode%
+CONST KgInfo32gTMode%=KgInfogTMode%
+CONST KgInfo32gStyle%=KgInfogStyle%
+CONST KgInfo32CursorState%=KgInfoCursorState%
+CONST KgInfo32CursorWindowId%=KgInfoCursorWindowId%
+CONST KgInfo32CursorWidth%=KgInfoCursorWidth%
+CONST KgInfo32CursorHeight%=KgInfoCursorHeight%
+CONST KgInfo32CursorAscent%=KgInfoCursorAscent%
+CONST KgInfo32CursorX%=KgInfoCursorX%
+CONST KgInfo32CursorY%=KgInfoCursorY%
+CONST KgInfo32DrawableBitmap%=KgInfoDrawableBitmap%
+CONST KgInfo32CursorEffects%=KgInfoCursorEffects%
+CONST KgInfo32GraphicsMode%=30
+CONST KgInfo32ForegroundRed%=31
+CONST KgInfo32ForegroundGreen%=32
+CONST KgInfo32ForegroundBlue%=33
+CONST KgInfo32BackgroundRed%=34
+CONST KgInfo32BackgroundGreen%=35
+CONST KgInfo32BackgroundBlue%=36
+
+rem For gLOADBIT
+CONST KgLoadBitReadOnly%=0
+CONST KgLoadBitWriteable%=1
+
+rem For gRANK
+CONST KgRankForeground%=1
+CONST KgRankBackGround%=KMaxInt%
+
+rem gPEEKLINE modes
+CONST KgPeekLineDefault%=-1
+CONST KgPeekLineBlackWhite%=0
+CONST KgPeekLine4Colors%=1
+CONST KgPeekLine16Colors%=2
+
+rem gPOLY array subscripts
+CONST KgPolyAStartX%=1
+CONST KgPolyAStartY%=2
+CONST KgPolyANumPairs%=3
+CONST KgPolyANumDx1%=4
+CONST KgPolyANumDy1%=5
+
+rem For gPRINTB
+CONST KgPrintBRightAligned%=1
+CONST KgPrintBLeftAligned%=2
+CONST KgPrintBCenteredAligned%=3
+rem The defaults
+CONST KgPrintBDefAligned%=KgPrintBLeftAligned%
+CONST KgPrintBDefTop%=0
+CONST KgPrintBDefBottom%=0
+CONST KgPrintBDefMargin%=0
+
+rem For gXBORDER
+CONST KgXBorderSinglePixelType%=0
+CONST KgXBorderDoublePixelType%=1
+CONST KgXBorderStandardType%=2
+
+rem For gXPRINT
+CONST KgXPrintNormal%=0
+CONST KgXPrintInverse%=1
+CONST KgXPrintInverseRound%=2
+CONST KgXPrintThinInverse%=3
+CONST KgXPrintThinInverseRound%=4
+CONST KgXPrintUnderlined%=5
+CONST KgXPrintThinUnderlined%=6
+
+rem For gFONT
+rem (Only suitable for devices using EON14.GDR e.g. Series 5, 9210)
+CONST KFontArialBold8&=		268435951
+CONST KFontArialBold11&=	268435952
+CONST KFontArialBold13&=	268435953
+CONST KFontArialNormal8&=	268435954
+CONST KFontArialNormal11&=	268435955
+CONST KFontArialNormal13&=	268435956
+CONST KFontArialNormal15&=	268435957
+CONST KFontArialNormal18&=	268435958
+CONST KFontArialNormal22&=	268435959
+CONST KFontArialNormal27&=	268435960
+CONST KFontArialNormal32&=	268435961
+
+CONST KFontTimesBold8&=		268435962
+CONST KFontTimesBold11&=	268435963
+CONST KFontTimesBold13&=	268435964
+CONST KFontTimesNormal8&=	268435965
+CONST KFontTimesNormal11&=	268435966
+CONST KFontTimesNormal13&=	268435967
+CONST KFontTimesNormal15&=	268435968
+CONST KFontTimesNormal18&=	268435969
+CONST KFontTimesNormal22&=	268435970
+CONST KFontTimesNormal27&=	268435971
+CONST KFontTimesNormal32&=	268435972
+
+CONST KFontCourierBold8&=	268436062
+CONST KFontCourierBold11&=	268436063
+CONST KFontCourierBold13&=	268436064
+CONST KFontCourierNormal8&=	268436065
+CONST KFontCourierNormal11&=	268436066
+CONST KFontCourierNormal13&=	268436067
+CONST KFontCourierNormal15&=	268436068
+CONST KFontCourierNormal18&=	268436069
+CONST KFontCourierNormal22&=	268436070
+CONST KFontCourierNormal27&=	268436071
+CONST KFontCourierNormal32&=	268436072
+
+CONST KFontCalc13n&=		268435493
+CONST KFontCalc18n&=		268435494
+CONST KFontCalc24n&=		268435495
+
+CONST KFontMon18n&=		268435497
+CONST KFontMon18b&=		268435498
+CONST KFontMon9n&=		268435499
+CONST KFontMon9b&=		268435500
+
+CONST KFontTiny1&=		268435501
+CONST KFontTiny2&=		268435502
+CONST KFontTiny3&=		268435503
+CONST KFontTiny4&=		268435504
+
+CONST KFontEiksym15&=		268435661
+
+CONST KFontSquashed&=		268435701
+CONST KFontDigital35&=		268435752
+
+rem
+rem The following font consts are for Series 60 devices only
+rem e.g. Nokia 7650
+rem
+
+CONST KFontS60LatinPlain12&=&10000001
+CONST KFontS60LatinBold12&=&10000002
+CONST KFontS60LatinBold13&=&10000003
+CONST KFontS60LatinBold17&=&10000004
+CONST KFontS60LatinBold19&=&10000005
+CONST KFontS60NumberPlain5&=&10000006
+CONST KFontS60ClockBold30&=&10000007
+CONST KFontS60LatinClock14&=&10000008
+CONST KFontS60Custom&=&10000009
+CONST KFontS60ApacPlain12&=&1000000c
+CONST KFontS60ApacPlain16&=&1000000d
+
+rem
+rem The following font consts are for UIQ devices only
+rem e.g. Sony Ericsson P800
+rem
+
+CONST KFontUiqSwissABeta&=&017B4B0D
+
+rem
+rem End of font info.
+rem
+
+rem
+rem I/O ACCESS
+rem
+
+rem For IOOPEN
+rem Mode category 1
+CONST KIoOpenModeOpen%=$0000
+CONST KIoOpenModeCreate%=$0001
+CONST KIoOpenModeReplace%=$0002
+CONST KIoOpenModeAppend%=$0003
+CONST KIoOpenModeUnique%=$0004
+
+rem Mode category 2
+CONST KIoOpenFormatBinary%=$0000
+CONST KIoOpenFormatText%=$0020
+
+rem Mode category 3
+CONST KIoOpenAccessUpdate%=$0100
+CONST KIoOpenAccessRandom%=$0200
+CONST KIoOpenAccessShare%=$0400
+
+rem For IOSEEK
+CONST KIoSeekFromStart%=1
+CONST KIoSeekFromEnd%=2
+CONST KIoSeekFromCurrent%=3
+CONST KIoSeekFirstRecord%=6
+
+rem
+rem APPLICATION CREATION
+rem
+
+rem For FLAGS
+CONST KFlagsAppFileBased%=1
+CONST KFlagsAppIsHidden%=2
+
+rem Language code for CAPTION
+CONST KMaxLangsSupported%=33
+CONST KLangEnglish%=1
+CONST KLangFrench%=2
+CONST KLangGerman%=3
+CONST KLangSpanish%=4
+CONST KLangItalian%=5
+CONST KLangSwedish%=6
+CONST KLangDanish%=7
+CONST KLangNorwegian%=8
+CONST KLangFinnish%=9
+CONST KLangAmerican%=10
+CONST KLangSwissFrench%=11
+CONST KLangSwissGerman%=12
+CONST KLangPortuguese%=13
+CONST KLangTurkish%=14
+CONST KLangIcelandic%=15
+CONST KLangRussian%=16
+CONST KLangHungarian%=17
+CONST KLangDutch%=18
+CONST KLangBelgianFlemish%=19
+CONST KLangAustralian%=20
+CONST KLangBelgianFrench%=21
+CONST KLangAustrian%=22
+CONST KLangNewZealand%=23
+CONST KLangInternationalFrench%=24
+CONST KLangCzech%=25
+CONST KLangSlovak%=26
+CONST KLangPolish%=27
+CONST KLangSolvenian%=28
+CONST KLangTaiwanChinese%=29
+CONST KLangHongKongChinese%=30
+CONST KLangPRCChinest%=31
+CONST KLangJapanese%=32
+CONST KLangThai%=33
+
+rem MIME priority values
+CONST KDataTypePriorityUserSpecified%=KMaxInt%
+CONST KDataTypePriorityHigh%=10000
+CONST KDataTypePriorityNormal%=0
+CONST KDataTypePriorityLow%=-10000
+CONST KDataTypePriorityLastResort%=-20000
+CONST KDataTypePriorityNotSupported%=KMinInt%
+
+rem
+rem END OF CONST.OPH
+rem
+

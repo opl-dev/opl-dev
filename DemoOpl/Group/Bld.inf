@@ -1,0 +1,23 @@
+// BLD.INF
+//
+// Copyright (c) 2000-2001 Symbian Ltd. All rights reserved.
+
+#include "..\..\opl-target.mmpi"
+
+PRJ_PLATFORMS
+WINS
+
+PRJ_EXPORTS
+..\Help\DemoOPL.hlp.oph \epoc32\wins\c\OPL\DemoApp\DemoOPL.hlp.oph
+
+PRJ_MMPFILES
+makefile ..\Group\DemoOPL.mk
+#if defined(__UIQ_MMP__)
+makefile ..\Group\UiqBldDemoHelp.mk
+#elif defined(__S80_DP2_0_MMP__)
+makefile ..\Group\S80BldDemoHelp.mk
+#else
+makefile ..\Group\BldDemoHelp.mk
+#endif
+
+PRJ_TESTMMPFILES

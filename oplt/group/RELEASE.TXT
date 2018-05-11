@@ -1,0 +1,1155 @@
+OPLT
+====
+
+OPLT 114
+========
+Released ????, Changelist ??????
+Uses: ????
+Changes:
+ None currently
+
+OPLT 113
+========
+Released by Rick 23/08/2001, Changelist 115660
+Uses: Crystal COAKL06
+Changes:
+ SETHELPUID keyword added
+ dEDITMULTI now supports an additional (optional) ReadOnly% argument
+ dCHOICE now supports an additional (optional) IncrementalMatching% argument
+ dXINPUT now supports an additional (optional) SeedTextContents% parameter
+ dCHECKBOX support removed (commented out) since Crystal doesn't use these
+
+OPLT 112
+========
+Uses: Crystal mainline 00159
+Changes:
+ Fix defect EDNRANS-4JLPEX "OPL leaks when translating apps with MIME recognition"
+ (Also, null MIME datatype strings are correctly reported as syntax errors.)
+ Removed old PVCS support files.
+
+OPLT 111
+========
+Released 6 April 00
+Uses: Crystal mainline 00149
+Changes:
+ Fixed defect EDNRANS-4J5E8E "OPLT only supports one MIME type"
+
+OPLT 110
+========
+Released by Rick, 3 December 99.
+Uses: Generic base build 00066.
+Changes:
+ Changed the OplInterpreter UID to to prevent narrow OPL programs from having the OPL icon.
+
+OPLT 109
+========
+(Released by Rick on 20 September 99)
+Uses: ER5u baseline 00016.
+Changes:
+ Added WINC as a build target.
+ Added SIZE() opl function. (Returns number of bytes of string).
+ Removed t_tran.mmp from the test suite (t_tran was a simple wrapper over the 
+ translator, used to translate OPL source in batches. It's replaced by the WINC
+ OPLTRAN tool.) And tmodtran.mmp, which hasn't worked for a long time, needs to be
+ fixed.
+ Reput test code with Unicode delimiter chars etc.
+ Changed BLD.INF to produce a WINC version of OPLT for OPLTOOLS.
+ Changed the translator to ensure all strings are even-word aligned for ARM Thumb.
+ Upped the translator version number to 0x3000 for Unicode.
+ Changed the OPL UIDs to prevent narrow OPL programs from executing on Unicode.
+
+OPLT 108
+========
+(Released by Rick on 04 September 99)
+Uses: ER5u baseline 00006
+Changes:
+ Fixed a problem with the VECTOR keyword patching.
+
+OPLT 107
+========
+(Released by Rick on 01 September 99)
+Uses: Crystal baseline 010
+Changes:
+ None -- first Crystal release.
+
+OPLT 106
+========
+(Released by Rick on 31 August 99)
+Uses: ER5u components
+ ER5u Baseline 00006
+Changes:
+ Component now compiles under MSVC6.
+ Added mCardX keyword support for embedding bitmaps in menu card titles.
+ Added SetHelp and ShowHelp keywords to support context-sensitive help.
+ Made all OPL strings word-aligned by adding one byte padding into LBC header.
+ Tidied up the #include protection.
+
+OPLT 105
+========
+(Released by Rick on 5 July 99)
+Uses: ER5u components
+ APPARC/116 BRDCST/005 BITGDI/096 CHARCONV/021 E32/185 F32/145
+ FBSERV/091 FONTS/085 EMIME/006 ETEXT/121 FNTSTORE/060 GDI/070
+ STORE/062 WSERV/107
+Changes:
+ Using CEditableText::EParagraphDelimiter in place of 0x06, 
+ introducing a dependancy on ETEXT.
+
+OPLT 104
+========
+(Released by Darren Jones on 20 May 99)
+Uses: ER5u dependencies:
+ APPARC/116	BRDCST/005	BITGDI/096	CHARCONV/021	E32/185
+ E32TOOLS/120	E32TOOLP/107	EIKTOOLS/133	EMIME/006	F32/145
+ FBSERV/091	FNTSTORE/060	FONTS/085	GDI/070		STORE/062
+ WSERV/107
+Changes:
+ ER5u baseline release for auto-building.
+
+OPLT 103
+========
+(Released by Rick on 25 January 99)
+Uses: ER5 dependencies:
+Changes:
+ Using _LIT() literals, replacing _L().
+ Moved to E32TOOLP 098 for MSVC Service Pack 3 changes.
+ Reboilerplated, to cover MMP files too.
+ gCOLORINFO becomes a function rather than a keyword (as it returns the default color mode).
+
+OPLT 102
+========
+(Released by Rick on 26 November 98)
+Uses: ER5 dependencies:
+ APPARC/107	BRDCST/002	BITGDI/077	CHARCONV/003	E32/156
+ F32/122	FBSERV/082	FONTS/079	EMIME/002	FNTSTORE/052
+ GDI/061	STORE/050	WSERV/102
+Changes:
+ Using new Eikon, hence the marm debug OPLT releases are back!
+ Symbian boilerplated the code.
+
+OPLT 101
+========
+(Released by Rick on 21 November 98)
+Uses: Release 5 dependencies:
+ APPARC/107	BRDCST/002	BITGDI/072	CHARCONV/003	E32/156
+ F32/122	FBSERV/082	FONTS/079	EMIME/002	FNTSTORE/052
+ GDI/061	STORE/050	WSERV/101
+
+New OPL keyword in APP..ENDA section:
+  MIME priority, datatype e.g. MIME 10000,"text/html" which sets the data types
+  in the AIF file that is generated.
+
+OPLT 100
+========
+(Released by Rick on 18 October 98)
+Uses: Release 5 dependencies.
+
+A first Unicode release, with color support.
+Other changes: now using MMP and VC5
+
+  gCOLORINFO info&()
+  which populates info&(1) with the maximum number of colors available
+  on the platform. Similarly, info&(2) for gray count.
+
+  gCOLORBACKGROUND red%,green%,blue%
+  to set the background color (ideal for gPRINTB background)
+  Note that you can find the current foreground/background colors
+  with gINFO32 as before.
+
+Skipped tmodtran test to compare OPO files (out of time before ER5 release).
+Note that this links okay with VC4 and MARM, its just VC5.
+
+Version 0.01.038
+================
+(Released by Kevin on 10 July 1997)
+Uses: Platform 001 releases.
+
+A procedure containing %. no longer stops error location
+
+Version 0.01.037
+================
+(Released by Howard on 2 June 1997)
+Uses: Platform 001 releases.
+
+
+AIF file now always created for any APP. Any components provided
+are used. Otherwise defaults used:
+        - default ICON
+        - caption given in APP statement itself is used with the
+          machine's language
+        - FLAGS not 1 (ie. APP does not support file creation)
+Note however that CAPTION keyword overrides the name in the APP
+statement itself. (If you have any CAPTION keywords at all the name
+in APP will not be used, so CAPTION must then also be used to specify
+the caption for the machine's language. This is reasonable in that
+the APP caption is just a default when no real caption's are needed).
+
+
+Version 0.01.036
+================
+(Released by Howard on 20 May 1997)
+Uses: Platform 001 releases.
+
+Just rebuilt with platform 001 and added OPLT.MAP to EMARMXX releases.
+
+MNT VALID confirms no change from 035.
+
+
+Version 0.01.035
+================
+(Released by Howard on 20 May 1997)
+Uses: Platform versions
+
+Just rebuilt with platform versions.
+
+
+Version 0.01.034
+================
+(Released by Howard on 7 May 1997)
+
+Uses: e32tools=063+ eiktools=121 e32=099+ f32=069+ store=042+ wserv=080+
+fbserv=058+ apparc=058+ bitgdi=055+ gdi=050+ fntstore=039+ fonts=064
+
+1) EMARMB.PRJ and EWINSB.PRJ now have the FRZ and DEF files for the
+translator base interface. Previously these were released with the DLLs.
+To be released to \EPOC32\RELEASE\MARM\ and \EPOC32\RELEASE\WINS\.
+
+2) EMARMD.REL and EWINSD.REL no required longer in project - they
+were mistakenly added to take the different FRZ and DEF files.
+
+3) COplLexerBase::TokenOffset() was not exported in the cpp, as
+spotted by Andrew.
+ARM exports therefore had 1 less ordinal.
+New OPLT.FRZ and OPLTD.FRZ released.
+
+Version 0.01.033
+================
+(Released by Howard on 7 May 1997)
+
+Uses: e32tools=063+ eiktools=121 e32=099+ f32=069+ store=042+ wserv=080+
+fbserv=058+ apparc=058+ bitgdi=055+ gdi=050+ fntstore=039+ fonts=064
+
+Binary compatible with 032
+
+1) Fixed FREEALLOC (and 2 others) problems introduced by removing __32_BIT_ADDR__ switch. Checked no more
+refs to this switch anymore. 16 bit arg was getting pushed causing stack to panic.
+(Had to change OPLER1.REF - stack depth in proc opler1: seems to have
+changed to 0x12 from 0x0E. Nick's looking at it.)
+
+2) TRAP RAISE err% now supported. This allows the user to set ERR=0 and clear TRAP - both badly needed.
+
+3) gCLOCK now takes offset& rather than offset%. The runtime uses
+seconds offset rather than minutes if (mode% and $100) is true.
+
+4) Removed bmarm\OPLT.MAK from project. MAKTRAN generates it from
+bwins\OPLT.MAK
+
+Version 0.01.032
+================
+(Released by Howard on 6 May 1997)
+
+Uses: e32tools=063+ eiktools=121 e32=099+ f32=069+ store=042+ wserv=080+
+fbserv=058+ apparc=058+ bitgdi=055+ gdi=050+ fntstore=039+ fonts=064
+
+First frozen release : for Rom 0.06 (16)
+
+NickT's changes & fixes:
+1) OPX calling by ordinal.
+Have changed the way OPX declarations are structured & the OPX table is emitted. 
+OPXs must now have a Uid which is specified in the DECLARE OPX statement. 
+The DECLARE OPX syntax is now:
+
+DECLARE OPX fred,&12345678,$1234
+	func:(1rg2,arg2) : 23
+ENDP
+
+i.e. the function name is followed by a colon and the function number. The function number is the number
+for linking by ordinal. In the qcode this is emitted in place of the function index used previously.
+ALIAS is no longer required - just change the name declared itself (and comment the original name for documentation).
+
+The OPX table is as before except that the function count and function names are no longer included.
+
+2) NATIVE & UNATIVE #defines.
+Have replaces the NATIVE abd UNATIVE hash defines used in OT_RESERV.CPP & elsewhere with a new types TOplSignature::EArgNative etc.
+This, e.g.,  means that the translator correctly translates ADDR to return 16 bits when the target is OPL1993 & 32 bits when the target is Opler1.
+
+Consequently all references to  OPLRDEF.H have been commented out.
+
+3) Translator failing to detect inconsistent procedure signatures
+
+EXTERNAL proc1%:(arg1%)
+
+PROC proc1%:(arg1%,arg2$)
+
+ENDP
+
+now raises a new error EErrInconsistentDeclaration.
+
+The fix was to make the translator treat a proceure definition also as a declaration (as it should have one all along).
+
+
+4)  Empty last procedure producing garble QCODE, e.g.
+
+PROC fred:
+return
+ENDP
+
+PROC sally%:
+ENDP
+
+Fix: The parser internal flag iLastWasReturn was not getting cleared for an empty statement list. It now is also cleared at the state of COplModuleParser::StatementListL()
+
+
+
+Howard's changes:
+
+5) Prepared for binary freeze.
+BMARM and BWINS now have DEF and FRZ files for Ascii builds.
+
+OPLT[U][D].FRZ/DEF is for static linkage freeze.
+
+OPLTB[U][D].FRZ/DEF just defines ordinal 1 required by Program editor of
+all translators. This export creates a new module translator. Should
+really be defined by the OPL editor, but this makes a circular
+dependency.
+
+Made changes as recommended by AndrewT.
+
+
+6) INCC.PRJ changes:
+- OPLBACKE.H released
+- OPLSTACK.H released
+- OPLTRDEF.H no longer released
+
+
+Version 0.01.031
+================
+Uses: e32tools=063+ eiktools=121 e32=099+ f32=069+ store=042+
+fbserv=058+ apparc=058+ bitgdi=055+ gdi=050+ fntstore=039+ fonts=064+
+
+(DIAMPOS no longer usable as debugging aid in runtime (use ALERT))
+
+(New keywords still need adding to OPLDIS.EXE)
+1) gSETPENWIDTH width% added
+
+2) gCIRCLE r%[,fill%] and gELLIPSE w%,h%[,fill%]
+Optional fill% added
+Byte at IP==0 if fill% not supplied, 1 if supplied
+
+3) dEditMulti ptrData&,prompt$,widthInChars%,numberOfLines%,maxLength%
+
+4) Changed TDes::CopyUC() calls for identifiers and PATH back to CopyF().
+NickT insists this is the right thing to do. Test code must be
+changed to give different characters on folding.
+
+5) Link by ordinal implemented and made the first export return a
+fully constructed COplTranslatorBase object (as required by OplEdit).
+BTW The first export should leave rather than return NULL if there are errors
+and NOT place the object on the cleanup stack
+
+6) Added an intermediate class between CTextTranslator and
+COplModuleTranslator called COplTranslatorBase which is the class
+known about by OplEdit
+
+Version 0.01.030
+================
+Internal release for points 5) and 6) in external release 031
+
+Version 0.01.029
+================
+
+Uses: e32tools=063 eiktools=121 e32=099 f32=069 store=042 fbserv=058
+apparc=058 bitgdi=055 gdi=050 fntstore=039 fonts=064
+
+1) ICON was broken because FBSERV's CFbsBitmap::Load(...) changed error for loading
+unknown index in file.
+Rebuilt with FBSERV 058 which now returns KErrEof in this case (057 returned KErrNotFound)
+
+Version 0.01.028
+================
+Uses: e32tools=063 eiktools=121 e32=098 f32=069 store=042 fbserv=055
+apparc=058 gdi=049 fntstore=038 fonts=062
+
+1) Changed TDes::CopyF() calls for identifiers and PATH to CopyUC().
+2) FLAGS 2 sets AIF TApaAppCapability::iAppIsHidden=ETrue. False by default.
+
+
+Version 0.01.027
+================
+Uses: e32tools=060 eiktools=121 e32=097 f32=067 store=041 fbserv=053
+apparc=056 gdi=047 fntstore=038 fonts=064
+
+Changes by Howard:
+1) Changed to AIF scheme - AIF generated instead of ICN. Now always generates KUidOplApp
+as KUidOplAppNonFile is not required.
+2) In line with change to AIF, FLAGS 1 now sets the AIF capability to support new file.
+3) AIF (old ICN) file was getting created during error location.
+   Changed COplParseApp::ParseL() to take extra flag arg.
+	virtual void COplParseApp::ParseL(COpl16ModuleBackEnd& aBackEnd,TBool aLocatingError)=0;
+4) Changed TYPE to be for Opl1993 only - FLAGS is used on Opler1 to avoid confusion.
+5) Caption length defined to be the same as for Apparc (KApaMaxAppCaption==256)
+and uses TApaAppCaption for the buffer declaration.
+const TInt KApaMaxAppCaption=0x100;	// Default name is a file name, so the same limit is used
+typedef TBuf<KApaMaxAppCaption> TApaAppCaption; // current language name of the app (for task lists, dialogs etc)
+
+Version 0.01.026
+================
+(Released by Howard on 8/4/97)
+
+Uses: e32tools=057 eiktools=120 e32=096 f32=065 store=040 fbserv=052
+apparc=055 gdi=046 fntstore=037 fonts=060
+
+
+1) Sorted out the MNT file. Now depends on FONTS too for FBSERV startup.
+PGETBLD OPLT GROUP, MNT BLD, MNT BTST, MNT RTST now works provided 32 bit addressing
+is disabled in inc\OPLTRDEF.H. Nick is looking into fixing this problem.
+(The translator tests need the 32 bit addressing switch disabled but the release for
+the runtime needs it enabled.)
+
+2) Sorted out some death with ICON. Was panicking for more than one MBM.
+
+3) Produced modules with the new OPL runtime UID. Changed all the Opler1 REF accordingly,
+first checking the output using OPLDIS.
+
+
+
+Version 0.01.025
+================
+(Released by Howard on 2/4/97)
+
+1) dCHECKBOX var chk%,prompt$ now support
+2) FLAGS constInt now used instead of TYPE
+3) Now gives syntax error for strings passed by reference to OPX functions (omission).
+It used to push the address. By rights it should push a left-side ref.
+4) Now returns EErrSuccess rather than EErrEof for success - otherwise gets confused when
+you get EOF error reading MBM file for ICON keyword.
+5) CAPTION was getting corrupted name if constant definition used for language code - same 
+buffer was used to read both.
+6) Maximum caption length for CAPTION keyword is now 8 - the same as the caption length in APP.
+Awaiting spec decision before changing to a larger value.
+7) In TModTran.MAK, for some reason FbsStartup() exits with code
+200000. Some dependency missing - works ok if get OPLR build first.
+I'll sort this out after this release.
+
+
+
+Version 0.01.024
+================
+(Released by Howard 26 March 1997)
+
+Uses: e32tools=055 eiktools=120 e32=094 f32=063 store=038 fbserv=051
+apparc=052 gdi=045 fntstore=036
+
+Howard
+------
+1) For Opler1 only, now supports 3 optional uids (0 or 3 only):
+	dFILE f$,prompt$,flags%[,uid1=0,uid2=0,uid3=0]
+   Three zeroes pushed for Opler1 only if none supplied.
+
+
+
+Version 0.01.023
+================
+(Released by Howard 19 March 1997)
+
+Uses: e32tools=053 eiktools=120 e32=093 f32=061 store=037 fbserv=050
+apparc=049 gdi=045 fntstore=036
+
+Rebuilt with Apparc 049. 
+
+
+Version 0.01.022
+================
+(Released by Howard 15 March 1997)
+
+Uses: e32tools=051 eiktools=120 e32=090 f32=060 store=037 fbserv=049 apparc=048
+
+Note: Released version has switch __32_BIT_ADDRESS__ defined
+so translator needs rebuilding with switch off for tests to pass
+
+Kevin
+-----
+1) Changed to new UID scheme where OPL specific 2nd UID is used rather than generic
+Interpreter UID. The root stream no longer needs the root stream to have the Opl
+interpreter Uid but this can only be removed when the consisten changes have been made
+in the Runtime.
+
+So:
+KUidOplAppNoFile replaces KUidInterpreterApp
+New KUidOplApp used for document-based apps
+
+Temporary fix:
+- Reintroduced TYPE 1 keyword for file-based apps (other types ignored ie. nojn-filebased)
+- needs tidying to give error on types other than 1 (or possibly change TYPE to FLAGS again)
+
+
+Howard
+------
+1) Changed OPLER1.REF according to the new UID scheme above
+2) Changed TMODTRAN	COpler1Opo::ConstructL() to support these UIDs:
+	TestL(type[1]==KUidOplAppNoFile || type[1]==KUidOplApp)
+
+
+From NickT
+----------
+1) Eval translator now accepts external variable references. There are two new Qcodes
+EEvalRightSideReference (0xff 0x31) && EEvalLeftSideReference (0xff 0x32).
+
+These are followed in the qcode by the name of the variable (LBC) and a type byte
+with the top bit set to indicate and array reference (c.f. entries in teh Module externals table)
+
+See Test3 in TEVLTRAN.CPP for an example.
+
+2) Eval Translator now converst all explicit procedure calls into
+QCODE as if the procedure had been called indirectly by name, i.e.
+
+fred%(2)
+
+gets converted into qcode for
+
+@%:("fred")(2)
+
+The simplifies the interface to the Eval translator, which now takes
+refrences to CBufBase& for teh qcode and TInt& for the make stack
+depth.
+
+Again, see TEVLTRAN.CPP for an example.
+
+3) Can now declare negative CONST values
+e.g.
+CONST fred%=-4
+and
+CONST jim=-1.23.
+
+NOTE: Grammar is trivial and only allows optional minus sign.
+
+
+Version 0.01.021
+================
+(Released by Howard 12/03/97)
+
+Uses: e32tools=051, e32=090, e32=060, store=037, fbserv=049, apparc=046
+
+B6 release
+
+Just rebuilt to use new incompatible APPARC.
+
+
+
+Version 0.01.020
+================
+(Released by Howard 05/03/97)
+
+Uses: e32tools 051,e32 090,f32 058,store 036,fbserv 049,apparc 045
+
+B5(04) release
+
+1. Outputs debug flag: 
+	TUint16(CTextTranslator::EDebug) or TUint16(CTextTranslator::ERelease)
+to module root stream after OPX table stream ID.
+
+2. GETCMD$ supported for Opler1 translator.
+
+3. OPA's ICN file deleted if CAPTION specified but no ICON in APP...ENDA construct - default
+ICN used in this case. An ICN without any icons can't be used. This is considered a bug in the
+OPL app. The ICN will be generated again when ICON is specified.
+
+
+Version 0.01.019
+================
+Uses: e32 089,e32tools 051,f32 055, store 035, fbserv 047, apparc 044
+
+(Released by Howard on 28/02/97)
+
+Rebuilt with new Apparc.
+
+
+Version 0.01.018
+================
+Uses: e32 087, e32tools 051,f32 050, store 035, fbserv 045, apparc 041
+
+(Released by Howard on 20/02/97)
+
+1. Added mPOPUP x%,y%,posType%,item$,hotKey%,[itemx$,hotKeyx%]+
+
+posType% is the position type controlling the relative position of the popup from x%,y%.
+0 - top-left
+1 - top-left
+2 - bottom-left
+3 - bottom-right
+
+item$ and hotKey% can take the same values as for mCARD. Note that
+cascades in popups are not supported though.
+
+2. Changed UADD and USUB back to take and return 16 bit arguments. 32-bit OPL programs should
+just use long::operator+. Library module authors should also use long operator+ and return a
+long.
+
+3. Dropped OPLTDATA.PRJ from translator release. This used to specify
+the default icon mbm DEFOPICN.MBM which is no longer needed with
+APPARC providing a default ICN file.
+
+Version 0.01.017
+================
+Uses: e32 087, e32tools 051,f32 050, store 035, fbserv 045, apparc 041
+
+(Released by Howard on 12/02/97)
+
+1. dINIT title$[,flags%] now supported where flags can specify buttons below or buttons right.
+This is needed in dINIT because Eikon needs it done on dialog construction.
+
+2. IOOPEN(h%,addr%,...) was generating 16-bit address rather than 32-bit.
+
+3. IOOPEN(h%,...) required h% to be a reference to a long rather than to a short int giving
+a syntax error for h%.
+
+Version 0.01.016
+================
+Uses: e32tools 051,e32 087,f32 050,store 035,fbserv 045, apparc 041
+
+(Released by Howard 10 Feb)
+
+Doesn't generate its own default ICN file. Note that CAPTION must not be used now without
+an ICON, because this will generate an ICN with no icon bitmaps!
+
+This is considered a bug in OPLT - in the next release I'll delete the generated ICN if it contains 
+no icons.
+
+Version 0.01.015
+================
+Uses: e32tools 051,e32 087,f32 050,store 035,fbserv 045, apparc 038
+
+(Released by Howard 7 Feb)
+
+Changes by Howard:
+1) Doesn't call OplTargetIsApp() when locating errors. This was causing the deletion of the APP
+on error.
+
+2) Now supports CAPTION caption$,languageCode%
+for the ICN file specification, where args must be constants.
+The caption is used to display the task in the system task list.
+If CAPTION is not provided, uses the <name> arg from APP <name> and uses the current
+machine's language. If CAPTION is provided then the APP <name> arg is ignored.
+If run on another language machine, the caption will be the same as the
+ICN filename.
+As is previous releases, if APP...ENDA is empty and an ICN file exists, the ICN file is not
+changed and it is assumed to contain a caption already.
+
+3) Smartkey (SMK) files no longer generated.
+
+4) Added OPLTRDEF.H for definitions common to translator and runtime. Currently only defines
+the debugging switch __32_BIT_ADDRESS__
+
+5) Translator supports 32 bit addressing. Many keywords and functions are affected by this
+including:
+- any keywords/functions with 'var' arguments
+- ADDR returns 32 bits
+- PEEK*, POKE*
+- ALLOC and related heap keywords/functions
+The runtime will let the user set a flag to prevent 32 bit addressing at the user-level
+
+6) dBUTTONS now allows many buttons in a dialog. Current arbitrary maximum set to 50.
+
+
+Version 0.01.014
+================
+(Howard 3 Feb)
+
+Uses: E32 086, E32tools 051, F32 050, Store 034, Fbserv 044, Apparc 034
+
+Changes by Nick:
+
+1) OPLDIS.EXE disassembly program brought up to date. It is saved as
+r:\oplt\opldis.exe. The source files are also saved there for now and 
+need to built under TCS within the OLD opl group
+
+2) Changed gCreateBit so that it now only has an optional 3rd
+argument when transtaing for Opler1. As such, gCreateBit has fixed
+number of arguments under SIUBO & variable argument count under
+opler1.
+
+3) Added Runtime error location. See TModTran Test4 for details.
+Basically call
+
+IMPORT_C void LocateErrorL(MTextSourceSystem& aTextSystem, // As for translating
+                const TFileName& aSourceName,   // As for translating
+                const TFileName& aTargetName,   // A temporary output file - deleted when done
+                CTextTranslator::TDebugFlag aDebugFlag, // Whether original was debug or release mode.
+                TSourceTranslateError& anError, // anError.iPosition is the offset in the procedure qcode where the error occured.
+                TInt aLineNumber) // line number of the procedure in the source module ( from OPO Module)
+
+Then call TranslateChunkL repeatedly as for source translation.
+
+TranslateChunk will return KErrGeneral & anError.Error will be
+EErrFound when the error is located. anError.Position will be the
+source offset to the error.
+
+Otherwise returns are as for normal module translation.
+
+4) When translating for Opler1 with debug flag set, the translator now outputs a symbol file for
+use with the debugger. The file is a DirectFileStore like the Opo Module itself. It's
+TUid is 
+	TUidType(KDirectFileStoreLayout,KUidDebuggerObj,KUidOplDebugger)
+with
+        const TUid KUidDebuggerObj= {268435748};
+        const TUid KUidOplDebugger= {268435749};
+
+The Root stream consists of 
+	KUidOplDebugger
+	TUint16(TranslatorVersion) // As in Opo Module
+	TUint16(MinRuntimeVersion)
+	TStreamId(ProcedureTable);
+
+The ProcedureTableStream is structured
+	TUint16(EntryCount)        // Number of procedures in the module
+	[TStreamId(ProcStream)]+   // these are guaranteed to be in the same order as the procedure lookup table in the object module
+
+Each Proc Stream is structured as follows
+	TStreamId(Arguments)
+	TStreamId(Externals)
+	TStreamId(Globals)
+	TStreamId(Locals)
+
+For the Arguments and Externals the symbol streams is structured
+	TLbc(SymbolName)		  // LBC name
+	TGlobalType(SymbolType)   // Type plus top bit set if an array
+	TUint16(SymbolAddress)	  // The addres of the symbol within the frame
+	... repeats for each symbol ...
+	Zero length name (i.e. zero terminating byte)	
+
+For the Globals and Locals the symbol streams is structured
+	TLbc(SymbolName)		  // LBC name
+	TGlobalType(SymbolType)   // Type plus top bit set if an array
+	TUint16(SymbolAddress)	  // The addres of the symbol within the frame
+	TUint16(MaxArraySize)	  // 0 if not an array
+	TUint16(maxStringSize)    // 0 if not a string variable.
+	... repeats for each symbol ...
+	Zero length name (i.e. zero terminating byte)	
+
+
+NOTE: This stuff has not been tested as yet.
+
+5) Bug fixes.
+	OPL HA-25 - fixed earlier but closed now.
+	OPL HA-27 & HA-2 : Parsing Include file names - now done.
+	OPL HA-26 - OPx functions which take no arguments can now be declared w/o brackets
+	OPL HA-3 - File name when error occurs.
+		Lexer::Reset was accidentally restoring the file name of the root file as it
+		closed down all the include files after the error is found.
+		COplModuleLexer::Close(TBool aRestoreName) now takes a flag which
+		allows Reset to bypass this.
+	OPL HA-4 - ENDWH at the end of a procedure causing problems.
+	OPL HA-18 - a%() incorrectly allowed as array for stats functions
+
+	OPL HA-20 - FindFile spec (done someytime in teh past)
+	OPL HA-22 - KillMark etc (ditto)
+	OPL HA-24 - Greedy class names
+	HA-350 - Stack size wrong.
+	HA-425 - Checking array types (see OPL HA-18 above).
+	SW-60 - Allowing const in APP ENDA (see caveat in database - not yet tested).
+	
+6) Added support for explicitly declared external procedures and variables. 
+
+DECLARE EXTERNAL
+
+placed in the module, outside the procedure definitons, will cause an error to be raised subsequently\
+whenever an external variable (EErrUndefinedVariable) or procedure (EErrUndefinedProcedure) is used
+without first being explicitly declared.
+
+Procedures are declared at a module scope and variables within procedure scope, e.g.
+
+DECLARE EXTERNAL
+EXTERNAL ext1%:
+EXTERNAL ext2%(fred)
+
+PROC myProc%:
+EXTERNAL extVar1,extVar2
+LOCAL a%
+	
+	PRINT a%+ext1%+ext2%:(extVar1*extVar2)
+ENDP
+
+7) Changed error raised when you try to  declar a procedure within an
+included file. Was SynatxError - now raises EErrIncludeProcedure;
+
+
+Changes by Howard:
+
+Extracted stack class definitions and inlines from OPLTDEF.H and OPLTDEF.INL
+to OPLSTACK.H and OPLSTACK.INL.
+This emptied OPLTDEF.INL which has now been removed from the project.
+
+1) ICON now doesn't write the ICN file if it already exists and the
+APP...ENDA is empty.
+If it doesn't exist or if not empty APP..ENDA, an ICN will be generated
+with default components provided for any missing components.
+This allows developers to copy the ICN from the PC to the app
+directory.
+FLAGS 0 can be used to force replacement of the ICN file - needed
+eg. when you use just FLAGS 1 and then want to remove the flags.
+
+
+2) Restored USESPRITE for Opl1993 only. Needed for comaprison with .REF files.
+
+3) gBUTTON now has 3 optional final arguments giving bitmap, mask and layout.
+The byte value at the IP after the opcode is the count of optional
+args, 0, 1, 2 or 3. The new syntax is:
+ GBUTTON text$, type%, w%, h%, st%[, bitMapId& [,maskId&[,layout%]]]
+The bitmaps are of type CFbsBitmap* as returned by the bitmap OPX function:
+	BITMAPLOAD&:(name$,index&)
+declared in header file OPXBMP.OXH
+
+4) Added POINTERFILTER filter%,mask%
+
+5) Fixed T_TRAN to allow wildcards again - RDir::Read() was just
+returning the filename component (in TEntry).
+
+6) Added mCASC which works exactly as mCARD but specifies a cascade card.
+
+7) Removed *.MDP from ttran\li.prj in keeping with current practice
+
+8) Bug fixes:
+   - Added INCHA27.OPH to LI.PRJ as required by BUGS.OPL test module
+   - Changed COplModuleLexer::IncludeL() to open the include filename rather than the source
+   	ie. from:
+		User::LeaveIfError(iTextSystem->OpenSource(aFileName,iCurrentSource.iSource));
+	to:
+		User::LeaveIfError(iTextSystem->OpenSource(includeName.FullName(),iCurrentSource.iSource));
+	which was causing BUGS.OPL to fail
+	Copied a good BUGS.OPO to TTRAN\BUGS.REF to replace the bad one that was there.
+
+9) Made T_TRAN and TMODTRAN call RFbsSession::FbsStartup(), Connect()
+   and Disconnect() at startup. Needed for creation of ICN files with ICON
+   Do any other tests support APP...ENDA? If so they need fixing too.
+
+
+Version 0.01.013
+================
+Now also uses for the first time: FBSCLI and APPARC
+
+Changes by Howard:
+
+1) Now parses icon file names for the ICON keyword. If no mbm is
+specified, uses z\system\data\defopicn.mbm. This default icon will be
+replaced by a better looking one at a later date.
+The default path for the MBM is the same as that of the nodule
+containing the ICON keyword.
+
+You can have multiple ICON declarations in the APP...ENDA construct,
+but normal and mask bitmaps must alternate. Normal and mask icons
+must be same size:
+
+APP myApp,333   rem uid
+  ICON "mbm32"  rem 32*32
+  ICON "mbm32m" rem mask
+  ICON ...
+ENDA
+
+or
+
+APP myApp,333
+  ICON "myApp"  rem all the app's icons
+ENDA
+
+2) In APP...ENDA, FLAGS 1 now specifies 'RequiresDocument' flag in
+the ICN file - there is currently a bug however preventing the Shell
+from reading this info.
+
+
+
+Version 0.01.012
+================
+1) Fixed:
+        IF 1.0
+        IF &1
+giving false conditions.
+        
+
+Version 0.01.011
+================
+Later changes by Nick:
+
+1) Changed class declaration for TOplSignature to fix the BYREF bug for:
+    declare opx date,$10       
+      DTDateTimeDiff&:(start&,end&,BYREF a&,BYREF b&,BYREF c&,BYREF d&,BYREF e&,BYREF f&,BYREF g&)
+    end declare
+which happened when there were more than 9 arguments. 
+A bit flag was overflowing and it thought that the function was a statistical one 
+like MIN & MAX, so pushed a float by value instead.
+
+This fix also now produces the required errors for wrong arg count, wrong byref type:
+
+    dtdatetimediff&:(start&,end&,a%,b)
+    dtdatetimediff&:(start&,end&,a&,b&,c&,d&)
+
+
+2) CModuleParser::DeclareBlocks() fixed to allow blank lines in OPX declarations,
+hence will also allow REM statements which count as blank lines.
+
+
+Extra by Howard:
+1) Added:
+- ReturnFromEval Qcode added                    extended 0x21
+- GETEVENT32 var ev&()                          extended 0x22
+- GETEVENTA32 var stat%,var ev&()               extended 0x23
+- gCOLOR red%,green%,blue%                      extended 0x24
+- SETFLAGS f&                                   extended 0x25
+- SETDOC doc$ replaces SETNAME name$            extended 0x26
+- DaysToDate days&,var y%, var m%, var d%       extended 0x27
+- gINFO32 var info&()                           extended 0x28
+- IOWAITSTAT32 var stat&                        extended 0x29
+- COMPACT dbase$                                extended 0x2A
+- DBMS transaction keywords:
+        - BEGINTRANS                            extended 0x2B
+        - COMMITTRANS                           extended 0x2C
+        - ROLLBACK                              extended 0x2D
+        - r%=INTRANS                            func 0x57
+- GETEVENTC(var stat%)                          func 0x56
+- e$=ERRX$                                      func 0xD8
+- doc$=GETDOC$                                  func 0xD9
+           gives extended error message "Error in module\proc,missExt1,missExt2,..."
+           useful when error trapped in OPL program but need to find details
+
+2) Long font ids supported for gFONT, FONT and gCLOCK with mode%=10
+   (font ids 3-13 are still mapped by runtime to rom fonts as required)
+
+3) gLOADFONT changed back to Opl1993 args (UID is required for gFONT/FONT only)
+
+4) gCREATEBIT(width%,height%[,mode%]) now supported - extra arg mode% for greyscale mode
+
+5) Added mode% for gPEEKLINE  ix%, x%, y%, %(), ln%[,mode%=-1 (for opler1)]
+
+6) Changed many cases of KOplAllTargets to KOplOpl1993Only (eg. USR,CALL, SPRITE)
+
+7) Removed UseSprite s% which is not supported by Opl1993 runtime nor by Opler1
+
+8) Added TBool COplModuleParser::TargetIsOpl1993() const
+
+9) gINFO is now for Opl1993 only - gINFO32 required for Era
+
+ 
+Version 0.01.010
+================
+Nick T (Nov 20th)
+E32(70),F32(036), STORE(026).
+
+1) Added new test TErrLoc to test the location of translation errors
+ - numerous minor bug fixes as a result.
+
+2) Tidied up Token/File/ErrorOffset inteface to lexer classes. There
+is now a single
+
+IMPORT_C virtual TInt TokenOffset() const
+
+memeber function which does the right thing.
+
+
+3) Opler1 targeted translations now produce a 'Proper'
+CDirectFileStore.
+
+The Uid's remain as before.
+The Root Stream has the following structure:
+
+        TUid            KOplInterpretterId
+        TUint16         TranslatorVersion
+        TUint16         RuntimeVersion required
+        TStreamId       Id of stream containing source name
+        TStreamId       Id of stream containing procedure table
+        TStreamId       Id of Stream containgin Opx info
+
+The Source stream just contains an Lbc with the source name
+The Proceure table stream??
+???
+
+???
+
+
+Version 0.01.009
+================
+Nick T (Nov 4th)
+E32(70),F32(036), STORE(026).
+
+NOTE: This is currently built with the B2 releases. MNT.CMD and
+\OPLT\TTRAN\RUN.CMD will need changing for the new WINS Z: plan.
+
+ARM Release DLL  51K
+
+1) Added BookMark, KillBookMark and gotoBookMark as per Howard's
+changes.
+
+2) Changed the output file format to be Application Architecture
+compliant when target is EOplTargetP1 (opler1).
+
+For Opler1 the Syntax for APP is now APP name,&appUID and this is
+used as UID3 in the object module.
+
+The module file format is currently practically unchanged apart from
+this - it's all in the root stream apart from teh old file signature
+and file format version which have been scrapped.
+
+
+3) Added interface for EVAL. COplEvalTranslator which will populate a
+COplEvalQcode containing the qcode, the maximum stack depth  and the
+names and number of arguments of all the procedures called.
+
+NOTE: Within the Qcode the 'address' of the procedures is an Index
+which can be used to obtain the name from the COplEvalQcode (see
+TEVLTRAN-Test3 for details).
+
+Known problems
+--------------
+        UDEB build of OPLT won't link when built from the command
+line, but links fine if built from within MSVC - go figure!
+
+        gCreate won't accept 6 parameters (turning it into
+                                        gCreateGrey)
+        Error positioning on operator type mismatch is off.
+
+Version 0.01.008
+================
+Nick T (Oct 4th)
+E32(66),F32(031), STORE(021). 
+
+ARM Release DLL  49K
+
+Overall changes:
+---------------
+Substantially re-written the back-end handling. As a result the DLL
+is about 10% smaller and a lot faster. also there is provision for
+passing through an external back end to the tranmslator. This is
+intended to allow a Munger to be written with the minimal amount of
+extra effort (example with next release). base class for back-end is
+given in OPLTBACKE.H and detailks of 16-bit back end are in
+OPL16GEN.CPP.
+
+Opl now uses streams internaly (and will soon do so to produce the OPO
+module). Hence a new dependecy on store.
+
+
+Changes to the interface:
+------------------------
+
+Integrated the change to KTextTranLiineDelimiter into the main
+release.
+
+Split TTextTranError into a base class TTranslateError and a derived
+class TSourceTranslateError. TTranslatError just holds the error
+number and an offset. TSourceTranslateError adds in a file name. This
+is in preparation for adding the EVAL line translation.
+
+TranslateChunk will return KErrNone if all went well and there's more
+to go. KErrEof if teh end of the file has been reached successfully &
+KErrGeneral for any traslator specific error. The Error number can
+then be obtained from the TSourceTranslateError passed. (see
+T_TRAN.CPP for details).
+
+StartTranslateL() has acquired a new parameter: a
+CtextTranslator::TDebug enum. This can be ERelease or EDebug and does
+the obvious. Currently the translator only has partial Debugging support :- it
+puts out the Statement16 and Statement32 qcodes at the start of each
+statement. This has not bee well tested so should not be relied on.
+
+Changes toLanguage/Keywords:
+---------------------------
+    Modify
+    Insert
+    Cancel
+    Put
+    Delete dBase$,table$
+    gCircle
+ &  gEllipse
+
+are all now supported when translating for opler1. Also, when
+translating for opler1 gLoadFont MUST have two arguments
+(findName%,UId&)
+
+
+The following qcodes are now being used:
+0x67 - Statement16 followed by a 16-bit offset of teh statement in
+        th text file.
+0xdc - gCircle - single argument on the stack
+0xdd - gEllipse - two arguments on the stack
+
+Extended:
+ 0x19 -- Statemnt32 - followed by a 32-bit offset of the statement in
+         the file
+ 0x1a - modify
+ 0x1b - Insert
+ 0x1c - Cancel 
+ 0x1d - Put
+ 0x1e - Delete table (DELETE used with two arguments).
+
+
+
+Known Problems:
+        gCreate won't accept 6 parameters (turning it into
+                                        gCreateGrey)
+        Error positioning on operator type mismatch is off.
+
+Version 0.01.007
+================
+Nick T (June 22th)
+
+Only tested WINS DEB build.[Zoe needs this in a hurry & I haven't
+built that latest ARM release of E32 & F32 yet].
+
+Changed Tran Version & Min runtime version to 2.00A for the
+EOplTargetP1 target.
+
+Added in OPX table for EOplTargetP1 as described in OPX.DOC.
+
+Fixed bug in Operator proecedence code causing problems translating
+SOKOBAN.
+
+Fixed alloc heaven bug when when tarnslating files containing OPX
+declarations.
+
+Version 0.01.006
+================
+Nick T (May 28th)
+
+Retrospective  releasenotes (didn't incldue them in the release!)
+
+Added suppot for CONST, INCLUDE & DECLARE OPX constructs. DECLAR OPX
+stuff is incomplete only in that it doesn write out the list of
+externals to the file.
+
+Allso up'd the size allowed for identifiers to 32 characters for
+Opler1 target (EOplTargetP1).
+
+Version 0.01.005
+================
+Nick T (May 22nd)
+
+T_TRAN extended so that it can either be invoked with a command line
+or without. If nothing is passed on the command line, it will prompt
+for the module or modules to translate.
+
+First kosher ARM build - it's way too big (approx 54K!!!) & it's too slow. A
+deal of this can be fixed by moving the Reserved words into a resource
+file and loading them up into the hash table when the translator is
+constructed.
+
+Version 0.01.004
+================
+Nick T (May 15th)
+
+Changed over to the new CTextTranslate, MTextSourceSystem, MTextSystem
+interface.
+
+TextTran.h & TextTran.inl are temporarily housed here until they make
+their way to TextEd.
+
+Added T_TRAN test program which is a command line translator ala
+HHTRAN et. al. At the moment will only deal with CrLF text files, but
+easily expandable - see .\TTRAN\TEXTFILE.*
+
+Got the MNT and other files into some semblance of good shape
+
+Version 0.01.003
+================
+Nick T (April 30th)
+
+First proper release (hallelujah!):
+
+Functionally complete for translating Opl1993 OPL modules.

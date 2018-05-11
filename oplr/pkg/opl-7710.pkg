@@ -1,0 +1,37 @@
+; OPL Runtime for Nokia 7710 Series.
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"OPL Runtime"}, (0x1000904D), 1, 54, 001, TYPE=SA
+;
+;
+; For Series 90
+(0x101FBE04),0,0,0,{"Series90ProductID"}
+;
+; Warning file
+;
+;"\oplr\rom\Release-Readme.txt"-"",FT,TA
+;
+; Dependencies
+;
+; Core OPL Files
+;
+"\epoc32\release\thumb\urel\opl.app"-"!:\System\Apps\Opl\Opl.app"
+"\epoc32\data\z\system\apps\opl\opl.aif"-"!:\System\Apps\Opl\Opl.aif"
+"\epoc32\data\z\system\data\oplr.rsc"-"!:\System\Data\Oplr.rsc"
+"\epoc32\release\thumb\urel\oplr.dll"-"!:\System\Libs\Oplr.dll"
+"\epoc32\release\thumb\urel\oplt.dll"-"!:\System\Libs\Oplt.dll"
+"\epoc32\release\thumb\urel\recopl.rdl"-"!:\System\Recogs\RecOpl.rdl"
+;
+; Font Support - eon14.gdr
+;
+"\opl\fonts\eon14.gdr"-"!:\System\Libs\Eon14.gdr"
+;
+; Include those Core OPXs
+;@"\epoc32\release\thumb\urel\AppFrameOPX.sis",(0x10005235)
+;@"\epoc32\release\thumb\urel\SendAsOPX.sis",(0x100055BF)
+;@"\epoc32\release\thumb\urel\SystemOPX.sis",(0x1000025C)

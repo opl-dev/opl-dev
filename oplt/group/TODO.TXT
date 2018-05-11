@@ -1,0 +1,12 @@
+Check whether it's worth PCodeL returning a stream reference - probably is.
+
+Version 0.01.014
+================
+Put in proper hashing algorithm
+
+Add Error text
+
+Add to function and keyword test files for the lexer - they could be optimized.
+
+
+

@@ -1,0 +1,12 @@
+opltest.txt 
+March 04 ricka@users.sourceforge.net
+
+Building the opltest files
+
+* In \Opl\Oplr\Opltest\Harness, run BuildTest.bat
+
+Running the opltest suite
+ 
+1. Start emulator
+2. Run c:\opltest\harness\_InstallhUtils.opo
+3. Run OplSysTest app

@@ -1,0 +1,41 @@
+include "testopx.oxh"
+
+proc main:
+	print "Testing that can load same opx from more than one module"
+
+	loadm "topxcbp"
+
+	tagain:
+
+	unloadm "topxcbp"
+	
+	print
+	print "Finished OK"
+	pause 20
+endp
+
+proc tagain:
+	
+	AddFloatToInt%:(1,1.2)
+	print "AddFloatToInt done"
+	Add4&:(1,2,3.4,"56")
+	print "Add4 done"
+	StrToFlt:("1.23456")
+	print "StrToFlt done"
+	FltToStr$:(1.23456)
+	print "FltToStr done"
+	Mult3%:(1,2,3)
+	print "Mult3& done"
+	Mult3&:(&1,&2,&3)
+	print "Mult3% done"
+	print
+	CallProc:("simple")
+	CallProcRetInt:("fourargs",1,2,3.4,"Hello")
+	CallProcRetLng:("fourargs",1,2,3.4,"Hello")
+	CallProcRetFlt:("fourargs",1,2,3.4,"Hello")
+	CallProcRetStr:("fourargs",1,2,3.4,"Hello")
+	print "CallProc's done"
+	print
+	pause 30
+endp
+

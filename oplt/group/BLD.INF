@@ -1,0 +1,62 @@
+// BLD.INF
+//
+// Copyright (c) 1999 Symbian Ltd.  All rights reserved.
+//
+
+#include "..\..\opl-target.mmpi"
+
+PRJ_PLATFORMS
+#if defined(__UIQ_MMP__) 
+WINSCW THUMB
+#else
+WINS THUMB WINC
+#endif
+#if defined(__UIQ_MMP_WINS_TOO__)
+WINS WINC
+#endif
+
+PRJ_EXPORTS
+
+..\inc\OPLTDEF.H
+..\inc\OPLTOKEN.H
+..\inc\OPLLEX.H
+..\inc\OPLLEX.INL
+..\inc\OPLTRAN.H
+..\inc\OPLTBAS.H
+..\inc\OPLBACKE.H
+..\inc\OPLBACKE.INL
+..\inc\OPLSTACK.H
+..\inc\TEXTTRAN.H
+..\inc\TEXTTRAN.INL
+
+
+PRJ_MMPFILES
+
+..\group\oplt.mmp
+
+
+PRJ_TESTEXPORTS
+
+..\ttran\bugs.ref		\epoc32\wins\c\toplt\bugs.ref
+..\ttran\const.ref		\epoc32\wins\c\toplt\const.ref
+..\ttran\decl.ref		\epoc32\wins\c\toplt\decl.ref
+..\ttran\extends.ref	\epoc32\wins\c\toplt\extends.ref
+..\ttran\func.ref		\epoc32\wins\c\toplt\func.ref
+..\ttran\idents.ref		\epoc32\wins\c\toplt\idents.ref
+..\ttran\include.ref	\epoc32\wins\c\toplt\include.ref
+..\ttran\keys.ref		\epoc32\wins\c\toplt\keys.ref
+..\ttran\opler1.ref		\epoc32\wins\c\toplt\opler1.ref
+..\ttran\struct.ref		\epoc32\wins\c\toplt\struct.ref
+..\ttran\test.pic		\epoc32\wins\c\toplt\test.pic
+..\ttran\casting.ref	\epoc32\wins\c\toplt\casting.ref
+
+PRJ_TESTMMPFILES
+
+..\ttran\tcalclex.mmp
+..\ttran\tmodlex.mmp
+..\ttran\tevltran.mmp
+..\ttran\t_stack.mmp
+..\ttran\terrloc.mmp
+//..\ttran\t_tran.mmp
+..\ttran\tmodtran.mmp
+makefile preptest.mk

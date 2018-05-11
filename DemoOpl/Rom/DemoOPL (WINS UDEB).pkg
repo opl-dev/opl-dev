@@ -1,0 +1,26 @@
+; DemoOPL Installation Package
+; Copyright (c) Symbian Ltd. 2000-2002
+;
+; Last updated 29 Feb 04
+;
+&EN
+#{"DemoOPL Application [WINS UDEB]"},(0x1000913C),1,51,001
+;
+; Files to remove on uninstallation
+""-"C:\System\Apps\DemoOPL\DemoOPL.ini",FN
+;
+; Essential Application Files
+"\Symbian\6.0\NokiaCPP\epoc32\wins\c\System\Apps\DemoOPL\DemoOPL.aif"-"!:\System\Apps\DemoOPL\DemoOPL.aif"
+"\Symbian\6.0\NokiaCPP\epoc32\wins\c\System\Apps\DemoOPL\DemoOPL.app"-"!:\System\Apps\DemoOPL\DemoOPL.app"
+"\Symbian\6.0\NokiaCPP\epoc32\wins\c\System\Apps\DemoOPL\DemoOPL.mbm"-"!:\System\Apps\DemoOPL\DemoOPL.mbm"
+;
+; Optional Help File
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\z\System\Help\DemoOPL.hlp"-"!:\System\Help\DemoOPL.hlp"
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 00, 129, {"OPL Runtime"}
+;
+; Component SIS files
+;
+@"\Symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\DBaseOPX.sis",(0x1000025B)

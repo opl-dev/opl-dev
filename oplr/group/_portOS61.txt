@@ -1,0 +1,107 @@
+Current problems:
+31/3 The code has branched from the open source version, it needs to be merged back in to become source compatible using _SERIES_60 macro. 
+31/3 The screen furniture is visible (network signal, GPRS indicator, app name etc).
+31/3 There's at least one memory leak in the runtime - had to disable _UHEAP checking.
+31/3 There's no support for menus/dialogs.
+04/4 InfoPrint (and hence GIPRINT) only works on the emulator. 
+08/4 Opltools aren't being EXPORTed to the correct dir when built.
+12/4 OPL apps aren't supported -- Menu.app is using EikDll::StartAppL() 
+	Ideally it should use apparc's ApaLsSession.StartApp(). That works ;-(
+
+
+Need some sort of ConsoleView?
+
+020-Alpha
+	Final tidying for Alpha release.
+
+019-oplr-wrapper3
+	Get the .OPO filename from the wrapper app filename.
+	Tested it with two wrapper apps.
+
+018-oplr-wrapper2
+	Further realignment on .DEF files.
+	Move from vexed60 to vexed.
+
+017-oplr-two-apps
+	Given up on getting opl apps launched from Menu app.
+	Have to use some customized opl.app wrapper for each opl app...
+	Bring as much of opl.app into oplr as possible.
+	Rebased the .DEF files to match those from ER6.
+
+016-oplr-debug-recog
+	Reverted to old recogs, with debugging...
+
+015-oplr-mime
+	Added MIME (data) recognizer to replace file recog.
+	Uses debug "opl/opo" data type.
+	More refactoring to align the two branches.
+
+014-oplr-fonts
+	Removed support for DenseFont and switched to the more general standard
+	 fonts found in OS6.1 e.g. LatinPlain12.
+	Attempted to remove memory leak (around gFONT specifically) but
+	 everything looks bad at the moment. Something to fix after alpha...
+	 This entailed disabling calls to FLOGGER.
+	Started bringing this branch closer to the ER6.0 original.
+	Removed dependancy on Series60ProductId dummy SIS -- it didn't work.
+
+013-oplr-denseFont
+	Switched to using EikonEnv DenseFont.
+	Restored the recogniser to the SIS file.
+	Made the SIS file dependant on the Series60ProductId dummy SIS file.
+	Removed the (debug-only?) "Sequencer has started" infoprint.
+
+012-oplr-italic
+	Removed the calls to FEP for now.
+	Removed the recogniser too, it's stopping FileMan from launching .opo files.
+	OPLR hardcoded to load C:\hellow.opo if OPL.APP run with no arguments.
+
+011-oplr-FEPPANIC-recog
+	Added the recogniser, and so put the command line arguments back to how they should be.
+		This fixes problem 2. It's hard-coded to run C:\HelloW.opo.
+	Removed references to S*****60.
+		Fixes. 10.[Added later] Need to replace references to S*****60 with Symbian_OS_v6.1 (or something) as Series 60 is probably a Nokia trademark. :-(
+
+010-oplr-hello2-FEPPANIC
+	Remove GET from Hello World to test sequencer end, dtor, memory leaks.
+	No memory leak testing in OSv61?
+	Need to add standard resource file for error handling. And remove it in dtor...
+
+009-oplr-hello-world-FEPPANIC
+	Hello world runs, but GET is panicking FEPBASE 11 == EPanicKeyEventQueueIsAlreadySet4
+	Added the IP reader and opcodes table+src.
+
+008-oplr-debug-console
+  en_entry.cpp:
+	module name handling
+	wsenvent handler
+
+	other runtime initialisation...
+
+007-oplr-ws-almost
+	Almost got the WServ interaction going.
+	Can see some italic text in the console as WSEventHandling starts but.... 
+
+006-oplr-half
+	Added the IOCollection to the runtime ctor/dtor.
+	This means bringing in half the runtime .cpp files.
+
+005-oplr-no-dialog
+	Made the starting dialog conditional.
+
+004-oplr-starts-AO
+	Add AO to handle dummy sequencer start.
+
+003-oplr-starts-dll
+	OPLR.DLL created.
+	Contains noddy appui.
+
+002-oplr-starts-no-panic
+	Still one app.
+	No panics at all.
+
+
+001-oplr-starts
+	OPL app and AppUi in one .dll
+	App starts cleanly.
+	But alloc heaven on exit.

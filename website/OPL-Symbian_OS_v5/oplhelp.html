@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Accessing Help from OPL Applications</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<table width="100%" cellspacing="4">
+  <tr valign="top"> 
+          <td> <h1><b><font face="Arial, Helvetica, sans-serif" color="#FF9900">Accessing Help from OPL Applications </font></b></h1>
+<font color="#006699"><b>Summary:</b></font> This article explains how OPL applications 
+can correctly manage help files.
+<h2>Contents</h2>
+<ul>
+  <li class="PTOC"><font size="-1"><a href="#oplhelp_mm-001">1. Accessing Help 
+    from OPL Applications</a></font></li>
+  <li class="PTOC"><font size="-1"><a href="#oplhelp_mm-002">2. Opening the Help 
+    File</a></font></li>
+  <li class="PTOC"><font size="-1"><a href="#oplhelp_mm-003">3. Closing the Help 
+    file when the Application closes</a></font></li>
+  <li class="PTOC"><font size="-1"><a href="#oplhelp_mm-004">4. How Help's 'Quick 
+    find' mode is supported</a></font></li>
+  <li class="PTOC"><font size="-1"><a href="#oplhelp_mm-005">5. Acknowledgements</a></font></li>
+</ul>
+<h2><a name="oplhelp_mm-001">1. </a>Accessing Help from OPL Applications</h2>
+<p>Databases created with the DATA application and given file extension &quot;<font face="Courier New, Courier, mono" size="2">.hlp</font>&quot; 
+  will be opened in a special mode within the Data application for reading Help 
+  files. This includes having the 'Find', 'Print' and 'Go back' buttons.</p>
+<p>These help files can be easily launched from within an OPL program. The following 
+  line of code will launch the help database "<font face="Courier New, Courier, mono" size="2">C:\RunHelp.hlp</font>":</p>
+<blockquote> 
+  <pre>RunApp&amp;:("DATA","C:\RunHelp.hlp","",0)</pre>
+</blockquote>
+<p>N.B. <font face="Courier New, Courier, mono" size="2">RunApp&amp;:</font> is 
+  an OPX procedure from <font face="Courier New, Courier, mono" size="2">System.opx</font></p>
+<p>However, problems arise when your application tries to run multiple instances 
+  of the help file - you get an In Use error. You can avoid this by finding 
+  out whether the help file is already running. There is an OPX procedure in <font face="Courier New, Courier, mono" size="2">SysRAM1.opx</font> 
+  called:</p>
+<blockquote> 
+  <pre>threadId&amp; = GetThreadIdFromCaption&amp;:  (Caption$,BYREF Prev&amp;)</pre>
+</blockquote>
+<p>This procedure allows you to find the thread id of an open instance of a help 
+  file (or any application with a caption). Another command, <font face="Courier New, Courier, mono" size="2">SETFOREGROUNDBYTHREAD&amp;:(threadId&amp;, 
+  Prev&amp;)</font>, brings the thread to the foreground. The <font face="Courier New, Courier, mono" size="2">Prev&amp;</font> 
+  would be used to detect multiple instances, although only one copy of a particular 
+  help file would need to be open at any time. </p>
+<p>Captions for a help file are as follows:</p>
+<blockquote> 
+  <pre>"Help - "+&lt;helpFileName&gt;</pre>
+</blockquote>
+<p>That is, Help followed by space, hyphen, space, then &lt;helpFileName&gt;, 
+  which is the name of your help file, excluding the drive, path and .hlp extension.</p>
+<h2><a name="oplhelp_mm-002"></a>2. Opening the Help File</h2>
+<p>The following procedure could be used within your application to run the help 
+  file. Note that <font face="Courier New, Courier, mono" size="2">GHelpThrdID&amp;</font>, 
+  <font face="Courier New, Courier, mono" size="2">GHelpLocation$</font> and <font face="Courier New, Courier, mono" size="2">GHelpFile$</font> 
+  are global variables defined elsewhere within your application. For example, 
+  if your help file is at &quot;<font face="Courier New, Courier, mono" size="2">D:\System\Apps\MyApp\MyApp.hlp</font>&quot;, 
+  <font face="Courier New, Courier, mono" size="2">GHelpLocation$</font> would 
+  be &quot;<font face="Courier New, Courier, mono" size="2">D:\System\Apps\MyApp\</font>&quot;, 
+  and <font face="Courier New, Courier, mono" size="2">GHelpFile$</font> would 
+  be &quot;<font face="Courier New, Courier, mono" size="2">MyApp</font>&quot;. 
+</p>
+<blockquote> 
+  <pre>PROC HELP%:
+ &#9;EXTERNAL GHelpThrdID&amp;, GHelpFile$, GHelpLocation$
+ &#9;LOCAL Prev&amp;
+ &#9;IF EXIST(GHelpLocation$+GHelpFile$+".hlp")
+ &#9;&#9;ONERR NotRunning::
+ &#9;&#9;GHelpThrdID&amp;=0
+ &#9;&#9;GHelpThrdID&amp; = GetThreadIdFromCaption&amp;:
+ ("Help - "+GHelpFile$, prev&amp;)
+ NotRunning::
+ &#9;&#9;ONERR OFF
+ &#9;&#9;IF GHelpThrdID&amp;&lt;&gt;0&#9;REM help already running
+ &#9;&#9;&#9;SETFOREGROUNDBYTHREAD&amp;:(GHelpThrdID&amp;,0)&#9;
+ REM Bring help to foreground
+ &#9;&#9;ELSE
+ &#9;&#9;&#9;GHelpThrdID&amp;=RUNAPP&amp;:
+ ("Data",GHelpLocation$+GHelpfile$+".hlp","",0)&#9;
+ REM Run the help application
+ &#9;&#9;ENDIF
+ &#9;ELSE
+ &#9;&#9;gIPRINT "Cannot locate the help file", KBusyTopRight%
+ &#9;ENDIF
+ ENDP</pre>
+</blockquote>
+<h2><a name="oplhelp_mm-003"></a>3. Closing the Help file when the Application 
+  closes</h2>
+<p>It is good practice to close the help file when your application is closed. 
+  To do this you should use the following code before exiting your application:<br>
+</p>
+<blockquote> 
+  <pre> ONERR ExitAnyway::
+ 
+ IF GHelpThrdID&amp; &lt;&gt; 0&#9;&#9;
+ REM If a program help thread is running
+ 
+ &#9;&#9;ENDTASK&amp;:(GHelpThrdID&amp;,0)
+ REM end the task using its thread ID
+ 
+ &#9;ENDIF
+ 
+ ExitAnyway::
+ 
+ ONERR OFF</pre>
+</blockquote>
+<h2><a name="oplhelp_mm-004"></a>4. How Help's 'Quick find' mode is supported</h2>
+<p>The default OPL help file contains the following fields:</p>
+<dir> <dir> 
+<p><i>title<br>
+  body<br>
+  number<br>
+  apps<br>
+  synonym</i></p>
+</dir></dir><dir> <dir> 
+<p></p>
+</dir></dir>
+<p>The number field is used to control the order of the records. The applications 
+  field has the name of the application followed by a '!'. (e.g. If the user enters 
+  data!, Help will only display help references to data). The synonym field is 
+  a cross reference field.</p>
+<p>When creating a help database, add all records then sort by number then title. 
+  Mark the number, applications and synonym fields as hidden.</p>
+<p>You can use the <a href="aleppo.html">Aleppo</a> tool to 
+  create a help file in the correct format.</p>
+<h2><a name="oplhelp_mm-005">5. Acknowledgements</a></h2>
+<p>Symbian is a trademark of Symbian Ltd.</p>
+<p>The Symbian Developer Network logo is a trademark of Symbian Ltd.</p>
+<p>This paper refers to trademarks of third parties and Symbian recognizes their 
+  rights.</p>
+<p> 
+        
+<BR><BR>
+<A HREF="../index.html">Back to opl-dev project homepage</A>
+<BR><BR>
+
+<A HREF="http://sourceforge.net"><IMG SRC="http://sourceforge.net/sflogo.php?group_id=76695&amp;type=1" WIDTH="88" HEIGHT="31" BORDER="0" ALIGN=right ALT="SourceForge.net Logo" /></A> <A HREF="http://www.symbian.com/"><IMG SRC="../symbian.png" ALT="Symbian logo" ALIGN=left /></A>
+</td>
+  </tr>
+</table>
+</body>
+</html>

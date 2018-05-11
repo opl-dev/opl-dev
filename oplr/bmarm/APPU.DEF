@@ -1,0 +1,3 @@
+; dlltool --output-def ../../EPOC32/BUILD/OPLR/MARMD/UREL/OPLu.def ../../EPOC32/BUILD/OPLR/MARMD/UREL/OPL.in
+EXPORTS
+	NewApplication__Fv @ 1 NONAME

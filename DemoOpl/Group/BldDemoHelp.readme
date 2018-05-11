@@ -1,0 +1,5 @@
+Note when building DemoOPL help
+
+The constants INTERMEDIATEDIR and EXPORTEDHELPFILEHRH in the BldDemoHlp.mk need to be relative to the folder where the BldDemoHelp.mk is located.
+Since the makefile is in the folder D:\Projects\OPL1.55\Opl\DemoOPL\group on my machine, the current path in BldDemoHelp.mk for these constants is 
+..\..\..\..\..\Symbian6.0\NokiaCPP\... etc.

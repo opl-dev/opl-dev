@@ -1,0 +1,16 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"Agenda OPX"}, (0x10000547), 0, 40, 116, TYPE=SY
+;
+; Files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\udeb\Agenda.opx"-"!:\System\OPX\Agenda.opx", FF
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 00, 129, {"OPL Runtime"}

@@ -1,0 +1,16 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"SendAs OPX © Symbian Ltd"}, (0x100055BF), 1, 00, 116, TYPE=SY
+;
+; Files
+;
+"\epoc32\release\arm4\udeb\SendAs.opx"-"!:\System\OPX\SendAs.opx", FF
+;
+; Depends on OPL.sis being installed - NOT while this OPX is a component SIS inside OPL.sis
+;
+;(0x1000904D), 1, 00, 129, {"OPL Runtime © Symbian Ltd"}

@@ -1,0 +1,35 @@
+; OPL Runtime for Nokia 9200 Communicator Series
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"OPL Runtime[Thumb]"}, (0x1000904D), 1, 51, 001, TYPE=SA
+;
+; Warning file
+;
+;"\oplr\rom\Release-Readme.txt"-"",FT,TA
+;
+; Dependencies
+;
+; Core OPL Files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\urel\opl.app"-"!:\System\Apps\Opl\Opl.app"
+"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\urel\opl.aif"-"!:\System\Apps\Opl\Opl.aif"
+"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\urel\oplr.rsc"-"!:\System\Data\Oplr.rsc"
+"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\urel\oplr.dll"-"!:\System\Libs\Oplr.dll"
+"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\urel\oplt.dll"-"!:\System\Libs\Oplt.dll"
+"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\urel\recopl.rdl"-"!:\System\Recogs\RecOpl.rdl"
+;
+; Font Support
+; Note: 14/03/2002 we now install Eon14.gdr into \System\**Libs**\ so it does not
+; cause problems with the system by being available to all apps from \System\Fonts\
+;
+"\Symbian\6.0\NokiaCPP\epoc32\data\z\system\fonts\eon14.gdr"-"!:\System\Libs\Eon14.gdr"
+;
+; Core OPXs
+@"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\urel\AppFrameOPX.sis",(0x10005235)
+@"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\urel\SendAsOPX.sis",(0x100055BF)
+@"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\urel\SystemOPX.sis",(0x1000025C)

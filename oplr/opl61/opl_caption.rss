@@ -1,0 +1,16 @@
+// Opl_Caption.RSS
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+
+// For Series60 and later.
+
+#include <apcaptionfile.rh>
+
+RESOURCE CAPTION_DATA
+    {
+    caption = "Opl";
+    shortcaption = "Opl";
+    }
+// End of File
+

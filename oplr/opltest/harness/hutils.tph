@@ -1,0 +1,122 @@
+REM hUtils.tph
+REM Include file for Crystal OPL utils for test and log operations.
+REM Copyright (C) 1999-2000 Symbian Ltd. All rights reserved.
+
+REM Public functions for logging and testing utilities.
+REM Most of these return a %-type for efficiency reasons only.
+
+REM Test utilities
+EXTERNAL hRunTest%:(aProcName$)
+
+REM 
+EXTERNAL hCall%:(aProcName$)
+
+EXTERNAL hCleanUp%:(aCleanUpProcName$)
+EXTERNAL hTestNumber%:
+EXTERNAL hTestDesc$:
+EXTERNAL hStartTestHarness:(aRoot$)
+EXTERNAL hInitTestHarness:(aFlag1%,aFlag2%)
+EXTERNAL hDiskName$: REM Harness disk name e.g. "D:" 
+EXTERNAL hRunningUnderSystemTestApp%:	REM Returns KTrue% if not running standalone.
+
+REM Log utilities
+EXTERNAL hLog%:(aThreshold%,aData$)				REM Returns error value.
+EXTERNAL hLogChangeThreshold%:(aNewLevel%)
+EXTERNAL hLink:(aCallbackProcName$,aThreadId&,aUserFlag%) REM ThreadId comes from helper proc calls.
+EXTERNAL hLogTimestamp: REM Time/date stamp for simple timing.
+
+REM Formatting...
+EXTERNAL hBIN$:(aValue&)	REM Like HEX$ but different.
+
+REM Helper procs to get thread id...
+EXTERNAL hThreadIdFromOplDoc&:
+EXTERNAL hThreadIdFromOplAppUid&:(aUid&)
+
+REM Spoof utilities
+EXTERNAL hSpoofTargetName$:
+EXTERNAL hSpoofTargetThread&:
+EXTERNAL hSpoofRunTargetApp&:(aLib$,aDoc$,aTail$,aCmd&)
+EXTERNAL hSpoofCloseApp%:
+EXTERNAL hSpoofSetFlagTargetApp%:(aTargetApp$,aDeleteFlag%)
+EXTERNAL hSpoofGetFlagTargetApp%:(aTargetApp$)
+
+EXTERNAL hSendKey&:(aCode&)
+EXTERNAL hSendKeyRich&:(aCode&,aScancode&,aMod&,aRpt&) REM No delay here.
+EXTERNAL hSendString&:(aBuffer$)
+
+EXTERNAL hTab%:
+EXTERNAL hEsc%:
+EXTERNAL hMenu%:
+EXTERNAL hSpace%:
+EXTERNAL hEnter%:
+EXTERNAL hDown%:
+EXTERNAL hUp%:
+EXTERNAL hRight%:
+EXTERNAL hLeft%:
+EXTERNAL hPageDown%:
+EXTERNAL hPageUp%:
+EXTERNAL hPageRight%:
+EXTERNAL hPageLeft%:
+
+EXTERNAL hHarnessSetBackground:
+EXTERNAL hHarnessSetForeground:
+
+REM Utility functions:
+EXTERNAL hPeekLine&:(ax%,ay%,aLength%)
+
+CONST KhUtils$="\System\Opl\hUtils.opo" REM The utils library.
+
+REM fileLog constants:
+CONST KhLogName$="C:\OplLog.txt" REM Name of text log. 
+REM (Unicode text on Unicode systems.)
+
+REM User flag for hLink%:()
+CONST KhUserLoggingOnly%=$0001
+CONST KhUserLogHeaders%=$0002
+CONST KhUserFull%=$FFFF REM Everything!
+
+REM Where 'logging only' indicates a user app that uses hCall to 
+REM execute, and reports errors,exceptions etc via the log.
+
+REM Logging priorities. Msgs below the current threshold are not logged.
+CONST KhLogLow%=200
+CONST KhLogMedium%=100
+CONST KhLogHigh%=50
+CONST KhLogAlways%=0 REM Always log this
+
+REM Initialisation flag settings.
+CONST KhInitNotUsed%=0
+CONST KhInitDebugMode%=1
+CONST KhInitDryRunOnly%=2
+CONST KhInitManualControl%=4
+CONST KhInitStartAtTestNumber%=8 REM second flag (flag2) is the starting test number.
+CONST KhInitStopAtFirstError%=16
+CONST KhInitLocalErrorHandling%=32 REM e.g. TextEd handles errors...
+
+REM Launching flag.
+CONST KhDeleteFlag%=-1 REM KTrue%
+
+REM Spoof launch delay
+CONST KhLaunchDelay%=35 rem 10 REM PAUSE units.
+
+REM Spoof closeapp delay
+CONST KhCloseAppDelay%=25 REM PAUSE units.
+
+REM Spoof string delay.
+CONST KhSendStringDelay%=10 rem 4 REM PAUSE units.
+
+REM Spoof UI interaction delay (for menu, dialogs etc.)
+CONST KhUIDelay%=10 REM PAUSE units.
+
+REM Spoof key delays.
+CONST KhSendKeyDelay%=1 rem 4 REM PAUSE units.
+CONST KhSendKeyRichDelay%=1
+
+REM Some usage notes:
+
+REM !!TODO Update these.
+REM hLog%:(KhLogAlways%,data$) will log the Unicode text 
+REM 'data$' to the KhLogName$ file, opening the file if it 
+REM isn't already open.
+
+REM End of hUtils.tph

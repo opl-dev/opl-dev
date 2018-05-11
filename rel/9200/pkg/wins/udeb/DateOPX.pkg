@@ -1,0 +1,20 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"Date OPX"}, (0x1000025A), 0, 40, 116, TYPE=SY
+
+; Digitally sign this .sis file
+*"..\..\..\..\Symbian.key","..\..\..\..\Symbian.cer"
+
+;
+; Files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\z\system\opx\Date.opx"-"!:\System\OPX\Date.opx", FF
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 55, 001, {"OPL Runtime"}

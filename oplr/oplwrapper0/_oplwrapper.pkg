@@ -1,0 +1,21 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"oplwrapper Wrapper [Thumb]"}, (0x09813121), 0, 20, 128, TYPE=SA
+
+
+(0x101F6F88), 0, 0, 0, {"Series60ProductID"}
+;;
+; Dependencies
+;
+; 
+;
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\opltests60.aif"-"!:\System\Apps\OplTestS60\OplTestS60.aif"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\opltests60_caption.rsc"-"!:\System\Apps\OplTestS60\OplTestS60_caption.rsc"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\opltests60.rsc"-"!:\System\Apps\OplTestS60\OplTestS60.rsc"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\opltests60.app"-"!:\System\Apps\OplTestS60\OplTestS60.app"
+"\opl\oplr\oplwrapper0\opltests60.opo"-"!:\System\Apps\OpltestS60\OpltestS60.opo"

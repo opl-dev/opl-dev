@@ -1,0 +1,16 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"SComms OPX © Symbian Ltd"}, (0x100038F2), 0, 40, 116, TYPE=SY
+;
+; Files
+;
+"\epoc32\release\arm4\udeb\SComms.opx"-"!:\System\OPX\SComms.opx", FF
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 00, 129, {"OPL Runtime © Symbian Ltd"}

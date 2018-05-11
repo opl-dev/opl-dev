@@ -1,0 +1,31 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+;													 	  = v0.30(001)
+#{"OPL Runtime - Series 60 - Alpha release"}, (0x1000904D), 0, 30, 003, TYPE=SA
+
+
+(0x101F6F88), 0, 0, 0, {"Series60ProductID"}
+;;
+; Dependencies
+;
+; Core OPL Files
+;
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\opl.aif"-"!:\System\Apps\Opl\Opl.aif"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\opl_caption.rsc"-"!:\System\Apps\Opl\Opl_caption.rsc"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\opl.rsc"-"!:\System\Apps\Opl\Opl.rsc"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\opl.app"-"!:\System\Apps\Opl\Opl.app"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\oplr.rsc"-"!:\System\Data\Oplr.rsc"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\oplr.dll"-"!:\System\Libs\Oplr.dll"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\oplt.dll"-"!:\System\Libs\Oplt.dll"
+;"\Symbian\6.1\series60\epoc32\wins\c\hellow.opo"-"!:\hellow.opo"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\recopl.rdl"-"!:\System\Recogs\RecOpl.rdl"
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\appframe.opx"-"!:\System\Opx\AppFrame.opx"
+;
+; Core OPXs
+;@"\epoc32\release\thumb\urel\SendAsOPX.sis",(0x100055BF)
+;@"\epoc32\release\thumb\urel\SystemOPX.sis",(0x1000025C)

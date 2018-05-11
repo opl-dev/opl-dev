@@ -1,0 +1,5 @@
+WARNING: This version of the OPL runtime is not intended for release.
+
+The file your are installing now is a test version of the OPL runtime v1.55 for the Nokia Communicator 9300(i)/9500.
+
+It it only intended for people that agreed to test the functionality of the new runtime before it is officially released. If you are not one of these people, please abort the installation now and wait for the official release of the runtime.

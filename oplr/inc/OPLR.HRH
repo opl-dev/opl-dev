@@ -1,0 +1,7 @@
+// OPLR.HRH
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+
+#define EOplCidAlertText1 1
+#define EOplCidAlertText2 2

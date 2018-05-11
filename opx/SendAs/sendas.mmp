@@ -1,0 +1,38 @@
+// SendAs.mmp
+//
+// Copyright (c) 1999-2002 Symbian Ltd. All rights reserved.
+
+TARGET			SendAs.opx
+TARGETTYPE		dll
+TARGETPATH		\System\OPX
+UID				0x10003A7B 0x100055BF
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH		..\SendAs
+
+SOURCE			SendAs.cpp
+USERINCLUDE		..\SendAs ..\src 
+SYSTEMINCLUDE	\epoc32\include 
+DOCUMENT		SendAs.txh
+
+LIBRARY			eikcore.lib euser.lib oplr.lib efsrv.lib
+LIBRARY			cone.lib  etext.lib mtur.lib
+LIBRARY			MSGS.LIB MUIU.LIB BAFL.LIB ESTOR.LIB
+#if !defined(__UIQ_MMP__)
+LIBRARY			sendui.lib
+#endif
+DEFFILE			OPX.DEF
+
+SOURCEPATH		..\TSRC
+DOCUMENT		dSendAs.tpl
+DOCUMENT		tSendAs.tpl
+

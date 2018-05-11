@@ -1,0 +1,16 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"AppFrame OPX"}, (0x10005235), 1, 00, 116, TYPE=SY
+;
+; Files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\release\thumb\urel\AppFrame.opx"-"!:\System\OPX\AppFrame.opx", FF
+;
+; Depends on OPL.sis being installed - NOT while this OPX is a component SIS inside OPL.sis
+;
+;(0x1000904D), 1, 00, 129, {"OPL Runtime"}

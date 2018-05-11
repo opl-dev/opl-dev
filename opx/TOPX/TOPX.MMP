@@ -1,0 +1,25 @@
+TARGET			topx.opx
+TARGETTYPE		dll
+TARGETPATH      system\opx
+UID				0x10003a7b 0x00000001
+
+#include "..\..\opl-target.mmpi"
+#if !defined(__SERIES60__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH		..\topx
+
+SOURCE			topx.cpp
+DOCUMENT        topx.opl topx.txh
+
+USERINCLUDE     ..\topx 
+SYSTEMINCLUDE	\epoc32\include
+
+LIBRARY			euser.lib oplr.lib
+
+DEFFILE         opx.def

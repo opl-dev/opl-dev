@@ -1,0 +1,112 @@
+// DEVELOP.TXT
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+
+
+SCOMMS.OPX v1.00 (004)
+======================
+First public release
+
+SCOMMS.OPX v0.04 (002)
+======================
+Added IrDA 090 as a beta version.  This is installed via a seperate sis included 
+in the main sis.
+
+SCOMMS.OPX v0.03 (001)
+======================
+
+Alpha version.  
+The API has been changed.  The new API is as follows:
+
+    handle& = SCConnect&:(svrName$)
+      Open a connection to the EPOC comms server svrName$.
+      Note that for this release, "IrCOMM" is the only useful value for 
+      svrName$.
+    
+    SCSetConfig&:(handle&, termConf&)
+      Set the comms configuration details. Not yet implemented.
+	      
+    SCWriteA:(handle&, data$, timeout&, BYREF statusW&)
+      Asynchronous Write.  Write the data, but return immediately. When the 
+      write completes or timeout microseconds have elapsed, the status word 
+      will be updated. 
+    
+    SCReadA:(handle&, stringAddr&, length&, timeout&, BYREF statusW&) 
+      Read data from the port into stringAddr& asynchronously. That is, the
+      call returns immediately, but the data may be written at a later time. 
+      The status word is updated when the data is written or timeout 
+      microseconds have elapsed.
+   
+    SCReadOneOrMoreA:(handle&, BYREF buffer$, BYREF statusW&)
+      Will return as many characters as are in the input buffer up to a 
+      maximum that will fit into buffer$.  Completes when there is at least 
+      one character.
+   
+    count& = SCQueryReceiveBuffer&:(handle&)
+      Returns the number of characters currently in the input buffer. 
+    
+    SCDisconnect:(handle&)
+      Disconnect from the comms port.
+    
+    SCReadCancel:(handle&)
+      Cancel any outstanding read requests.
+   
+    SCWriteCancel:(handle&) 
+      Cancel any outstanding write requests.
+
+
+There are 2 known bugs in IrDA 071 that affect the implementation of SCOMMS.  
+
+1) It doesn't handle terminators.  Demonstrated by this code:
+
+  PROC TerminatorTest:
+	EXTERNAL gHandle&
+	EXTERNAL gReadStatus&
+	LOCAL ret&
+	LOCAL oldTerm&
+	LOCAL buffer$(KMaxStringLen%)
+
+	PRINT
+	PRINT "* TERMINATOR TEST"
+	Connect:
+	PRINT "*** Setting the terminator to ""5"""
+	oldTerm& = SCSetConfig&:(gHandle&,ASC("5"))
+	DO
+		ret& = Write&:(CHR$(13)+"*** Please send the characters ""123456789"": ")
+	UNTIL ret&=KE32ErrNone&
+	SCReadA:(gHandle&,ADDR(buffer$),10,KNoTimeout&,gReadStatus&)
+	IOWAITSTAT32 gReadStatus&
+	IF buffer$="12345"
+		PRINT "*** Test Passed";
+	ELSE
+		PRINT "*** Test FAILED *** ";
+	ENDIF
+	PRINT """"+buffer$+""" received."
+	Disconnect:
+  ENDP
+
+2) The machine will soft-reset itself if Irda connected and disconnected repeatedly.
+Test code:
+
+  PROC CycleTest:
+	EXTERNAL gHandle&
+	LOCAL i%
+
+	REM Shows up bug in IrDA 071 fixed in 082
+	PRINT
+	PRINT "* TESTING CONNECTING/DISCONNECTING"
+	i%=1
+	DO
+		PRINT ".";
+		gHandle& = SCConnect&:(KSCIrCommSvrName$)
+		SCDisconnect:(gHandle&)
+		i%=i%+1
+	UNTIL i%>100
+	PRINT
+	PRINT "*** Press a key to continue..."
+  ENDP
+
+3) There also seems to be a condition where IrDA will stop working until either the stack is
+unloaded and loaded again (Using Ctrl-L from the shell) or you do a soft-reset.  IrDA 086 
+seems more stable in this regard, but this problem is not resolved.

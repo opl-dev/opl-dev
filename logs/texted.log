@@ -1,0 +1,100 @@
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\EXPORT.make" EXPORT VERBOSE=-s
+	md "\Symbian\6.0\NokiaCPP\EPOC32\include\cshelp"
+	copy "\OPL\TEXTED\inc\opl.hlp.hrh" "\Symbian\6.0\NokiaCPP\EPOC32\include\cshelp\opl.hlp.hrh"
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\WINS.make" MAKEFILE VERBOSE=-s
+	perl -S makmake.pl -D \OPL\TEXTED\GROUP\TEXTED WINS
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\THUMB.make" MAKEFILE VERBOSE=-s
+	perl -S makmake.pl -D \OPL\TEXTED\GROUP\TEXTED THUMB
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\WINS.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\TEXTED.WINS" LIBRARY
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\THUMB.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\THUMB\TEXTED.THUMB" LIBRARY
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\WINS.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\TEXTED.WINS" RESOURCEUDEB
+
+
+Reading resource file...
+Adding icons
+Reading icons
+Adding captions
+Adding capability
+Adding data types
+Saving
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\WINS.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\TEXTED.WINS" RESOURCEUREL
+
+
+Reading resource file...
+Adding icons
+Reading icons
+Adding captions
+Adding capability
+Adding data types
+Saving
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\THUMB.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\THUMB\TEXTED.THUMB" RESOURCEUDEB
+
+
+Reading resource file...
+Adding icons
+Reading icons
+Adding captions
+Adding capability
+Adding data types
+Saving
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\THUMB.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\THUMB\TEXTED.THUMB" RESOURCEUREL
+
+
+Reading resource file...
+Adding icons
+Reading icons
+Adding captions
+Adding capability
+Adding data types
+Saving
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\WINS.make" TARGET CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\TEXTED.WINS" UDEB
+Texted.cpp
+Texted.uid.cpp
+Txteddoc.cpp
+Txtedsrc.cpp
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\UDEB\TEXTED.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\UDEB\TEXTED.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "J:\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\UDEB\edll.pdb"; linking object as if no debug info
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\UDEB\TEXTED.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\UDEB\TEXTED.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "J:\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\Z\SYSTEM\APPS\TEXTED\edll.pdb"; linking object as if no debug info
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\WINS.make" TARGET CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\TEXTED.WINS" UREL
+Texted.cpp
+Texted.uid.cpp
+Txteddoc.cpp
+Txtedsrc.cpp
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\UREL\TEXTED.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\UREL\TEXTED.exp
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\UREL\TEXTED.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\WINS\UREL\TEXTED.exp
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\THUMB.make" TARGET CFG=UDEB VERBOSE=-s
+NMAKE : fatal error U1073: don't know how to make '"..\..\..\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\THUMB\UDEB\EDLL.LIB"'
+Stop.
+NMAKE : fatal error U1077: 'c:\apps\msvc6\VC98\bin\nmake.exe' : return code '0x2'
+Stop.
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\THUMB\TEXTED.THUMB" UDEB
+""  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\THUMB.make" TARGET CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\TEXTED\THUMB\TEXTED.THUMB" UREL
+""
+PETRAN - PE file preprocessor V01.00 (Build 156)
+Copyright (c) 1996-2000 Symbian Ltd.
+
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\WINS.make" FINAL CFG=UDEB VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\WINS.make" FINAL CFG=UREL VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\THUMB.make" FINAL CFG=UDEB VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\TEXTED\GROUP\THUMB.make" FINAL CFG=UREL VERBOSE=-s

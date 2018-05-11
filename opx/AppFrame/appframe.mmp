@@ -1,0 +1,57 @@
+// APPFRAME.MMP
+//
+// Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+
+TARGET			AppFrame.opx
+TARGETTYPE		dll
+TARGETPATH		\System\OPX
+UID				0x10003a7b 0x10005235
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__S80_DP2_0_MMP__)
+MACRO USE_IRLISTEN
+MACRO USE_ADDTODESK
+#elif defined(__CRYSTAL_MMP__)
+MACRO USE_IRLISTEN
+MACRO USE_ADDTODESK
+#endif
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH		..\appframe
+
+SOURCE			AppFrame.cpp
+
+USERINCLUDE		..\appframe ..\src 
+SYSTEMINCLUDE	\epoc32\include 
+
+DOCUMENT		AppFrame.txh 9210AppFrame.txh
+DOCUMENT		Readme.txt // develop.txt
+DOCUMENT		tappframestatus.tpl
+
+SOURCEPATH		..\tsrc
+DOCUMENT		tappframe.tpl
+
+LIBRARY			euser.lib oplr.lib ws32.lib apparc.lib
+LIBRARY			eikcore.lib eikcoctl.lib cone.lib
+
+#if defined(__CRYSTAL_MMP__)
+LIBRARY			cknctl.lib ckndlg.lib
+#if defined(__S80_DP2_0_MMP__)
+LIBRARY			addtodesk.lib obexlistenui.lib
+#else
+LIBRARY			linkui.lib linkmdl.lib irlistenui.lib
+#endif
+#endif
+
+#if defined(__UIQ_MMP__)
+LIBRARY			qikctl.lib
+#endif
+DEFFILE			OPX.DEF

@@ -1,0 +1,37 @@
+// OPL.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+// This version is for uiq (Symbian OS 7.0).
+
+TARGET		OPL.APP
+TARGETTYPE	APP
+TARGETPATH	\SYSTEM\APPS\OPL
+UID			0x100039CE 0x10005D2E
+
+#include "..\..\opl-target.mmpi"
+
+SOURCEPATH	..\OPLUIQ
+SOURCE		oplapp.cpp
+DOCUMENT	oplaif.rss
+
+RESOURCE	..\opluiq\opl.rss
+LANG		SC
+
+SYSTEMINCLUDE	..\INC
+SYSTEMINCLUDE	\EPOC32\INCLUDE  
+USERINCLUDE 	..\src
+
+LIBRARY		euser.lib apparc.lib
+LIBRARY		oplr.lib
+LIBRARY		eikcore.lib cone.lib apgrfx.lib
+LIBRARY		efsrv.lib qikctl.lib
+
+START WINS
+	BASEADDRESS 0x43900000
+END
+
+// color resources
+SOURCEPATH	..\AIF
+AIF opl.aif ..\aif\ ..\opluiq\oplaif.rss c8 opl_i_applic.bmp opl_i_applic_mask.bmp opl_i_applic_list.bmp opl_i_applic_list_mask.bmp
+

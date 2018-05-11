@@ -1,0 +1,2105 @@
+
+(object Petal
+    version    	37)
+
+(object Design "<Top Level>"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    defaults   	(object defaults
+	rightMargin 	0.250000
+	leftMargin 	0.250000
+	topMargin  	0.250000
+	bottomMargin 	0.500000
+	pageOverlap 	0.250000
+	clipIconLabels 	TRUE
+	autoResize 	FALSE
+	snapToGrid 	TRUE
+	gridX      	16
+	gridY      	16
+	defaultFont 	(object Font
+	    size       	10
+	    face       	"Arial"
+	    bold       	FALSE
+	    italics    	FALSE
+	    underline  	FALSE
+	    strike     	FALSE
+	    color      	0
+	    default_color 	TRUE)
+	showMessageNum 	3
+	showClassOfObject 	TRUE
+	notation   	"Booch")
+    root_category 	(object Class_Category "<Top Level>"
+	exportControl 	"Public"
+	global     	TRUE
+	subsystem  	"<Top Level>"
+	logical_models 	(list unit_reference_list
+	    (object Class_Category "Symbols"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class "EArgument"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"Variable")
+			    (object Inheritance_Relationship
+				supplier   	"COplDeclarationSymbol")))
+		    (object Class "ELabel"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplDeclarationSymbol")))
+		    (object Class "Variable")
+		    (object Class "COplAutomaticSymbol"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"Variable")
+			    (object Inheritance_Relationship
+				supplier   	"COplDeclarationSymbol"))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "iArraySize")
+			    (object ClassAttribute "iStringSize")))
+		    (object Class "EExternal"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"Variable")
+			    (object Inheritance_Relationship
+				supplier   	"COplDeclarationSymbol")))
+		    (object Class "ELocal"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplAutomaticSymbol")))
+		    (object Class "EGlobal"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplAutomaticSymbol")))
+		    (object Class "COplCallSymbol"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				label      	"iSignature"
+				supplier   	"TOplSignature"))
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplDeclarationSymbol"))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "iSignature")))
+		    (object Class "EProcDecl"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplCallSymbol")))
+		    (object Class "EOpxFunctionDecl"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				supplier   	"TOpxId"))
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplCallSymbol")))
+		    (object Class "ExternalDeclaration")
+		    (object Class "ProcedureDeclaration")
+		    (object Class "TOpxId")
+		    (object Class "COplReferenceSymbol"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplSymbol"))
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				label      	"iReference"
+				supplier   	"COplDeclarationSymbol"))
+			operations 	(list Operations
+			    (object Operation "ov Name"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ov Token"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ov Type"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)))
+		    (object Class "COplDeclarationSymbol"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplSymbol"))
+			operations 	(list Operations
+			    (object Operation "ov Name"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ov Type"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "ov Token"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "iName")
+			    (object ClassAttribute "iType")
+			    (object ClassAttribute "iToken")
+			    (object ClassAttribute "iAddress")))
+		    (object Class "COplSymbol"
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"COplSymbol::TClass"))
+			operations 	(list Operations
+			    (object Operation "pv Name"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "pv Type"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "pv Token"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "iAddress")
+			    (object ClassAttribute "iClass")))
+		    (object Class "EProcRef"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplReferenceSymbol")))
+		    (object Class "EExternalRef"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplReferenceSymbol")))
+		    (object Class "COplSymbol::TClass")
+		    (object Class "COplConstantSymbol"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				supplier   	"TOplConstant"))
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplDeclarationSymbol")))
+		    (object Class "TOplConstant")
+		    (object Class "EConstant"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplConstantSymbol")))
+		    (object Class_Category "Symbol Lists"
+			exportControl 	"Public"
+			logical_models 	(list unit_reference_list
+			    (object Class "CLocalDecls")
+			    (object Class "CArrayFixFlat<2>"))
+			logical_presentations 	(list unit_reference_list
+			    (object ClassDiagram "Main"
+				title      	"Main"
+				zoom       	100
+				max_height 	28350
+				max_width  	21600
+				origin_x   	0
+				origin_y   	0
+				items      	(list diagram_item_list)))))
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "Main"
+			title      	"Main"
+			zoom       	85
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object ClassView "Class" "EArgument" @1
+				location   	(2016, 2144)
+				label      	(object ItemLabel
+				    Parent_View 	@1
+				    location   	(1912, 2060)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"EArgument"))
+			    (object ClassView "Class" "ELabel" @2
+				location   	(736, 2160)
+				label      	(object ItemLabel
+				    Parent_View 	@2
+				    location   	(632, 2076)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"ELabel"))
+			    (object ClassView "Class" "COplAutomaticSymbol" @3
+				location   	(1552, 1776)
+				label      	(object ItemLabel
+				    Parent_View 	@3
+				    location   	(1412, 1667)
+				    nlines     	2
+				    max_width  	327
+				    justify    	0
+				    label      	"COplAutomaticSymbol")
+				compartment 	(object Compartment
+				    Parent_View 	@3
+				    location   	(1457, 1779)
+				    anchor     	2
+				    nlines     	2
+				    max_width  	235
+				    justify    	0
+				    compartmentItems 	(list Compartment
+					"iArraySize"
+					"iStringSize"))
+				width      	475
+				height     	325)
+			    (object ClassView "Class" "EExternal" @4
+				location   	(2400, 2128)
+				label      	(object ItemLabel
+				    Parent_View 	@4
+				    location   	(2296, 2044)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"EExternal"))
+			    (object ClassView "Class" "ELocal" @5
+				location   	(1632, 2160)
+				label      	(object ItemLabel
+				    Parent_View 	@5
+				    location   	(1528, 2076)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"ELocal"))
+			    (object ClassView "Class" "EGlobal" @6
+				location   	(1232, 2160)
+				label      	(object ItemLabel
+				    Parent_View 	@6
+				    location   	(1128, 2076)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"EGlobal"))
+			    (object ClassView "Class" "COplCallSymbol" @7
+				location   	(2944, 1744)
+				label      	(object ItemLabel
+				    Parent_View 	@7
+				    location   	(2840, 1660)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"COplCallSymbol"))
+			    (object InheritView "" @8
+				client     	@5
+				supplier   	@3
+				line_style 	0)
+			    (object ClassView "Class" "TOplSignature" @9
+				location   	(3648, 1744)
+				label      	(object ItemLabel
+				    Parent_View 	@9
+				    location   	(3544, 1660)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"TOplSignature"))
+			    (object ClassView "Class" "COplReferenceSymbol" @10
+				location   	(2496, 752)
+				label      	(object ItemLabel
+				    Parent_View 	@10
+				    location   	(2330, 614)
+				    nlines     	2
+				    max_width  	392
+				    justify    	0
+				    label      	"COplReferenceSymbol")
+				compartment 	(object Compartment
+				    Parent_View 	@10
+				    location   	(2407, 726)
+				    anchor     	2
+				    nlines     	3
+				    max_width  	235
+				    justify    	0
+				    compartmentItems 	(list Compartment
+					"ov Name( )"
+					"ov Token( )"
+					"ov Type( )"))
+				width      	569
+				height     	406)
+			    (object ClassView "Class" "COplDeclarationSymbol" @11
+				location   	(1360, 768)
+				label      	(object ItemLabel
+				    Parent_View 	@11
+				    location   	(1173, 533)
+				    nlines     	2
+				    max_width  	444
+				    justify    	0
+				    label      	"COplDeclarationSymbol")
+				compartment 	(object Compartment
+				    Parent_View 	@11
+				    location   	(1277, 597)
+				    anchor     	2
+				    nlines     	7
+				    max_width  	235
+				    justify    	0
+				    compartmentItems 	(list Compartment
+					"iName"
+					"iType"
+					"iToken"
+					"iAddress"
+					"ov Name( )"
+					"ov Type( )"
+					"ov Token( )"))
+				width      	644
+				height     	687)
+			    (object InheritView "" @12
+				client     	@2
+				supplier   	@11
+				line_style 	0)
+			    (object InheritView "" @13
+				client     	@3
+				supplier   	@11
+				line_style 	0)
+			    (object InheritView "" @14
+				client     	@1
+				supplier   	@11
+				line_style 	0)
+			    (object InheritView "" @15
+				client     	@4
+				supplier   	@11
+				line_style 	0)
+			    (object InheritView "" @16
+				client     	@7
+				supplier   	@11
+				line_style 	0)
+			    (object InheritView "" @17
+				client     	@6
+				supplier   	@3
+				line_style 	0)
+			    (object UsesView "iReference" @18
+				label      	(object ItemLabel
+				    Parent_View 	@18
+				    location   	(1926, 759)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iReference")
+				client     	@10
+				supplier   	@11
+				line_style 	0)
+			    (object ClassView "Class" "COplSymbol" @19
+				location   	(1808, 256)
+				label      	(object ItemLabel
+				    Parent_View 	@19
+				    location   	(1624, 105)
+				    nlines     	2
+				    max_width  	435
+				    justify    	0
+				    label      	"COplSymbol")
+				compartment 	(object Compartment
+				    Parent_View 	@19
+				    location   	(1723, 169)
+				    anchor     	2
+				    nlines     	5
+				    max_width  	235
+				    justify    	0
+				    compartmentItems 	(list Compartment
+					"pv Name( )"
+					"pv Type( )"
+					"pv Token( )"
+					"iAddress"
+					"iClass"))
+				width      	631
+				height     	444)
+			    (object InheritView "" @20
+				client     	@11
+				supplier   	@19
+				line_style 	0)
+			    (object InheritView "" @21
+				client     	@10
+				supplier   	@19
+				line_style 	0)
+			    (object ClassView "Class" "EProcDecl" @22
+				location   	(3216, 2096)
+				label      	(object ItemLabel
+				    Parent_View 	@22
+				    location   	(3112, 2012)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"EProcDecl"))
+			    (object ClassView "Class" "EOpxFunctionDecl" @23
+				location   	(2800, 2112)
+				label      	(object ItemLabel
+				    Parent_View 	@23
+				    location   	(2696, 2028)
+				    nlines     	2
+				    max_width  	241
+				    justify    	0
+				    label      	"EOpxFunctionDecl")
+				width      	350)
+			    (object InheritView "" @24
+				client     	@23
+				supplier   	@7
+				line_style 	0)
+			    (object InheritView "" @25
+				client     	@22
+				supplier   	@7
+				line_style 	0)
+			    (object ClassView "Class" "EProcRef" @26
+				location   	(2240, 1136)
+				label      	(object ItemLabel
+				    Parent_View 	@26
+				    location   	(2136, 1052)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"EProcRef"))
+			    (object ClassView "Class" "EExternalRef" @27
+				location   	(2704, 1120)
+				label      	(object ItemLabel
+				    Parent_View 	@27
+				    location   	(2600, 1036)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"EExternalRef"))
+			    (object HasView "iSignature" @28
+				label      	(object ItemLabel
+				    Parent_View 	@28
+				    location   	(3284, 1744)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iSignature")
+				client     	@7
+				supplier   	@9
+				line_style 	0)
+			    (object InheritView "" @29
+				client     	@26
+				supplier   	@10
+				line_style 	0)
+			    (object InheritView "" @30
+				client     	@27
+				supplier   	@10
+				line_style 	0)
+			    (object Label @31
+				location   	(162, 320)
+				nlines     	7
+				max_width  	779
+				label      	
+|NOTE: The leaf classes, e.g. ELabel are not implemented as derived C++ classes. 
+|
+|Rather, they are instances of their respective base classes, e.g. COplDeclarationClass, with the iClass member set to the appropriate COplSymbol::TClass value e.g. ELabel.
+				)
+			    (object ClassView "Class" "COplSymbol::TClass" @32
+				location   	(2496, 256)
+				label      	(object ItemLabel
+				    Parent_View 	@32
+				    location   	(2369, 172)
+				    nlines     	2
+				    max_width  	296
+				    justify    	0
+				    label      	"COplSymbol::TClass")
+				width      	430)
+			    (object UsesView "" @33
+				client     	@19
+				supplier   	@32
+				line_style 	0)
+			    (object NoteView @34
+				location   	(2928, 272)
+				label      	(object ItemLabel
+				    Parent_View 	@34
+				    location   	(2736, 22)
+				    nlines     	10
+				    max_width  	409
+				    label      	
+|ELabel
+|EConstant
+|EGlobal
+|ELocal
+|EArgument
+|EExternal
+|EOpxFunctionDecl,
+|EProcDecl,
+|EProcRef
+|EExternalRef
+				    )
+				width      	469
+				height     	512)
+			    (object ClassView "Class" "COplConstantSymbol" @35
+				location   	(576, 1728)
+				label      	(object ItemLabel
+				    Parent_View 	@35
+				    location   	(454, 1644)
+				    nlines     	2
+				    max_width  	285
+				    justify    	0
+				    label      	"COplConstantSymbol")
+				width      	414)
+			    (object InheritView "" @36
+				client     	@35
+				supplier   	@11
+				line_style 	0)
+			    (object ClassView "Class" "TOplConstant" @37
+				location   	(176, 1728)
+				label      	(object ItemLabel
+				    Parent_View 	@37
+				    location   	(72, 1644)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"TOplConstant"))
+			    (object HasView "" @38
+				client     	@35
+				supplier   	@37
+				line_style 	0)
+			    (object ClassView "Class" "EConstant" @39
+				location   	(304, 2128)
+				label      	(object ItemLabel
+				    Parent_View 	@39
+				    location   	(200, 2044)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"EConstant"))
+			    (object InheritView "" @40
+				client     	@39
+				supplier   	@35
+				line_style 	0)))))
+	    (object Class_Category "Parser"
+		visible_categories 	(list visibility_relationship_list
+		    (object Visibility_Relationship
+			supplier   	"Lexer")
+		    (object Visibility_Relationship
+			supplier   	"BackEnd")
+		    (object Visibility_Relationship
+			supplier   	"Symbols"))
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class "COplParseProcHeader"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				supplier   	"COplSymbolList"
+				supplier_cardinality 	(value cardinality "n")))
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"COplSymbol"
+				supplier_cardinality 	(value cardinality "0..n"))))
+		    (object Class "COplParseApp"
+			operations 	(list Operations
+			    (object Operation "pv ParseL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)))
+		    (object Class "COplParseOpx")
+		    (object Class "COplSymbolTable"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				supplier   	"COplSymbol"
+				supplier_cardinality 	(value cardinality "0..n")))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "iScope")))
+		    (object Class "MOplBackEnd"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				supplier   	"RReadStrean")))
+		    (object Class "COplSymbolList")
+		    (object Class "RWriteStream"
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"CbufSeg")))
+		    (object Class "RReadStrean")
+		    (object Class "CBufBase")
+		    (object Class "CbufSeg")
+		    (object Class "COplParserBase"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				label      	"iSymbols"
+				supplier   	"COplSymbolTable")
+			    (object Has_Relationship
+				label      	"iCode"
+				supplier   	"RWriteStream"))
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				label      	"Lexer()"
+				supplier   	"COplLexerBase")))
+		    (object Class "COplModuleParser"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplParserBase")
+			    (object Inheritance_Relationship
+				supplier   	"MOplLexerLineCB"))
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"COplModuleLexer")
+			    (object Uses_Relationship
+				supplier   	"COplModuleBackEnd")
+			    (object Uses_Relationship
+				supplier   	"COplParseApp")
+			    (object Uses_Relationship
+				supplier   	"COplParseOpx")
+			    (object Uses_Relationship
+				supplier   	"COplParseProcHeader")
+			    (object Uses_Relationship
+				label      	"iPCodeBuf"
+				supplier   	"CbufSeg")))
+		    (object Class "COplLineParser"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplParserBase"))))
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "Main"
+			title      	"Main"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object ClassView "Class" "COplParseProcHeader" @41
+				location   	(1264, 1328)
+				label      	(object ItemLabel
+				    Parent_View 	@41
+				    location   	(1160, 1244)
+				    nlines     	2
+				    max_width  	241
+				    justify    	0
+				    label      	"COplParseProcHeader")
+				width      	350)
+			    (object ClassView "Class" "COplParseApp" @42
+				location   	(448, 1376)
+				label      	(object ItemLabel
+				    Parent_View 	@42
+				    location   	(344, 1292)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"COplParseApp")
+				height     	254)
+			    (object ClassView "Class" "COplParseOpx" @43
+				location   	(896, 1472)
+				label      	(object ItemLabel
+				    Parent_View 	@43
+				    location   	(792, 1388)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"COplParseOpx")
+				height     	254)
+			    (object ClassView "Class" "COplSymbolTable" @44
+				IncludeOperation 	TRUE
+				location   	(2288, 768)
+				label      	(object ItemLabel
+				    Parent_View 	@44
+				    location   	(2166, 670)
+				    nlines     	2
+				    max_width  	284
+				    justify    	0
+				    label      	"COplSymbolTable")
+				compartment 	(object Compartment
+				    Parent_View 	@44
+				    location   	(2173, 786)
+				    anchor     	2
+				    nlines     	1
+				    max_width  	269
+				    justify    	0
+				    compartmentItems 	(list Compartment
+					"iScope"))
+				width      	412
+				height     	293)
+			    (object ClassView "Class" "RWriteStream" @45
+				location   	(1504, 704)
+				label      	(object ItemLabel
+				    Parent_View 	@45
+				    location   	(1400, 620)
+				    nlines     	2
+				    max_width  	241
+				    justify    	0
+				    label      	"RWriteStream")
+				width      	350)
+			    (object ClassView "Class" "CbufSeg" @46
+				location   	(1648, 1136)
+				label      	(object ItemLabel
+				    Parent_View 	@46
+				    location   	(1544, 1052)
+				    nlines     	2
+				    max_width  	241
+				    justify    	0
+				    label      	"CbufSeg")
+				width      	350
+				height     	254)
+			    (object UsesView "" @47
+				client     	@45
+				supplier   	@46
+				line_style 	0)
+			    (object ClassView "Class" "COplParserBase" @48
+				location   	(1216, 256)
+				label      	(object ItemLabel
+				    Parent_View 	@48
+				    location   	(1112, 172)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"COplParserBase"))
+			    (object HasView "iSymbols" @49
+				label      	(object ItemLabel
+				    Parent_View 	@49
+				    location   	(1747, 510)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iSymbols")
+				client     	@48
+				supplier   	@44
+				line_style 	0)
+			    (object HasView "iCode" @50
+				label      	(object ItemLabel
+				    Parent_View 	@50
+				    location   	(1349, 464)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iCode")
+				client     	@48
+				supplier   	@45
+				line_style 	0)
+			    (object ClassView "Class" "COplModuleParser" @51
+				location   	(896, 672)
+				label      	(object ItemLabel
+				    Parent_View 	@51
+				    location   	(786, 588)
+				    nlines     	2
+				    max_width  	256
+				    justify    	0
+				    label      	"COplModuleParser")
+				width      	372
+				height     	254)
+			    (object InheritView "" @52
+				client     	@51
+				supplier   	@48
+				line_style 	0)
+			    (object ClassView "Class" "COplLexerBase" @53
+				location   	(2384, 272)
+				label      	(object ItemLabel
+				    Parent_View 	@53
+				    location   	(2280, 188)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"COplLexerBase"))
+			    (object UsesView "Lexer()" @54
+				label      	(object ItemLabel
+				    Parent_View 	@54
+				    location   	(1788, 264)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"Lexer()")
+				client     	@48
+				supplier   	@53
+				line_style 	0)
+			    (object UsesView "" @55
+				client     	@51
+				supplier   	@42
+				line_style 	0)
+			    (object UsesView "" @56
+				client     	@51
+				supplier   	@43
+				line_style 	0)
+			    (object UsesView "" @57
+				client     	@51
+				supplier   	@41
+				line_style 	0)
+			    (object UsesView "iPCodeBuf" @58
+				label      	(object ItemLabel
+				    Parent_View 	@58
+				    location   	(1278, 905)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iPCodeBuf")
+				client     	@51
+				supplier   	@46
+				line_style 	0)
+			    (object ClassView "Class" "COplSymbol" @59
+				location   	(2192, 1376)
+				label      	(object ItemLabel
+				    Parent_View 	@59
+				    location   	(2088, 1292)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"COplSymbol")
+				annotation 	8)
+			    (object HasView "" @60
+				client     	@44
+				supplier   	@59
+				line_style 	0)
+			    (object UsesView "" @61
+				client     	@41
+				supplier   	@59
+				line_style 	0)
+			    (object ClassView "Class" "COplLineParser" @62
+				location   	(544, 320)
+				label      	(object ItemLabel
+				    Parent_View 	@62
+				    location   	(440, 236)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"COplLineParser"))
+			    (object InheritView "" @63
+				client     	@62
+				supplier   	@48
+				line_style 	0)))))
+	    (object Class_Category "Lexer"
+		visible_categories 	(list visibility_relationship_list
+		    (object Visibility_Relationship
+			supplier   	"Symbols"))
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class "COplLexerBase"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				label      	"iToken"
+				supplier   	"TOplToken"
+				Containment 	"By Value")
+			    (object Has_Relationship
+				label      	"iFunction"
+				supplier   	"TOplFunction"
+				Containment 	"By Value")
+			    (object Has_Relationship
+				label      	"iKeyword"
+				supplier   	"TOplKeyWord"
+				Containment 	"By Value")
+			    (object Has_Relationship
+				label      	"iOpxSymbol"
+				supplier   	"EOpxFunctionDecl"
+				Containment 	"By Reference")
+			    (object Has_Relationship
+				label      	"iField"
+				supplier   	"TOplField"
+				Containment 	"By Value"))
+			operations 	(list Operations
+			    (object Operation "LexL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "UnLexL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)))
+		    (object Class "COplLineLexer"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplLexerBase")))
+		    (object Class "COplModuleLexer"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplLexerBase"))
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"MOplLexerLineCB"
+				supplier_cardinality 	(value cardinality "0..1"))
+			    (object Uses_Relationship
+				supplier   	"MTextSourceSystem")
+			    (object Uses_Relationship
+				supplier   	"MTextSource"
+				supplier_cardinality 	(value cardinality "0..n"))))
+		    (object Class "TOplToken"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				supplier   	"TOplToken::TValue"
+				Containment 	"By Value"))
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"TOplToken::TType")))
+		    (object Class "TOplFunction"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				supplier   	"TOplSignature"
+				Containment 	"By Value")))
+		    (object Class "TOplKeyWord")
+		    (object Class "TOplSignature")
+		    (object Class "MOplLexerLineCB"
+			operations 	(list Operations
+			    (object Operation "pv NewLineL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)))
+		    (object Class "TOplToken::TType")
+		    (object Class "TOplToken::TValue")
+		    (object Class "TOplSignature::TArgType")
+		    (object Class "TOplField"))
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "Main"
+			title      	"Main"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	63
+			items      	(list diagram_item_list
+			    (object ClassView "Class" "COplLexerBase" @64
+				IncludeOperation 	TRUE
+				location   	(752, 320)
+				label      	(object ItemLabel
+				    Parent_View 	@64
+				    location   	(621, 215)
+				    nlines     	2
+				    max_width  	306
+				    justify    	0
+				    label      	"COplLexerBase")
+				compartment 	(object Compartment
+				    Parent_View 	@64
+				    location   	(681, 281)
+				    anchor     	2
+				    nlines     	2
+				    max_width  	184
+				    justify    	0)
+				width      	444
+				height     	313)
+			    (object ClassView "Class" "COplLineLexer" @65
+				location   	(416, 880)
+				label      	(object ItemLabel
+				    Parent_View 	@65
+				    location   	(312, 796)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"COplLineLexer"))
+			    (object InheritView "" @66
+				client     	@65
+				supplier   	@64
+				line_style 	0)
+			    (object ClassView "Class" "COplModuleLexer" @67
+				location   	(896, 960)
+				label      	(object ItemLabel
+				    Parent_View 	@67
+				    location   	(792, 876)
+				    nlines     	2
+				    max_width  	241
+				    justify    	0
+				    label      	"COplModuleLexer")
+				width      	350
+				height     	254)
+			    (object ClassView "Class" "TOplToken" @68
+				location   	(1872, 224)
+				label      	(object ItemLabel
+				    Parent_View 	@68
+				    location   	(1768, 140)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"TOplToken"))
+			    (object ClassView "Class" "TOplFunction" @69
+				location   	(1824, 656)
+				label      	(object ItemLabel
+				    Parent_View 	@69
+				    location   	(1720, 572)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"TOplFunction"))
+			    (object ClassView "Class" "TOplKeyWord" @70
+				location   	(1856, 928)
+				label      	(object ItemLabel
+				    Parent_View 	@70
+				    location   	(1752, 844)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"TOplKeyWord"))
+			    (object ClassView "Class" "TOplSignature" @71
+				location   	(2256, 768)
+				label      	(object ItemLabel
+				    Parent_View 	@71
+				    location   	(2152, 684)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"TOplSignature"))
+			    (object HasView "" @72
+				client     	@69
+				supplier   	@71
+				line_style 	0)
+			    (object InheritView "" @73
+				client     	@67
+				supplier   	@64
+				line_style 	0)
+			    (object ClassView "Class" "MOplLexerLineCB" @74
+				location   	(1376, 1424)
+				label      	(object ItemLabel
+				    Parent_View 	@74
+				    location   	(1272, 1340)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"MOplLexerLineCB")
+				annotation 	8)
+			    (object UsesView "" @75
+				client     	@67
+				supplier   	@74
+				line_style 	0)
+			    (object HasView "iToken" @76
+				label      	(object ItemLabel
+				    Parent_View 	@76
+				    location   	(1329, 271)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iToken")
+				client     	@64
+				supplier   	@68
+				line_style 	0)
+			    (object HasView "iFunction" @77
+				label      	(object ItemLabel
+				    Parent_View 	@77
+				    location   	(1314, 495)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iFunction")
+				client     	@64
+				supplier   	@69
+				line_style 	0)
+			    (object HasView "iKeyword" @78
+				label      	(object ItemLabel
+				    Parent_View 	@78
+				    location   	(1329, 636)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iKeyword")
+				client     	@64
+				supplier   	@70
+				line_style 	0)
+			    (object ClassView "Class" "TOplToken::TType" @79
+				location   	(2496, 256)
+				label      	(object ItemLabel
+				    Parent_View 	@79
+				    location   	(2387, 172)
+				    nlines     	2
+				    max_width  	252
+				    justify    	0
+				    label      	"TOplToken::TType")
+				width      	366
+				height     	254)
+			    (object NoteView @80
+				location   	(2864, 304)
+				label      	(object ItemLabel
+				    Parent_View 	@80
+				    location   	(2738, 135)
+				    nlines     	6
+				    max_width  	277
+				    label      	
+|EBadTypeEWord
+|ELong
+|EReal
+|EString
+|EUWord
+				    )
+				width      	337
+				height     	350)
+			    (object ClassView "Class" "TOplToken::TValue" @81
+				location   	(2720, 816)
+				label      	(object ItemLabel
+				    Parent_View 	@81
+				    location   	(2606, 732)
+				    nlines     	2
+				    max_width  	266
+				    justify    	0
+				    label      	"TOplToken::TValue")
+				width      	386
+				height     	254)
+			    (object HasView "" @82
+				client     	@68
+				supplier   	@81
+				line_style 	0)
+			    (object UsesView "" @83
+				client     	@68
+				supplier   	@79
+				line_style 	0)
+			    (object NoteView @84
+				location   	(2896, 976)
+				label      	(object ItemLabel
+				    Parent_View 	@84
+				    location   	(2769, 879)
+				    nlines     	3
+				    max_width  	278
+				    label      	
+|e.g. ESimpleId
+|ELessThan
+				    )
+				width      	338
+				height     	206)
+			    (object ClassView "Class" "EOpxFunctionDecl" @85
+				location   	(1920, 1504)
+				label      	(object ItemLabel
+				    Parent_View 	@85
+				    location   	(1816, 1420)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"EOpxFunctionDecl")
+				annotation 	8)
+			    (object HasView "iOpxSymbol" @86
+				label      	(object ItemLabel
+				    Parent_View 	@86
+				    location   	(1331, 906)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iOpxSymbol")
+				client     	@64
+				supplier   	@85
+				line_style 	0)
+			    (object ClassView "Class" "MTextSourceSystem" @87
+				location   	(480, 1408)
+				label      	(object ItemLabel
+				    Parent_View 	@87
+				    location   	(358, 1310)
+				    nlines     	2
+				    max_width  	284
+				    justify    	0
+				    label      	"MTextSourceSystem")
+				width      	413
+				height     	294)
+			    (object ClassView "Class" "MTextSource" @88
+				location   	(912, 1456)
+				label      	(object ItemLabel
+				    Parent_View 	@88
+				    location   	(808, 1372)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"MTextSource"))
+			    (object UsesView "" @89
+				client     	@67
+				supplier   	@87
+				line_style 	0)
+			    (object UsesView "" @90
+				client     	@67
+				supplier   	@88
+				line_style 	0)
+			    (object ClassView "Class" "TOplField" @91
+				location   	(1856, 1152)
+				label      	(object ItemLabel
+				    Parent_View 	@91
+				    location   	(1752, 1068)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"TOplField"))
+			    (object HasView "iField" @92
+				label      	(object ItemLabel
+				    Parent_View 	@92
+				    location   	(1316, 743)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iField")
+				client     	@64
+				supplier   	@91
+				line_style 	0)))))
+	    (object Class_Category "BackEnd"
+		visible_categories 	(list visibility_relationship_list
+		    (object Visibility_Relationship
+			supplier   	"Symbols"))
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class "COplModuleBackEnd"
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"COplParseApp"
+				supplier_cardinality 	(value cardinality "0"))
+			    (object Uses_Relationship
+				supplier   	"COplParseOpx")
+			    (object Uses_Relationship
+				supplier   	"COplParseProcHeader")
+			    (object Uses_Relationship
+				supplier   	"CbufSeg")
+			    (object Uses_Relationship
+				supplier   	"MOplAppCB")
+			    (object Uses_Relationship
+				supplier   	"MTranAppCB")
+			    (object Uses_Relationship
+				label      	"parse code"
+				supplier   	"CBufSeg"))
+			operations 	(list Operations
+			    (object Operation "pv OpenL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "pv GetAppL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "pv AppL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "pv OpxL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "pv StartProcL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "pv ProcL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "pv EndOfFile"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)))
+		    (object Class "COpl16ModuleBackEnd"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				label      	"iOutputFile"
+				supplier   	"RFile"
+				Containment 	"By Value")
+			    (object Has_Relationship
+				supplier   	"COpl16QcodeGenerator")
+			    (object Has_Relationship
+				supplier   	"ROpoWriteStream")
+			    (object Has_Relationship
+				label      	"qcode"
+				supplier   	"CBufSeg"))
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplModuleBackEnd")))
+		    (object Class "TOplApp"
+			operations 	(list Operations
+			    (object Operation "pv ParseL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)))
+		    (object Class "COpl16ParseApp"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"COplParseApp")))
+		    (object Class "COpl16QcodeGenerator"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				label      	"iReader"
+				supplier   	"ROplPCodeReader")
+			    (object Has_Relationship
+				supplier   	"RBufReadStream"))
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				label      	"iQcode"
+				supplier   	"CSegBuf")
+			    (object Uses_Relationship
+				supplier   	"ROpoWriteStream")
+			    (object Uses_Relationship
+				supplier   	"TQcode16")))
+		    (object Class "ROplPCodeReader"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				label      	"iCode"
+				supplier   	"RBufReadStream")))
+		    (object Class "RBufReadStream"
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"CbufSeg")
+			    (object Uses_Relationship
+				supplier   	"CBufSeg")))
+		    (object Class "CSegBuf")
+		    (object Class "RFile")
+		    (object Class "MOplAppCB")
+		    (object Class "ROpoWriteStream"
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"CBufSeg")))
+		    (object Class "CBufSeg")
+		    (object Class "TQcode16"))
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "Main"
+			title      	"Main"
+			zoom       	95
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	77
+			items      	(list diagram_item_list
+			    (object ClassView "Class" "COplModuleBackEnd" @93
+				IncludeOperation 	TRUE
+				location   	(1664, 448)
+				label      	(object ItemLabel
+				    Parent_View 	@93
+				    location   	(1408, 236)
+				    nlines     	2
+				    max_width  	612
+				    justify    	0
+				    label      	"COplModuleBackEnd")
+				compartment 	(object Compartment
+				    Parent_View 	@93
+				    location   	(1563, 301)
+				    anchor     	2
+				    nlines     	7
+				    max_width  	299
+				    justify    	0)
+				width      	887
+				height     	618)
+			    (object ClassView "Class" "COpl16ModuleBackEnd" @94
+				location   	(1888, 992)
+				label      	(object ItemLabel
+				    Parent_View 	@94
+				    location   	(1748, 875)
+				    nlines     	2
+				    max_width  	331
+				    justify    	0
+				    label      	"COpl16ModuleBackEnd")
+				width      	480
+				height     	348)
+			    (object ClassView "Class" "COplParseApp" @95
+				IncludeOperation 	TRUE
+				location   	(688, 304)
+				label      	(object ItemLabel
+				    Parent_View 	@95
+				    location   	(557, 199)
+				    nlines     	2
+				    max_width  	306
+				    justify    	0
+				    label      	"COplParseApp")
+				compartment 	(object Compartment
+				    Parent_View 	@95
+				    location   	(584, 264)
+				    anchor     	2
+				    nlines     	2
+				    max_width  	250
+				    justify    	0)
+				width      	444
+				height     	313
+				annotation 	8)
+			    (object InheritView "" @96
+				client     	@94
+				supplier   	@93
+				line_style 	0)
+			    (object ClassView "Class" "COpl16ParseApp" @97
+				location   	(240, 480)
+				label      	(object ItemLabel
+				    Parent_View 	@97
+				    location   	(136, 396)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"COpl16ParseApp"))
+			    (object InheritView "" @98
+				client     	@97
+				supplier   	@95
+				line_style 	0)
+			    (object ClassView "Class" "COpl16QcodeGenerator" @99
+				location   	(2000, 1488)
+				label      	(object ItemLabel
+				    Parent_View 	@99
+				    location   	(1896, 1404)
+				    nlines     	2
+				    max_width  	241
+				    justify    	0
+				    label      	"COpl16QcodeGenerator")
+				width      	350)
+			    (object ClassView "Class" "COplParseOpx" @100
+				location   	(672, 720)
+				label      	(object ItemLabel
+				    Parent_View 	@100
+				    location   	(550, 619)
+				    nlines     	2
+				    max_width  	284
+				    justify    	0
+				    label      	"COplParseOpx")
+				width      	413
+				height     	300
+				annotation 	8)
+			    (object ClassView "Class" "COplParseProcHeader" @101
+				location   	(640, 1152)
+				label      	(object ItemLabel
+				    Parent_View 	@101
+				    location   	(509, 1045)
+				    nlines     	2
+				    max_width  	306
+				    justify    	0
+				    label      	"COplParseProcHeader")
+				width      	444
+				height     	319
+				annotation 	8)
+			    (object ClassView "Class" "MTranAppCB" @102
+				location   	(2608, 304)
+				label      	(object ItemLabel
+				    Parent_View 	@102
+				    location   	(2504, 220)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"MTranAppCB")
+				annotation 	8)
+			    (object HasView "" @103
+				client     	@94
+				supplier   	@99
+				line_style 	0)
+			    (object ClassView "Class" "ROpoWriteStream" @104
+				location   	(2528, 1520)
+				label      	(object ItemLabel
+				    Parent_View 	@104
+				    location   	(2424, 1436)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"ROpoWriteStream"))
+			    (object HasView "" @105
+				client     	@94
+				supplier   	@104
+				line_style 	0)
+			    (object UsesView "" @106
+				client     	@99
+				supplier   	@104
+				line_style 	0)
+			    (object ClassView "Class" "CBufSeg" @107
+				location   	(624, 1520)
+				label      	(object ItemLabel
+				    Parent_View 	@107
+				    location   	(520, 1436)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"CBufSeg"))
+			    (object ClassView "Class" "RBufReadStream" @108
+				location   	(1584, 1568)
+				label      	(object ItemLabel
+				    Parent_View 	@108
+				    location   	(1480, 1484)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"RBufReadStream"))
+			    (object HasView "" @109
+				client     	@99
+				supplier   	@108
+				line_style 	0)
+			    (object UsesView "" @110
+				client     	@108
+				supplier   	@107
+				line_style 	0)
+			    (object ClassView "Class" "CBufSeg" @111
+				location   	(3088, 1408)
+				label      	(object ItemLabel
+				    Parent_View 	@111
+				    location   	(2984, 1324)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"CBufSeg"))
+			    (object HasView "qcode" @112
+				label      	(object ItemLabel
+				    Parent_View 	@112
+				    location   	(2523, 1212)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"qcode")
+				client     	@94
+				supplier   	@111
+				line_style 	0)
+			    (object UsesView "" @113
+				client     	@104
+				supplier   	@111
+				line_style 	0)
+			    (object ClassView "Class" "TQcode16" @114
+				location   	(2112, 1968)
+				label      	(object ItemLabel
+				    Parent_View 	@114
+				    location   	(2008, 1884)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"TQcode16"))
+			    (object UsesView "" @115
+				client     	@99
+				supplier   	@114
+				line_style 	0)
+			    (object UsesView "" @116
+				client     	@93
+				supplier   	@95
+				line_style 	0)
+			    (object UsesView "" @117
+				client     	@93
+				supplier   	@100
+				line_style 	0)
+			    (object UsesView "" @118
+				client     	@93
+				supplier   	@101
+				line_style 	0)
+			    (object UsesView "" @119
+				client     	@93
+				supplier   	@102
+				line_style 	0)
+			    (object UsesView "parse code" @120
+				label      	(object ItemLabel
+				    Parent_View 	@120
+				    location   	(1086, 1038)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"parse code")
+				client     	@93
+				supplier   	@107
+				line_style 	0)))))
+	    (object Class_Category "Translator"
+		visible_categories 	(list visibility_relationship_list
+		    (object Visibility_Relationship
+			supplier   	"Lexer")
+		    (object Visibility_Relationship
+			supplier   	"Parser")
+		    (object Visibility_Relationship
+			supplier   	"BackEnd"))
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class "COplModuleTranslator"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				label      	"iLexer"
+				supplier   	"COplModuleLexer"
+				Containment 	"By Reference")
+			    (object Has_Relationship
+				label      	"iParser"
+				supplier   	"COplModuleParser"
+				Containment 	"By Reference"
+				supplier_cardinality 	(value cardinality "0..n")))
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"CTextTranslator"))
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"TTranslateError")
+			    (object Uses_Relationship
+				label      	"iError"
+				supplier   	"TOplTranslatorError")
+			    (object Uses_Relationship
+				label      	"iAppCB"
+				supplier   	"MTranAppCB"))
+			operations 	(list Operations
+			    (object Operation "o StartTranslateL"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "o TranslateChunk"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "o Cancel"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0))
+			class_attributes 	(list class_attribute_list
+			    (object ClassAttribute "iOwnBackEnd"
+				documentation 	"Flags whether the back end is owned by the Translator, or was passed as an argument to StartTrandslateL"
+				type       	"TBool")))
+		    (object Class "TOplTranslatorError"
+			superclasses 	(list inheritance_relationship_list
+			    (object Inheritance_Relationship
+				supplier   	"TTranslateError")))
+		    (object Class "COplLexe")
+		    (object Class "MTranAppCB")
+		    (object Association "iBackEnd (may be owned or passed as argment to StartTranslateL"
+			quid       	"31F7EA170276"
+			roles      	(list role_list
+			    (object Role "$UNNAMED$0"
+				supplier   	"COplModuleBackEnd"
+				Containment 	"By Reference"
+				is_navigable 	TRUE)
+			    (object Role "$UNNAMED$1"
+				supplier   	"COplModuleTranslator"))))
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "Main"
+			title      	"Main"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object ClassView "Class" "CTextTranslator" @121
+				location   	(1008, 256)
+				label      	(object ItemLabel
+				    Parent_View 	@121
+				    location   	(859, 134)
+				    nlines     	2
+				    max_width  	349
+				    justify    	0
+				    label      	"CTextTranslator")
+				width      	507
+				height     	363)
+			    (object ClassView "Class" "TOplTranslatorError" @122
+				location   	(2000, 736)
+				label      	(object ItemLabel
+				    Parent_View 	@122
+				    location   	(1869, 634)
+				    nlines     	2
+				    max_width  	306
+				    justify    	0
+				    label      	"TOplTranslatorError")
+				width      	444
+				height     	307)
+			    (object ClassView "Class" "TTranslateError" @123
+				location   	(1984, 240)
+				label      	(object ItemLabel
+				    Parent_View 	@123
+				    location   	(1844, 126)
+				    nlines     	2
+				    max_width  	327
+				    justify    	0
+				    label      	"TTranslateError")
+				width      	475
+				height     	338)
+			    (object InheritView "" @124
+				client     	@122
+				supplier   	@123
+				line_style 	0)
+			    (object ClassView "Class" "COplModuleLexer" @125
+				location   	(720, 1408)
+				label      	(object ItemLabel
+				    Parent_View 	@125
+				    location   	(616, 1324)
+				    nlines     	2
+				    max_width  	240
+				    justify    	0
+				    label      	"COplModuleLexer"))
+			    (object ClassView "Class" "MTranAppCB" @126
+				location   	(256, 1376)
+				label      	(object ItemLabel
+				    Parent_View 	@126
+				    location   	(125, 1269)
+				    nlines     	2
+				    max_width  	306
+				    justify    	0
+				    label      	"MTranAppCB")
+				width      	444
+				height     	319)
+			    (object ClassView "Class" "COplModuleParser" @127
+				location   	(1168, 1408)
+				label      	(object ItemLabel
+				    Parent_View 	@127
+				    location   	(1055, 1319)
+				    nlines     	2
+				    max_width  	262
+				    justify    	0
+				    label      	"COplModuleParser")
+				width      	381
+				height     	269)
+			    (object ClassView "Class" "COplModuleTranslator" @128
+				IncludeOperation 	TRUE
+				location   	(1008, 736)
+				label      	(object ItemLabel
+				    Parent_View 	@128
+				    location   	(779, 561)
+				    nlines     	2
+				    max_width  	547
+				    justify    	0
+				    label      	"COplModuleTranslator")
+				compartment 	(object Compartment
+				    Parent_View 	@128
+				    location   	(797, 627)
+				    anchor     	2
+				    nlines     	4
+				    max_width  	509
+				    justify    	0
+				    compartmentItems 	(list Compartment
+					"o StartTranslateL( )"
+					"o TranslateChunk( )"
+					"o Cancel( )"
+					"iOwnBackEnd : TBool"))
+				width      	794
+				height     	513)
+			    (object InheritView "" @129
+				client     	@128
+				supplier   	@121
+				line_style 	0)
+			    (object UsesView "iError" @130
+				label      	(object ItemLabel
+				    Parent_View 	@130
+				    location   	(1563, 736)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iError")
+				client     	@128
+				supplier   	@122
+				line_style 	0)
+			    (object HasView "iLexer" @131
+				label      	(object ItemLabel
+				    Parent_View 	@131
+				    location   	(830, 1136)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iLexer")
+				client     	@128
+				supplier   	@125
+				line_style 	0)
+			    (object HasView "iParser" @132
+				label      	(object ItemLabel
+				    Parent_View 	@132
+				    location   	(1101, 1119)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iParser")
+				client     	@128
+				supplier   	@127
+				line_style 	0)
+			    (object UsesView "iAppCB" @133
+				label      	(object ItemLabel
+				    Parent_View 	@133
+				    location   	(606, 1068)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iAppCB")
+				client     	@128
+				supplier   	@126
+				line_style 	0)
+			    (object ClassView "Class" "COplModuleBackEnd" @134
+				location   	(1680, 1376)
+				label      	(object ItemLabel
+				    Parent_View 	@134
+				    location   	(1567, 1287)
+				    nlines     	2
+				    max_width  	262
+				    justify    	0
+				    label      	"COplModuleBackEnd")
+				width      	381
+				height     	268
+				annotation 	8)
+			    (object AssociationViewNew "iBackEnd (may be owned or passed as argment to StartTranslateL" @135
+				location   	(1376, 1079)
+				label      	(object SegLabel @136
+				    Parent_View 	@135
+				    location   	(1534, 1070)
+				    anchor     	1
+				    anchor_loc 	1
+				    nlines     	3
+				    max_width  	468
+				    justify    	0
+				    label      	"iBackEnd (may be owned or passed as argment to StartTranslateL"
+				    pctDist    	3.133333
+				    height     	10
+				    orientation 	0)
+				quidu      	"31F7EA170276"
+				roleview_list 	(list RoleViews
+				    (object RoleView "$UNNAMED$1" @137
+					Parent_View 	@135
+					location   	(592, 279)
+					client     	@135
+					supplier   	@128
+					line_style 	0)
+				    (object RoleView "$UNNAMED$0" @138
+					Parent_View 	@135
+					location   	(592, 279)
+					client     	@135
+					supplier   	@134
+					line_style 	0)))
+			    (object UsesView "" @139
+				client     	@127
+				supplier   	@125
+				line_style 	0)
+			    (object UsesView "" @140
+				client     	@127
+				supplier   	@134
+				line_style 	0)))))
+	    (object Class_Category "Translator Interface"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list
+		    (object Class "MTextSourceSystem"
+			documentation 	
+|The thing that maps (file) names onto a RTextSources. One of these is passed to the Translator which can then open RTextSources as it needs them.  
+|RTextSource is a friend and has access to the Do... member functions
+|
+|
+			
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				label      	"rSource"
+				supplier   	"MTextSource"))
+			abstract   	TRUE
+			operations 	(list Operations
+			    (object Operation "DoOpenSource"
+				parameters 	(list Parameters
+				    (object Parameter "aSource"
+					type       	"RTextSource&")
+				    (object Parameter "aName"
+					type       	"TDesC&"))
+				concurrency 	"Sequential"
+				opExportControl 	"Protected"
+				uid        	0)))
+		    (object Class "MTextSource"
+			documentation 	"c.f RFile. This is a handle to a source of blocks of text. It is opened wrt to an MTextSystem."
+			operations 	(list Operations
+			    (object Operation "Read"
+				documentation 	"Reads as much as is possible into aBuf from the current position in the ReadSource. Returns as for RFile.Read()."
+				parameters 	(list Parameters
+				    (object Parameter "aBuf"
+					type       	"TDes&"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Read"
+				parameters 	(list Parameters
+				    (object Parameter "aPos"
+					type       	"TInt")
+				    (object Parameter "aBuf"
+					type       	"TDes&"))
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)
+			    (object Operation "Close"
+				documentation 	"Closes the TextSource"
+				concurrency 	"Sequential"
+				opExportControl 	"Public"
+				uid        	0)))
+		    (object Class "CTextTranslator"
+			fields     	(list has_relationship_list
+			    (object Has_Relationship
+				supplier   	"MTextSource"))
+			used_nodes 	(list uses_relationship_list
+			    (object Uses_Relationship
+				supplier   	"MTextSourceSystem")))
+		    (object Class "TTranslateError"))
+		logical_presentations 	(list unit_reference_list
+		    (object ClassDiagram "Main"
+			title      	"Main"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list
+			    (object ClassView "Class" "CTextTranslator" @141
+				location   	(640, 256)
+				label      	(object ItemLabel
+				    Parent_View 	@141
+				    location   	(463, 112)
+				    nlines     	2
+				    max_width  	417
+				    justify    	0
+				    label      	"CTextTranslator")
+				width      	605
+				height     	427)
+			    (object ClassView "Class" "TTranslateError" @142
+				location   	(640, 1056)
+				label      	(object ItemLabel
+				    Parent_View 	@142
+				    location   	(456, 901)
+				    nlines     	2
+				    max_width  	435
+				    justify    	0
+				    label      	"TTranslateError")
+				width      	631
+				height     	456)
+			    (object ClassView "Class" "MTextSourceSystem" @143
+				location   	(1840, 256)
+				label      	(object ItemLabel
+				    Parent_View 	@143
+				    location   	(1682, 125)
+				    nlines     	2
+				    max_width  	371
+				    justify    	0
+				    label      	"MTextSourceSystem")
+				compartment 	(object Compartment
+				    Parent_View 	@143
+				    location   	(1698, 241)
+				    anchor     	2
+				    nlines     	1
+				    max_width  	338
+				    justify    	0
+				    compartmentItems 	(list Compartment
+					"DoOpenSource( )"))
+				width      	539
+				height     	388)
+			    (object ClassView "Class" "MTextSource" @144
+				location   	(1840, 1088)
+				label      	(object ItemLabel
+				    Parent_View 	@144
+				    location   	(1710, 982)
+				    nlines     	2
+				    max_width  	304
+				    justify    	0
+				    label      	"MTextSource")
+				compartment 	(object Compartment
+				    Parent_View 	@144
+				    location   	(1785, 1048)
+				    anchor     	2
+				    nlines     	2
+				    max_width  	151
+				    justify    	0
+				    compartmentItems 	(list Compartment
+					"Read( )"
+					"Close( )"))
+				width      	441
+				height     	316)
+			    (object UsesView "iTranslateError" @145
+				label      	(object ItemLabel
+				    Parent_View 	@145
+				    location   	(640, 657)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"iTranslateError")
+				client     	@141
+				supplier   	@142
+				line_style 	0)
+			    (object UsesView "" @146
+				client     	@141
+				supplier   	@143
+				line_style 	0)
+			    (object HasView "" @147
+				client     	@141
+				supplier   	@144
+				line_style 	0)
+			    (object UsesView "rSource" @148
+				label      	(object ItemLabel
+				    Parent_View 	@148
+				    location   	(1840, 692)
+				    anchor_loc 	1
+				    nlines     	1
+				    max_width  	450
+				    justify    	0
+				    label      	"rSource")
+				client     	@143
+				supplier   	@144
+				line_style 	0))))))
+	logical_presentations 	(list unit_reference_list
+	    (object ClassDiagram "Main"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object CategoryView "Symbols" @149
+			location   	(1040, 1104)
+			label      	(object ItemLabel
+			    Parent_View 	@149
+			    location   	(896, 1020)
+			    nlines     	2
+			    max_width  	288
+			    justify    	0
+			    label      	"Symbols")
+			width      	300
+			height     	180)
+		    (object CategoryView "Parser" @150
+			location   	(1040, 608)
+			label      	(object ItemLabel
+			    Parent_View 	@150
+			    location   	(896, 524)
+			    nlines     	2
+			    max_width  	288
+			    justify    	0
+			    label      	"Parser")
+			width      	300
+			height     	180)
+		    (object CategoryView "Lexer" @151
+			location   	(416, 608)
+			label      	(object ItemLabel
+			    Parent_View 	@151
+			    location   	(272, 524)
+			    nlines     	2
+			    max_width  	288
+			    justify    	0
+			    label      	"Lexer")
+			width      	300
+			height     	180)
+		    (object CategoryView "BackEnd" @152
+			location   	(1504, 608)
+			label      	(object ItemLabel
+			    Parent_View 	@152
+			    location   	(1360, 524)
+			    nlines     	2
+			    max_width  	288
+			    justify    	0
+			    label      	"BackEnd")
+			width      	300
+			height     	180)
+		    (object CategoryView "Translator" @153
+			location   	(1040, 208)
+			label      	(object ItemLabel
+			    Parent_View 	@153
+			    location   	(896, 124)
+			    nlines     	2
+			    max_width  	288
+			    justify    	0
+			    label      	"Translator")
+			width      	300
+			height     	180)
+		    (object ImportView "" @154
+			client     	@153
+			supplier   	@151
+			line_style 	0)
+		    (object ImportView "" @155
+			client     	@153
+			supplier   	@150
+			line_style 	0)
+		    (object ImportView "" @156
+			client     	@153
+			supplier   	@152
+			line_style 	0)
+		    (object ImportView "" @157
+			client     	@150
+			supplier   	@151
+			line_style 	0)
+		    (object ImportView "" @158
+			client     	@150
+			supplier   	@152
+			line_style 	0)
+		    (object ImportView "" @159
+			client     	@151
+			supplier   	@149
+			line_style 	0)
+		    (object ImportView "" @160
+			client     	@150
+			supplier   	@149
+			line_style 	0)
+		    (object ImportView "" @161
+			client     	@152
+			supplier   	@149
+			line_style 	0)
+		    (object CategoryView "Translator Interface" @162
+			location   	(528, 192)
+			label      	(object ItemLabel
+			    Parent_View 	@162
+			    location   	(384, 108)
+			    nlines     	2
+			    max_width  	288
+			    justify    	0
+			    label      	"Translator Interface")
+			width      	300
+			height     	180)))))
+    root_subsystem 	(object SubSystem "<Top Level>"
+	physical_models 	(list unit_reference_list)
+	physical_presentations 	(list unit_reference_list
+	    (object Module_Diagram "Main"
+		title      	"Main"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    process_structure 	(object Processes
+	ProcsNDevs 	(list
+	    (object Process_Diagram ""
+		title      	""
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list))))
+    properties 	(object Properties))

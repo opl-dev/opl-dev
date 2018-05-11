@@ -1,0 +1,22 @@
+// BLD.INF
+//
+// Copyright (c) 2000-2001 Symbian Ltd. All rights reserved.
+//
+// Last updated 25 July 2004.
+
+PRJ_PLATFORMS
+#if defined(__UIQ_MMP__) || defined(__SERIES90_MMP__)
+WINSCW
+#else
+WINS
+#endif
+#if defined(__UIQ_MMP_WINS_TOO__)
+WINS
+#endif
+
+PRJ_EXPORTS
+
+PRJ_MMPFILES
+makefile ..\RSCTest\RSCTest.mk
+
+PRJ_TESTMMPFILES

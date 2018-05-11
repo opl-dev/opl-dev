@@ -1,0 +1,21 @@
+// Eval.mmp
+//
+// Copyright (c) 1999-2000 Symbian Ltd. All rights reserved.
+
+TARGET			Eval.opx
+TARGETTYPE		dll
+TARGETPATH		\System\OPX
+UID				0x10003a7b 0x77774ef5
+
+SOURCEPATH		..\eval
+
+USERINCLUDE		.
+SYSTEMINCLUDE	\epoc32\include
+
+DOCUMENT		Eval.txh
+DOCUMENT		..\tsrc\tEval.tpl
+
+SOURCE			Eval.cpp
+LIBRARY			oplt.lib  euser.lib  oplr.lib
+
+DEFFILE			OPX.DEF

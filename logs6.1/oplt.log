@@ -1,0 +1,158 @@
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\EXPORT.make" EXPORT VERBOSE=-s
+	copy "\OPL\OPLT\inc\OPLTDEF.H" "\Symbian\6.1\Series60\EPOC32\INCLUDE\OPLTDEF.H"
+        1 file(s) copied.
+	copy "\OPL\OPLT\inc\OPLTOKEN.H" "\Symbian\6.1\Series60\EPOC32\INCLUDE\OPLTOKEN.H"
+        1 file(s) copied.
+	copy "\OPL\OPLT\inc\OPLLEX.H" "\Symbian\6.1\Series60\EPOC32\INCLUDE\OPLLEX.H"
+        1 file(s) copied.
+	copy "\OPL\OPLT\inc\OPLLEX.INL" "\Symbian\6.1\Series60\EPOC32\INCLUDE\OPLLEX.INL"
+        1 file(s) copied.
+	copy "\OPL\OPLT\inc\OPLTRAN.H" "\Symbian\6.1\Series60\EPOC32\INCLUDE\OPLTRAN.H"
+        1 file(s) copied.
+	copy "\OPL\OPLT\inc\OPLTBAS.H" "\Symbian\6.1\Series60\EPOC32\INCLUDE\OPLTBAS.H"
+        1 file(s) copied.
+	copy "\OPL\OPLT\inc\OPLBACKE.H" "\Symbian\6.1\Series60\EPOC32\INCLUDE\OPLBACKE.H"
+        1 file(s) copied.
+	copy "\OPL\OPLT\inc\OPLBACKE.INL" "\Symbian\6.1\Series60\EPOC32\INCLUDE\OPLBACKE.INL"
+        1 file(s) copied.
+	copy "\OPL\OPLT\inc\OPLSTACK.H" "\Symbian\6.1\Series60\EPOC32\INCLUDE\OPLSTACK.H"
+        1 file(s) copied.
+	copy "\OPL\OPLT\inc\TEXTTRAN.H" "\Symbian\6.1\Series60\EPOC32\INCLUDE\TEXTTRAN.H"
+        1 file(s) copied.
+	copy "\OPL\OPLT\inc\TEXTTRAN.INL" "\Symbian\6.1\Series60\EPOC32\INCLUDE\TEXTTRAN.INL"
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINS.make" MAKEFILE VERBOSE=-s
+	perl -S makmake.pl -D \OPL\OPLT\GROUP\OPLT WINS
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\THUMB.make" MAKEFILE VERBOSE=-s
+	perl -S makmake.pl -D \OPL\OPLT\GROUP\OPLT THUMB
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINC.make" MAKEFILE VERBOSE=-s
+	perl -S makmake.pl -D \OPL\OPLT\GROUP\OPLT WINC
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINS.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\OPLT.WINS" LIBRARY
+   Creating library \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\OPLT.LIB and object \Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\OPLT.exp
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\THUMB.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\THUMB\OPLT.THUMB" LIBRARY
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINC.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\OPLT.WINC" LIBRARY
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINS.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\OPLT.WINS" RESOURCEUDEB
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINS.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\OPLT.WINS" RESOURCEUREL
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\THUMB.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\THUMB\OPLT.THUMB" RESOURCEUDEB
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\THUMB.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\THUMB\OPLT.THUMB" RESOURCEUREL
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINC.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\OPLT.WINC" RESOURCEUDEB
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINC.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\OPLT.WINC" RESOURCEUREL
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINS.make" TARGET CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\OPLT.WINS" UDEB
+Opl16gen.cpp
+Oplt.uid.cpp
+Ot_call.cpp
+Ot_expr.cpp
+Ot_ident.cpp
+Ot_kywrd.cpp
+Ot_lex.cpp
+Ot_parse.cpp
+Ot_pcode.cpp
+Ot_resrv.cpp
+Ot_stack.cpp
+Ot_struc.cpp
+Ot_symbl.cpp
+Ot_tran.cpp
+Ot_utl.cpp
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\UDEB\OPLT.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\UDEB\OPLT.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "S:\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\UDEB\edll.pdb"; linking object as if no debug info
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\UDEB\OPLT.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\UDEB\OPLT.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "S:\Symbian\6.1\Series60\EPOC32\RELEASE\WINS\UDEB\edll.pdb"; linking object as if no debug info
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINS.make" TARGET CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\OPLT.WINS" UREL
+Opl16gen.cpp
+Oplt.uid.cpp
+Ot_call.cpp
+Ot_expr.cpp
+Ot_ident.cpp
+Ot_kywrd.cpp
+Ot_lex.cpp
+Ot_parse.cpp
+Ot_pcode.cpp
+Ot_resrv.cpp
+Ot_stack.cpp
+Ot_struc.cpp
+Ot_symbl.cpp
+Ot_tran.cpp
+Ot_utl.cpp
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\UREL\OPLT.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\UREL\OPLT.exp
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\UREL\OPLT.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINS\UREL\OPLT.exp
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\THUMB.make" TARGET CFG=UDEB VERBOSE=-s
+NMAKE : fatal error U1073: don't know how to make '"..\..\..\Symbian\6.1\Series60\EPOC32\RELEASE\THUMB\UDEB\EDLL.LIB"'
+Stop.
+NMAKE : fatal error U1077: 'C:\apps\MSVC6\VC98\Bin\nmake.exe' : return code '0x2'
+Stop.
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\THUMB\OPLT.THUMB" UDEB
+""  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\THUMB.make" TARGET CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\THUMB\OPLT.THUMB" UREL
+""
+PETRAN - PE file preprocessor V01.00 (Build 175)
+Copyright (c) 1996-2001 Symbian Ltd.
+
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINC.make" TARGET CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\OPLT.WINC" UDEB
+Opl16gen.cpp
+Oplt.uid.cpp
+Ot_call.cpp
+Ot_expr.cpp
+Ot_ident.cpp
+Ot_kywrd.cpp
+Ot_lex.cpp
+Ot_parse.cpp
+Ot_pcode.cpp
+Ot_resrv.cpp
+Ot_stack.cpp
+Ot_struc.cpp
+Ot_symbl.cpp
+Ot_tran.cpp
+Ot_utl.cpp
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\UDEB\OPLT.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\UDEB\OPLT.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.1\Series60\EPOC32\RELEASE\WINC\UDEB\EDLL.LIB" or at "S:\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\UDEB\edll.pdb"; linking object as if no debug info
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\UDEB\OPLT.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\UDEB\OPLT.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.1\Series60\EPOC32\RELEASE\WINC\UDEB\EDLL.LIB" or at "S:\Symbian\6.1\Series60\EPOC32\RELEASE\WINC\UDEB\edll.pdb"; linking object as if no debug info
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINC.make" TARGET CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\OPLT.WINC" UREL
+Opl16gen.cpp
+Oplt.uid.cpp
+Ot_call.cpp
+Ot_expr.cpp
+Ot_ident.cpp
+Ot_kywrd.cpp
+Ot_lex.cpp
+Ot_parse.cpp
+Ot_pcode.cpp
+Ot_resrv.cpp
+Ot_stack.cpp
+Ot_struc.cpp
+Ot_symbl.cpp
+Ot_tran.cpp
+Ot_utl.cpp
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\UREL\OPLT.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\UREL\OPLT.exp
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\UREL\OPLT.lib and object \Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\OPLT\WINC\UREL\OPLT.exp
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINS.make" FINAL CFG=UDEB VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINS.make" FINAL CFG=UREL VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\THUMB.make" FINAL CFG=UDEB VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\THUMB.make" FINAL CFG=UREL VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINC.make" FINAL CFG=UDEB VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLT\GROUP\WINC.make" FINAL CFG=UREL VERBOSE=-s

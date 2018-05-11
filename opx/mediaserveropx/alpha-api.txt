@@ -1,0 +1,50 @@
+Remember to test this with full product build -- can't appear to open the audio
+device correctly on an LOAK...
+Also, ensure you have \epoc32\release\wins\udeb\sounddevice.mda and
+											   \sounddevice.r01.
+
+
+  REM Audio tone
+
+x    In alpha release
+ x   In test opl source code.
+  h  In OPX c++ header
+   s Switch statement
+    f Function defined in Opx source code.
+
+xxhsf	ToneState%: :1
+xxhs	ToneMaxVolume: :2
+xxhs	ToneVolume: :3
+xxhs	ToneSetVolume:(volume&) :4
+xxh	SetPriority:(priority&,priorityPreference&) :5
+	SetDTMFLengths:(toneOnLength&,toneOffLength&,PauseLength&) :6
+xxh	SetRepeats:(repeatNumberOfTimes&, trailingSilence&) :7
+xxh	SetVolumeRamp:(rampDuration&) :8
+	FixedSequenceCount: :9
+	FixedSequenceName$:(sequenceNumber&) :10
+
+xxh	PrepareToPlayToneA:(frequency&,duration&,BYREF status&) :11
+	PrepareToPlayDTMFStringA:(dtmf$,BYREF status&) :12
+	PrepareToPlayDesSequenceA:(des_addr&,BYREF status&) :13
+A	PrepareToPlayFileSequenceA:(filename$,BYREF status&) :14
+	PrepareToPlayFixedSequenceA:(sequenceNumber&,BYREF status&) :15
+xxh	CancelPrepare: :16
+
+xxh	PlayToneA:(BYREF status&) :17
+xxh	CancelPlay: :18
+
+  REM Audio player.
+	
+x	CreateFilePlayerA:(filename$, priority&, preference&, BYREF status&) :100
+x	PlayFileA:(BYREF status&) :101
+x	StopFile: :102
+
+x	FileSetVolume:(volume&) :103
+x	FileSetRepeats:(repeatNumberOfTimes&, trailingSilence&) :104
+x	FileSetVolumeRamp:(rampDuration&) :105
+
+	// Query functions
+x	FileDuration&: :106
+x	FileMaxVolume&: :107
+
+

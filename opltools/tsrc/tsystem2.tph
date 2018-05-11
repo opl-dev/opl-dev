@@ -1,0 +1,4 @@
+REM tsystem2.tph
+REM A test include file for Opltran
+
+CONST Ktsystem2%=8

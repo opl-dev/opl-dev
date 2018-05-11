@@ -1,0 +1,67 @@
+// opl.rss
+// For uiq
+
+NAME OPLA
+
+#include <eikon.rh>
+
+#include <UIKON.HRH>
+#include <UIKON.rh>
+
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf="Opl"; }
+
+RESOURCE EIK_APP_INFO
+	{
+//	menubar=r_oplstartupdialog_menubar;
+//	hotkeys=r_oplstartupdialog_hotkeys;
+	}
+
+RESOURCE HOTKEYS r_oplstartupdialog_hotkeys
+	{
+	control=
+		{
+		HOTKEY { command=EEikCmdExit; key='e'; }
+		};
+	}
+
+
+//RESOURCE MENU_BAR r_oplstartupdialog_menubar
+//	{
+//	titles=
+//		{
+//		MENU_TITLE { menu_pane=r_oplstartupdialog_menu; txt="Start"; }
+//		};
+//	}
+
+
+//RESOURCE MENU_PANE r_oplstartupdialog_menu
+//	{
+//	items=
+//		{
+//		MENU_ITEM { command=EOplStartUpDialogCmdIdStart; txt="Start"; },
+//		MENU_ITEM { command=EOplStartUpDialogCmdIdDebug; txt="Debug"; }
+//		};
+//	}
+
+
+//RESOURCE DIALOG r_oplruntimestartup_dialog
+//	{
+//	flags = EEikDialogFlagNoDrag | EEikDialogFlagNoTitleBar | EEikDialogFlagFillAppClientRect | 
+//		  EEikDialogFlagCbaButtons | EEikDialogFlagModeless;
+//	buttons = R_AVKON_SOFTKEYS_OPTIONS_EXIT; 
+//	items=
+//		{
+//		DLG_LINE
+//			{
+//			id = EOplStartUpDialogLabel;
+//			type = EEikCtLabel;
+//			control = 
+//				LABEL {
+//					txt = "\nStart me up!";
+//				};
+//			}
+//		};
+//	}

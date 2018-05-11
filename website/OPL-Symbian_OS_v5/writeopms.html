@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Writing Standard OPMs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<table width="100%" cellspacing="4">
+  <tr valign="top"> 
+          <td> <h1><b><font face="Arial, Helvetica, sans-serif" color="#FF9900">Writing Standard OPMs </font></b></h1>
+<p><font color="#006699">Author: Tim Richardson, Symbian Developer Network, Symbian 
+  Ltd.</font></p>
+<p><font color="#006699"><b>Summary:</b></font> OPMs are OPL Modules that have 
+  been written for other developers to use within their own applications. This 
+  article helps developers to write OPMs according to a standard set of rules.</p>
+<p class="Summary">We encourage developers to write their own OPMs and allow other 
+  members of the OPL community to use them. To help their wide acceptance some 
+  standards have been written which should be adhered to where possible.</p>
+<p class="Summary">List of <a href="opm.html">OPMs</a>.</p>
+<h2>Contents</h2>
+<ul>
+  <li><a href="#stdopm_mm-001">1. File location - where the OPM files 
+    should be put on the Symbian device</a></li>
+  <li><a href="#stdopm_mm-002">2. OPM naming conventions</a></li>
+  <li><a href="#stdopm_mm-003">3. OPM loading within an application</a></li>
+  <li><a href="#stdopm_mm-004">4. Distributing the OPM in an installation 
+    file</a></li>
+  <li><a href="#stdopm_mm-00Ak">5. Acknowledgements</a></li>
+</ul>
+<h2><a name="stdopm_mm-001">1. </a>File location - where the OPM files should 
+  be put on the Symbian device</h2>
+<p>The standard location of all OPMs is <font face="Courier New, Courier, mono">\System\OPM\</font> 
+  on any drive. This is also where you should put any other files required by 
+  the OPM; for instance, bitmap files or non-changeable data files.</p>
+<p>For the developer, the header file (<font face="Courier New, Courier, mono">.OMH</font>) 
+  should be put into <font face="Courier New, Courier, mono">\System\OPL\</font> 
+  directory on any drive. The developer can then include this file with the usual 
+  <font face="Courier New, Courier, mono">INCLUDE</font> command.</p>
+<h2><a name="stdopm_mm-002"></a>2. OPM naming conventions</h2>
+<p>Each OPM should have its own unique name. When compiled, the resulting <font face="Courier New, Courier, mono">opmname.opo</font> 
+  file should be renamed to <font face="Courier New, Courier, mono">opmname.opm</font>. 
+  Any header files for use by the developer should be named <font face="Courier New, Courier, mono">opmname.omh</font>. 
+  Within the code itself the procedures that can be used by another developer 
+  should start with the same set of characters followed by an underscore (_).</p>
+<p>For example, the progress bar procedures all start with <font face="Courier New, Courier, mono">PC_</font>. 
+  Any procedures which are for use internally by your own procedures, and which 
+  the developer does not have access to, should be named with a double underscore 
+  followed by the same set of characters as used above. For example, <font face="Courier New, Courier, mono">__PC_</font>. 
+  This naming convention avoids procedure name clashing as much as is possible, 
+  and is therefore one which is important to adhere to.</p>
+<h2><a name="stdopm_mm-003"></a>3. OPM loading within an application</h2>
+<p>The common OPM loader (written by the Symbian Developer Network) should be 
+  used and supplied to other developers. This is a set of procedures that load 
+  and unload the OPMs.</p>
+<p>The OPM is loaded with a call to <font face="Courier New, Courier, mono">OPM_LoadModule:(modulename$)</font>, 
+  where <font face="Courier New, Courier, mono">modulename$</font> is the name 
+  of your module, omitting the <font face="Courier New, Courier, mono">.opm</font> 
+  extension. When no longer required, it can be unloaded with <font face="Courier New, Courier, mono">OPM_UnloadModule:(modulename$)</font>.</p>
+<p>The standard load procedures:</p>
+<blockquote> 
+  <pre>REM *************************************************************
+REM * The routines below are the standard OPM Load routines and *
+REM * should be copied to all applications which use OPMs       *
+REM *************************************************************
+REM Version: 3.0
+REM Date: 3 October 2000
+
+INCLUDE "Loader.oph"
+REM --------------------------------------------------------
+REM Returns the file position if the file exists on C: or D:
+REM --------------------------------------------------------
+PROC OPM_FileLoc$:(file$)
+	LOCAL drive%, letter$(2)
+
+	drive%=1
+	WHILE drive%&lt;=LEN(KOPMDrives$)
+		letter$=MID$(KOPMDrives$,drive%,1)+":"
+		IF EXIST (letter$+file$)
+			RETURN letter$+file$
+		ENDIF
+		drive%=drive%+1
+	ENDWH
+ENDP
+
+REM -------------------------------------
+REM Loads in a module held in /System/Opm
+REM -------------------------------------
+PROC OPM_LoadModule:(modulename$)
+	LOCAL f$(255)
+
+	f$=OPM_FileLoc$:(KStandardOPMPath$+modulename$+KOPMExtension$)
+	IF f$&lt;>""
+		TRAP LOADM f$ :REM Load the module
+	ELSE
+		ALERT("Cannot find the OPM:",
+			KStandardOPMPath$+modulename$+KOPMExtension$)
+		STOP
+	ENDIF
+ENDP
+
+REM --------------------------------
+REM Unloads in a modeule from memory
+REM --------------------------------
+PROC OPM_UnloadModule:(modulename$)
+	TRAP UNLOADM OPM_FileLoc$:
+		(KStandardOPMPath$+modulename$+KOPMExtension$)
+ENDP</pre>
+</blockquote>
+<h2><a name="stdopm_mm-004"></a>4. Distributing the OPM in an installation file</h2>
+<p>Where possible, the OPM should be distributed within a <font face="Courier New, Courier, mono"><font face="Courier New, Courier, mono" size="2">.SIS</font></font> 
+  installation file. This will ensure both the user and developer installs the 
+  OPM into the correct place, and that the OPM is not removed prematurely if used 
+  by more than one application. The following is an example of a suitable package 
+  file. Note that you will need a unique ID (<a href="http://www.symbian.com/developer/techlib/papers/tn_uid/uidinfo.html" target="_blank">UID</a>), 
+  available from The Symbian Developer Network.</p>
+<blockquote> 
+  <pre>;
+;Create the package for the Pc_bar OPM
+;
+;date:28-1-1999
+;
+;language section
+&amp;EN
+
+; installation header
+#{"Progress bar OPM"},(0x100042D0),1,00,0
+"PC_bar.opo"-"!:\System\OPM\PC_bar.opm",FF </pre>
+</blockquote>
+<p>The <font face="Courier New, Courier, mono">makesis</font> tool is included 
+  with all SDKs.</p>
+<h2><a name="stdopm_mm-00Ak">5. Acknowledgements</a></h2>
+<p>Symbian is a trademark of Symbian Ltd.</p>
+<p>The Symbian Developer Network logo is a trademark of Symbian Ltd.</p>
+<p>This paper refers to trademarks of third parties and Symbian recognizes their 
+  rights.</p>
+        
+<BR><BR>
+<A HREF="../index.html">Back to opl-dev project homepage</A>
+<BR><BR>
+
+<A HREF="http://sourceforge.net"><IMG SRC="http://sourceforge.net/sflogo.php?group_id=76695&amp;type=1" WIDTH="88" HEIGHT="31" BORDER="0" ALIGN=right ALT="SourceForge.net Logo" /></A> <A HREF="http://www.symbian.com/"><IMG SRC="../symbian.png" ALT="Symbian logo" ALIGN=left /></A>
+</td>
+  </tr>
+</table>
+</body>
+</html>

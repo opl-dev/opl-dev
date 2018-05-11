@@ -1,0 +1,40 @@
+; OPL Runtime for Nokia 92xx Communicator Series.
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"OPL Runtime"}, (0x1000904D), 1, 56, 001, TYPE=SA,SHUTDOWNAPPS
+;
+
+; Digitally sign this .sis file
+*"..\..\..\..\Symbian.key","..\..\..\..\Symbian.cer"
+
+;
+; Warning file
+;
+;"\oplr\rom\Release-Readme.txt"-"",FT,TA
+;"\Projects\opl1.55\opl\oplr\pkg\test-warning.txt"-"",FT,TA
+
+;
+; Core OPL Files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\urel\z\system\apps\opl\opl.app"-"!:\System\Apps\Opl\Opl.app"
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\urel\z\system\apps\opl\opl.aif"-"!:\System\Apps\Opl\Opl.aif"
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\urel\z\system\data\oplr.rsc"-"!:\System\Data\Oplr.rsc"
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\urel\oplr.dll"-"!:\System\Libs\Oplr.dll"
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\urel\oplt.dll"-"!:\System\Libs\Oplt.dll"
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\urel\z\system\recogs\recopl.rdl"-"!:\System\Recogs\RecOpl.rdl"
+;
+; Core OPXs - no longer supplied as separate SIS files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\urel\z\system\opx\AppFrame.opx"-"!:\System\OPX\AppFrame.opx", FF
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\urel\z\system\opx\SendAs.opx"-"!:\System\OPX\SendAs.opx", FF
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\urel\z\system\opx\System.opx"-"!:\System\OPX\System.opx", FF
+;
+; Font Support - eon14.gdr
+;
+"..\..\..\..\..\fonts\eon14.gdr"-"!:\System\Libs\Eon14.gdr"
+;

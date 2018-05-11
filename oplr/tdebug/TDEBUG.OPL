@@ -1,0 +1,83 @@
+proc main:
+	Global s%,t&,u,v$(10),w$(10,9),x%(10)
+	while s%<10
+		s%=s%+1
+		x%(s%)=20+3*s%
+		w$(s%)="GlbStr "+gen$(s%,2)
+	endwh
+	v$="Global"
+	t&=200002
+	u=1.23456
+	top:
+	cls
+	param:(24,100001)
+	cls
+	print "s% is",s%
+	print "t& is",t&
+	print "u  is",u
+	print "v$ is",v$
+	s%=0
+	while s%<10
+		s%=s%+1
+		print "w$(";s%;") is",w$(s%)
+	endwh
+	s%=0
+	while s%<10
+		s%=s%+1
+		print "x%(";s%;") is",x%(s%)
+	endwh
+    print "Finished"
+	get
+endp
+
+proc top:
+	local a%,b&,c,d$(14),e%(10),f%,g$(10,9)
+
+	rem These are the offsets to enter in the examine local dialog
+	rem a% is at offset 18
+	rem b& is at offset 20
+	rem c  is at offset 24
+	rem d$ is at offset 33
+	rem e% is at offset 50
+	rem f% is at offset 70
+	rem g$ is at offset 75
+
+	a%=12
+	b&=12345678
+	c=987.654
+	d$="Hello World"
+	while f%<10
+		f%=f%+1
+		e%(f%)=20-2*f%
+		g$(f%)="String "+gen$(f%,2)
+	endwh
+	usesprite -1
+	print "a% is",a%
+	print "b& is",b&
+	print "c is",c
+	print "d$ is",d$
+	f%=0
+	while f%<10
+		f%=f%+1
+		print "e%(";f%;") is",e%(f%)
+	endwh
+	f%=0
+	while f%<10
+		f%=f%+1
+		print "g$(";f%;") is",g$(f%)
+	endwh
+    get
+endp
+
+
+proc param:(a%,b&)
+	rem These are the offsets to use in the examine local dialog
+	rem for a% use -19
+	rem for b& use -21
+
+	usesprite -1
+	print "Param a% is",a%
+	print "Param b& is",b&
+	usesprite -2
+endp
+

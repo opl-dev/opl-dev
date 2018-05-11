@@ -1,0 +1,48 @@
+*************************************************************************
+Wish-list for OPL runtime and related projects (but definitely omissions)
+
+Author:		Howard
+Last updated:	28 March 1997
+*************************************************************************
+
+Runtime Omissions:
+-----------------
+- Change SOpxData to COpxData - it is a composite owning the function table
+- Run OPL procedures from other apps (need a runtime object and export ExecutleL()??)
+- Use STORE for reading module
+- Opl1993 OPOs
+        - move IsSignatureOk() (etc.?) inside ALLOW_OPL1993_OPOS switch
+- Spec debugger more fully
+        - rethink possibility of runtime break point support
+- Shared header with Translator for TProcName, etc.
+- New BEEP that takes arg in microceconds
+
+- hash table for finding procedures in module (probably
+  usually a waste of time - for small number procs or lots of modules)
+- ensure we read Data App files and vice versa
+- Export more runtime functions
+- multi-page dialogs
+- more Eikon controls
+- responsive controls inside dialogs
+- async menus,dialogs with validation procs
+- map keys to Opl1993 values (cursor keys, help?, delete?, menu
+      hotkeys add 512?)
+- last arg of PARSE$ optional
+- fast loading bitmaps to window
+- opening bitmap file just once to load multi-bitmaps
+- APPARC OPX for printing etc.
+- doors
+- gEDIT
+- LSET, LINPUT
+- allow more than 32 dbase fields
+- provide f$=FIELDS$ functions for interrogating DBMS table
+- provide f$=TABLE$ functions for interrogating DBMS dbase
+- see Opl1993 omissions
+
+OplEdit
+-------
+.h- Word breaks: Brackets, colon, comma, quotes? (configurable)
+
+Test omissions
+--------------
+0.5h- oplr\group\MNT BTST and MNT RTST must build and run test code

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE cshproj SYSTEM "/epoc32/tools/cshlpcmp/dtd/CSHproj.dtd">
+<?xml:stylesheet href="/epoc32/tools/cshlpcmp/xsl/CSHproj.xsl" title="CS-Help project" type="text/xsl"?>
+<cshproj>
+<helpfileUID>0x100091E4</helpfileUID>
+<directories>
+<input>\texted\group\</input>
+<output>\epoc32\build\texted\help\</output>
+<graphics>\texted\group\</graphics>
+<working>\epoc32\build\texted\help\</working>
+</directories>
+<files>
+<source>
+<file>opl_hlp.rtf</file>
+</source>
+<destination>opl.hlp</destination>
+<customization>\texted\group\defaultcustomisation.xml</customization>
+</files>
+</cshproj>

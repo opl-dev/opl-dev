@@ -1,0 +1,38 @@
+// ALARM.MMP
+//
+// Copyright (c) 1997-2000 Symbian Ltd. All rights reserved.
+
+TARGET		Alarm.opx
+TARGETTYPE	dll
+TARGETPATH	\System\OPX
+UID			0x10003A7B 0x10004EC8
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH	..\Alarm
+SOURCE		Alarm.cpp
+
+USERINCLUDE	.
+SYSTEMINCLUDE	\epoc32\include
+
+LIBRARY		euser.lib oplr.lib 
+#if defined(__UIQ_MMP__)
+LIBRARY		WORLDCLIENT.LIB
+#elif defined(__S80_DP2_0_MMP__)
+LIBRARY		WORLDCLIENT.LIB
+LIBRARY		EALWL.LIB
+#else
+LIBRARY		EALWL.LIB
+#endif
+DOCUMENT	Alarm.txh
+DOCUMENT	Readme.txt
+
+DEFFILE		OPX.def

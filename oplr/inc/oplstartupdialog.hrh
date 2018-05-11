@@ -1,0 +1,17 @@
+
+#ifndef OPLSTARTUPDIALOG_HRH
+#define OPLSTARTUPDIALOG_HRH
+
+enum TOplStartUpDialogCommandIds
+    {
+	EOplStartUpDialogCmdIdStart = 1,
+	EOplStartUpDialogCmdIdDebug = 2
+    };
+
+enum TOplStartUpDialogControlIds
+    {
+    EOplStartUpDialogLabel = 1
+    };
+
+
+#endif  

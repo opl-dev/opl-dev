@@ -1,0 +1,63 @@
+// opl-target.mmpi for OPL
+// Jan 04	ricka@users.sourceforge.net
+// Jul 04	phil.spencer@symbian.com
+
+// Control which OPL target to build
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+//
+// Pick one of these products as the target for your build
+//	- Note for UIQ, define both macros if you wish to
+//	allow a WINS build as well as a WINSCW one (e.g
+//	for use with Borland C++ BuilderX SDKs)
+//
+#define __CRYSTAL_MMP__
+//#define __S80_DP2_0_MMP__
+//#define __SERIES60_MMP__
+//#define __SERIES90_MMP__
+//
+// NB UIQ is a special case! See above.
+//#define __UIQ_MMP__
+//#define __UIQ_MMP_WINS_TOO__
+//
+// 
+// Some examples:
+//  For 9200, define __CRYSTAL_MMP__
+//  For 9500, define __S80_DP2_0_MMP__
+//  For 6600, define __SERIES60_MMP__
+//
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+
+// Don't modify the following.
+// Depending on which target you've picked above, you should
+// use the following macros in your C++ source for conditional code.
+// e.g. #if defined(__UIQ__) 
+//	    SomeCodeForUiqOnly();
+//	#endif
+
+// Series 80 DP 2.0 is a variation of Crystal, so it has two macros.
+#if defined(__S80_DP2_0_MMP__)
+#define __CRYSTAL_MMP__
+MACRO __S80_DP2_0__
+#endif
+
+#if defined(__CRYSTAL_MMP__)
+MACRO __CRYSTAL__
+#endif
+
+#if defined(__SERIES60_MMP__)
+MACRO __SERIES60__
+#endif
+
+#if defined(__UIQ_MMP__)
+MACRO __UIQ__
+#endif
+
+#if defined(__SERIES90_MMP__)
+MACRO __SERIES90__
+#endif

@@ -1,0 +1,23 @@
+; contactopx.pkg
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"Contacts OPX"}, (0x10003ED7), 0, 40, 116, TYPE=SY
+;
+; Files
+;
+; Rem only for 9300/9500
+(0x101F8ED2), 0, 0, 0, {"Series80ProductID"}
+
+; Digitally sign this .sis file
+*"\Projects\opl1.55\opl\Symbian.key","\Projects\opl1.55\opl\Symbian.cer"
+
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\thumb\urel\contact.opx"-"!:\System\OPX\Contact.opx", FF
+;
+; Depends on OPL.sis being installed, atleast v1.00(129)
+;
+(0x1000904D), 1, 00, 129, {"OPL Runtime"};

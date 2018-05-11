@@ -1,0 +1,21 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+#{"DBase OPX"}, (0x1000025B), 6, 00, 116, TYPE=SY
+;
+; Rem only for 9300/9500
+(0x101F8ED2), 0, 0, 0, {"Series80ProductID"}
+
+; Digitally sign this .sis file
+*"..\..\..\Symbian.key","..\..\..\Symbian.cer"
+
+; Files
+;
+"\Symbian\7.0s\S80_DP2_0_SDK\epoc32\release\thumb\urel\DBase.opx"-"!:\System\OPX\DBase.opx", FF
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 55, 001, {"OPL Runtime"}

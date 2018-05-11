@@ -1,0 +1,502 @@
+include "testopx.oxh"
+
+PROC main:
+	global a1%,a2&,a3,ret%
+
+	trap loadm "t_util"
+	trap loadm "topxcbp"
+	
+	print "TESTING OPL API FUNCTIONS FOR OPXs"
+	print "----------------------------------"
+	
+	taddflttoint:
+	tadd4:
+	tstrtoflt:
+	tflttostr:
+	tltou:
+	tstack:
+	tincbyaddr:
+	tincbyref:	
+	terror:
+	tmult332:
+	tmult316:	
+	tdbase:
+	tcallproc:
+	tuid:
+	
+	print
+	print "FINISHED OK"
+	pause 30
+		
+	trap unloadm "t_util"
+	trap unloadm "topxcbp"
+endp
+	
+proc taddflttoint:
+
+	if AddFloatToInt%:(1,2.3456)<>3
+		raise 1
+	endif
+	
+	onerr over
+ 	AddFloatToInt%:(300,4E+10)
+	onerr off
+	raise 2
+over::
+	onerr off
+	if err<>-6 : raise 3 : endif
+	onerr under
+ 	AddFloatToInt%:(300,-4E+10)
+	onerr off
+	raise 4
+under::
+	onerr off
+	if err<>-6 : raise 5 : endif
+
+	print "AddFloatToInt% done"
+endp
+
+proc tadd4:
+
+	if Add4&:(1,2,3.0,"4")<>10
+		raise 6
+	endif
+	
+	onerr strover
+	Add4&:(1,2,3.0,"2147483648")
+	onerr off
+	raise 7	
+strover::
+	onerr off
+	if err<>-6 : raise 8 : endif
+	onerr fltover
+	Add4&:(1,2,2147483648,"10")
+	onerr off
+	raise 9
+fltover::
+	onerr off
+	if err<>-6 : raise 10 : endif	
+	onerr resover
+	Add4&:(48,3600,480000,"2147000000")
+	onerr off
+	raise 11
+resover::
+	onerr off
+	if err<>-6 : raise 12 : endif
+	onerr strunder
+	Add4&:(1,2,3.0,"-2147483649")
+	onerr off
+	raise 13
+strunder::
+	onerr off
+	if err<>-6 : print err : raise 14 : endif
+	onerr fltunder
+	Add4&:(1,2,-2147483649,"10")
+	onerr off
+	raise 15
+fltunder::
+	onerr off
+	if err<>-6 : print err : raise 16 : endif	
+	onerr resunder
+	Add4&:(-49,-3600,-480000,"-2147000000")
+	onerr off
+	raise 17
+resunder::
+	onerr off
+	if err<>-6 : print err : raise 18 : endif
+	
+	print "Add4& done"
+endp
+
+proc tstrtoflt:
+
+	if StrToFlt:("1.23456E-10")<>1.23456E-10
+		raise 19
+	endif
+	
+	onerr posover
+	StrToFlt:("2E+308")
+	onerr off
+	raise 20
+posover::
+	onerr off
+	if err<>-6 : raise 21 : endif
+	onerr negover
+	StrToFlt:("-2E+308")
+	onerr off
+	raise 22
+negover::
+	onerr off
+	if err<>-6 : raise 23 : endif
+	onerr posunder
+	StrToFlt:("1E-324")
+	onerr off
+	raise 24
+posunder::
+	onerr off
+	if err<>-5 : raise 25 : endif
+	onerr negunder
+	StrToFlt:("-1E-324")
+	onerr off
+	raise 26
+negunder::
+	onerr off
+	if err<>-5 : raise 27 : endif
+		
+	print "StrToFlt done"
+endp
+
+proc tflttostr:
+
+	if FltToStr$:(1.23456E-10)<>"1.23456E-10"
+		raise 30
+	endif
+	
+	print "FltToStr$ done"
+endp
+
+proc tltou:
+	local char1$(1),char2$(2)
+	
+	char1$="a"
+	char2$=LowerToUpper$:(char1$)
+	print char2$
+	if char2$<>"A" : raise 1 : endif
+	char1$="b"
+	char2$=LowerToUpper$:(char1$)
+	print char2$
+	if char2$<>"B" : raise 2 : endif
+	char1$="z"
+	char2$=LowerToUpper$:(char1$)
+	print char2$
+	if char2$<>"Z" : raise 3 : endif
+	
+	if 0
+	char1$="A"
+	onerr e1
+	char2$=LowerToUpper$:(char1$)
+	onerr off
+	raise 4
+e1::
+	onerr off
+	if err<>-2 : raise 5 : endif
+	endif
+	
+	print "LowerToUpper done"
+endp
+
+proc tstack:
+	
+	FreeBytes:
+	print "FreeBytes done"
+	
+	StackCheck:
+	print "StackCheck done"
+	
+endp
+
+proc tincbyaddr:
+	local i%,l&,f
+	
+	i%=1
+	IncIntByAddr:(addr(i%))
+	if i%<>2 : raise 1 : endif
+	l&=&1
+	IncLngByAddr:(addr(l&))
+	if l&<>&2 : raise 2 : endif
+	f=1.0
+	IncFltByAddr:(addr(f))
+	if f<>2.0 : raise 3 : endif
+	
+	print "IncByAddr done"
+endp
+
+proc terror:
+	local oplerr%
+	
+	oplerr%=MapE32Err%:(&fffffff7)
+	if oplerr%<>-6 : raise 1 : endif
+	oplerr%=MapE32Err%:(&ffffffe6)
+	if oplerr%<>-37 : raise 2 : endif
+	
+	onerr synt
+	MapSyntaxErr:
+	onerr off
+	raise 3
+synt::
+	onerr off
+	if err<>-87 : print err : raise 4 : endif
+
+	onerr toomany	
+	MapTooManyOPXErr:
+	onerr off
+	raise 5
+toomany::
+	onerr off
+	if err<>-128 : print err : raise 5 : endif
+
+	print "MapErrors done"
+endp
+
+proc tmult332:
+
+	if mult3&:(1,2,3)<>6
+		raise 40
+	endif
+	
+	onerr over1
+	mult3&:(2147483647,1,2)
+	onerr off
+	raise 41
+over1::
+	onerr off
+	if err<>-6 : raise 42 : endif
+	onerr over2
+	mult3&:(1,2147483647,2)
+	onerr off
+	raise 43
+over2::
+	onerr off
+	if err<>-6 : raise 44 : endif
+	onerr over3
+	mult3&:(1,2,2147483647)
+	onerr off
+	raise 45
+over3::
+	onerr off
+	if err<>-6 : raise 46 : endif
+	onerr under1
+	mult3&:(-2147483648,1,2)
+	onerr off
+	raise 47
+under1::
+	onerr off
+	if err<>-6 : raise 48 : endif
+	onerr under2
+	mult3&:(1,-2147483648,2)
+	onerr off
+	raise 49
+under2::
+	onerr off
+	if err<>-6 : raise 50 : endif
+	onerr under3
+	mult3&:(1,2,-2147483648)
+	onerr off
+	raise 51
+under3::
+	onerr off
+	if err<>-6 : raise 52 : endif
+	
+	print "Mult3& done"
+endp
+
+proc tmult316:
+
+	if mult3%:(1,2,3)<>6
+		raise 60
+	endif
+	
+	onerr over1
+	mult3%:(32767,1,2)
+	onerr off
+	raise 61
+over1::
+	onerr off
+	if err<>-6 : raise 62 : endif
+	onerr over2
+	mult3%:(1,32767,2)
+	onerr off
+	raise 63
+over2::
+	onerr off
+	if err<>-6 : raise 64 : endif
+	onerr over3
+	mult3%:(1,2,32767)
+	onerr off
+	raise 65
+over3::
+	onerr off
+	if err<>-6 : raise 66 : endif
+	onerr under1
+	mult3%:(-32768,1,2)
+	onerr off
+	raise 67
+under1::
+	onerr off
+	if err<>-6 : raise 68 : endif
+	onerr under2
+	mult3%:(1,-32768,2)
+	onerr off
+	raise 69
+under2::
+	onerr off
+	if err<>-6 : raise 70 : endif
+	onerr under3
+	mult3%:(1,2,-32768)
+	onerr off
+	raise 71
+under3::
+	onerr off
+	if err<>-6 : raise 72 : endif
+	
+	print "Mult3% done"
+endp
+
+proc tincbyref:
+
+	a1%=1
+	a2&=2
+	a3=3.0
+	incByRef3:(a1%,a2&,a3)
+	if a1%<>2
+		raise 2
+	endif
+	if a2&<>&3
+		raise 3
+	endif
+	if a3<>4.0
+		raise 4
+	endif
+	
+	print "IncByRef3 done"
+endp
+
+proc tdbase:
+	local c&
+
+	trap delete "testopx.doc"
+	create "testopx.doc",a,a$
+	a.a$="123"
+	append
+	a.a$="456"
+	append
+	c&=DBManCount&:
+	close
+	print "DBaseMan done - ";c&,"records"
+	if c&<>2
+		alert(num$(c&,10),"records in current dbase")
+		raise 1
+	endif
+endp
+
+proc tcallproc:
+
+	CallProc:("simple")
+	CallProcRetInt:("fourargs",1,2,3.4,"Hello")
+	CallProcRetLng:("fourargs",1,2,3.4,"Hello")
+	CallProcRetFlt:("fourargs",1,2,3.4,"Hello")
+	CallProcRetStr:("fourargs",1,2,3.4,"Hello")
+
+	onerr reterr1
+	CallProcRetInt:("wrong",1,2,3.4,"Hello")
+	onerr off
+	raise 2
+reterr1::
+	onerr off
+	if err<>1 : raise 3 : endif
+	onerr reterr2
+	CallProcRetLng:("wrong",1,2,3.4,"Hello")
+	onerr off
+	raise 4
+reterr2::
+	onerr off
+	if err<>1 : raise 5 : endif
+	onerr reterr3
+	CallProcRetFlt:("wrong",1,2,3.4,"Hello")
+	onerr off
+	raise 6
+reterr3::
+	onerr off
+	if err<>1 : raise 7 : endif
+	onerr reterr4
+	CallProcRetInt:("wrong",1,2,3.4,"Hello")
+	onerr off
+	raise 8
+reterr4::
+	onerr off
+	if err<>1 : raise 9 : endif
+	onerr reterr5
+	CallProc:("wrongret")
+	onerr off
+	raise 10
+reterr5::
+	onerr off
+	if err<>1 : raise 11 : endif
+
+	onerr paramerr1
+	CallProcRetInt:("fourargs",2,2,3.4,"Hello")
+	onerr off
+	raise 12
+paramerr1::
+	onerr off
+	if err<>2 : print err : raise 13 : endif
+	onerr paramerr2
+	CallProcRetLng:("fourargs",1,3,3.4,"Hello")
+	onerr off
+	raise 14
+paramerr2::
+	onerr off
+	if err<>3 : raise 15 : endif
+	onerr paramerr3
+	CallProcRetFlt:("fourargs",1,2,3.5,"Hello")
+	onerr off
+	raise 16
+paramerr3::
+	onerr off
+	if err<>4 : raise 17 : endif
+	onerr paramerr4
+	CallProcRetStr:("fourargs",1,2,3.4,"Not Just Hello")
+	onerr off
+	raise 18
+paramerr4::
+	onerr off
+	if err<>5 : raise 19 : endif
+	
+	rem test error returned if invalid proc name
+	onerr procerr1
+	CallProcRetInt:("fourargs%",1,2,3.4,"Hello")
+	onerr off
+	raise 20
+procerr1::
+	onerr off
+	if err<>-99 : print err : raise 21 : endif
+
+	onerr procerr2
+	CallProcRetInt:("undefined",1,2,3.4,"Hello")
+	onerr off
+	raise 22
+procerr2::
+	onerr off
+	if err<>-99 : print err : raise 23 : endif		
+
+	print "CallOplProc done"
+endp
+
+proc tuid:
+	local uid$(255)
+	
+	uid$=AppUid$:
+	print uid$
+	if uid$<>"[10000168]" : raise 1 : endif
+	print "AppUid$ done"
+endp
+
+proc wrongret:
+	return 1
+endp
+
+proc wrong%:(a%,b&,c,d$)
+	return 2
+endp
+
+proc wrong&:(a%,b&,c,d$)
+	return &2
+endp
+
+proc wrong:(a%,b&,c,d$)
+	return 2.0
+endp
+
+proc wrong$:(a%,b&,c,d$)
+	return "Not Just Hello"
+endp

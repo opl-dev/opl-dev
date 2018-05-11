@@ -1,0 +1,101 @@
+rem MediaServerOPX.oxh
+rem 
+rem Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+
+CONST KUidOpxMediaServer&=&100057DA
+CONST KOpxMediaServerVersion%=$100
+
+rem
+rem Constants for TonePlayer
+rem
+
+rem Values for MdaTonePlayerPanic
+CONST KMdaTonePanicNotReady&=0
+CONST KMdaTonePanicBusyPrep&=1
+CONST KMdaTonePanicBusyPlaying&=2
+CONST KMdaTonePanicInvalidSeq&=3
+CONST KMdaTonePanicVolumeOutOfRange&=4
+CONST KMdaTonePanicInvalidDuration&=5
+CONST KMdaTonePanicInvalidRepeatCount&=6
+
+rem Values for MdaAudioToneUtilityState
+CONST KMdaAudioToneUtilityNotReady%=0
+CONST KMdaAudioToneUtilityPrepared%=1
+CONST KMdaAudioToneUtilityPlaying%=2
+
+rem Pass KMdaInfiniteDurationDTMFToneOnLength& as 
+rem toneOnLength parameter to SetDTMFLengths:
+rem to play only the first DTMF tone of supplied 
+rem string until CancelPlay: is called
+CONST KMdaInfiniteDurDTMFToneOnLen&=-1 
+CONST KMdaAudioToneRepeatForever&=2
+
+rem Values for priority
+CONST KMdaPriorityMin&=-100
+CONST KMdaPriorityNormal&=0
+CONST KMdaPriorityMax&=100
+
+rem Values for PriorityPreference
+CONST KMediaSMdaPriorityPrefNone&=0
+CONST KMediaSMdaPriorityPrefTime&=1
+CONST KMediaSMdaPriorityPrefQual&=2
+CONST KMediaSMdaPriorityPrefTimeQual&=3
+
+rem
+rem Constants for AudioPlayer.
+rem
+
+CONST KMdaAudioPlayerUnknownDuration&=-1
+CONST KMdaAudioPlayerRepeatForever&=-2
+
+rem Values for AudioPlayerUtilityPanics
+CONST KMdaAudioPlayAPIFileAlreadyPlay&=0
+CONST KMdaAudioPlayAPINotReady&=1
+CONST KMdaAudioPlayAPIVolumeOutRange&=2
+
+
+DECLARE OPX MEDIASERVEROPX,KUidOpxMediaServer&,KOpxMediaServerVersion%
+	rem
+	rem Audio tone
+	rem
+	ToneState%: :1
+	ToneMaxVolume&: :2
+	ToneVolume&: :3
+	ToneSetVolume:(aVolume&) :4
+	SetPriority:(aPriority&,aPriorityPreference&) :5
+	SetDTMFLengths:(aToneOnLength&,aToneOffLength&,aPauseLength&) :6
+	SetRepeats:(aRepeatNumberOfTimes&,aTrailingSilence&) :7
+	SetVolumeRamp:(aRampDuration&) :8
+	FixedSequenceCount: :9
+	FixedSequenceName$:(aSequenceNumber&) :10
+
+	PrepareToPlayToneA:(aFrequency&,aDuration&,BYREF aStatus&) :11
+	PrepareToPlayDTMFStringA:(aDTMF$,BYREF aStatus&) :12
+	PrepareToPlayDesSequenceA:(aDesAddress&,BYREF aStatus&) :13
+	PrepareToPlayFileSequenceA:(aFileName$,BYREF aStatus&) :14
+	PrepareToPlayFixedSequenceA:(aSequenceNumber&,BYREF aStatus&) :15
+	CancelPrepare: :16
+
+	PlayToneA:(BYREF aStatus&) :17
+	CancelPlay: :18
+	
+	rem
+	rem Audio player
+	rem
+	CreateFilePlayerA:(aFileName$,aPriority&,aPreference&,BYREF aStatus&) :19
+	CloseFilePlayer: :20
+	PlayFileA:(BYREF aStatus&) :21
+	StopFile: :22
+
+	FileSetVolume:(aVolume&) :23
+	FileSetRepeats:(aRepeatNumberOfTimes&,aTrailingSilence&) :24
+	FileSetVolumeRamp:(aRampDuration&) :25
+
+	rem
+	rem Query functions
+	rem
+	FileDuration&: :26
+	FileMaxVolume&: :27
+
+	CreateFilePlayerSimpleA:(aFileName$,BYREF aStatus&) :28
+END DECLARE

@@ -1,0 +1,25 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+;													 	  = v0.30(001)
+#{"OPL Runtime - UIQ - Beta release"}, (0x1000904D), 0, 54, 001, TYPE=SA
+
+(0x101F617B),2,0,0,{"UIQ20ProductID"}
+;
+; Dependencies
+;
+; Core OPL Files
+;
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\oplt.dll"-"!:\System\Libs\Oplt.dll"
+"\Symbian\UIQ_21\epoc32\data\z\system\apps\opl\opl.aif"-"!:\System\Apps\Opl\Opl.aif"
+"\Symbian\UIQ_21\epoc32\data\z\system\apps\opl\opl.rsc"-"!:\System\Apps\Opl\Opl.rsc"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\opl.app"-"!:\System\Apps\Opl\Opl.app"
+"\Symbian\UIQ_21\epoc32\data\z\system\data\oplr.rsc"-"!:\System\Data\Oplr.rsc"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\oplr.dll"-"!:\System\Libs\Oplr.dll"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\recopl.rdl"-"!:\System\Recogs\RecOpl.rdl"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\appframe.opx"-"!:\System\Opx\AppFrame.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\system.opx"-"!:\System\Opx\System.opx"

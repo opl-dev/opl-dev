@@ -1,0 +1,26 @@
+// BLD.INF
+//
+// Copyright (c) 1999-2002 Symbian Ltd. All rights reserved.
+//
+// Texted - the Program editor for opl.
+
+#include "..\..\opl-target.mmpi"
+
+PRJ_PLATFORMS
+#if defined(__UIQ_MMP__) 
+WINSCW THUMB
+#else
+WINS THUMB
+#endif
+#if defined(__UIQ_MMP_WINS_TOO__)
+WINS
+#endif
+
+PRJ_EXPORTS
+..\inc\opl.hlp.hrh		\epoc32\include\cshelp\opl.hlp.hrh
+
+PRJ_MMPFILES
+.\texted.mmp
+// makefile .\bldoplhelp.mk
+
+PRJ_TESTMMPFILES

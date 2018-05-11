@@ -1,0 +1,7 @@
+include "topx.oxh"
+PROC main:
+	print add3&:(1,2,3)
+	print add3&:(2,4,6)
+	print add3&:(1,1,1)
+	get
+endp

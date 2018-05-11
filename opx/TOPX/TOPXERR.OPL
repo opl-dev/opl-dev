@@ -1,0 +1,9 @@
+rem this test is not runnable
+rem In the header file each OPX declaration should be commented out in turn 
+rem to check that the correct errors are returned
+
+include "topxerr.oxh"
+
+PROC topxerr:
+	print "Opler1 OPX-specific Error Tests"
+ENDP

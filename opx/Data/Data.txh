@@ -1,0 +1,76 @@
+REM DATA.OXH
+REM
+REM Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+REM
+
+CONST KOpxDataUid&=&10004EC7
+CONST KOpxDataVersion%=$600
+
+CONST KODbLessThan&=0
+CONST KODbLessEqual&=1
+CONST KODbEqualTo&=2
+CONST KODbGreaterEqual&=3
+CONST KODbGreaterThan&=4
+
+CONST KODbColBit&=0
+CONST KODbColInt8&=1
+CONST KODbColUint8&=2
+CONST KODbColInt16&=3
+CONST KODbColUint16&=4
+CONST KODbColInt32&=5
+CONST KODbColUint32&=6
+CONST KODbColInt64&=7
+CONST KODbColReal32&=8
+CONST KODbColReal64&=9
+CONST KODbColDateTime&=10
+CONST KODbColText8&=11
+CONST KODbColText16&=12
+CONST KODbColBinary&=13
+CONST KODbColLongText8&=14
+CONST KODbColLongText16&=15
+CONST KODbColLongBinary&=16
+CONST KODbColText&=KODbColText16&
+CONST KODbColLongText&=KODbColLongText16&
+
+DECLARE OPX DATA,KOpxDataUid&,KOpxDataVersion%
+	ODbGetTableCount&:(aPath$) : 1
+	ODbGetTableName$:(aPath$, aTableNumber&) : 2
+	ODbGetIndexCount&:(aPath$, aTable$) : 3
+	ODbGetIndexName$:(aPath$, aTable$, anIndexNumber&) : 4
+	ODbGetIndexDescription$:(aPath$, aTable$, anIndexName$) : 5
+	ODbGetFieldCount&:(aPath$, aTable$) : 6
+	ODbGetFieldName$:(aPath$, aTable$, aFieldNumber&) : 7
+	ODbGetFieldType&:(aPath$, aTable$, aFieldNumber&) : 8
+	ODbGetFieldSize&:(aPath$, aTable$, aFieldNumber&) : 9
+	ODbGetCanBeEmpty%:(aPath$, aTable$, aFieldNumber&) : 10
+	ODbOpenR:(anId&, anSqlQuery$, aFieldTypes$) : 11
+	ODbOpen:(anId&, anSqlQuery$, aFieldTypes$) : 12
+	ODbStartTable: : 13
+	ODbTableField:(aFieldName$, aFieldType&, aMaximumLength&) : 14
+	ODbCreateTable:(aFileName$, aTable$) : 15
+	ODbGetLength&:(aFieldNumber&) : 16
+	ODbGetString$:(aFieldNumber&) : 17
+	ODbGetInt&:(aFieldNumber&) : 18
+	ODbGetReal:(aFieldNumber&) : 19
+	ODbGetReal32:(aFieldNumber&) : 20
+	ODbGetWord&:(aFieldNumber&) : 21
+	ODbGetDateTime:(aDateTime&, aFieldNumber&) : 22
+	ODbGetLong:(aBuffer&, aLength&, aFieldNumber&) : 23
+	ODbPutEmpty:(aFieldNumber&) : 24
+	ODbPutString:(aText$, aFieldNumber&) : 25
+	ODbPutInt:(anInteger&, aFieldNumber&) : 26
+	ODbPutReal:(aFloat, aFieldNumber&) : 27
+	ODbPutReal32:(aFloat, aFieldNumber&) : 28
+	ODbPutWord:(anUnsignedInteger&, aFieldNumber&) : 29
+	ODbPutDateTime:(aDateTime&, aFieldNumber&) : 30
+	ODbPutLong:(aBuffer&, aLength&, aFieldNumber&) : 31
+	ODbFindWhere%:(anSqlQuery$, aFlags%) : 32
+	ODbUse:(anId&) : 33
+	ODbSeekInt&:(aSearchInteger&, aTable$, anIndex$, aMode&) : 34
+	ODbSeekWord&:(aSearchUnsignedInteger&, aTable$, anIndex$, aMode&) : 35
+	ODbSeekText&:(aSearchText$, aTable$, anIndex$, aMode&) : 36
+	ODbSeekReal&:(aSearchFloat, aTable$, anIndex$, aMode&) : 37
+	ODbSeekDateTime&:(aSearchDateTime&, aTable$, anIndex$, aMode&) : 38
+	ODbCount&: : 39
+	ODbFindSql&:(anSqlQuery$, aFlags%) : 40
+END DECLARE

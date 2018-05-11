@@ -1,0 +1,33 @@
+REM Constants for AN Other program
+
+REM Must get a real Uid from Symbian sometime! :-)
+CONST KUidFrame& = &153112B5
+
+CONST KApprsc$    = ".rsc"
+CONST KAppEng$		= "Frame"
+
+CONST KAppName$   = "Frame"
+REM CONST KRSCroot$   = "Frame"
+CONST KAppdir$    = "\system\apps\frame\"
+CONST KAppini$    = ".ini"
+CONST KApphlp$    = ".hlp"
+
+REM Events
+CONST KCSystemEvent%=0
+CONST KCUserEvent%=1
+
+REM Menu unassigned options.
+CONST KCMenuNoKey1%=1
+
+REM For OpenINIFile%:
+REM CONST KCRead%=1
+REM CONST KCWrite%=2
+
+REM Debug values
+REM Debug window rank.
+CONST KCDebugTopRank%=2
+
+REM Color stuff.
+CONST kColorMode%=5
+
+REM Ends.

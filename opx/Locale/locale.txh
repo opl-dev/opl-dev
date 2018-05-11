@@ -1,0 +1,83 @@
+rem Locale.oxh
+rem
+rem Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+rem
+
+CONST KLcClockFormatAnalog&=0
+CONST KLcClockFormatDigital&=1
+
+CONST KDateFormatAmerican&=0
+CONST KDateFormatEuropean&=1
+CONST KDateFormatJapanese&=2
+
+CONST KTimeFormat12Hour&=0
+CONST KTimeFormat24Hour&=1
+
+CONST KDaylightSavingZoneHome&=0
+CONST KDaylightSavingZoneEuropean&=1
+CONST KDaylightSavingZoneNorthern&=2
+CONST KDaylightSavingZoneSouthern&=3
+
+CONST KLocalePosBefore&=0
+CONST KLocalePosAfter&=1
+
+CONST KUnitsImperial&=0
+CONST KUnitsMetric&=1
+
+CONST KMaxDateSeparators&=4
+CONST KMaxTimeSeparators&=4
+
+CONST KUidOpxLocale&=&100052B0
+CONST KOpxLocaleVersion%=$600
+
+DECLARE OPX LOCALE,KUidOpxLocale&,KOpxLocaleVersion%
+	LcNearestLanguageFile$:(aFile$) :1
+	LcLanguage&: :2
+	
+	LcCountryCode&: :3
+	LcHomeCountry$: :4
+
+	LcCurrencySymbol$: :5
+	LcCurrencySetSymbol:(aSymbol$) :6
+	LcCurrencySymbolPosition&: :7
+	LcCurrencySetSymbolPosition:(aSymbolPosition&) :8
+	LcCurrencyDecimalPlaces&: :9
+	LcCurrencySetDecimalPlaces&: :10
+	LcCurrencyNegativeInBrackets%: :11
+	LcCurrencySetNegativeInBrackets:(aNegativeInBrackets%) :12
+	LcCurrencySpaceBetween%: :13
+	LcCurrencySetSpaceBetween:(aSpaceBetween%) :14
+	LcCurrencyTriadsAllowed%: :15
+	LcCurrencySetTriadsAllowed:(aTriadsAllowed%) :16
+
+	LcUnits:(BYREF aUnitsGeneral&,BYREF aUnitsDistanceShort&,BYREF aUnitsDistanceLong&) :17
+	LcUnitsSet:(aUnitsGeneral&,aUnitsDistanceShort&,aUnitsDistanceLong&) :18
+
+	LcUTCOffset&: :19
+	LcDaylightSaving%:(aDaylightSavingZone&) :20
+
+	LcDecimalSeparator$: :21
+	LcDecimalSeparatorSet:(aSeparator$) :22
+	LcThousandsSeparator$: :23
+	LcThousandsSeparatorSet:(aSeparator$) :24
+	LcDateFormat&: :25
+	LcDateFormatSet:(aDateFormat&) :26
+	LcDateSeparator$:(aIndex&) :27
+	LcTimeFormat&: :28
+	LcTimeFormatSet:(aTimeFormat&) :29
+	LcTimeSeparator$:(aIndex&) :30
+	LcAmPmSymbolPosition&: :31
+	LcAmPmSetSymbolPosition:(aSymbolPosition&) :32
+	LcAmPmSpaceBetween%: :33
+	LcAmPmSetSpaceBetween:(aAmPmSpaceBetween%) :34
+
+	LcClockFormat&: :35
+	LcSetClockFormat:(aFormat&) :36
+
+	LcDayNameFull$:(aDay&) :37
+	LcMonthNameFull$:(aMonth&) :38
+
+	LcStartOfWeek&: :39
+	LcStartOfWeekSet:(aDayNumber&) :40
+	LcWorkday%:(aDayNumber&) :41
+END DECLARE

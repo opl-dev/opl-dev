@@ -1,0 +1,33 @@
+rem SComms.oxh
+rem
+rem Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+rem
+
+CONST KUidOpxSerialComms&=&100038F2
+CONST KOpxSerialCommsVersion%=$600
+
+rem For IrDA protocols
+CONST KIrmux$="Irmux"
+CONST KIrTinyTP$="IrTinyTP"
+CONST kSCIrCOMMsvrName$="IrCOMM"
+
+DECLARE OPX SCOMMS,KUidOpxSerialComms&,KOpxSerialCommsVersion%
+  SCConnect&: (svrName$) :1
+  SCSetConfig&: (handle&, termConf&) :2
+  SCWriteA: (handle&, buffer$, timeout&, BYREF statusW&) :3 
+  SCReadA: (handle&, stringAddr&, length&, timeout&, BYREF statusW&) :4
+  SCReadOneOrMoreA: (handle&, stringAddr&, BYREF statusW&) :5 
+  SCQueryReceiveBuffer&: (handle&) :6
+  SCDisconnect: (handle&): 7
+  SCReadCancel: (handle&): 8
+  SCWriteCancel: (handle&): 9
+
+rem	What happened to SComms?
+rem	SyIrDAConnectToSend&:(protocol$, port&) :xx
+rem	SyIrDAConnectToReceive:(protocol$, port&, BYREF aGlobalStatusW&) :xx
+rem	SyIrDAWrite:(chunk$, BYREF aGlobalStatusW&) :xx
+rem	SyIrDARead$: :xx
+rem	SyIrDAReadA:(stringAddr&, BYREF aGlobalStatusW&): xx
+rem	SyIrDAWaitForDisconnect: :xx
+rem	SyIrDADisconnect: :xx
+END DECLARE

@@ -1,0 +1,31 @@
+// SPELL.MMP
+//
+// Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+
+TARGET			Spell.opx
+TARGETTYPE		dll
+UID				0x10003A7B 0x10000B92
+TARGETPATH		\System\OPX
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH		..\Spell
+SOURCE			Spell.cpp
+DOCUMENT		Spell.txh
+
+DOCUMENT		DSpell.tpl
+DOCUMENT		Readme.txt
+
+SYSTEMINCLUDE	\epoc32\include
+USERINCLUDE		..\src
+LIBRARY			euser.lib oplr.lib elex.lib estor.lib
+
+DEFFILE			OPX.DEF

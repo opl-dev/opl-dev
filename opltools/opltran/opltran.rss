@@ -1,0 +1,151 @@
+// OPLTRAN.RSS
+//
+// Copyright (c) 1998-2001 Symbian Ltd. All rights reserved.
+
+NAME OTRN
+
+#include <uikon.rh>
+// #include <oplr.hrh>
+
+RESOURCE RSS_SIGNATURE { }
+//RESOURCE TBUF APP_DEFNAME {buf=""; }
+//RESOURCE EIK_APP_INFO { }
+
+RESOURCE TBUF r_otrn_error_in { buf="Error in "; }
+RESOURCE TBUF r_otrn_unknown_error { buf="Unknown error[%d]"; }
+RESOURCE TBUF r_otrn_general_failure { buf="General failure"; }
+RESOURCE TBUF r_otrn_invalid_arguments { buf="Invalid arguments"; }
+RESOURCE TBUF r_otrn_os_error { buf="Operating system error"; }
+RESOURCE TBUF r_otrn_service_not_supported { buf="Not supported"; }
+RESOURCE TBUF r_otrn_underflow { buf="Underflow"; }
+RESOURCE TBUF r_otrn_overflow { buf="Overflow"; }
+RESOURCE TBUF r_otrn_out_of_range { buf="Out of range"; }
+RESOURCE TBUF r_otrn_divide_by_zero { buf="Divide by zero"; }
+RESOURCE TBUF r_otrn_in_use { buf="In use"; }
+RESOURCE TBUF r_otrn_no_system_memory { buf="No system memory"; }
+RESOURCE TBUF r_otrn_segment_table_full { buf="Segment table full"; }
+RESOURCE TBUF r_otrn_semaphore_table_full { buf="Semaphore table full"; }
+RESOURCE TBUF r_otrn_too_many_processes { buf="Too many processes"; }
+RESOURCE TBUF r_otrn_resource_already_open { buf="Resource already open"; }
+RESOURCE TBUF r_otrn_resource_not_open { buf="Resource not open"; }
+RESOURCE TBUF r_otrn_invalid_image_device_file { buf="Invalid image or device file"; }
+RESOURCE TBUF r_otrn_no_receiver { buf="No receiver"; }
+RESOURCE TBUF r_otrn_device_table_full { buf="Device table full"; }
+RESOURCE TBUF r_otrn_file_system_not_found { buf="File system not found"; }
+RESOURCE TBUF r_otrn_failed_to_start { buf="Failed to start"; }
+RESOURCE TBUF r_otrn_font_not_loaded { buf="Font not loaded"; }
+RESOURCE TBUF r_otrn_too_wide { buf="Too wide"; }
+RESOURCE TBUF r_otrn_too_many_items { buf="Too many items"; }
+RESOURCE TBUF r_otrn_batteries_too_low_for_digital_audio { buf="Batteries too low to play sound"; }
+RESOURCE TBUF r_otrn_batteries_too_low_to_write_to_flash { buf="Batteries too low to write to disk"; }
+// Gap between -25 and -32
+RESOURCE TBUF r_otrn_file_already_exists { buf="Already exists"; }
+RESOURCE TBUF r_otrn_file_does_not_exist { buf="Does not exist"; }
+RESOURCE TBUF r_otrn_write_failed { buf="Write failed"; }
+RESOURCE TBUF r_otrn_read_failed { buf="Read failed"; }
+RESOURCE TBUF r_otrn_end_of_file { buf="End of file"; }
+RESOURCE TBUF r_otrn_disk_full { buf="Disk full"; }
+RESOURCE TBUF r_otrn_invalid_name { buf="Invalid name"; }
+RESOURCE TBUF r_otrn_access_denied { buf="Access denied"; }
+RESOURCE TBUF r_otrn_file_or_device_in_use { buf="File or device in use"; }
+RESOURCE TBUF r_otrn_device_does_not_exist { buf="Device does not exist"; }
+RESOURCE TBUF r_otrn_directory_does_not_exist { buf="Folder does not exist"; }
+RESOURCE TBUF r_otrn_record_too_large { buf="Record too large"; }
+RESOURCE TBUF r_otrn_read_only_file { buf="Read-only file"; }
+RESOURCE TBUF r_otrn_invalid_io_request { buf="Invalid I/O request"; }
+RESOURCE TBUF r_otrn_io_operation_pending { buf="I/O operation pending"; }
+RESOURCE TBUF r_otrn_invalid_volume { buf="Invalid volume"; }
+#ifdef LANGUAGE_US
+	RESOURCE TBUF r_otrn_io_cancelled { buf="I/O canceled"; }
+#else
+	RESOURCE TBUF r_otrn_io_cancelled { buf="I/O cancelled"; }
+#endif
+RESOURCE TBUF r_otrn_io_alloc_error { buf=" "; }
+RESOURCE TBUF r_otrn_disconnected { buf="Disconnected"; }
+RESOURCE TBUF r_otrn_connected { buf="Connected"; }
+RESOURCE TBUF r_otrn_too_many_retries { buf="Too many retries"; }
+RESOURCE TBUF r_otrn_line_failure { buf="Line failure"; }
+RESOURCE TBUF r_otrn_inactivity_timeout { buf="Inactivity timeout"; }
+RESOURCE TBUF r_otrn_incorrect_parity { buf="Incorrect parity"; }
+RESOURCE TBUF r_otrn_serial_frame { buf="Serial frame"; }
+RESOURCE TBUF r_otrn_serial_overrun { buf="Serial overrun"; }
+RESOURCE TBUF r_otrn_cannot_connect_to_remote_modem { buf="Cannot connect to remote modem"; }
+RESOURCE TBUF r_otrn_remote_modem_busy { buf="Remote modem busy"; }
+RESOURCE TBUF r_otrn_no_answer_from_remote_modem { buf="No answer from remote modem"; }
+RESOURCE TBUF r_otrn_number_is_black_listed { buf="Number is blacklisted"; }
+RESOURCE TBUF r_otrn_not_ready { buf="Not ready"; }
+RESOURCE TBUF r_otrn_unknown_media { buf="Unknown media"; }
+RESOURCE TBUF r_otrn_root_directory_full { buf="Root folder is full"; }
+RESOURCE TBUF r_otrn_write_protected { buf="Write protected"; }
+RESOURCE TBUF r_otrn_media_is_corrupt { buf="File is corrupt"; }
+RESOURCE TBUF r_otrn_user_abandoned { buf="User abandoned"; }
+RESOURCE TBUF r_otrn_erase_pack_failure { buf="Erase pack failure"; }
+RESOURCE TBUF r_otrn_wrong_file_type { buf="Wrong file type"; }
+RESOURCE TBUF r_otrn_missing_quote { buf="Missing \""; }
+RESOURCE TBUF r_otrn_string_too_long { buf="String is too long"; }
+RESOURCE TBUF r_otrn_unexpected_name { buf="Unexpected name"; }
+RESOURCE TBUF r_otrn_name_too_long { buf="Name is too long"; }
+RESOURCE TBUF r_otrn_logical_device_must_be_a_d { buf="Logical device must be A-Z"; }
+RESOURCE TBUF r_otrn_bad_field_name { buf="Bad field name"; }
+RESOURCE TBUF r_otrn_bad_number { buf="Bad number"; }
+RESOURCE TBUF r_otrn_syntax_error { buf="Syntax error"; }
+RESOURCE TBUF r_otrn_illegal_character { buf="Illegal character"; }
+RESOURCE TBUF r_otrn_function_argument_error { buf="Function argument error"; }
+RESOURCE TBUF r_otrn_type_mismatch { buf="Type mismatch"; }
+RESOURCE TBUF r_otrn_missing_label { buf="Missing label"; }
+RESOURCE TBUF r_otrn_duplicate_name { buf="Duplicate name"; }
+RESOURCE TBUF r_otrn_declaration_error { buf="Declaration error"; }
+RESOURCE TBUF r_otrn_bad_array_size { buf="Bad array size"; }
+RESOURCE TBUF r_otrn_structure_fault { buf="Structure fault"; }
+RESOURCE TBUF r_otrn_missing_endp { buf="Missing ENDP"; }
+RESOURCE TBUF r_otrn_syntax_error_again { buf="Syntax error"; }
+RESOURCE TBUF r_otrn_mismatched_brackets { buf="Mismatched ( or )"; }
+RESOURCE TBUF r_otrn_bad_field_list { buf="Bad field list"; }
+RESOURCE TBUF r_otrn_too_complex { buf="Too complex"; }
+RESOURCE TBUF r_otrn_missing_comma { buf="Missing ,"; }
+RESOURCE TBUF r_otrn_variables_too_large { buf="Variables are too large"; }
+RESOURCE TBUF r_otrn_bad_assignment { buf="Bad assignment"; }
+RESOURCE TBUF r_otrn_bad_array_index { buf="Bad array index"; }
+RESOURCE TBUF r_otrn_inconsistent_procedure_arguments { buf="Inconsistent procedure arguments"; }
+RESOURCE TBUF r_otrn_illegal_opcode { buf="Illegal Opcode"; }
+RESOURCE TBUF r_otrn_wrong_number_of_arguments { buf="Wrong number of arguments"; }
+RESOURCE TBUF r_otrn_undefined_externals { buf="Undefined externals"; }
+RESOURCE TBUF r_otrn_procedure_not_found { buf="Procedure not found"; }
+RESOURCE TBUF r_otrn_field_not_found { buf="Field not found"; }
+RESOURCE TBUF r_otrn_file_already_open { buf="File is already open"; }
+RESOURCE TBUF r_otrn_file_not_open { buf="File is not open"; }
+RESOURCE TBUF r_otrn_record_too_big { buf="Record is too big"; }
+RESOURCE TBUF r_otrn_module_already_loaded { buf="Module already loaded"; }
+RESOURCE TBUF r_otrn_maximum_modules_loaded { buf="Maximum modules loaded"; }
+RESOURCE TBUF r_otrn_module_does_not_exist { buf="Module does not exist"; }
+RESOURCE TBUF r_otrn_incompatible_translator_version { buf="Incompatible translator version"; }
+RESOURCE TBUF r_otrn_module_not_loaded { buf="Module not loaded"; }
+RESOURCE TBUF r_otrn_bad_file_type { buf="Bad file type"; }
+RESOURCE TBUF r_otrn_type_violation { buf="Type violation"; }
+RESOURCE TBUF r_otrn_subscript_or_dimension_error { buf="Subscript or dimension error"; }
+RESOURCE TBUF r_otrn_string_too_long_runtime { buf="String is too long"; }
+RESOURCE TBUF r_otrn_device_already_open { buf="Device already open"; }
+RESOURCE TBUF r_otrn_escape_key_pressed { buf="Escape key has been pressed"; }
+RESOURCE TBUF r_otrn_incompatible_runtime_version { buf="Incompatible runtime version"; }
+RESOURCE TBUF r_otrn_odb_files_not_closed { buf="ODB file(s) is not closed"; }
+RESOURCE TBUF r_otrn_maximum_drawables_open { buf="Maximum number of drawables open"; }
+RESOURCE TBUF r_otrn_drawable_not_open { buf="Drawable is not open"; }
+RESOURCE TBUF r_otrn_invalid_window { buf="Invalid window"; }
+RESOURCE TBUF r_otrn_screen_access_denied { buf="Screen access denied"; }
+RESOURCE TBUF r_otrn_opx_not_found { buf="OPX does not exist"; }
+RESOURCE TBUF r_otrn_opx_version { buf="Incompatible OPX version"; }
+RESOURCE TBUF r_otrn_opx_proc_not_found { buf="OPX procedure not found"; }
+RESOURCE TBUF r_otrn_stop_used_in_callback { buf="STOP used in callback"; }
+RESOURCE TBUF r_otrn_incompatible_update_mode { buf="Incompatible update mode"; }
+RESOURCE TBUF r_otrn_in_transaction { buf="In transaction"; }
+// Translator errors that clash with OPL1993 OPL runtime codes
+RESOURCE TBUF r_otrn_include_procedure {buf="INCLUDE file cannot contain procedures";}
+RESOURCE TBUF r_otrn_too_many_opxs {buf="Too many OPXs";}
+RESOURCE TBUF r_otrn_too_many_opx_functions {buf="Too many OPX functions";}
+RESOURCE TBUF r_otrn_undefined_variable {buf="Undefined variable";}
+RESOURCE TBUF r_otrn_undefined_procedure {buf="Undefined procedure";}
+RESOURCE TBUF r_otrn_icon_mask_missing {buf="Icon mask missing";}
+RESOURCE TBUF r_otrn_incompatible_declaration {buf="Incompatible declaration";}
+RESOURCE TBUF r_otrn_bad_alignment {buf="Bad alignment";}
+
+RESOURCE TBUF r_otrn_tbuf_continue_text {buf="Continue";}

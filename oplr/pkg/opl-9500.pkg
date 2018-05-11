@@ -1,0 +1,39 @@
+; OPL Runtime for Nokia 9500 Communicator Series.
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"OPL Runtime[Thumb]"}, (0x1000904D), 1, 53, 012, TYPE=SA
+;
+; Include the S80 2.0 id, to prevent the SIS from being loaded on old S80 (9200).
+; But don't use the specific 9500 id, because we want this for the 9300 too.
+;
+; For Series 80 2.0
+(0x101F8ED2),0,0,0,{"Series80ProductID"}
+;
+; Warning file
+;
+;"\oplr\rom\Release-Readme.txt"-"",FT,TA
+;
+; Dependencies
+;
+; Core OPL Files
+;
+"\epoc32\release\thumb\urel\opl.app"-"!:\System\Apps\Opl\Opl.app"
+"\epoc32\data\z\system\apps\opl\opl.aif"-"!:\System\Apps\Opl\Opl.aif"
+"\epoc32\data\z\system\data\oplr.rsc"-"!:\System\Data\Oplr.rsc"
+"\epoc32\release\thumb\urel\oplr.dll"-"!:\System\Libs\Oplr.dll"
+"\epoc32\release\thumb\urel\oplt.dll"-"!:\System\Libs\Oplt.dll"
+"\epoc32\release\thumb\urel\recopl.rdl"-"!:\System\Recogs\RecOpl.rdl"
+;
+; Font Support - eon14.gdr
+;
+"\opl\fonts\eon14.gdr"-"!:\System\Libs\Eon14.gdr"
+;
+; Include those Core OPXs
+@"\epoc32\release\thumb\urel\AppFrameOPX.sis",(0x10005235)
+@"\epoc32\release\thumb\urel\SendAsOPX.sis",(0x100055BF)
+@"\epoc32\release\thumb\urel\SystemOPX.sis",(0x1000025C)

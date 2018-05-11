@@ -1,0 +1,238 @@
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\EXPORT.make" EXPORT VERBOSE=-s
+	copy "\OPL\OPLR\inc60\bldvariant.hrh" "\Symbian\6.0\NokiaCPP\EPOC32\INCLUDE\bldvariant.hrh"
+        1 file(s) copied.
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\WINS.make" MAKEFILE VERBOSE=-s
+	perl -S makmake.pl -D \OPL\OPLR\GROUP\OPLR WINS
+	perl -S makmake.pl -D \OPL\OPLR\OPL60\OPL WINS
+	perl -S makmake.pl -D \OPL\OPLR\RECOPL\RECOPL WINS
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=WINS MAKMAKE
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\THUMB.make" MAKEFILE VERBOSE=-s
+	perl -S makmake.pl -D \OPL\OPLR\GROUP\OPLR THUMB
+	perl -S makmake.pl -D \OPL\OPLR\OPL60\OPL THUMB
+	perl -S makmake.pl -D \OPL\OPLR\RECOPL\RECOPL THUMB
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=THUMB MAKMAKE
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\WINS.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\OPLR.WINS" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\OPL.WINS" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\RECOPL.WINS" LIBRARY
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=WINS LIB
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\THUMB.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\THUMB\OPLR.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\THUMB\OPL.THUMB" LIBRARY
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\THUMB\RECOPL.THUMB" LIBRARY
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=THUMB LIB
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\WINS.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\OPLR.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\OPL.WINS" RESOURCEUDEB
+
+Reading resource file...
+Adding icons
+Reading icons
+Adding captions
+Adding capability
+Adding data types
+Saving
+        1 file(s) copied.
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\RECOPL.WINS" RESOURCEUDEB
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=WINS CFG=UDEB RESOURCE
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\WINS.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\OPLR.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\OPL.WINS" RESOURCEUREL
+
+Reading resource file...
+Adding icons
+Reading icons
+Adding captions
+Adding capability
+Adding data types
+Saving
+        1 file(s) copied.
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\RECOPL.WINS" RESOURCEUREL
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=WINS CFG=UREL RESOURCE
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\THUMB.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\THUMB\OPLR.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\THUMB\OPL.THUMB" RESOURCEUDEB
+
+Reading resource file...
+Adding icons
+Reading icons
+Adding captions
+Adding capability
+Adding data types
+Saving
+        1 file(s) copied.
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\THUMB\RECOPL.THUMB" RESOURCEUDEB
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=THUMB CFG=UDEB RESOURCE
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\THUMB.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\THUMB\OPLR.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\THUMB\OPL.THUMB" RESOURCEUREL
+
+Reading resource file...
+Adding icons
+Reading icons
+Adding captions
+Adding capability
+Adding data types
+Saving
+        1 file(s) copied.
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\THUMB\RECOPL.THUMB" RESOURCEUREL
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=THUMB CFG=UREL RESOURCE
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\WINS.make" TARGET CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\OPLR.WINS" UDEB
+Assign.cpp
+Conkywd.cpp
+Console.cpp
+Debugger.cpp
+Eik_key.cpp
+En_aparc.cpp
+En_arith.cpp
+En_cmp.cpp
+En_ctrl.cpp
+En_entry.cpp
+En_error.cpp
+En_main.cpp
+Filekey.cpp
+Frame.cpp
+Globtbl.cpp
+Graphics.cpp
+G_keywrd.cpp
+History.cpp
+Iodev.cpp
+Iokeywrd.cpp
+Iomain.cpp
+Lb_date.cpp
+Lb_dbase.cpp
+lb_dbase.cpp: Need to up LBC for dbase use???
+Lb_maths.cpp
+Lb_misc.cpp
+Module.cpp
+Opcodes.cpp
+Oplapi.cpp
+Oplconv.cpp
+Oplfile.cpp
+Oplr.uid.cpp
+Oplutil.cpp
+Peekpoke.cpp
+Pushoc.cpp
+Stack.cpp
+Ut_file.cpp
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\UDEB\OPLR.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\UDEB\OPLR.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "J:\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\UDEB\edll.pdb"; linking object as if no debug info
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\UDEB\OPLR.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\UDEB\OPLR.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "J:\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\edll.pdb"; linking object as if no debug info
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\OPL.WINS" UDEB
+Opl.uid.cpp
+Oplapp.cpp
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\UDEB\OPL.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\UDEB\OPL.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "J:\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\UDEB\edll.pdb"; linking object as if no debug info
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\UDEB\OPL.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\UDEB\OPL.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "J:\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\Z\SYSTEM\APPS\OPL\edll.pdb"; linking object as if no debug info
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\RECOPL.WINS" UDEB
+Recopl.cpp
+Recopl.uid.cpp
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\UDEB\RECOPL.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\UDEB\RECOPL.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "J:\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\UDEB\edll.pdb"; linking object as if no debug info
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\UDEB\RECOPL.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\UDEB\RECOPL.exp
+EDLL.LIB(UP_DLL.obj) : warning LNK4099: PDB "edll.pdb" was not found with "\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\EDLL.LIB" or at "J:\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\WINS\UDEB\Z\SYSTEM\RECOGS\edll.pdb"; linking object as if no debug info
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=WINS CFG=UDEB BLD
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\WINS.make" TARGET CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\OPLR.WINS" UREL
+Assign.cpp
+Conkywd.cpp
+Console.cpp
+Debugger.cpp
+Eik_key.cpp
+En_aparc.cpp
+En_arith.cpp
+En_cmp.cpp
+En_ctrl.cpp
+En_entry.cpp
+En_error.cpp
+En_main.cpp
+Filekey.cpp
+Frame.cpp
+Globtbl.cpp
+Graphics.cpp
+G_keywrd.cpp
+History.cpp
+Iodev.cpp
+Iokeywrd.cpp
+Iomain.cpp
+Lb_date.cpp
+Lb_dbase.cpp
+lb_dbase.cpp: Need to up LBC for dbase use???
+Lb_maths.cpp
+Lb_misc.cpp
+Module.cpp
+Opcodes.cpp
+Oplapi.cpp
+Oplconv.cpp
+Oplfile.cpp
+Oplr.uid.cpp
+Oplutil.cpp
+Peekpoke.cpp
+Pushoc.cpp
+Stack.cpp
+Ut_file.cpp
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\UREL\OPLR.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\UREL\OPLR.exp
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\UREL\OPLR.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\WINS\UREL\OPLR.exp
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\OPL.WINS" UREL
+Opl.uid.cpp
+Oplapp.cpp
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\UREL\OPL.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\UREL\OPL.exp
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\UREL\OPL.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\WINS\UREL\OPL.exp
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\RECOPL.WINS" UREL
+Recopl.cpp
+Recopl.uid.cpp
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\UREL\RECOPL.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\UREL\RECOPL.exp
+Microsoft (R) COFF Binary File Dumper Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+   Creating library \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\UREL\RECOPL.lib and object \Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\WINS\UREL\RECOPL.exp
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=WINS CFG=UREL BLD
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\THUMB.make" TARGET CFG=UDEB VERBOSE=-s
+NMAKE : fatal error U1073: don't know how to make '"..\..\..\Symbian\6.0\NokiaCPP\EPOC32\RELEASE\THUMB\UDEB\EDLL.LIB"'
+Stop.
+NMAKE : fatal error U1077: 'c:\apps\msvc6\VC98\bin\nmake.exe' : return code '0x2'
+Stop.
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\THUMB\OPLR.THUMB" UDEB
+""  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\THUMB.make" TARGET CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\OPLR\THUMB\OPLR.THUMB" UREL
+""
+PETRAN - PE file preprocessor V01.00 (Build 156)
+Copyright (c) 1996-2000 Symbian Ltd.
+
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\OPL60\OPL\THUMB\OPL.THUMB" UREL
+""
+PETRAN - PE file preprocessor V01.00 (Build 156)
+Copyright (c) 1996-2000 Symbian Ltd.
+
+	nmake -nologo -s  -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\RECOPL\RECOPL\THUMB\RECOPL.THUMB" UREL
+""
+PETRAN - PE file preprocessor V01.00 (Build 156)
+Copyright (c) 1996-2000 Symbian Ltd.
+
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=THUMB CFG=UREL BLD
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\WINS.make" FINAL CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=WINS CFG=UDEB FINAL
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\WINS.make" FINAL CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=WINS CFG=UREL FINAL
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\THUMB.make" FINAL CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=THUMB CFG=UDEB FINAL
+  nmake -nologo -f "\Symbian\6.0\NokiaCPP\EPOC32\BUILD\OPL\OPLR\GROUP\THUMB.make" FINAL CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\OPL\OPLR\GROUP\OPLINC.MK" PLATFORM=THUMB CFG=UREL FINAL

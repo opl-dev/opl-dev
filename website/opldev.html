@@ -1,0 +1,501 @@
+<!-- opldev.html
+19 April 03 - First draft.
+21 April 03 - Split the download page.
+21 April 03 - Combined the 9200/7650 developers pages.
+25 April 03 - Updated review comments.
+27 April 03 - Corrected the 9200 zip filename.
+28 April 03 - Clarified the Series 60 functionality.
+29 April 03 - Started using the SourceForge FRS
+6 May 03 - Added S60 dev pack details.
+31 July 03 - More S60 stuff.
+3 Aug 03 - Corrected filename.
+27 Nov 03 - More S60 details.
+13 Dec 03 - Corrected v0.30 release details.
+8 Feb 04 - Moved images.
+16 Feb 04 - Added details for v0.50 UIQ.
+22 Feb 04 - Added details of Series 90.
+29 Feb 04 - v1.51 release.
+19 June 04 - v1.52 release.
+24 Dec 04 - v1.53 available.
+11 Jan 05 - v1.54 released.
+10 Jun 06 - v1.55 released for Nokia Communicator.
+17 Jun 06 - v1.56 released for Nokia Communicator.
+-->
+
+<HTML><HEAD>
+<TITLE>OPL developers</TITLE>
+</HEAD>
+
+<BODY>
+<A NAME="anchortop"></A>
+<TABLE BORDER="0" SUMMARY="Layout">
+<TR>
+<TD VALIGN="top" ALIGN="left">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="104" SUMMARY="layout">
+<TR VALIGN="top" ALIGN="left">
+<TD WIDTH="100"><FONT FACE="Verdana" SIZE="2">
+<A HREF="abouticon.html"><IMG SRC="images/opl-devicon.png" ALT="opl-dev icon"></A>
+<P>
+<A HREF="#status">Current status summary</A>
+<P>
+<A HREF="#92xx">92xx Communicator Series</A>
+<P>
+<A HREF="#9500">9300/9500 Communicator Series</A>
+<P>
+<A HREF="#uiq">UIQ</A>
+<P>
+<A HREF="#series60">Series 60</A>
+<P>
+<A HREF="#series90">Series 90</A>
+<P>
+<A HREF="#dev">OPL dev package</A>
+<P>
+<A HREF="#release">Release notes</A>
+<P>
+<A HREF="#srczip">Source zip</A>
+<P>
+<A HREF="#screenshots">Screenshots</A>
+<P>
+<A HREF="index.html">Back to homepage</A>
+<BR>
+
+</TD>
+<TD><BR></TD>
+</TR>
+</TABLE>
+</TD>
+
+<TD VALIGN="top" ALIGN="left"><FONT FACE="Verdana" SIZE="2">
+<H2>OPL developers packages</H2>
+<P>
+If you want to write OPL programs, you will need the OPL developers pack (as well 
+as an OPL user package) for your Symbian OS phone. Generally, you can develop on 
+the phone itself, as well as on the Windows emulator supplied as part of a C++ SDK.
+<P>
+The OPL developers package available from this page will allow you to write OPL 
+programs for the following types of device:
+<BR>
+<UL>
+<LI>Nokia 92xx/9300/9500 Communicator series</LI>
+<LI>UIQ</LI>
+<LI>Series 60</LI>
+</UL>
+<B>How to use a developer pack</B>
+To use a developer pack, install the relevant C++ SDK as detailed below, 
+then unzip the developer pack on top.
+<P>
+Finally, it is possible to install more than one developer pack. (Just ensure you 
+unzip the correct one onto the appropriate SDK!)
+
+<H3><A NAME="status">Current status summary</A></H3>
+Here are the OPL developer packs, with the most complete at the top:
+<P>
+<TABLE BORDER="0" SUMMARY="Current status layout table">
+<TR>
+<TD VALIGN="top" ALIGN="left" WIDTH="80"><FONT FACE="Verdana" SIZE="2">
+<H4><SPAN STYLE="color: #00CC66;">Full release</SPAN></H4>
+</TD>
+<TD VALIGN="top" ALIGN="left"><FONT FACE="Verdana" SIZE="2">
+<H4><A HREF="#92xx">OPL for the Nokia 92xx Communicator series</A></H4>
+The version for the 92xx is v1.56 and functionally complete. 
+It supplies the Texted OPL editor application, all OPXs, and the DemoOPL example app.
+<P>
+</TD></TR>
+<TR>
+<TD VALIGN="top" ALIGN="left" WIDTH="80"><FONT FACE="Verdana" SIZE="2">
+<H4><SPAN STYLE="color: #00CC66;">Full release</SPAN></H4>
+</TD>
+<TD VALIGN="top" ALIGN="left"><FONT FACE="Verdana" SIZE="2">
+<H4><A HREF="#9500">OPL for the Nokia 9300/9500 Communicator series</A></H4>
+The version for the 9300/9500 is v1.56 and functionally complete. 
+It supplies the Texted OPL editor application, all OPXs, and the DemoOPL example app.
+<P>
+</TD></TR>
+
+<TR>
+<TD VALIGN="top" ALIGN="left">
+<H4><SPAN STYLE="color: #FFBB66;">Beta</SPAN></H4>
+</TD>
+<TD VALIGN="top" ALIGN="left"><FONT FACE="Verdana" SIZE="2">
+<H4><A HREF="#uiq">OPL for UIQ</A></H4>
+Ported from the Symbian OS 6.0 version, this is for UIQ phones based 
+on Symbian OS 7.0. While it is a beta release, as it has some open issues that need to 
+be resolved before the full release, it delivers the OPL editor app, most OPXs and the DemoOPL app.
+<P>
+</TD></TR>
+
+<!-- To add new ports, copy from here.... -->
+<TR>
+<TD VALIGN="top" ALIGN="left"><FONT FACE="Verdana" SIZE="2">
+<H4><SPAN STYLE="color: #FF0000;">Alpha</SPAN></H4>
+</TD>
+<TD VALIGN="top" ALIGN="left"><FONT FACE="Verdana" SIZE="2">
+<H4><A HREF="#series60">OPL for Series 60</A></H4>
+This version for Symbian OS 6.1 is still alpha. The OPL editor app requires more development, 
+but several OPXs are supplied.
+<P>
+</TD></TR>
+<!-- ... to here, and paste it in. Only need the WIDTH attr once -->
+
+</TABLE>
+
+<H3><A NAME="dev">Developer pack details</A></H3>
+
+<H4><A NAME="92xx">92xx Communicator Series functionality</A></H4>
+OPL for the Nokia 92xx Communicator Series is a long established, mature, 
+<SPAN STYLE="color: #00CC66;">full release</SPAN>.
+<P>
+C++ SDK required (only for full developers package): Nokia 9200 Communicator SDK (available from 
+<A HREF="http://www.forum.nokia.com">www.forum.nokia.com</A>)
+<P>
+Full developers pack (for development on PC and on the device):  
+<A HREF="http://prdownloads.sourceforge.net/opl-dev/9200-OPL-DevPack-2006-06-17.zip?download">9200-OPL-DevPack-2006-06-17.zip file</A> (1437 Kb)<BR>
+Mini developers pack (for development on the device itself only):
+<A HREF="http://prdownloads.sourceforge.net/opl-dev/9200-OPL-DevMini-2006-06-17.zip?download">9200-OPL-DevMini-2006-06-17.zip file</A> (413 Kb)
+
+<H4><A NAME="9500">9300/9500 Communicator Series functionality</A></H4>
+OPL for the Nokia 9300/9500 Communicator Series is a mature, 
+<SPAN STYLE="color: #00CC66;">full release</SPAN>.
+<P>
+C++ SDK required (only for full developers package): Nokia S80 DP2.0 SDK (available from 
+<A HREF="http://www.forum.nokia.com">www.forum.nokia.com</A>)
+<P>
+Full developers pack (for development on PC and on the device):  
+<A HREF="http://prdownloads.sourceforge.net/opl-dev/9500-OPL-DevPack-2006-06-17.zip?download">9500-OPL-DevPack-2006-06-17.zip file</A> (1040 Kb)<BR>
+Mini developers pack (for development on the device itself only):
+<A HREF="http://prdownloads.sourceforge.net/opl-dev/9500-OPL-DevMini-2006-06-17.zip?download">9500-OPL-DevMini-2006-06-17.zip file</A> (413 Kb)
+
+<H4><A NAME="uiq">UIQ functionality</A></H4>
+The port of OPL for UIQ is available as a <SPAN STYLE="color: #FFBB66;">beta</SPAN> release, as most 
+items of functionality are available. The translator and runtime work as expected, the Texted 
+OPL editor is able to translate programs and OPL applications, and most OPXs are available.
+<P>
+In this regard, the UIQ version is much closer to the Communicator version than the Series 60 port.
+<P>
+The known limitations are:
+<UL>
+<LI>OPL event loop handling</LI>
+<LI>OPL font constants</LI>
+<LI>Texted file handling, ini file</LI>
+<LI>Texted fonts</LI>
+</UL>
+More information on this is available in the UIQ developer pack zip file.
+<P>
+C++ SDK required: Symbian OS v7.0 UIQ 2.1 SDK (available from <A HREF="http://www.sonyericsson.com/developer/site/global/home/p_home.jsp">Sony Ericsson Developer World Home</A> page.)
+<P>
+Developers pack:  
+<A HREF="http://prdownloads.sourceforge.net/opl-dev/UIQ-OPL-DevPack-2005-01-10.zip?download">UIQ-OPL-DevPack-2005-01-10.zip file</A>
+
+<H4><A NAME="series60">Series 60 functionality</A></H4>
+The OPL for Series 60 user package is currently at <SPAN STYLE="color: #FF0000;">alpha</SPAN> status, 
+v0.50. In particular, there's no support for string DIALOGs, nor sound. Most OPXs have 
+not been tested.
+<P>
+Also, a C++ wrapper application is required to launch .OPO files from the 
+Series 60 Menu application. This will be the standard way of supporting OPL 
+applications on Series 60. For more details on rolling your own wrapper, take 
+a look at the \opl\oplr\oplwrapper0 source code. A readme.txt file explains 
+how to customize the oplwrapper0 code for your own application. (Or you might be
+lucky if you ask a friendly Series 60 programmer very nicely.)
+<P>
+The editor application (texted.app) for Series 60 phones is also yet to be 
+released. If you wish to write OPL programs for Series 60 phones, there are 
+two main options:
+<OL>
+<LI>Use the PC-based OPLTRAN tool with a Series 60 SDK to produce your .OPO 
+files. Or</LI>
+<LI>Develop your .OPO files on a Nokia Communicator (or emulator) and 
+transfer to the Series 60 phone.</LI>
+</OL>
+<P>
+Similarly for Series 60, if you have a Series 60 SDK, you'll be able to develop 
+OPX extensions. (Though we've not tested this yet.) You'll also be able to 
+develop using the PC-based OPLTRAN tool and test using the Series 60 emulator.
+<P>
+C++ SDK required: Series 60 SDK (available from <A HREF="http://www.forum.nokia.com">www.forum.nokia.com</A>)
+<P>
+Developers pack:
+<!--A HREF="http://prdownloads.sourceforge.net/opl-dev/Series60-OPL-DevPack-2004-02-23.zip?download">Series60-OPL-DevPack-2004-02-23.zip file</A-->
+<A HREF="http://prdownloads.sourceforge.net/opl-dev/OPL-OS61-WINS-030.zip?download">OPL-OS61-WINS-030.zip file</A>
+
+<H4><A NAME="series90">Series 90 functionality</A></H4>
+OPL for the Nokia 7700 phone using Series 90 is at a <SPAN STYLE="color: #FF0000;">pre-release</SPAN> 
+stage. It's not yet available, we're waiting for the release of a more complete version of the Series 90 SDK.
+
+<P>
+C++ SDK required: Series 90 SDK (available from <A HREF="http://www.forum.nokia.com">www.forum.nokia.com</A>)
+<P>
+Developers pack:  Not yet available.<BR>
+<!--A HREF="http://prdownloads.sourceforge.net/opl-dev/Series90-OPL-DevPack-2004-02-23.zip?download">Series90-OPL-DevPack-2004-02-23.zip file</A-->
+<BR> 
+<BR>
+<H3><A NAME="release">Release notes</A></H3>
+The latest release notes for developers are:</FONT><PRE><CODE>v1.56 17 June 06 ricka@users.sourceforge.net and arjenb@users.sourceforge.net
+
+Legend: C92 = for Nokia 92xx Communicator
+        C95 = for Nokia 9300/9500 Communicator
+        C9X = for all Nokia Communicators
+        ALL = for all devices (Communicator, UIQ, S60)
+        
+OPLT:
+* (ALL) arjenb: Added new graphics command gXBORDER32 - see OPLR
+
+OPLR:
+* (C9X) arjenb: Fixed bug [1507068] Runtime with active menu freezes when focus switches 
+* (ALL) arjenb: New functionality to fix bug [1172574] gXBORDER only draws one border type
+        gXBORDER32 command was added that draws the new Symbian ER6 style borders,
+        addding OpCode::gXBorder32() and modifying CONST.TPH. See Developer note #1 below 
+        for details.
+
+NOTE FOR DEVELOPERS:
+1. New graphics command: gXBORDER32
+gXBORDER32 draws the new Symbian ER6 style borders. Since the new flag constants for these type
+of borders exceed the size of an integer and the old gXBORDER command only accepts a integer flag,
+the new command was introduced. The syntax of gXBORDER32 is almost identical to the old gXBORDER 
+command, but the first parameter is no longer present and the second parameter has been changed to 
+a longint.
+
+Usage: gXBORDER32 flags&[,w%,h%]
+
+Constants for the different border types are included in CONST.OPH.
+
+The following example draws a Window-type border around the current drawable:
+   gXBORDER32 KgXBorder32Window&
+---
+v1.55 10 June 06 ricka at users dot sourceforge dot net and arjenb at users dot sourceforge dot net
+
+GENERAL:
+* (C9X) arjenb: Added self signed certificate to all 92xx/9300/9500 .pkg files
+* (C95) arjenb: Fixed bug [1160930] SIS files are missing Series80ProductID
+* (C9X) arjenb: AppFrame.opx, SendAs.opx and System.opx are now included as files in the OPL runtime 
+        installation and are no longer available as separate sis-files. This to prevent the user from
+        seeing 4 installation warnings when installing the runtime and to prevent reinstallation 
+        problems on Nokia 9300/9500 Communicators.
+* (ALL) ricka:  Fixed bug [1101203] HRH2OPH missing from Dev Pack
+
+OPLT:
+* (ALL) arjenb: Fixed bug [911620] Stale .AIF files left in \System\Temp
+* (ALL) arjenb: Added new graphics command gPIXEL - see OPLR
+* (ALL) arjenb: Added optional third argument for LOC - see OPLR
+
+OPLR:
+* (ALL) arjenb: New functionality for feature [734702] Graphics commands
+        gPIXEL command was added which returns the RGB color value of the specified pixel,
+        addding FuncOpCode::gPixel(). See Developer note #1 below for details.
+* (ALL) arjenb: Fixed bug and new functionality for feature [1499213] LOC partially broken
+        The LOC function was changed to use language independent case insensitive searching.
+        Additionally, an optional 3rd argument for LOC was added, to allow specification of the 
+        search mode (normal, folded and collapsed), adding FuncOpCode::LocWithCase() and modifying 
+        const.tph. See Developer note #2 below for details.
+* (C95) arjenb: Fixed bug [0934352] MPOPUP crashes.
+* (C9X) arjenb: Fixed bug [1493931] Runtime crashes.
+* (C95) arjenb: Fixed bug [1404558] CBA update problems in OPL dialogs
+* (C95) arjenb: Fixed bug [1245819] No scrollbar in OPL dialogs
+* (ALL) arjenb: Fixed bug [1500819] PEEK$ sometimes doesn't work
+* (C95) arjenb: Fixed bug [1299716] Status field not updated correctly
+
+OPX:
+* (ALL) arjenb: Added Array.OPX for handling C++ style dynamic length arrays in OPL.
+        See \opl\opx\array\ArrayOPX.rtf for more info.
+* (C9X) arjenb: Fixed bug [0897032] Agenda.opx problem on 9200
+* (C95) arjenb: Fixed bug [1086304] SyGetPhoneInfo$: panics in System.OPX.
+* (ALL) arjenb: Fixed bug [1404558] Declaration errors in System.oxh
+* (C9X) arjenb: Fixed bug [1158074] Application title bar casts shadow in AppFrame.OPX
+* (C95) ricka:  Fixed bug [1167022] AppFrame OPX doesn't support AddToDesk on 9500
+* (C95) arjenb: Restored irListen functionality in Appframe.opx (AFToggleIrDA function)
+
+TEXTED:
+* (C9X) arjenb: Fixed bug [1103100] Find/Replace skips first find
+* (C95) arjenb: Fixed bug [1103109] Replace missing from Texted editor
+* (C95) ricka:  Fixed bug [1103547] Texted doesn't use AddToDesk on 9500
+* (C95) arjenb: Find/replace now also always starts at the current cursor position on a 9300/9500
+* (C9X) arjenb: Goto dialog CBA-buttons restructured (instead a single "Close" button, the dialog 
+        now has a "Go to" and "Cancel" button)
+
+OPLTOOLS:
+* (C95) ricka:  Fixed bug [1043920] OPLTRAN.EXE panics on 9500 SDK
+
+DEMOOPL:
+* (ALL) ricka:  Fixed bug [1079304] Further changes to demoopl.mk makefile to cleanly build demoopl.app
+
+NOTES FOR DEVELOPERS:
+1. New graphics command: gPIXEL
+gPIXEL returns the RGB color value of a pixel in the current drawable.
+
+Usage: rgb&=gPIXEL(xpos%,ypos%)
+
+RGB values are returned as longints and can be converted to red, green and blue values using the KRgbRedPosition&, 
+KRgbGreenPosition&, KRgbBluePosition& and KRgbColorMask& constants (specified in CONST.OPH). 
+
+The following example retrieves the RGB values of a horizontal line of 15 pixels starting at position 4,6 
+in the specified window and prints the retrieved RGB values in the default window:
+
+PROC GetPixelDemo:(DrawableID%)
+LOCAL I%,P&,R&,G&,B&
+  I% = 0
+  WHILE I% < 15
+    gUSE DrawableID%
+    P& = gPIXEL(4+I%,6)
+    R& = P& / KRgbRedPosition& AND KRgbColorMask&
+    G& = P& / KRgbGreenPosition& AND KRgbColorMask&
+    B& = P& / KRgbBluePosition& AND KRgbColorMask&
+    gUSE 1
+    PRINT "Pixel at (" + NUM$(4+I%,2) + ",6)= R:" + NUM$(R&,3) + ",G:" + NUM$(G&,3) + ",B:" + NUM$(B&,3)
+    I%=I%+1
+  ENDWH
+ENDP
+
+2. Changes to the LOC function
+LOC is now implemented using a locale *independent* case insensitive search. The previous version of LOC
+used a locale *dependent* case insensitive search. The problem with the locale dependent version was that
+it did not find non-printable characters (like CHR$(0)), and incorrectly reported them as found at the first 
+position of the string. It also mapped most extended characters to their collated counterparts before starting
+the search (e.g. ß becomes S), which could lead to incorrect results.
+
+The LOC function has also been extended with an optional third argument, allowing you to specify the search mode. 
+LOC is now able to do a case sensitive search, a language dependent case insensitive search and a language 
+independent case insensitive search. For this purpose three new constants have been added to CONST.OPH:
+KLocFindExact%       does a case sensitive search
+KLocFindCollated%    does a case insensitive search (locale dependent)
+KLocFindFolded%      does a case insensitive search (locale independent), same effect as LOC with two arguments
+
+In the event that your application relies on the fact that LOC uses the language dependent search (for example 
+if your code expects that a ß-character is considered equal to an S or the degree symbol (°) is equal to 
+the O-character), you need to use LOC's new optional third argument with the value KLocFindCollated%.
+
+---
+v1.54 11 January 05 ricka at users dot sourceforge dot net and phil.spencer at symbian dot com
+
+TEXTED:
+* Minor corrections to libraries included in the mmp file.
+* Corrected the HorizontalScrollBar state test for the Program menu.
+* Minor change to UIQ Program menu separator bar for Edit pane.
+* Removed Find from UIQ menu - bug [910920] Find doesn't work on UIQ editor.
+* Started a solution for bug [1095527] Search and Replace doesn't work in TextEd
+  on 92xx and 9300/9500 phones.
+
+---
+v1.53 24 December 04 ricka at users dot sourceforge dot net and phil.spencer at symbian dot com
+
+GENERAL:
+* Added an extra build flag __UIQ_MMP_WINS_TOO__ in opl-target.mmpi include file
+  to re-instate some WINS support under UIQ.
+* Fixed bug [91100] Files missing from UIQ dev pack.
+  Const.oph and various .oxh files now present in the UIQ developer pack.
+* Added new makeopl.bat file to rebuild all opl components from a single script.
+
+OPLR:
+* Fixed bug [922555] UIQ: dINIT Problems with Buttons
+  Changed UIQ dialog RSS file to just contain an OK button by default, no need for
+  full ALERT dialog keys on dialogs where no dBUTTONS is used.
+
+* Fixed bug [908415] dButton Command - Four buttons as default on UIQ (p800)
+  Changed dBUTTONS construction so that on UIQ (like on ER5) only used buttons are
+  added, removing the problem of unsightly blank buttons which was a hangover from
+  the Crystal CBA way of doing things.
+
+* Fixed bug [851520] Unguarded RDebug::Print
+  All calls to RDebug::Print() are now guarded for _DEBUG builds only.
+  Note: this required changes to OPX mediaserveropx too.
+
+* Added some S80_DP2_0 (Nokia 9300/9500)-specific changes for dDate's AddDateEditorL().
+
+OPLTOOLS:
+* Added HRH2OPH to help convert UIQ help compiler files to OPL include files.
+
+OPX:
+* Removed some of the unsupported configurable features of Appframe.OPX from the
+  S80_SP2_0 (Nokia 9300/9500) version. e.g. Add To Desk, IR Listen.
+  Ditto for System.OPX's access to system timers, ETEL and PLP remote link.
+
+TEXTED:
+* Changed some UIQ menus and dialogs to make it look and behave more like a UIQ
+  application.
+
+* Fixed bug [910311] No horizontal scrollbar in TextEd
+  While the scroll bar should appear automatically, like the vertical scroll bar, 
+  there seems to be some underlying problem which stops this happening. So the Editor
+  menu now allows the choice of whether you want the horizontal scroll bar visible or
+  not. It's off by default.
+  Also, there's a (related?) problem with the width of the document - the scroll bar
+  action gives the impression that the document is approx. 2000 chars wide! This is
+  most obvious when dragging the scroll bar thumb, which means this action isn't very
+  useful. However, tapping on the scroll bar arrow heads (or the bar between the
+  thumb and the arrow head) works quite well. 
+  (Incidently, this is not a UIQ problem, a test version of the Editor app built for
+  the 9210 exhibits the same weird horizontal scroll bar too.)
+  See the sourceforge bug report for more details.
+
+* Fixed bug [980744] Missing print setup on phone stops editor
+  Cleaned up the print setup problem first seen in the v0.50 release.
+  The fix is to trap a leaving function (iEikonEnv->NewDefaultPrintSetupL()) and use
+  null, as the editor is designed to handle this optional feature.
+
+DEMOOPL:
+* Partial fix for bug [1079304] "DemoOPL.mk modifies src folder" where the custom
+  makefile was building the DemoIcon.mbm file incorrectly.
+
+---
+v1.52 19 June 04 ricka at users dot sourceforge dot net
+
+OPLR:
+* Partial solution for bug [910981] gFONT doesn't work on UIQ, picking up the 
+  SwissA font in graphics windows for the beta release of OPL for UIQ.
+  Added CONST KFontUiqSwissABeta&=&017B4B0D
+* Corrected a build problem from the v1.51 for Series 60 OPL.APP, regarding
+  included .mmpi files.
+* Added details to the oplwrapper0 readme.txt file.
+* Corrected some problems with opltest, the OPL test harness.
+* Added tOpxVersionNumber.tpl which shows how to confirm your OPL app is using the 
+  right OPX version.
+
+General
+* Changed the baseline of the source code to the CVS version - some minor differences
+  in the cases of filenames - to improve CVS submissions.
+
+---
+</CODE></PRE><FONT FACE="Verdana" SIZE="2">
+<P>
+<H3><A NAME="srczip">OPL source zip</A></H3>
+If you're new to CVS and just want to take a look at the OPL translator, runtime 
+and OPX source code in C++, a zip file containing all the 
+<A HREF="http://prdownloads.sourceforge.net/opl-dev/srcopl155.zip?download">OPL source code for v1.55</A> is available. 
+The readme.txt file in the root of the zip explains how to build the binaries.
+<P>
+
+<H3><A NAME="screenshots">Screenshots</A></H3>
+Here are some screenshots of OPL development. Click on the thumbnail to see a larger image.
+<P>
+On a Nokia 92xx Communicator:
+<P>
+<A HREF="images/opl9200dev1.png">
+<IMG SRC="images/opl9200dev1thumb.png" ALT="OPL development on 92xx thumbnail"></A>
+<P>
+Texted running on the P800:
+<P>
+<A HREF="images/opluiqdev1.png">
+<IMG SRC="images/opluiqdev1thumb.png" ALT="OPL development on P800 thumbnail"></A>
+<P>
+More screenshots <A HREF="oplseries60.html#screenshots">here</A>.
+
+<BR>
+<BR>
+<A HREF="#anchortop">Back to top</A>
+<P>
+<A HREF="index.html">Back to opl-dev project homepage</A>
+
+<BR>
+<BR>
+<A HREF="http://sourceforge.net">
+<IMG SRC="http://sourceforge.net/sflogo.php?group_id=76695&amp;type=1" WIDTH="88" HEIGHT="31" BORDER="0" ALIGN=right ALT="SourceForge.net Logo" />
+</A> 
+
+<A HREF="http://www.symbian.com/">
+<IMG SRC="images/symbian.png" ALT="Symbian logo" ALIGN=left />
+</A>
+
+</TD>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

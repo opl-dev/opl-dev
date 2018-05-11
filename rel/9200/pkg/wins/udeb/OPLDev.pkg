@@ -1,0 +1,29 @@
+#{"OPL Developer Package"},(0x10009480),1,56,001,TYPE=SISAPP
+
+;Opl developer package
+
+; Digitally sign this .sis file
+*"..\..\..\..\Symbian.key","..\..\..\..\Symbian.cer"
+
+"\symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\z\system\apps\texted\texted.app"-"!:\System\Apps\Texted\Texted.app"
+"\symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\z\system\apps\texted\texted.aif"-"!:\System\Apps\Texted\Texted.aif"
+"\symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\z\system\apps\texted\texted.rsc"-"!:\System\Apps\Texted\Texted.rsc"
+
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\agenda.oxh"-"!:\System\Opl\Agenda.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\alarm.oxh"-"!:\System\Opl\Alarm.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\appframe.oxh"-"!:\System\Opl\AppFrame.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\array.oxh"-"!:\System\Opl\Array.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\bmp.oxh"-"!:\System\Opl\Bmp.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\celltrack.oxh"-"!:\System\Opl\Celltrack.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\contact.oxh"-"!:\System\Opl\Contact.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\convert.oxh"-"!:\System\Opl\Convert.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\date.oxh"-"!:\System\Opl\Date.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\dbase.oxh"-"!:\System\Opl\Dbase.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\locale.oxh"-"!:\System\Opl\Locale.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\printer.oxh"-"!:\System\Opl\Printer.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\scomms.oxh"-"!:\System\Opl\Scomms.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\sendas.oxh"-"!:\System\Opl\Sendas.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\spell.oxh"-"!:\System\Opl\Spell.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\system.oxh"-"!:\System\Opl\System.oxh"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\const.oph"-"!:\System\Opl\Const.oph"
+"\symbian\6.0\NokiaCPP\epoc32\wins\c\system\opl\e32err.oph"-"!:\System\Opl\E32Err.oph"

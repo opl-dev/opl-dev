@@ -1,0 +1,30 @@
+#{"OPL Developer Package"},(0x10009480),1,56,001,TYPE=SISAPP
+
+;Opl developer package
+
+; For Series 80 2.0
+(0x101F8ED2),0,0,0,{"Series80ProductID"}
+
+; Digitally sign this .sis file
+*"..\..\..\Symbian.key","..\..\..\Symbian.cer"
+
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\release\wins\udeb\z\system\apps\texted\texted.app"-"!:\System\Apps\Texted\Texted.app"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\data\z\system\apps\texted\texted.aif"-"!:\System\Apps\Texted\Texted.aif"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\data\z\system\apps\texted\texted.rsc"-"!:\System\Apps\Texted\Texted.rsc"
+
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\agenda.oxh"-"!:\System\Opl\Agenda.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\alarm.oxh"-"!:\System\Opl\Alarm.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\appframe.oxh"-"!:\System\Opl\AppFrame.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\array.oxh"-"!:\System\Opl\Array.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\bmp.oxh"-"!:\System\Opl\Bmp.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\contact.oxh"-"!:\System\Opl\Contact.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\convert.oxh"-"!:\System\Opl\Convert.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\date.oxh"-"!:\System\Opl\Date.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\dbase.oxh"-"!:\System\Opl\Dbase.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\locale.oxh"-"!:\System\Opl\Locale.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\printer.oxh"-"!:\System\Opl\Printer.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\scomms.oxh"-"!:\System\Opl\Scomms.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\sendas.oxh"-"!:\System\Opl\Sendas.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\system.oxh"-"!:\System\Opl\System.oxh"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\const.oph"-"!:\System\Opl\Const.oph"
+"\symbian\7.0s\S80_DP2_0_SDK\epoc32\wins\c\system\opl\e32err.oph"-"!:\System\Opl\E32Err.oph"

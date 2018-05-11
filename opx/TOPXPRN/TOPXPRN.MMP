@@ -1,0 +1,22 @@
+// TOPXPRN.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+TARGET        prntst.opx
+TARGETTYPE    dll
+TARGETPATH    \System\Opx
+UID    0x10003a7b 0x100002f1
+
+SOURCEPATH	..\topxprn
+
+SOURCE        prntst.cpp
+DOCUMENT      prntst.txh
+
+SYSTEMINCLUDE \epoc32\include
+
+LIBRARY       etext.lib print.lib
+LIBRARY       euser.lib oplr.lib bitgdi.lib
+LIBRARY       gdi.lib
+LIBRARY       egul.lib 
+
+DEFFILE       OPX.DEF

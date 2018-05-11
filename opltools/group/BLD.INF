@@ -1,0 +1,29 @@
+// BLD.INF
+//
+// Copyright (c) 1999-2001 Symbian Ltd. All rights reserved.
+//
+// Opltools.
+// Use 'abld makefile vc6winc' for the MSDev IDE version.
+
+#include "..\..\opl-target.mmpi"
+
+PRJ_PLATFORMS
+#if defined(__UIQ_MMP__) 
+WINSCW
+#else
+WINC
+#endif
+#if defined(__UIQ_MMP_WINS_TOO__)
+WINC
+#endif
+
+PRJ_EXPORTS
+..\opltran\opltran.bat	\epoc32\tools\opltran.bat
+..\rsg2osg\rsg2osg.bat	\epoc32\tools\rsg2osg.bat
+..\rsg2osg\rsg2osg.pl	\epoc32\tools\rsg2osg.pl
+..\hrh2oph\hrh2oph.bat	\epoc32\tools\hrh2oph.bat
+..\hrh2oph\hrh2oph.pl	\epoc32\tools\hrh2oph.pl
+
+PRJ_MMPFILES
+..\opltran\opltran.mmp
+

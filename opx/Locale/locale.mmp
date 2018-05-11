@@ -1,0 +1,38 @@
+// LOCALE.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+TARGET         locale.opx
+TARGETTYPE     dll
+TARGETPATH     \System\Opx
+UID				0x10003a7b 0x100052B0
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH	..\locale
+SOURCE         locale.cpp
+DOCUMENT       locale.txh
+
+SOURCEPATH	..\tsrc
+DOCUMENT       tlocale.tpl
+
+SYSTEMINCLUDE  \epoc32\include
+
+LIBRARY        euser.lib oplr.lib bafl.lib 
+#if defined(__UIQ_MMP__)
+LIBRARY			worldclient.lib
+#elif defined(__S80_DP2_0_MMP__)
+LIBRARY			worldclient.lib
+LIBRARY			ealwl.lib
+#else
+LIBRARY			ealwl.lib
+#endif
+DEFFILE			opx.def

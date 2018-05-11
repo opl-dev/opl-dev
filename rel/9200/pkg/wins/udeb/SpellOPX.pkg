@@ -1,0 +1,22 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"Spell OPX"}, (0x10000B92), 0, 40, 116, TYPE=SY
+
+; Digitally sign this .sis file
+*"..\..\..\..\Symbian.key","..\..\..\..\Symbian.cer"
+
+;
+; Files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\z\system\opx\Spell.opx"-"!:\System\OPX\Spell.opx", FF
+;
+; Depends on OPL.sis being installed
+; Depends on Spell.sis being installed
+;
+(0x1000904D), 1, 55, 001, {"OPL Runtime"}
+(0x10000B11), 1, 00, 000, {"Spell Checker"}

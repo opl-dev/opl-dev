@@ -1,0 +1,488 @@
+// TEXTED.RSS
+//
+// Copyright (c) 1997-2004 Symbian Software Ltd. All rights reserved.
+//
+// This is the UIQ version.
+
+NAME TXED
+
+#include <eikon.rh>
+#include <eikon.rsg>
+#include <uikon.rh>
+#include <uikon.hrh>
+#include <qikon.rh>
+#include <qikon.hrh>
+#define __UIQ_RESOURCE__
+#include "texted.loc"
+#include "texted.hrh"
+
+RESOURCE RSS_SIGNATURE { }
+RESOURCE TBUF { buf=OPL_G_RESOURCE_NAME; }
+RESOURCE EIK_APP_INFO app_info
+	{
+	hotkeys=r_txed_hotkeys;
+	menubar=r_txed_menubar;
+	}
+
+RESOURCE HOTKEYS r_txed_hotkeys
+	{
+	control=
+		{
+		HOTKEY { command=EEikCmdEditSelectAll;		key=OPL_K_SELECT_ALL; },
+		HOTKEY { command=EEikCmdEditCopy;			key=OPL_K_COPY; },
+		HOTKEY { command=ETextEdCmdDelete;			key=OPL_K_DELETE; },
+		HOTKEY { command=ETextEdCmdMenuGoTo;		key=OPL_K_GOTO; },
+		HOTKEY { command=ETextEdCmdTranslate;		key=OPL_K_TRANSLATE; },
+		HOTKEY { command=EEikCmdFileNew;			key=OPL_K_NEW; },
+		HOTKEY { command=EEikCmdFileOpen;			key=OPL_K_OPEN; },
+		HOTKEY { command=EEikCmdPrintPrint;			key=OPL_K_PRINT; },
+		HOTKEY { command=EEikCmdFileSave;			key=OPL_K_SAVE; },
+		HOTKEY { command=ETextEdCmdFullScreen;		key=OPL_K_FULL_SCREEN; },
+		HOTKEY { command=ETextEdCmdRun;				key=OPL_K_RUN; },
+		HOTKEY { command=EEikCmdEditPaste;			key=OPL_K_PASTE; },
+		HOTKEY { command=EEikCmdEditCut;			key=OPL_K_CUT; },
+		HOTKEY { command=EEikCmdEditUndo;			key=OPL_K_UNDO; }
+		};
+	shift_control=
+		{
+		HOTKEY { command=EEikCmdFileExport;			key=OPL_K_EXPORT; },
+		HOTKEY { command=EEikCmdFontChange;			key=OPL_K_FONT_CHANGE; },
+		HOTKEY { command=EEikCmdFileImport;			key=OPL_K_IMPORT; },
+		HOTKEY { command=ETextEdCmdSetPreferences;	key=OPL_K_PREFERENCES; },
+		HOTKEY { command=ETextEdCmdLog	;			key=OPL_K_LOG; },
+		HOTKEY { command=ETextEdCmdTranslateDebug;	key=OPL_K_TRANSLATE_DEBUG; },
+		HOTKEY { command=ETextEdCmdShowLastError;	key=OPL_K_SHOW_LAST_ERROR; },
+		HOTKEY { command=EEikCmdFileSaveAs;			key=OPL_K_SAVE_AS; },
+		HOTKEY { command=ETextEdCmdShowTitleBar;	key=OPL_K_SHOW_TITLE; },
+		HOTKEY { command=ETextEdCmdPageSetup;		key=OPL_K_PAGE_SETUP; },
+		HOTKEY { command=EEikCmdPrintPreview;		key=OPL_K_PRINT_PREVIEW; }
+		};
+	}
+
+RESOURCE MENU_BAR r_txed_menubar
+	{
+	titles=
+		{
+		MENU_TITLE { menu_pane=r_txed_file_menu;	txt=OPL_M_FILE; },
+		MENU_TITLE { menu_pane=r_txed_edit_menu;	txt=OPL_M_EDIT; },
+		MENU_TITLE { menu_pane=r_txed_build_menu;	txt=OPL_M_BUILD; }
+		};
+	}
+
+RESOURCE MENU_PANE r_txed_file_menu
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=EEikCmdFileNew;
+			txt=OPL_M_NEW;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdFileOpen;
+			txt=OPL_M_OPEN;
+			flags=EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{
+			cascade=r_txed_save_menu;
+			txt=OPL_M_SAVE;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdFileRevert;
+			txt=OPL_M_REVERT_TO_SAVED;
+			flags=EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{
+			command=ETextEdCmdDelete;
+			txt=OPL_M_DELETE;
+			},
+		MENU_ITEM
+			{
+			cascade=r_txed_fileoptions_menu;
+			txt=OPL_M_MORE;
+			flags=EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdExit;
+			txt=OPL_B_CLOSE;
+			}
+		};
+	}
+
+RESOURCE MENU_PANE r_txed_save_menu
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=EEikCmdFileSave;
+			txt=OPL_M_SAVE_DOCUMENT;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdFileSaveAs;
+			txt=OPL_M_SAVE_AS;
+			}
+		};
+	}
+
+RESOURCE MENU_PANE r_txed_fileoptions_menu
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=EEikCmdFileImport;
+			txt=OPL_M_IMPORT_TXT_FILE;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdFileExport;
+			txt=OPL_M_EXPORT_TXT_FILE;
+			}
+		};
+	}
+
+RESOURCE MENU_PANE r_txed_printoptions_menu
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=EEikCmdPrintPrint;
+			txt=OPL_M_PRINT;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdPrintPreview;
+			txt=OPL_M_PRINT_PREVIEW;
+			flags=EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{
+			command=ETextEdCmdPageSetup;
+			txt=OPL_M_PAGE_SETUP;
+			}
+		};
+	}
+
+RESOURCE MENU_PANE r_txed_edit_menu
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=EEikCmdEditUndo;
+			txt=OPL_M_UNDO_DELETE;
+			flags=EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdEditCut;
+			txt=OPL_M_CUT;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdEditCopy;
+			txt=OPL_M_COPY;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdEditPaste;
+			txt=OPL_M_PASTE;
+			flags=EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdEditSelectAll;
+			txt=OPL_M_SELECT_ALL;
+			flags=EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdFontChange;
+			txt=OPL_M_FONT;
+			},
+		MENU_ITEM
+			{
+			command=ETextEdCmdIndentation;
+			txt=OPL_M_INDENTATION;
+			flags=EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{ // UIQ only
+			command=ETextEdCmdShowHorizScrollBar;
+			txt=OPL_M_SHOW_SCROLLBAR;
+			flags=EEikMenuItemCheckBox|EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{
+			command=ETextEdCmdSetPreferences;
+			txt=OPL_M_PREFERENCES;
+			}
+		};
+	}
+
+RESOURCE MENU_PANE r_txed_zoom_menu
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=EEikCmdZoomIn;
+			txt=OPL_M_ZOOM_IN;
+			},
+		MENU_ITEM
+			{
+			command=EEikCmdZoomOut;
+			txt=OPL_M_ZOOM_OUT;
+			}
+		};
+	}
+
+RESOURCE MENU_PANE r_txed_build_menu
+	{
+	items=
+		{
+		MENU_ITEM
+			{
+			command=ETextEdCmdTranslate;
+			txt=OPL_M_TRANSLATE;
+			},
+		MENU_ITEM
+			{
+			command=ETextEdCmdTranslateDebug;
+			txt=OPL_M_TRANSLATE_DEB;
+			},
+		MENU_ITEM
+			{
+			command=ETextEdCmdRun;
+			txt=OPL_M_RUN_PROGRAM;
+			flags=EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{
+			command=ETextEdCmdShowLastError;
+			txt=OPL_M_SHOW_LAST_ERROR;
+			flags=EEikMenuItemSeparatorAfter;
+			},
+		MENU_ITEM
+			{
+			command=ETextEdCmdMenuGoTo;
+			txt=OPL_M_SHOW_PROCEDURES;
+			}
+		};
+	}
+
+RESOURCE DIALOG r_txed_dialog_list_proc
+	{
+	title=OPL_D_PROCEDURES;
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	flags=EEikDialogFlagWait;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EEikCtListBox;
+			id=ETextEdShowProcListId;
+			control=LISTBOX
+				{
+				height=5;
+				width=10;
+				flags=EEikListBoxIncrementalMatching;
+				};
+			}
+		};
+	}
+
+RESOURCE DIALOG r_txed_dialog_indentation
+	{
+	flags=EEikDialogFlagWait;
+	title=OPL_D_INDENTATION;
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	items=
+		{
+		DLG_LINE
+			{
+			prompt=OPL_F_TAB_SETTING;
+			type=EQikCtNumberEditor;
+			id=ETxedCidTabSetting;
+			control=QIK_NUMBER_EDITOR { min=0; max=30; };
+			trailer=OPL_F_TAB_SETTING_CHARACTERS;
+			},
+		DLG_LINE
+			{
+			prompt=OPL_F_AUTOMATIC_INDENT;
+			type=EEikCtChoiceList;
+			id=ETxedCidAutoIndent;
+			control=CHOICELIST { array_id=r_txed_autoindent_choicelist;};
+			}
+		};
+	}
+
+RESOURCE ARRAY r_txed_autoindent_choicelist
+	{
+	items=
+		{
+		LBUF {txt=OPL_V_AUTOMATIC_INDENT_NO ;},
+		LBUF {txt=OPL_V_AUTOMATIC_INDENT_YES;}
+		};
+	}
+
+RESOURCE DIALOG r_txed_dialog_setpreferences
+	{
+	flags=EEikDialogFlagWait;
+	title=OPL_D_PREFERENCES;
+	buttons=R_EIK_BUTTONS_CANCEL_OK;
+	items=
+		{
+		DLG_LINE
+			{
+			prompt=OPL_F_EXPORT_OPTIONS;
+			type=EEikCtChoiceList;
+			id=ETxedCidSetPrefsExportOptions;
+			control=CHOICELIST { array_id=r_txed_export_choicelist;};
+			},
+		DLG_LINE
+			{
+			prompt=OPL_F_MONO_FONTS_ONLY;
+			type=EEikCtChoiceList;
+			id=ETxedCidSetPrefsAllowPropFonts;
+			control=CHOICELIST { array_id=r_txed_font_choicelist;};
+			},
+		DLG_LINE
+			{
+			prompt=OPL_F_SHOW_TABS;
+			type=EEikCtChoiceList;
+			id=ETxedCidShowTab;
+			control=CHOICELIST { array_id=r_txed_tab_choicelist;};
+			},
+		DLG_LINE
+			{
+			prompt=OPL_F_SHOW_SPACES;
+			type=EEikCtChoiceList;
+			id=ETxedCidShowSpaces;
+			control=CHOICELIST { array_id=r_txed_space_choicelist;};
+			},
+		DLG_LINE
+			{
+			prompt=OPL_F_SHOW_PARAGRAPH_ENDS;
+			type=EEikCtChoiceList;
+			id=ETxedCidShowParaEnds;
+			control=CHOICELIST { array_id=r_txed_paraend_choicelist;};
+			}
+		};
+	}
+
+RESOURCE ARRAY r_txed_export_choicelist
+	{
+	items=
+		{
+		LBUF {txt=OPL_V_EXPORT_UNICODE ;},
+		LBUF {txt=OPL_V_EXPORT_ASCII_UNIX ;},
+		LBUF {txt=OPL_V_EXPORT_ASCII_DOS ;}
+		};
+	}
+
+RESOURCE ARRAY r_txed_font_choicelist
+	{
+	items=
+		{
+		LBUF {txt=OPL_V_MONO_FONTS_ONLY_NO ;},
+		LBUF {txt=OPL_V_MONO_FONTS_ONLY_YES;}
+		};
+	}
+
+RESOURCE ARRAY r_txed_tab_choicelist
+	{
+	items=
+		{
+		LBUF {txt=OPL_V_SHOW_TABS_NO ;},
+		LBUF {txt=OPL_V_SHOW_TABS_YES;}
+		};
+	}
+
+RESOURCE ARRAY r_txed_space_choicelist
+	{
+	items=
+		{
+		LBUF {txt=OPL_V_SHOW_SPACES_NO ;},
+		LBUF {txt=OPL_V_SHOW_SPACES_YES;}
+		};
+	}
+
+RESOURCE ARRAY r_txed_paraend_choicelist
+	{
+	items=
+		{
+		LBUF {txt=OPL_V_SHOW_PARAGRAPH_ENDS_NO ;},
+		LBUF {txt=OPL_V_SHOW_PARAGRAPH_ENDS_YES;}
+		};
+	}
+
+RESOURCE DIALOG r_txed_dialog_translate
+	{
+	flags=EEikDialogFlagWait|EEikDialogFlagNotifyEsc|EEikDialogFlagButtonsBelow;
+	title=OPL_D_TRANSLATING;
+	buttons=R_EIK_BUTTONS_CANCEL;
+	items=
+		{
+		};
+	}
+
+RESOURCE TBUF r_txed_tbuf_no_procs				{ buf=OPL_D_NO_PROC; }
+
+RESOURCE TBUF r_txed_no_error_to_show			{ buf=OPL_D_NO_ERROR; }
+RESOURCE TBUF r_txed_file_unchanged				{ buf=OPL_D_FILE_UNCHANGED; }
+
+RESOURCE TBUF r_txed_import_dialog_show_text	{ buf=OPL_D_IMPORT_SHOW_TEXT; }
+RESOURCE TBUF r_txed_export_dialog_title		{ buf=OPL_D_EXPORT_TEXT; }
+RESOURCE TBUF r_txed_translate_complete			{ buf=OPL_D_TRANSLATED; }
+RESOURCE TBUF r_txed_run_show_programs			{ buf=OPL_D_RUN_SHOW_PROGRAMS; }
+
+RESOURCE TBUF r_txed_run_program				{ buf=OPL_D_RUN_PROGRAM; }
+RESOURCE TBUF r_txed_locate_error_dialog_title	{ buf=OPL_D_LOCATE_ERROR; }
+
+RESOURCE TBUF r_txed_error_in_include_file		{ buf=OPL_D_ERROR_INCLUDE; }
+
+RESOURCE TBUF r_txed_trans_run_question			{ buf=OPL_D_TRANS_RUN_QUESTION; }
+//RESOURCE TBUF r_txed_run_program_question		{ buf=OPL_D_RUN_QUESTION; }
+
+RESOURCE TBUF r_txed_open_the_file				{ buf=OPL_D_OPEN_QUESTION; }
+
+RESOURCE TBUF r_txed_running					{ buf=OPL_D_RUNNING; }
+
+RESOURCE TBUF r_txed_not_while_running			{ buf=OPL_V_NOT_WHEN_RUNNING; }
+RESOURCE TBUF r_txed_file_is_read_only			{ buf=OPL_V_READ_ONLY; }
+
+RESOURCE TBUF r_txed_delete_current_file		{ buf=OPL_D_DELETE_FILE; }
+
+RESOURCE TBUF r_txed_revert_to_saved_title		{ buf=OPL_D_REVERT_TO_SAVED_TITLE; }
+RESOURCE TBUF r_txed_revert_to_saved_text		{ buf=OPL_D_REVERT_TO_SAVED_TEXT; }
+
+RESOURCE TBUF r_txed_nothing_to_translate		{ buf=OPL_V_NOTHING_TO_TRANSLATE; }
+
+RESOURCE TBUF r_txed_nothing_to_export			{ buf=OPL_V_NOTHING_TO_EXPORT; }
+RESOURCE TBUF r_txed_exporting					{ buf=OPL_D_EXPORTING; }
+RESOURCE TBUF r_txed_nothing_to_import			{ buf=OPL_V_NOTHING_TO_IMPORT; }
+RESOURCE TBUF r_txed_importing					{ buf=OPL_D_IMPORTING; }
+RESOURCE TBUF r_txed_cannot_import_file			{ buf=OPL_V_CANNOT_IMPORT_FILE; }
+RESOURCE TBUF r_txed_file_in_use				{ buf=OPL_V_FILE_IN_USE; }
+
+// Button texts
+RESOURCE TBUF r_txed_btext_include_open_file	{ buf=OPL_B_INCLUDE_OPEN_FILE; }
+
+RESOURCE TBUF r_txed_btext_run_translated		{ buf=OPL_B_RUN_TRANSLATED; }
+
+RESOURCE TBUF r_txed_btext_run_program			{ buf=OPL_B_RUN_PROGRAM; }
+
+RESOURCE TBUF r_txed_btext_revert_to_saved		{ buf=OPL_B_REVERT_TO_SAVED; }
+
+RESOURCE TBUF r_txed_btext_delete_file			{ buf=OPL_B_DELETE_FILE; }
+
+RESOURCE TBUF r_txed_default_file_name			{ buf=OPL_G_RESOURCE_NAME; }

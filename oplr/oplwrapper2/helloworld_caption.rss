@@ -1,0 +1,15 @@
+// Opl_Caption.RSS
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+
+#include <apcaptionfile.rh>
+
+RESOURCE CAPTION_DATA
+    {
+    caption = "HelloWorld";
+    shortcaption = "Hello";
+    }
+
+// End of File
+

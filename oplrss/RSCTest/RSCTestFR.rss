@@ -1,0 +1,26 @@
+// TestFR.rss - French
+//
+// Last updated 26 July 2001.
+// Copyright (c) 2000-2001 Symbian Ltd. All rights reserved.
+//
+// Test resource to illustrate the Crystal OPL SDK
+// can compile resource files correctly
+
+NAME OTST
+
+#include <eikon.rh>
+#include <eikon.rsg>
+#include <eikon.mbg>
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF16 {buf="";}
+
+RESOURCE TBUF Language_Name			{buf="Français";}
+RESOURCE TBUF Resource_Last_Updated_On		{buf="26/07/2001";}
+
+RESOURCE TBUF Test_Resource_1			{buf="Un";}
+RESOURCE TBUF Test_Resource_2			{buf="Deux";}
+RESOURCE TBUF Test_Resource_3			{buf="Trois";}
+RESOURCE TBUF Test_Resource_4			{buf="Quatre - couleur";}
+RESOURCE TBUF Test_Resource_5			{buf="Cinq";}

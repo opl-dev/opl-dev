@@ -1,0 +1,6 @@
+#ifndef _BLDVARIANT_
+#define _BLDVARIANT_
+// If this file is exported from OPL, we must be building on
+// the Nokia 9200 Communicator SDK. 
+// Not Series 60, so don't bother defining anything.
+#endif

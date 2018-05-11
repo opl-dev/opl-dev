@@ -1,0 +1,12 @@
+rem TOPX.oxh
+rem
+rem Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+rem
+
+CONST KUidOpxTemplate&=&10000259
+CONST KOpxTemplateVersion%=$100
+
+DECLARE OPX TOPX,KUidOpxTemplate&,KOpxTemplateVersion%
+	Add3&:(arg1&,arg2&,arg3&) :1
+	IncNumericArgsPassedByref:(BYREF arg1%,BYREF arg2&,BYREF arg3) :2
+END DECLARE

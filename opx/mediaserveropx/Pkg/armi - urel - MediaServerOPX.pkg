@@ -1,0 +1,16 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"MediaServer OPX © Symbian Ltd"}, (0x100057DA), 0, 40, 116, TYPE=SY
+;
+; Files
+;
+"\epoc32\release\armi\urel\MediaServerOPX.opx"-"!:\System\OPX\MediaServerOPX.opx", FF
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 00, 129, {"OPL Runtime © Symbian Ltd"}

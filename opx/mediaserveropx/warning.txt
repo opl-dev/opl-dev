@@ -1,0 +1,5 @@
+For 9210 WINS, the following files are required in \epoc32\release\wins\udeb\z\system\media\
+ SoundDevice.mda
+ SoundDevice.r01
+
+If not present, the Mediaserveropx will panic.

@@ -1,0 +1,32 @@
+// OPLWRAPPER0.MMP
+//
+
+#include	"oplwrapper.h"
+
+target		OplTestS60.APP
+targettype	APP
+targetpath	\SYSTEM\APPS\OplTestS60
+UID			0x100039CE _OPLWRAPPERUID
+
+SOURCEPATH	..\oplwrapper0
+
+document	oplwrapperaif.rss _oplwrapper.pkg
+document	readme.txt
+source		oplappwrapper.cpp
+
+resource	..\oplwrapper0\opltests60_caption.rss 
+resource	..\oplwrapper0\opltests60.rss
+LANG     	SC
+
+systeminclude	..\INC \EPOC32\INCLUDE  
+userinclude		..\src
+
+USERINCLUDE . ..\inc
+
+LIBRARY oplr.lib
+LIBRARY euser.lib 
+LIBRARY apparc.lib 
+LIBRARY eikcore.lib
+LIBRARY avkon.lib
+
+AIF OplTestS60.aif ..\oplwrapper0 oplwrapperaif.rss c8 icon44x44.bmp icon44x44mask.bmp icon42x29.bmp icon42x29mask.bmp

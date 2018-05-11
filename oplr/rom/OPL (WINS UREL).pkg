@@ -1,0 +1,34 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"OPL Runtime © Symbian Ltd [WINS]"}, (0x1000904D), 1, 00, 129, TYPE=SA
+;
+; Warning file
+;
+;"\oplr\rom\Alpha-Warning.txt"-"",FT,TA
+"\oplr\rom\Release-Readme.txt"-"",FT,TA
+;
+;Dependencies
+;
+;Files
+;
+"\epoc32\release\wins\urel\z\system\apps\opl\opl.app"-"!:\System\Apps\Opl\Opl.app"
+"\epoc32\release\wins\urel\z\system\apps\opl\opl.acl"-"!:\System\Apps\Opl\Opl.aif"
+"\epoc32\release\wins\urel\z\system\data\oplr.rsc"-"!:\System\Data\Oplr.rsc"
+"\epoc32\release\wins\urel\oplr.dll"-"!:\System\Libs\Oplr.dll"
+"\epoc32\release\wins\urel\oplt.dll"-"!:\System\Libs\Oplt.dll"
+"\epoc32\release\wins\urel\z\system\recogs\recopl.rdl"-"!:\System\Recogs\RecOpl.rdl"
+; Note: 14/03/2002 although on THUMB we install Eon14.gdr into \System\**Libs**\ so it does not
+; cause problems with the system by being available to all apps from \System\Fonts\, for WINS
+; we can leave it set to \System\Fonts\ as this is where the file is built into.
+;"\epoc32\release\wins\udeb\z\system\fonts\eon14.gdr"-"!:\System\Libs\Eon14.gdr"
+"\epoc32\release\wins\urel\z\system\fonts\eon14.gdr"-"!:\System\Fonts\Eon14.gdr"
+;
+; Core OPXs
+@"\epoc32\release\wins\urel\AppFrameOPX.sis",(0x10005235)
+@"\epoc32\release\wins\urel\SendAsOPX.sis",(0x100055BF)
+@"\epoc32\release\wins\urel\SystemOPX.sis",(0x1000025C)

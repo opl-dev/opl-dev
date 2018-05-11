@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Extending OPL with OPL - OPMs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<table width="100%" cellspacing="4">
+  <tr valign="top"> 
+          <td> <h1><b><font face="Arial, Helvetica, sans-serif" color="#FF9900">Extending OPL with OPL - OPMs</font></b></h1>
+      <p >An OPM, or OPL Module, 
+        is a pre-written set of OPL procedures. OPMs are written to save the developer 
+        time developing and testing commonly used routines, to save memory by 
+        providing shared code for OPL Developers, and to aid rapid development 
+        of applications.</p>
+      <p>The advantage of OPMs 
+        is that they can be used to replace procedures which the OPL developer 
+        would have otherwise had to develop themselves. This saves development 
+        and testing time. They can be used by more than one application, so saving 
+        memory on the Symbian OS device.</p>
+
+      <p >OPMs must be loaded 
+        in using the <font face="Courier New, Courier, mono">LOADM</font> command.&nbsp; 
+        Symbian written OPMs are supplied in '<font face="Courier New, Courier, mono">.sis</font>' 
+        installation files, which install the OPM to the <font face="Courier New, Courier, mono">\System\OPM\</font> 
+        directory on either the <font face="Courier New, Courier, mono">C:</font>, 
+        <font face="Courier New, Courier, mono">D:</font> or <font face="Courier New, Courier, mono">E:</font> 
+        drive.</p>
+      <p>To make life easier 
+        three routines have been written which should be copied to your own applications. 
+        These will load and unload the required OPMs. Copy the <font face="Courier New, Courier, mono">.oph</font> 
+        file to your development folder.</p>
+      <p><b><font color="#006699">Download: 
+        </font></b> <a href="downloads/opm_loader.zip" target="">Common OPM Loader Revision 3.0, 10 October 2000</a> 
+        (1kB)</p>
+      <blockquote>&nbsp;</blockquote>
+
+      <p>OPMs suitable for 
+        devices based on <i><font color="#009999"><b> 
+        </b></font></i>Symbian OS v3 and v5</p>
+      <p></p>
+      <blockquote> 
+        <p><b>Percentage Bars</b> 
+          (v1.05 updated 8 October 2000)<br>
+          A collection of routines to help in the creation and management of percent/progress 
+          bars. Three styles are currently supported:</p>
+        <blockquote> 
+          <ul>
+              <li><font face="Courier New, Courier, mono">gIBAR</font> 
+                - similar to <font face="Courier New, Courier, mono">gIPRINT</font>, 
+                appearing in any of the four corners of the screen.</li>
+              <li><font face="Courier New, Courier, mono"">AlertBar</font> 
+                - progress bars appearing in an alert type dialog box.</li>
+              <li> <font face="Courier New, Courier, mono"">FreeBar</font> 
+                - a freeform percentage bar managed by the OPM.</li>
+          </ul>
+        </blockquote>
+        <p><a href="downloads/pc_bar.zip">Download 
+          Percentage Bars OPM</a> (8Kb)</p>
+        <p><b>ini</b> (v1.03 
+          updated 30 November 1999)<br>
+          Creation and manipulation of initialization files, used by applications 
+          to save information which is to be used every time it is run.<br>
+          <a href="downloads/ini.zip">Download ini OPM</a> (7Kb)</p>
+        <p><b>Icons</b> (v1.02 
+          updated 30 November 1999)<br>
+          Easy access to the images built into the ROM of a Symbian platform device. 
+          All you need to do is call one procedure with the value of one of the 
+          predefined constants and the desired bitmap is loaded into a new drawable.<br>
+          <a href="downloads/icons.zip">Download Icons OPM for ER1-ER3</a> (8Kb)</p>
+        <p><b>Buttons Server</b> 
+          (v1.071 updated 10 March 2000)<br>
+          A collection of routines to draw, manage and detect the pressing of 
+          buttons, pen events and dragging of windows.<br>
+          <a href="downloads/button.zip">Download Buttons Server OPM</a> (15Kb)</p>
+      </blockquote>
+
+      <blockquote>&nbsp;</blockquote>
+
+      <p >This area lists third party OPMs (OPL Extensions written in OPL), with links to
+          the sites where they can be downloaded from.</p>
+      <blockquote>
+      <p>The following are 
+        available from Mark O'Neil (<a href="http://www.gadjet.freeserve.co.uk/html/software.html">External 
+        Link</a>):</p>
+      <blockquote> 
+        <p><b>PopUp</b> - A 
+          scrollable pop-up menu for use in OPL applications. Similar to the built-in 
+          mPOPUP command, but offers a scrollable list with unlimited items.</p>
+        <p><b>Clipboard</b> 
+          - Copies text from and to the clipboard.</p>
+      </blockquote>
+      <p>The following are 
+        available from PocketIQ (<a href="http://www.PocketIQ.com/">External Link</a>):</p>
+      <blockquote> 
+        <p><b>IQGrid</b> - 
+          An module for any OPL developer who needs a multi-column listbox which 
+          they can use as part of their user interface.</p>
+        <p><b>IQDrawPad</b> 
+          - A scribble pad plugin module.</p>
+        <p><b>IQCalendar</b> 
+          - A pop-up calendar module, which will return the date selected by the 
+          user.</p>
+        <p><b>IQText</b> - 
+          An OPM for buffer, cliptext or plain text manipulation.</p>
+        <p><b>IQCalculator</b> 
+          - Provides a simple pop-up calculator which returns the final answer 
+          of the calculations performed by the user.</p>
+      </blockquote>
+      <p>The following is available 
+        from Richard Panton (<a href="http://www.iota.demon.co.uk/psion/vwin/vwin.html">External 
+        Link</a>):</p>
+      <blockquote> 
+        <p><b>VWin</b> - A 
+          collection of routines that implement scrollbars, scrolling windows, 
+          draggable windows, and buttons.
+          </p></blockquote>
+      <p>The following are available from Thomas Tensi (<a href="http://www.geocities.com/dr_t_tensi/">External 
+        Link</a>):</p>
+      <blockquote> 
+        <p><strong>Scrollbar</strong> 
+          - A flexible way to implement scrollbars in your own applications which 
+          mimic the standard Symbian OS v5 look and feel.</p>
+        <p><strong>Listviewer</strong> 
+          - Provides a new listbox control, allowing you to use scrolling vertical 
+          listboxes.</p>
+      </blockquote>
+      </blockquote>
+
+<p><b><font color="#006699">Do 
+              you want to know more?</font></b><br>
+              To find out how to write your own OPMs read the paper 
+              '<a href="writeopms.html">Writing 
+              your own OPMs</a>'.</p>
+        
+<BR><BR>
+<A HREF="../index.html">Back to opl-dev project homepage</A>
+<BR><BR>
+
+<A HREF="http://sourceforge.net"><IMG SRC="http://sourceforge.net/sflogo.php?group_id=76695&amp;type=1" WIDTH="88" HEIGHT="31" BORDER="0" ALIGN=right ALT="SourceForge.net Logo" /></A> <A HREF="http://www.symbian.com/"><IMG SRC="../symbian.png" ALT="Symbian logo" ALIGN=left /></A>
+</td>
+  </tr>
+</table>
+
+</body>
+</html>

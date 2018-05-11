@@ -1,0 +1,477 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Using resource files to create multi-lingual OPL applications</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<table width="100%" cellspacing="4">
+  <tr valign="top"> 
+          <td> <h1><b><font face="Arial, Helvetica, sans-serif" color="#FF9900">Using resource files to create multi-lingual OPL applications </font></b></h1>
+<p><font color="#006699">Author: Phil Spencer<br>
+  Last revised: 18 September 2000<br>
+  Revision: 1.00(030)<br>
+  Status: Final Release</font></p>
+<p><font color="#006699"><b>Summary:</b></font> With Symbian OS and OPL, creating multi-lingual 
+  applications has never been easier. The process is founded on the basic principle 
+  that parts of your application which differ between languages should be kept 
+  separate from the actual application code. This includes text, graphics and 
+  keyboard shortcuts.</p>
+<h2>Contents</h2>
+<ul>
+  <li class="PTOC"><a href="#oplrsc_mm-001">1. Introduction</a></li>
+  <li class="PTOC"><a href="#oplrsc_mm-002">2. Files Supplied with this Document</a></li>
+  <li class="PTOC"><a href="#oplrsc_mm-003">3. The Basics</a></li>
+  <li class="PTOC"><a href="#oplrsc_mm-004">4. Compiling resource files</a></li>
+  <li class="PTOC"><a href="#oplrsc_mm-005">5. The Output Files</a></li>
+  <li class="PTOC"> <a href="#oplrsc_mm-006">6. Using the Resource File in your 
+    Application</a></li>
+  <li class="PTOC"><a href="#oplrsc_mm-007">7. Using Resource Files on the ROM</a></li>
+  <li class="PTOC"><a href="#oplrsc_mm-008">8. A Note About Long Integer Resources</a></li>
+  <li class="PTOC"><a href="#oplrsc_mm-009">9. Acknowledgements</a></li>
+</ul>
+<h2><a name="oplrsc_mm-001"></a>1. Introduction</h2>
+<p> Differences between language variants (or locales as they are officially titled) 
+  of applications can be broadly classified into two areas:</p>
+<ul>
+  <li> Things that the user can see (strings of text, bitmaps, etc.)</li>
+  <li> Things the user can do (by pressing certain hotkeys for example)</li>
+</ul>
+<p>The requirement of different bitmaps between locales can be easily dealt with 
+  in OPL by using the Symbian OS native multi-bitmap file format (MBM), where the 
+  underlying bitmaps can be changed without requiring a re-translation of the 
+  application. Language resource files provide a similar feature for text strings.</p>
+<p>When writing an application that is to be translated into different languages, 
+  careful thought should be given to all parts which could differ between languages. 
+  These may include any or all of the following examples (and maybe other things 
+  too, depending on your application):</p>
+<ul>
+  <li>The names of menu options</li>
+  <li> Hotkeys for those options (for example, on UK machines the &#145;<font face="Courier New, Courier, mono" size="2">Close</font>&#146; 
+    action is always <font face="Courier New, Courier, mono" size="2">Ctrl+E</font>. 
+    On French machines it is <font face="Courier New, Courier, mono" size="2">Ctrl+Q</font>)</li>
+  <li> Text/numbers displayed in dialogs</li>
+  <li> Text/numbers displayed on screen as part of the current view</li>
+  <li> Error messages</li>
+  <li> Toolbar button captions</li>
+  <li> The name of your application as reported in the &#145;<font face="Courier New, Courier, mono" size="2">Open 
+    files/programs</font>&#146; dialog</li>
+</ul>
+<p>The system of using resource files which contain the relevant details for each 
+  language provides an easy way to take care of everything. This document explains 
+  how to create and use such files in several easy steps, as well as how to access 
+  the existing resource files on the ROM of an Symbian OS device which are used by the 
+  built in applications.</p>
+<table width="90%" border="2" cellpadding="2" bgcolor="#CCCCCC">
+  <tr> 
+    <td><font class="note"><b>Note:</b> This tutorial has been devised for and 
+      tested against the Symbian OS v5 (ER5) OPL SDK and tools. It should work 
+      with older Symbian OS v3 (ER3) SDKs, but this is untested and therefore 
+      unsupported.</font></td>
+  </tr>
+</table>
+<h2> <a name="oplrsc_mm-002"></a>2. Files Supplied with this Document</h2>
+<p>The following files should accompany this document. If you used the &#145;Restore 
+  folders&#146; (or equivalent) option when you expanded the .ZIP file this document 
+  came in, the files should be located in the folders indicated:</p>
+<table cellpadding="4" border="0" width="503">
+  <tr bgcolor="#cccccc"> 
+    <td><b>File Name &amp; Location</b></td>
+    <td><b>Description</b></td>
+  </tr>
+  <tr bgcolor=""> 
+    <td valign="TOP"><font face="Courier New, Courier, mono" size="2">\RSCExamp 
+      Program.zip</font></td>
+    <td>An example program to illustrate the principles outlined in this document. 
+      This archive file contains its own set of instructions for installation 
+      and usage </td>
+  </tr>
+  <tr bgcolor=""> 
+    <td valign="TOP"><font face="Courier New, Courier, mono" size="2">\EIKON.oph</font></td>
+    <td>OPL include file for standard EIKON resources</td>
+  </tr>
+  <tr bgcolor=""> 
+    <td valign="TOP"><font face="Courier New, Courier, mono" size="2">\epoc32\Batch 
+      Files.txt</font></td>
+    <td>Text file explaining the two batch files which accompany this document</td>
+  </tr>
+  <tr bgcolor=""> 
+    <td valign="TOP"><font face="Courier New, Courier, mono" size="2">\epoc32\tools\EIKRSS.bat</font></td>
+    <td>A revised version of the EIKRS.BAT file found on the OPL SDK, designed 
+      to output compiled resources to a more user friendly location</td>
+  </tr>
+  <tr bgcolor=""> 
+    <td valign="TOP"><font face="Courier New, Courier, mono" size="2">\ConvRSG\*.*</font></td>
+    <td>This is a very useful tool (supplied with source code and also as a pre-translated 
+      OPO file for use immediately if you need it) which helps with the creation 
+      of vital support files that allow you to use resource files in OPL programs. 
+      More details below.</td>
+  </tr>
+</table>
+<h2> <a name="oplrsc_mm-003"></a>3. The Basics</h2>
+<p>The first step is to get ready to build your project. All of the resource related 
+  tools (with the exception of <font face="Courier New, Courier, mono" size="2">ConvRSG</font> 
+  and <font face="Courier New, Courier, mono" size="2">EIKON.oph</font>) are PC 
+  based, so the most efficient way to develop and test resource files, at least 
+  in the beginning, is to use WINS as supplied with your SDK. <font face="Courier New, Courier, mono" size="2">ConvRSG</font> 
+  is a tool which will be explained in more detail - it is written in OPL and 
+  must be run from WINS or on a real Symbian OS machine. The <font face="Courier New, Courier, mono" size="2">EIKON.oph</font> 
+  include file can be also used on either WINS or an Symbian OS machine).</p>
+<p>When you create an OPL application, you can keep your source code in any folder 
+  you like. After you have translated your code, all of the output files will 
+  be placed in the path <font face="Courier New, Courier, mono" size="2">&lt;Code 
+  Drive&gt;:\System\Apps\CodeFileName\CodeFileName.app</font>. Since your finished 
+  application will be loading resource files from a similar folder, this is where 
+  the tools will output the compiled files.</p>
+<p>The first file you need to install is <font face="Courier New, Courier, mono" size="2">EIKRSS.bat</font>. 
+  This is a modified version of &#145;EIKRS.bat&#146; which is supplied with the 
+  Symbian OS v5 SDK. This new file should be placed in <font face="Courier New, Courier, mono" size="2">x:\epoc32\tools\</font> 
+  - where <font face="Courier New, Courier, mono" size="2">x:</font> is the letter 
+  of the drive on which your SDK is installed. This means it can be accessed from 
+  anywhere (provided you did not remove the PATH to this folder which the SDK 
+  installation created).</p>
+<p>Secondly, it would be a wise idea to install the sample program, <font face="Courier New, Courier, mono" size="2">RSCExamp</font>, 
+  provided with this document. This illustrates all the concepts covered here, 
+  and is clearly commented. Instructions for the installation can be found in 
+  the file &#145;<font face="Courier New, Courier, mono" size="2">RSCExamp.txt</font>&#146; 
+  (inside the &#145;<font face="Courier New, Courier, mono" size="2">RSCExamp 
+  Program.zip</font>&#146; archive). From now on, this document will assume you 
+  have installed <font face="Courier New, Courier, mono" size="2">RSCExamp</font> 
+  as per the instructions, and the <font face="Courier New, Courier, mono" size="2">RSCExamp</font> 
+  program and folder locations will be used as a basis for examples in this document.</p>
+<p>The <font face="Courier New, Courier, mono" size="2">EIKON.oph</font> file 
+  should be placed in <font face="Courier New, Courier, mono" size="2">\System\OPL\</font> 
+  on any drive (of either WINS or an Symbian OS device), so that it can be included 
+  in any OPL program with a simple statement of <font face="Courier New, Courier, mono" size="2">INCLUDE 
+  &quot;EIKON.OPH&quot;</font>.</p>
+<p>The final file which needs attention at this stage is &#145;<font face="Courier New, Courier, mono" size="2">Make 
+  RSCExamp.bat</font>&#146;. This is a batch file written specifically to automate 
+  the compilation of all the current RSCExamp resources. It should be placed in 
+  the same folder as the <font face="Courier New, Courier, mono" size="2">RSCExamp</font> 
+  source code (e.g. as the <font face="Courier New, Courier, mono" size="2">RSCExamp</font> 
+  instructions suggest, <font face="Courier New, Courier, mono" size="2">c:\RSCExamp\</font> 
+  on the emulator (it is not needed when working on a real Symbian OS device as batch 
+  files are a feature of the Windows Operating System). Be sure to check that 
+  <font face="Courier New, Courier, mono" size="2">RSCExa*.rss</font> also exist 
+  in this folder, or the batch file will not work correctly. Once you are ready 
+  to create your own resource files, you can use this <font face="Courier New, Courier, mono" size="2">.BAT</font> 
+  as a basis or template for one which will build all of your own resources.</p>
+<table width="90%" border="2" cellpadding="2" bgcolor="#CCCCCC">
+  <tr> 
+    <td><font class="note"><b>Note:</b> &#145;<font face="Courier New, Courier, mono" size="2">Make 
+      RSCExamp.bat</font>&#146; assumes that your SDK is installed on drive <font face="Courier New, Courier, mono" size="2">c:\</font> 
+      of your PC. If this is not the case, please edit the file and alter the 
+      line near the top which reads &#145;<font face="Courier New, Courier, mono" size="2">SET 
+      _SDK_ROOT=c:\epoc32</font>&#146; to &#145;<font face="Courier New, Courier, mono" size="2">SET 
+      _SDK_ROOT=x:\epoc32</font>&#146; where <font face="Courier New, Courier, mono" size="2">x:</font> 
+      is the drive on which your SDK is installed.</font></td>
+  </tr>
+</table>
+<p>To create your own resource files, you will have to write the <font face="Courier New, Courier, mono" size="2">.RSS</font> 
+  source file. Each source file will vary greatly between different applications, 
+  both in content and layout, hence it is difficult to illustrate how to write 
+  the one you will need. However, a useful example is the program supplied with 
+  this document, <font face="Courier New, Courier, mono" size="2">RSCExamp</font>. 
+  This is clearly commented, and should serve to illustrate all the fundamental 
+  concepts required for writing <font face="Courier New, Courier, mono" size="2">.RSS</font> 
+  files. You could also use it as a basis for your own files if you become stuck.</p>
+<p>If you are worried that the layout of <font face="Courier New, Courier, mono" size="2">.RSS</font> 
+  files looks confusing, and the whole process seems to be a lot of extra work, 
+  then don&#146;t! To address the first issue, it only looks confusing because 
+  it is new - once you have adjusted to the principles involved, you will find 
+  that working with resource files becomes second nature to you. And to address 
+  the second point, it probably is more work initially to get a resource file 
+  written and working. However, the end result is worth it. If you are not convinced, 
+  run the <font face="Courier New, Courier, mono" size="2">RSCExamp</font> program 
+  and see how quick and easy it is to change languages at the touch of a button 
+  &#150; and this occurs throughout the entire program too. Add to this the fact 
+  that all language dependent text is included in the <font face="Courier New, Courier, mono" size="2">.RSS</font> 
+  file, making life easy for translators, and you have a very powerful and useful 
+  format. All it requires is a little groundwork.</p>
+<h2> <a name="oplrsc_mm-004"></a>4. Compiling resource files</h2>
+<p>Once the resource script is written you will need to compile it. This is done 
+  using the tools supplied with the OPL SDK. To stick with our example program, 
+  RSCExamp, bring up a command prompt in Windows and change directory to the folder 
+  where you installed the source code under the emulator (e.g. \epoc32\wins\c\RSCExamp\). 
+  To compile an individual resource, you would simply type:</p>
+<blockquote> 
+  <pre>EIKRSS RSCExamp UK rel</pre>
+</blockquote>
+<p>Looking at this more closely, the <font face="Courier New, Courier, mono" size="2">EIKRSS</font> 
+  part will call the batch file supplied with this document which will invoke 
+  the compiler, etc. to do the work for you. <font face="Courier New, Courier, mono" size="2">RSCExamp</font> 
+  is the name of the resource script (<font face="Courier New, Courier, mono" size="2">RSCExamp.rss</font> 
+  in this case) &#150; note that it is important that the file name is supplied 
+  without the extension. The third part, UK, is probably the most important. This 
+  tells the compiler what the target language of the resource file will be. Also 
+  note, that language codes <b>must</b> be in upper case.</p>
+<p>When writing the <font face="Courier New, Courier, mono" size="2">.RSS</font> 
+  file, it is entirely possible for you to include lines which differentiate between 
+  one or more potential languages as the file is being compiled, for example:</p>
+<blockquote> 
+  <blockquote> 
+    <pre>#ifdef LANGUAGE_UK
+	RESOURCE TBUF text_colour {buf=&quot;Colour&quot;;}
+	RESOURCE TBUF text_colour_grey {buf=&quot;Grey&quot;;}
+#else
+	RESOURCE TBUF text_colour {buf=&quot;Color&quot;;}
+	RESOURCE TBUF text_colour_grey {buf=&quot;Gray&quot;;}
+#endif</pre>
+  </blockquote>
+</blockquote>
+<p>You will find a couple of examples of this technique within the <font face="Courier New, Courier, mono" size="2">RSCExamp.rss</font> 
+  file. However, it should be noted that this method is really only suitable for 
+  languages which differ slightly. UK and US English variants are the prime example, 
+  as shown above and also with <font face="Courier New, Courier, mono" size="2">RSCExamp.rss</font>.</p>
+<p>If the languages differ vastly (e.g. English and French), then it is more advisable 
+  to create a separate <font face="Courier New, Courier, mono" size="2">.RSS</font> 
+  file for each. Again, <font face="Courier New, Courier, mono" size="2">RSCExamp</font> 
+  illustrates this by having <font face="Courier New, Courier, mono" size="2">RSCExamp.rss</font> 
+  for the UK and US English languages, <font face="Courier New, Courier, mono" size="2">RSCExaFR.rss</font> 
+  for the French and <font face="Courier New, Courier, mono" size="2">RSCExaGE.rss</font> 
+  for the German. The actual names of these files do not matter, so long as the 
+  correct argument is passed when you use <font face="Courier New, Courier, mono" size="2">EIKRSS.bat</font> 
+  &#150; the French resource file could be called &#145;<font face="Courier New, Courier, mono" size="2">Madness.rss</font>&#146; 
+  so long as you called &#145;<font face="Courier New, Courier, mono" size="2">EIKRSS.bat 
+  Madness FR rel</font>&#146;! However, more meaningful names will obviously be 
+  helpful to you later on when you want to decide which resource scripts belong 
+  to which program, etc.</p>
+<p>Although inadvisable, should you decide to do all language variants inside 
+  just one <font face="Courier New, Courier, mono" size="2">.RSS</font> file, 
+  then you can put multiple <font face="Courier New, Courier, mono" size="2">RESOURCE 
+  TBUF</font> lines within the<font face="Courier New, Courier, mono" size="2"> 
+  #ifdef</font> to save time and space, and group all the languages together. 
+  This is, again, illustrated in the <font face="Courier New, Courier, mono" size="2">RSCExamp.rss</font> 
+  file (near the start).</p>
+<p>To obtain the complete set of compiled resources for <font face="Courier New, Courier, mono" size="2">RSCExamp</font>, 
+  you can either compile them individually like this:</p>
+<blockquote> 
+  <pre>EIKRSS RSCExamp UK rel
+EIKRSS RSCExamp US rel
+EIKRSS RSCExaFR FR rel
+EIKRSS RSCExaGE GE rel</pre>
+</blockquote>
+<p>or, of course, you can simply run the &#145;<font face="Courier New, Courier, mono" size="2">Make 
+  RSCExamp.bat</font>&#146; file, as this does all of these for you and tidies 
+  up afterwards too.</p>
+<p>For reference, the language codes used by the resource compiler are the same 
+  as those accepted by Makesis when writing PKG script files. For more details, 
+  see the Makesis instructions (&#145;Preparing applications for installation&#146;) 
+  in the SDK.</p>
+<p>The final part of the call to EIKRSS (rel) is not really important to OPL programmers. 
+  The resource tools which ship on the OPL SDK are the same ones which ship on 
+  the C++ SDK. This flag allows C++ developers to note whether the resource file 
+  should be compiled for use in a debug, release, Unicode, etc. environment. As 
+  far as OPL applications go, you will be safe to always call EIKRSS with the 
+  &#145;rel&#146; (for &#145;release&#146;) flag.</p>
+<h2> <a name="oplrsc_mm-005"></a>5. The Output Files</h2>
+<p>After EIKRSS has finished, some new files will have been produced &#150; these 
+  are the actual resource files. If you used &#145;<font face="Courier New, Courier, mono" size="2">Make 
+  RSCExamp.bat</font>&#146;, you would end up with:</p>
+<blockquote> 
+  <pre>\epoc32\wins\c\System\Apps\RSCExamp\RSCExamp.rUK
+\epoc32\wins\c\System\Apps\RSCExamp\RSCExamp.rUS
+\epoc32\wins\c\System\Apps\RSCExamp\RSCExamp.rGE
+\epoc32\wins\c\System\Apps\RSCExamp\RSCExamp.rFR
+\epoc32\wins\c\System\Apps\RSCExamp\RSCExamp.rSG</pre>
+</blockquote>
+<p>The folder tree of<font face="Courier New, Courier, mono" size="2"> \epoc32\wins\c\System\Apps\&lt;RSCName&gt;\</font> 
+  is the default output folder for the <font face="Courier New, Courier, mono" size="2">EIKRSS.bat</font> 
+  file. If this does not exist, then <font face="Courier New, Courier, mono" size="2">\epoc32\wins\c\System\Apps\</font> 
+  will be used. However, &#145;<font face="Courier New, Courier, mono" size="2">Make 
+  RSCExamp.bat</font>&#146; includes a command which will create <font face="Courier New, Courier, mono" size="2"><br>
+  \epoc32\wins\c\System\Apps\RSCExamp\</font> if it does not exist, so if you 
+  used &#145;<font face="Courier New, Courier, mono" size="2">Make RSCExamp.bat</font>&#146;, 
+  that is always where the above files will be located.</p>
+<p>The reason for this is so that when you switch back to the emulator to retranslate 
+  or use your application, the resource files are immediately in the correct place 
+  for it to &#145;see&#146; them.</p>
+<table border="2" cellpadding="2" bgcolor="#CCCCCC" width="100%">
+  <tr> 
+    <td><font class="note"><b>Note:</b> The original <font face="Courier New, Courier, mono" size="2">EIKRS.BAT</font> 
+      file as supplied with the Symbian OS v5 SDK outputs files to <font face="Courier New, Courier, mono" size="2">\epoc32\release\wins\deb\z\system\data\</font>.</font></td>
+  </tr>
+</table>
+<p>The only file listed above which is of any note at this point is the <font face="Courier New, Courier, mono" size="2">.RSG</font> 
+  file. This is a list of the resource &#145;variables&#146; and their values. 
+  This file needs converting into an OPL include file so that you can translate 
+  your application with it using the standard <font face="Courier New, Courier, mono" size="2">INCLUDE</font> 
+  command. To do this conversion, you will need to use the small '<font face="Courier New, Courier, mono" size="2">ConvRSG</font>' 
+  program supplied with this document. When run, <font face="Courier New, Courier, mono" size="2">ConvRSG</font> 
+  will create an OSG file in the same folder as the RSG file (on the emulator 
+  or your Symbian OS machine). This OSG file will be an Symbian OS OPL (&#145;Program&#146;) 
+  document, and all the original <font face="Courier New, Courier, mono" size="2">#define</font> 
+  statements which appear in the RSG will have been replaced by standard OPL <font face="Courier New, Courier, mono" size="2">CONST</font> 
+  statements instead.</p>
+<p>In your application code, all you need to do is include the OSG file at the 
+  top of the code, as you do for (for example) an OPX. The OSG file should be 
+  placed in the same folder as your main code file or in <font face="Courier New, Courier, mono" size="2">\System\OPL\</font> 
+  so that the translator can find it when you use the <font face="Courier New, Courier, mono" size="2">INCLUDE</font> 
+  statement.</p>
+<p>At this point, it is worth pointing out that the <font face="Courier New, Courier, mono" size="2">RSCExamp</font> 
+  program is slightly nonstandard in the way it handles its resource files. The 
+  whole point of <font face="Courier New, Courier, mono" size="2">RSCExamp</font> 
+  is to load a resource and then let you change that to a different one &#145;on 
+  the fly&#146; - for example, it defaults to loading the UK English resource, 
+  but you can change the entire language and operation of the program into French 
+  by just altering which resource is loaded using the appropriate menu option. 
+  The purpose of this is to demonstrate how easy resource files make the creation 
+  of multi-lingual applications.</p>
+<p>To facilitate this, RSCExamp expects a default resource file called <font face="Courier New, Courier, mono" size="2">RSCExamp.rUK</font>, 
+  and it also looks for the existence of several other resources (<font face="Courier New, Courier, mono" size="2">RSCExamp.rUS</font>, 
+  <font face="Courier New, Courier, mono" size="2">RSCExamp.rFR</font> and <font face="Courier New, Courier, mono" size="2">RSCExamp.rGE</font>) 
+  in the <font face="Courier New, Courier, mono" size="2">\System\Apps\RSCExamp\ 
+  folder</font>.</p>
+<p>Most &#145;normal&#146; applications expect to find a default resource file 
+  called <font face="Courier New, Courier, mono" size="2">AppName.rsc</font> (where 
+  AppName is the name of the application) in their <font face="Courier New, Courier, mono" size="2">\System\Apps\AppName\</font> 
+  folder, and they do not expect or check for the existence of other resource 
+  files as <font face="Courier New, Courier, mono" size="2">RSCExamp</font> does.</p>
+<p>This situation can be neatly handled by the Symbian OS Installer technologies, which 
+  allow you to specify multiple files for different languages inside your SIS 
+  file. When the user installs the application, only the relevant files for the 
+  language they select are installed, the others are discarded.</p>
+<p>If <font face="Courier New, Courier, mono" size="2">RSCExamp</font> were a 
+  &#145;normal&#146; application, this PKG file (script file for <font face="Courier New, Courier, mono" size="2">Makesis</font> 
+  - see the SDK for more details) illustrates how things would be installed:</p>
+<blockquote> 
+  <pre>; Example PKG for a multi-lingual application
+; Last updated 06 January 2000
+; Copyright (c) Symbian Ltd. 1999-2000. All Rights Reserved.
+;
+; Languages supported...
+&amp;EN,AM,FR,GE
+;
+; SIS file header (one &#145;title&#146; for each language)...
+#{&quot;RSCExamp&quot;,&quot;RSCExamp&quot;,&quot;RSCExamp&quot;,&quot;RSCExamp&quot;},<br>&nbsp;&nbsp;&nbsp; (0x100016A0),1,00,029,ID
+;
+; Files to be removed when the app is removed. In this case we want 
+&nbsp;&nbsp;&nbsp; to
+; remove the INI file (if one has been created)
+&quot;&quot;-&quot;C:\System\Apps\RSCExamp\RSCExamp.ini&quot;,FN
+;
+;
+; Language resource files (Essential) - language dependant
+{
+&quot;\epoc32\wins\c\system\apps\RSCExamp\RSCExamp.rUK&quot;
+&quot;\epoc32\wins\c\system\apps\RSCExamp\RSCExamp.rUS&quot;
+&quot;\epoc32\wins\c\system\apps\RSCExamp\RSCExamp.rFR&quot;
+&quot;\epoc32\wins\c\system\apps\RSCExamp\RSCExamp.rGE&quot;
+}-&quot;!:\System\Apps\RSCExamp\RSCExamp.rsc&quot;
+;
+; Application files (Essential) - language independent
+&quot;\epoc32\wins\c\system\apps\RSCExamp\RSCExamp.aif&quot;-&quot;!:<br>&nbsp;&nbsp;&nbsp; \System\Apps\RSCExamp\RSCExamp.aif&quot;
+&quot;\epoc32\wins\c\system\apps\RSCExamp\RSCExamp.app&quot;-&quot;!:<br>&nbsp;&nbsp;&nbsp; \System\Apps\RSCExamp\RSCExamp.app&quot;
+&quot;\epoc32\wins\c\system\apps\RSCExamp\RSCExamp.mbm&quot;-&quot;!:<br>&nbsp;&nbsp;&nbsp; \System\Apps\RSCExamp\RSCExamp.mbm&quot;</pre>
+</blockquote>
+<h2> <a name="oplrsc_mm-006"></a>6. Using the Resource File in your Application</h2>
+<p>To use the new file within your application when it is running, you must first 
+  load it into memory. This has to be done using the &#145;<font face="Courier New, Courier, mono" size="2">LoadRSC&amp;:</font>&#146; 
+  command from <font face="Courier New, Courier, mono" size="2">SYSTEM.OPX</font>, 
+  e.g.</p>
+<blockquote> 
+  <pre>RSCId&amp;=LoadRSC&amp;:(&quot;c:\System\Apps\RSCExamp\RSCExamp.rUK&quot;)</pre>
+</blockquote>
+<p>To recall the variables from the file, simply use the <font face="Courier New, Courier, mono" size="2">SYSTEM.OPX</font> 
+  command, <font face="Courier New, Courier, mono" size="2">ReadRSC$:</font>, 
+  e.g.:</p>
+<blockquote> 
+  <pre>ReadRSC$:(TEXT_COLOUR&amp;)</pre>
+</blockquote>
+<p>This returns a string which you labeled &#145;<font face="Courier New, Courier, mono" size="2">Text_Colour</font>' 
+  within the original <font face="Courier New, Courier, mono" size="2">.RSS</font> 
+  file (see above). As always, RSCExamp is the best place to refer to a working 
+  situation of loading and reading from resource files.</p>
+<p>It is important to note that every resource file (provided it is compiled with 
+  its own 4 letter &#145;NAME&#146; variable as illustrated in the RSCExamp files) 
+  is unique. The data held in it also has unique identifiers. This means it is 
+  possible to use more than one resource file at a time. Simply load the files 
+  you wish to use, and ReadRSC$: will work out on its own inside which file the 
+  resource you want is, once you supply it the value from the INCLUDE file.</p>
+<h2> <a name="oplrsc_mm-007"></a>7. Using Resource Files on the ROM</h2>
+<p>Just as it is possible to use the contents of a resource file you have written 
+  yourself from RAM, it is also possible to use the contents of the standard resource 
+  files supplied in the ROM. For example, this OPL program will show how to obtain 
+  the locale value for the text &#145;Busy&#146; for the current machine:</p>
+<blockquote> 
+  <pre>INCLUDE &quot;SYSTEM.OXH&quot;</pre>
+  <pre>CONST KSRBusy&amp;=&amp;F3B184</pre>
+  <pre>PROC Main:
+	LOCAL RSCId&amp;
+	RSCId&amp;=LoadRSC&amp;:(&quot;Z:\System\Data\Eiksrv.rsc&quot;)
+	PRINT ReadRSC$:(KSRBusy&amp;)
+	GET
+ENDP</pre>
+</blockquote>
+<p>This can be applied to any of the resource files and using different numbers 
+  you can experiment to find the different resources. However, also be aware that 
+  it is not necessary to load the above &#145;<font face="Courier New, Courier, mono" size="2">Eiksrv.rsc</font>&#146; 
+  file from your OPL program. The reason being that this file is automatically 
+  loaded by every OPL program when it is run. Thus it is possible to simply execute 
+  the following code:</p>
+<blockquote> 
+  <pre>INCLUDE &quot;SYSTEM.OXH&quot;</pre>
+  <pre>CONST KSRBusy&amp;=&amp;F3B184</pre>
+  <pre>PROC Main:
+	PRINT ReadRSC$:(KSRBusy&amp;)
+	GET
+ENDP</pre>
+</blockquote>
+<p>To further facilitate the use of the standard System resources, you can use 
+  the OPL include file supplied with this document. Simply add the line <font face="Courier New, Courier, mono" size="2">INCLUDE 
+  &quot;EIKON.OPH&quot;</font> at the top of your code (assuming you placed the 
+  file in <font face="Courier New, Courier, mono" size="2">\System\OPL\</font> 
+  as explained above), and all of the resources will be available to you via easy 
+  to use CONST values.</p>
+<h2> <a name="oplrsc_mm-008"></a>8. A Note About Long Integer Resources</h2>
+<p>The resource files used throughout this tutorial only make use of string values. 
+  This is mainly for reasons of simplicity. However, it is worth noting that OPL 
+  is also able to access long integer values from resource files. In the RSCExamp 
+  program where integers are needed (for example in some of the menu hotkeys), 
+  they have been coded as strings in the resource file and are then converted 
+  from a string to an integer using OPL&#146;s VAL function. If you used this 
+  approach frequently, a small procedure would be advisable to help automate it, 
+  e.g.:</p>
+<blockquote> 
+  <pre>PROC RRL&amp;:(aResourceID&amp;)
+	RETURN INT(VAL(ReadRSC$:(aResourceID&amp;)))
+ENDP</pre>
+</blockquote>
+<p>If you wish to use long integers directly you should define a new STRUCT at 
+  the top of your resource file, e.g.:</p>
+<blockquote> 
+  <pre>// Define new KEY structure
+STRUCT KEY
+	{
+	LONG key;
+	}</pre>
+</blockquote>
+<p>Further down the resource file you can then define resource to use this structure 
+  as follows:</p>
+<blockquote> 
+  <pre>RESOURCE KEY Resource_Name {key = 12;}
+ </pre>
+</blockquote>
+<p>To gain access to this resource from your OPL program you need to use ReadRSCLong&amp;: 
+  function in SYSTEM.OPX, i.e.:</p>
+<blockquote> 
+  <pre>PRINT ReadRSCLong&amp;:(RESOURCE_NAME&amp;)</pre>
+</blockquote>
+<p>would cause the value 12 to be printed based on the above declaration.</p>
+<h2><a name="oplrsc_mm-009"></a>9. Acknowledgements</h2>
+<p>In compiling this document, we would like to express our thanks G&eacute;rald 
+  Aubard for translating the English resource file of RSCExamp into French, and 
+  to Fredy Ott for the German translation. Thanks also to Jochen Siegenthaler 
+  for compiling the EIKON.oph file.</p>
+        
+<BR><BR>
+<A HREF="../index.html">Back to opl-dev project homepage</A>
+<BR><BR>
+
+<A HREF="http://sourceforge.net"><IMG SRC="http://sourceforge.net/sflogo.php?group_id=76695&amp;type=1" WIDTH="88" HEIGHT="31" BORDER="0" ALIGN=right ALT="SourceForge.net Logo" /></A> <A HREF="http://www.symbian.com/"><IMG SRC="../symbian.png" ALT="Symbian logo" ALIGN=left /></A>
+</td>
+  </tr>
+</table>
+</body>
+</html>

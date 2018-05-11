@@ -1,0 +1,15 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"demo AppFrame OPX [Thumb]"}, (0x09813122), 0, 1, 128, TYPE=SA
+
+(0x101F6F88), 0, 0, 0, {"Series60ProductID"}
+;
+; Dependencies
+;
+"\Symbian\6.1\series60\epoc32\release\thumb\urel\appframe.opx"-"!:\System\Opx\AppFrame.opx"
+"\opl\opx\appframe\tappframestatus.opo"-"C:\Opltest\tappframestatus.opo"

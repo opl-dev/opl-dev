@@ -1,0 +1,29 @@
+// OPLAIF.RSS
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+#include <aiftool.rh>
+
+RESOURCE AIF_DATA
+	{
+	caption_list=
+		{ 
+		CAPTION { code=ELangEnglish; caption="OPL"; } // not localized.
+		};
+	//
+	app_uid=0x10005D2E;
+	num_icons=2;
+	// Series60 ignores the hidden attribute?
+	hidden=KAppIsHidden;
+	embeddability=KAppNotEmbeddable;
+	newfile=KAppDoesNotSupportNewFile;
+
+//MIME type priorities
+//Playing with recogniser on Series 60. Didn't work :-(
+//	datatype_list=
+//		{
+//		DATATYPE { priority=EDataTypePriorityNormal; type="x-epoc/x-app268459310"; } // 0x10005D2E
+//		DATATYPE { priority=EDataTypePriorityNormal; type="opl/opo"; }
+//		};
+	}
+

@@ -1,0 +1,73 @@
+// SYSTEM.MMP
+//
+// Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+
+TARGET		System.opx
+TARGETTYPE	dll
+TARGETPATH	\System\OPX
+UID			0x10003A7B 0x1000025c
+
+#include "..\..\opl-target.mmpi"
+
+// Device-specific capabilities
+#if defined(__S80_DP2_0_MMP__)
+MACRO USE_ETEL
+#elif defined(__CRYSTAL_MMP__)
+MACRO USE_SYSTIMER
+MACRO USE_ETEL
+MACRO USE_PLP
+#else
+MACRO USE_PLP // Most devices use PLP - remote link.
+#endif
+// Only Crystal(9200) uses SYSTIMER, ETEL.
+// And all but 9500 use plp.
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH	..\System
+SOURCE		System.cpp
+DOCUMENT	System.txh
+
+SOURCEPATH	..\TSrc
+DOCUMENT	TSystem.tpl
+DOCUMENT	TSystem2.tpl
+DOCUMENT	TSystem3.tpl
+DOCUMENT	TSystem4.tpl
+
+USERINCLUDE	..\src
+SYSTEMINCLUDE	\epoc32\include
+
+LIBRARY		apparc.lib euser.lib oplr.lib apgrfx.lib bafl.lib
+LIBRARY		cone.lib efsrv.lib ws32.lib estor.lib eikcore.lib
+LIBRARY		hal.lib
+
+#if !defined(__SERIES60_MMP__)
+LIBRARY		eikfile.lib 
+#endif
+
+#if defined(__UIQ_MMP__)
+// UIQ
+LIBRARY		eikdlg.lib
+#endif
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(__S80_DP2_0_MMP__)
+// Nokia 9500
+LIBRARY		etel3rdparty.lib
+#else
+// Nokia 9210
+LIBRARY		systimer.lib etel.lib gsmbas.lib
+#endif
+#endif
+
+#if !defined(__S80_DP2_0_MMP__)
+LIBRARY		plpremlink.lib
+#endif
+
+DEFFILE		OPX.DEF

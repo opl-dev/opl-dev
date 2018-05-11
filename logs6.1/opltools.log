@@ -1,0 +1,24 @@
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\EXPORT.make" EXPORT VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" MAKEFILE VERBOSE=-s
+	perl -S makmake.pl -D \OPL\OPLTOOLS\OPLTRAN\OPLTRAN WINC
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" LIBRARY VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\OPLTRAN\OPLTRAN\WINC\OPLTRAN.WINC" LIBRARY
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" RESOURCE CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\OPLTRAN\OPLTRAN\WINC\OPLTRAN.WINC" RESOURCEUDEB
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" RESOURCE CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\OPLTRAN\OPLTRAN\WINC\OPLTRAN.WINC" RESOURCEUREL
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" TARGET CFG=UDEB VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\OPLTRAN\OPLTRAN\WINC\OPLTRAN.WINC" UDEB
+Opltran.cpp
+Opltran.uid.cpp
+Opltrant.cpp
+Winutil.cpp
+EEXE.LIB(UP_EXE.obj) : warning LNK4099: PDB "eexe.pdb" was not found with "\Symbian\6.1\Series60\EPOC32\RELEASE\WINC\UDEB\EEXE.LIB" or at "S:\Symbian\6.1\Series60\EPOC32\RELEASE\WINC\UDEB\eexe.pdb"; linking object as if no debug info
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" TARGET CFG=UREL VERBOSE=-s
+	nmake -nologo -s  -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\OPLTRAN\OPLTRAN\WINC\OPLTRAN.WINC" UREL
+Opltran.cpp
+Opltran.uid.cpp
+Opltrant.cpp
+Winutil.cpp
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" FINAL CFG=UDEB VERBOSE=-s
+  nmake -nologo -f "\Symbian\6.1\Series60\EPOC32\BUILD\OPL\OPLTOOLS\GROUP\WINC.make" FINAL CFG=UREL VERBOSE=-s

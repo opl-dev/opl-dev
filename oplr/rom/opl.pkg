@@ -1,0 +1,29 @@
+#{"OPL"},(0x1000904D),0,1,1,TYPE=SISAPP
+
+;just the minimum for core OPL.
+
+; From opl.iby & opl.hby
+
+"\epoc32\release\thumb\urel\opl.app"-"!:\System\Apps\Opl\Opl.app"
+"\epoc32\release\thumb\urel\opl.acl"-"!:\System\Apps\Opl\Opl.aif"
+"\epoc32\release\thumb\urel\oplr.rsc"-"!:\System\Data\Oplr.rsc"
+"\epoc32\release\thumb\urel\oplr.dll"-"!:\System\Libs\Oplr.dll"
+"\epoc32\release\thumb\urel\oplt.dll"-"!:\System\Libs\Oplt.dll"
+"\epoc32\release\thumb\urel\recopl.rdl"-"!:\System\Recogs\Recopl.rdl"
+
+"\epoc32\release\thumb\urel\Agenda.opx"-"!:\System\Opx\Agenda.opx"
+"\epoc32\release\thumb\urel\Alarm.opx"-"!:\System\Opx\Alarm.opx"
+"\epoc32\release\thumb\urel\AppFrame.opx"-"!:\System\Opx\AppFrame.opx"
+"\epoc32\release\thumb\urel\Bmp.opx"-"!:\System\Opx\Bmp.opx"
+"\epoc32\release\thumb\urel\Contact.opx"-"!:\System\Opx\Contact.opx"
+"\epoc32\release\thumb\urel\Convert.opx"-"!:\System\Opx\Convert.opx"
+"\epoc32\release\thumb\urel\Date.opx"-"!:\System\Opx\Date.opx"
+"\epoc32\release\thumb\urel\Dbase.opx"-"!:\System\Opx\Dbase.opx"
+"\epoc32\release\thumb\urel\Printer.opx"-"!:\System\Opx\Printer.opx"
+"\epoc32\release\thumb\urel\Scomms.opx"-"!:\System\Opx\Scomms.opx"
+"\epoc32\release\thumb\urel\Sendas.opx"-"!:\System\Opx\Sendas.opx"
+"\epoc32\release\thumb\urel\System.opx"-"!:\System\Opx\System.opx"
+
+; Requires oplFont.sis 
+
+(0x10000035), 0, 1, 1, {"OPL Font"}

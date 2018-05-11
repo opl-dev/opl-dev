@@ -1,0 +1,12 @@
+;
+; Languages
+;
+&EN
+;
+#{"CellTrack OPX"},(0x101FE660),1,00,001,TYPE=SY
+
+; files 
+"\Symbian\6.0\NokiaCPP\Epoc32\Release\thumb\urel\CellTrack.opx"-"!:\system\opx\CellTrack.opx",FF
+
+; Depends on OPL.SIS being installed 
+(0x1000904d), 1, 0, 129, {"OPL Runtime"}

@@ -1,0 +1,30 @@
+// TMODTRAN.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+TARGET		tmodtran.exe
+TARGETTYPE	exe
+
+#include "..\..\opl-target.mmpi"
+
+SOURCEPATH	.
+
+//DOCUMENT	bugs.opl empty.opl extends.opl func.opl
+//DOCUMENT	indents.opl keys.opl oplreadr.cpp opler1.opl
+//DOCUMENT	struct.opl 
+
+SOURCE		textfile.cpp tmodtran.cpp oplreadr.cpp
+
+SYSTEMINCLUDE	\epoc32\include	 ..\inc
+USERINCLUDE		..\inc ..\ttran
+
+LIBRARY		oplt.lib efsrv.lib euser.lib
+LIBRARY		fbscli.lib estor.lib
+LIBRARY		etext.lib apparc.lib
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+#endif
+#endif

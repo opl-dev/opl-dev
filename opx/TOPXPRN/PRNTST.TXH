@@ -1,0 +1,11 @@
+rem Prntst.oxh
+rem
+rem Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+rem
+
+CONST KUidOpxPrintTest&=&100002F1
+CONST KOpxPrintTestVersion%=$100
+
+DECLARE OPX PRNTST,KUidOpxPrintTest&,KOpxPrintTestVersion%
+	GetRichText&: :1
+END DECLARE

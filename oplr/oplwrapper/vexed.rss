@@ -1,0 +1,30 @@
+// vexed.rss
+
+NAME OPLA
+
+#include <eikon.rh>
+
+#include "oplstartupdialog.hrh"
+#include <avkon.rsg>
+#include <avkon.rh>
+#include <avkon.mbg>
+
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF { buf="OPLA"; }
+
+RESOURCE EIK_APP_INFO
+	{
+//	menubar=r_oplstartupdialog_menubar;
+//	hotkeys=r_oplstartupdialog_hotkeys;
+	}
+
+RESOURCE HOTKEYS r_oplstartupdialog_hotkeys
+	{
+	control=
+		{
+		HOTKEY { command=EAknCmdExit; key='e'; }
+		};
+	}
+

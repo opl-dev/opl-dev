@@ -1,0 +1,23 @@
+// RECOPL.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+TARGET			recopl.mdl
+TARGETTYPE		MDL
+TARGETPATH		\system\recogs
+UID				0x10003A19 0x10000148
+
+SOURCEPATH		.
+
+SOURCE			recopl.cpp
+
+SYSTEMINCLUDE	..\inc \epoc32\include
+
+LIBRARY			EUSER.LIB APMIME.LIB EFSRV.LIB
+
+//DEFFILE			recopl.def
+
+START WINS
+	BASEADDRESS	0x44700000
+END
+

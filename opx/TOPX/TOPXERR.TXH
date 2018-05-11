@@ -1,0 +1,44 @@
+rem TOPXERR.oxh
+rem
+rem Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+rem
+
+rem Cannot be included without returning an error at start of runtime.
+rem Comment out each OPX to test that correct errors are returned
+
+rem non-existent OPX
+CONST KUidOpxTest&=1
+CONST KUidOpxNExist&=2
+
+DECLARE OPX OPXNEXIST,KUidOpxNExist&,$100
+	Proc1:(a1%,a2&) :1
+	Proc2:(a1,a2) :2
+	Proc3:(a1$) :3
+END DECLARE
+
+rem incompatible version
+DECLARE OPX TESTOPX,KUidOpxTest&,$200					rem should be $110
+	AddFloatToInt%:(arg1%,arg2) :1
+	Add4&:(arg1%,arg2&,arg3,arg4$) :2
+	StrToFlt:(arg$) :3
+	FltToStr$:(arg) :4
+	LowerToUpper$:(arg$) :5
+	StackCheck: :6 
+	FreeBytes: :7
+	IncIntByAddr:(addr&) :8
+	IncLngByAddr:(addr&) :9
+	IncFltByAddr:(addr&) :10
+	IncByRef3:(byref arg1%,byref arg2&,byref arg3) :11
+	MapE32Err%:(err&) :12
+	MapSyntaxErr: :13
+	MapTooManyOPXErr: :14
+	Mult3%:(arg1%,arg2%,arg3%) :15
+	Mult3&:(arg1&,arg2&,arg3&) :16
+	DBManCount&: :17
+	CallProc:(pName$) :18
+	CallProcRetInt:(pName$,arg2%,arg3&,arg4,arg5$) :19
+	CallProcRetLng:(pName$,arg2%,arg3&,arg4,arg5$) :20
+	CallProcRetFlt:(pName$,arg2%,arg3&,arg4,arg5$) :21
+	CallProcRetStr:(pName$,arg2%,arg3&,arg4,arg5$) :22
+	AppUid$: :23
+END DECLARE

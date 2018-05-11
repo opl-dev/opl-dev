@@ -1,0 +1,23 @@
+#{"OPL Developer"},(0x10009480),0,1,1,TYPE=SISAPP
+
+;Opl developer package
+
+"\epoc32\release\thumb\urel\texted.app"-"!:\System\Apps\Texted\Texted.app"
+"\epoc32\release\thumb\urel\texted.acl"-"!:\System\Apps\Texted\Texted.aif"
+"\epoc32\release\thumb\urel\texted.rsc"-"!:\System\Apps\Texted\Texted.rsc"
+;"\epoc32\release\thumb\urel\opl.hlp"-"!:\System\Help\Opl.hlp"
+
+"\epoc32\wins\c\system\opl\agenda.oxh"-"!:\System\Opl\Agenda.oxh"
+"\epoc32\wins\c\system\opl\alarm.oxh"-"!:\System\Opl\Alarm.oxh"
+"\epoc32\wins\c\system\opl\appframe.oxh"-"!:\System\Opl\AppFrame.oxh"
+"\epoc32\wins\c\system\opl\bmp.oxh"-"!:\System\Opl\Bmp.oxh"
+"\epoc32\wins\c\system\opl\contact.oxh"-"!:\System\Opl\Contact.oxh"
+"\epoc32\wins\c\system\opl\convert.oxh"-"!:\System\Opl\Convert.oxh"
+"\epoc32\wins\c\system\opl\date.oxh"-"!:\System\Opl\Date.oxh"
+"\epoc32\wins\c\system\opl\dbase.oxh"-"!:\System\Opl\Dbase.oxh"
+"\epoc32\wins\c\system\opl\locale.oxh"-"!:\System\Opl\Locale.oxh"
+"\epoc32\wins\c\system\opl\printer.oxh"-"!:\System\Opl\Printer.oxh"
+"\epoc32\wins\c\system\opl\scomms.oxh"-"!:\System\Opl\Scomms.oxh"
+"\epoc32\wins\c\system\opl\sendas.oxh"-"!:\System\Opl\Sendas.oxh"
+"\epoc32\wins\c\system\opl\system.oxh"-"!:\System\Opl\System.oxh"
+"\epoc32\wins\c\system\opl\const.oph"-"!:\System\Opl\Const.oph"

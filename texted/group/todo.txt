@@ -1,0 +1,18 @@
+Add this todo file to the component.
+
+test debugger for menu testing etc.
+Make 'translate debug' the default CBA if debugger detected...
+
+Drop the dsc file???
+
+Set the default command dynamically by calling
+
+  SetDefaultCommand(TInt aCommandId);
+
+though you have to redraw with
+
+  ControlOrNull(TInt aCommandId)->DrawNow();
+
+
+Ensure loc doc and .loc are in step.
+

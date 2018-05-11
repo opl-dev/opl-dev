@@ -1,0 +1,22 @@
+// oplwrapperaif.rss
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+#include <aiftool.rh>
+#include "oplwrapper.h"
+
+RESOURCE AIF_DATA
+	{
+	caption_list=
+		{ 
+		CAPTION { code=ELangEnglish; caption=_OPLWRAPPERNAME; } // not localized.
+		};
+	//
+	app_uid=_OPLWRAPPERUID;
+	//
+	num_icons=2;
+	//
+	embeddability=KAppNotEmbeddable;
+	newfile=KAppDoesNotSupportNewFile;
+	}
+

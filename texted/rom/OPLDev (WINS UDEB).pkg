@@ -1,0 +1,32 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"OPL Developer Tools [WINS]"}, (0x10009480), 1, 51, 001, TYPE=SA
+;
+; Warning file
+;
+;"\texted\rom\Alpha-Warning.txt"-"",FT,TA
+;
+;TextEd Files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\z\system\apps\texted\texted.app"-"!:\System\Apps\TextEd\TextEd.app"
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\z\system\apps\texted\texted.aif"-"!:\System\Apps\TextEd\TextEd.aif"
+"\Symbian\6.0\NokiaCPP\epoc32\release\wins\udeb\z\system\apps\texted\texted.rsc"-"!:\System\Apps\TextEd\TextEd.rsc"
+;
+;Core OPX Header Files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\wins\c\system\OPL\AppFrame.oxh"-"!:\System\OPL\AppFrame.oxh"
+"\Symbian\6.0\NokiaCPP\epoc32\wins\c\system\OPL\SendAs.oxh"-"!:\System\OPL\SendAs.oxh"
+"\Symbian\6.0\NokiaCPP\epoc32\wins\c\system\OPL\System.oxh"-"!:\System\OPL\System.oxh"
+;
+;Core OPH Include Files
+;
+"\Symbian\6.0\NokiaCPP\epoc32\wins\c\system\OPL\Const.oph"-"!:\System\OPL\Const.oph"
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 00, 129, {"OPL Runtime"}

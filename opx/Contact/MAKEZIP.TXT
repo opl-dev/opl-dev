@@ -1,0 +1,5 @@
+\OPX\Contact\Readme.txt
+\OPX\Contact\TContact.tpl
+\OPX\Contact\Contact.txh
+\OPX\Contact\ContactOPX.sis
+\OPX\Contact\ContactOPXW.sis

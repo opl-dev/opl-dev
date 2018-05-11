@@ -1,0 +1,22 @@
+// TDEBUG.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+
+TARGET			opldbg.dll
+TARGETTYPE		dll
+TARGETPATH		\System\Libs
+UID				0x10000269 0
+
+SOURCE			tdebug.cpp
+
+SOURCEPATH		.
+SYSTEMINCLUDE	..\inc \epoc32\include
+
+LIBRARY			euser.lib oplr.lib
+
+DEFFILE			opldbg.def
+
+START WINS
+				// BASEADDRESS  0x88880000
+END

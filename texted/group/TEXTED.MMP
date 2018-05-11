@@ -1,0 +1,101 @@
+// TEXTED.MMP
+//
+// Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+
+TARGET		texted.app
+TARGETTYPE	app
+TARGETPATH  \System\Apps\TextEd
+UID			0x100039CE 0x10003A63
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__S80_DP2_0_MMP__)
+MACRO USE_PRINTING
+MACRO USE_SENDAS
+// USE_IRLISTEN not supported for 9500.
+MACRO USE_ADDTODESK
+#elif defined(__CRYSTAL_MMP__)
+MACRO USE_PRINTING 
+MACRO USE_SENDAS 
+MACRO USE_IRLISTEN
+MACRO USE_ADDTODESK
+#elif defined(__UIQ_MMP__)
+// USE_SENDAS doesn't compile on UIQ - need to support UIQ's send.lib.
+// e.g. see example app ExAppSendAs.app for details.
+
+// Can't use USE_PRINTING either - see bug [980744] Missing print setup on phone stops editor
+// which describes how printing is available under the emulator, but not the phone.
+#endif
+
+#if defined(__CRYSTAL_MMP__) 
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY           egcc.lib
+LIBRARY         edll.lib edllstub.lib
+#endif
+#endif
+
+//Pick up the right oplr.rss file
+#if defined(__SERIES60_MMP__)
+SOURCEPATH	..\series60
+#elif defined(__UIQ_MMP__)
+SOURCEPATH ..\uiq
+#elif defined(__CRYSTAL_MMP__)
+SOURCEPATH ..\series80
+#elif defined(__SERIES90_MMP__)
+SOURCEPATH ..\series90
+#endif
+RESOURCE	texted.rss
+
+SOURCEPATH	.
+DOCUMENT	texted.loc bldoplhelp.mk
+DOCUMENT	release.txt bld.inf
+
+SOURCEPATH	..\inc
+DOCUMENT	texted.hrh
+
+SOURCEPATH	..\src
+SOURCE		texted.cpp txtedsrc.cpp txteddoc.cpp
+
+USERINCLUDE	..\inc	..\src ..\group
+SYSTEMINCLUDE	\epoc32\include 
+
+// Common across all platforms.
+LIBRARY		euser.lib efsrv.lib estor.lib bafl.lib gdi.lib ws32.lib
+LIBRARY		apgrfx.lib apparc.lib etext.lib
+LIBRARY		form.lib print.lib cone.lib oplr.lib
+LIBRARY		eikcore.lib eikcoctl.lib eikctl.lib eikdlg.lib 
+LIBRARY		eikcdlg.lib 
+//LIBRARY		flogger.lib
+
+// For UIQ
+#if defined(__UIQ_MMP__) 
+LIBRARY		QIKCTL.LIB eikfile.lib apfile.lib
+#endif
+
+// For Series 60
+#if defined(__SERIES60_MMP__)
+LIBRARY		apfile.lib
+#endif
+
+// For 9200 and optionally 9500.
+#if defined(__CRYSTAL_MMP__)
+LIBRARY		sendui.lib eikprint.lib cknctl.lib ckndlg.lib
+#if defined(__S80_DP2_0_MMP__)
+LIBRARY		addtodesk.lib
+#else
+// Must be 9210 
+LIBRARY		irlistenui.lib linkui.lib linkmdl.lib apfile.lib
+#endif  
+#elif defined(__SERIES90_MMP__)
+LIBRARY		ckndlg.lib cknctl.lib
+#endif
+
+
+START WINS
+	BASEADDRESS 0x61000000
+END
+
+// Color resources
+SOURCEPATH	..\aifc
+AIF texted.aif ..\aifc\ prog.rss c8 opl_i_editor.bmp opl_i_editor_mask.bmp opl_i_editor_list.bmp opl_i_editor_list_mask.bmp

@@ -1,0 +1,39 @@
+; texted-uiq.pkg
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+
+
+;													 	  = v0 .50 (001)
+#{"OPL Developer Tools - UIQ - Beta release"}, (0x10009480), 0, 54, 001, TYPE=SA
+
+;Opl developer package
+
+(0x101F617B),2,0,0,{"UIQ20ProductID"}
+
+
+;
+;TextEd Files
+;
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\texted.app"-"!:\System\Apps\TextEd\TextEd.app"
+"\Symbian\UIQ_21\epoc32\data\z\system\apps\texted\texted.aif"-"!:\System\Apps\TextEd\TextEd.aif"
+"\Symbian\UIQ_21\epoc32\data\z\system\apps\texted\texted.rsc"-"!:\System\Apps\TextEd\TextEd.rsc"
+;
+;Core OPX Header Files
+;
+;"\epoc32\wins\c\system\OPL\AppFrame.oxh"-"!:\System\OPL\AppFrame.oxh"
+;"\epoc32\wins\c\system\OPL\SendAs.oxh"-"!:\System\OPL\SendAs.oxh"
+;"\epoc32\wins\c\system\OPL\System.oxh"-"!:\System\OPL\System.oxh"
+;
+;Core OPH Include Files
+;
+;"\epoc32\wins\c\system\OPL\Const.oph"-"!:\System\OPL\Const.oph"
+;
+; Depends on Opl runtime from OPL.sis being installed
+;
+;(0x1000904D)
+

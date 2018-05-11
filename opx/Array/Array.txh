@@ -1,0 +1,65 @@
+REM Array.oxh
+REM
+REM Copyright (c) 2005 Arjen Broeze. All rights reserved.
+REM
+
+CONST KUidOpxArray&=&10204D05
+CONST KOpxArrayVersion%=$120
+
+
+REM Compare flags
+CONST KArCmpNormal%=1
+CONST KArCmpFolded%=2
+CONST KArCmpCollated%=3
+
+REM Sort flags
+CONST KArSortAsc%=1		REM Sort Ascending
+CONST KArSortDes%=2		REM Sort Descending
+
+REM Duplicates flags
+CONST KArDupAllow%=1    REM Allow duplicates
+CONST KArDupIgnore%=2   REM Ignore duplicates
+CONST KArDupError%=3    REM Duplicates will raise error KErrAlreadyExists%
+
+REM Search type
+CONST KArSearchSubstring%=1	REM Searches for substring
+CONST KArSearchWildcard%=2	REM Searches for wildcard match
+
+DECLARE OPX Array,KUidOpxArray&,KOpxArrayVersion%
+	ArrayNew&: :1
+	ArrayFree:(arrayId&) :2
+	ArrayClear:(arrayId&) :3
+
+	ArraySetDuplicates:(arrayId&,duplicates%) :4
+	ArrayGetDuplicates%:(arrayId&) :5
+	ArraySetCompareType:(arrayId&,compare%) :6
+	ArrayGetCompareType%:(arrayId&) :7
+	ArraySetSortMode:(arrayId&,sort%) :8
+	ArrayGetSortMode%:(arrayId&) :9
+	ArraySetSorted:(arrayId&,sorted%) :10
+	ArrayGetSorted:(arrayId&) :11
+
+	ArrayAddItem%:(arrayId&,value$) :12
+    ArrayInsertItem:(arrayId&,index%,value$) :13
+    ArrayReplaceItem:(arrayId&,index%,value$) :14
+	ArrayDeleteItem:(arrayId&,index%) :15
+
+	ArrayItemCount%:(arrayId&) :16
+
+	ArrayItemAt$:(arrayId&,index%) :17
+	ArrayFind%:(arrayId&,value$) :18
+
+    ArraySort:(arrayId&) :19
+	ArraySearch%:(arrayId&,startpos%,value$,searchType%) :20
+
+	ArrayAddItemL&:(arrayId&,value$) :21
+    ArrayInsertItemL:(arrayId&,index&,value$) :22
+    ArrayReplaceItemL:(arrayId&,index&,value$) :23
+	ArrayDeleteItemL:(arrayId&,index&) :24
+
+	ArrayItemCountL&:(arrayId&) :25
+
+	ArrayItemAtL$:(arrayId&,index&) :26
+	ArrayFindL&:(arrayId&,value$) :27
+    ArraySearchL&:(arrayId&,startpos&,value$,searchType%) :28
+END DECLARE

@@ -1,0 +1,2 @@
+EXPORTS ?NewDebuggerL@@YAPAVCDebuggerBase@@PAVCDebuggerAPI@@@Z @1 NONAME ; class CDebuggerBase * __cdecl NewDebuggerL(class CDebuggerAPI *)
+

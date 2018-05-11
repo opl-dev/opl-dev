@@ -1,0 +1,73 @@
+rem Alarm.oxh
+rem 
+rem Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+rem 
+
+CONST KOpxAlarmUid&=&10004EC8
+CONST KOpxAlarmVersion%=$600
+
+CONST KAlarmClockOnce&=0
+CONST KAlarmClockNext24hours&=1
+CONST KAlarmClockDaily&=2
+CONST KAlarmClockWeekly&=3
+CONST KAlarmClockWorkday&=4
+
+CONST KAlarmNotSet&=0
+CONST KAlarmSet&=1
+CONST KAlarmDisabled&=2
+
+CONST KAlarmSoundOn&=0
+CONST KAlarmSoundOff&=1
+CONST KAlarmQuietPeriod&=2
+
+CONST KAlarmSilenced$=""
+CONST KAlarmSilent$="Silent"
+
+CONST KMaxAlarmMessage%=$80
+CONST KMaxAlarmSoundName%=$20
+
+CONST KMaxCityName%=25
+CONST KMaxCountryName%=25
+CONST KMaxAreaCode%=10
+CONST KMaxNationalCode%=10
+CONST KMaxNationalPrefixCode%=10
+CONST KMaxInternationalPrefixCode%=10
+CONST KMaxWorldLatitudeMinutes&=5400	rem 90*60
+CONST KMaxWorldLongitudeMinutes&=10800	rem 180*60
+CONST KMaxWorldUniversalTimeOffset&=780	rem 13*60 (in minutes)
+
+CONST KDaylightSavingZoneNone%=0
+CONST KDaylightSavingZoneEuropean%=1
+CONST KDaylightSavingZoneNorthern%=2
+CONST KDaylightSavingZoneSouthern%=4
+
+DECLARE OPX ALARM,KOpxAlarmUid&,KOpxAlarmVersion%
+	AlmSetClockAlarm:(anAlarmNumber&,aDateTime&,aMessage$,aSound$,aRepeat&) :1
+	AlmAlarmState&:(anAlarmNumber&) :2
+	AlmAlarmEnable:(aEnable&, anAlarmNumber&) :3
+	AlmAlarmDelete:(anAlarmNumber&) :4
+	AlmQuietPeriodCancel: :5
+	AlmQuietPeriodUntil:(aDateTime&) :6
+	AlmQuietPeriodSet:(aMinutes&) :7
+	AlmSetAlarmSound:(aState&) :8
+	AlmAlarmSoundState&: :9
+	
+	WldFindCity:(aSearchCity$, aCallback$) :10
+	WldSunlight:(aSearchCity$, theTimeOfSunrise&, theTimeOfSunset&, aDate&) :11
+	WldHome$: :12
+	WldPreviousCity$:(aSearchCity$) :13
+	WldPreviousCountry$:(aSearchCountry$) :14
+	WldNextCity$:(aSearchCity$) :15
+	WldNextCountry$:(aSearchCountry$) :16
+
+	WldAddCity:(aCityName$, aCountryName$, aMinsLat&, aMinsLong&, aAreaCode$, aDaylightZone%, aGMTOffset&, aMapX%, aMapY%) :17
+	WldAddCountry:(aCountryName$, aNationalCode$, aNationalPrefix$, aInternationalPrefix$, aCapitalCity$, aMinsLat&, aMinsLong&, aAreaCode$, aDaylightZone%, aGMTOffset&, aMapX%, aMapY%) :18
+	WldEditCity:(aCityToEdit$, aCountryToEdit$, aCityName$, aCountryName$, aMinsLat&, aMinsLong&, aAreaCode$, aDaylightZone%, aGMTOffset&, aMapX%, aMapY%) :19
+	WldEditCountry:(aCountryToEdit$, aCountryName$, aNationalCode$, aNationalPrefix$, aInternationalPrefix$, aCapitalCity$) :20
+	WldDeleteCity:(aCityName$, aCountryName$) :21
+	WldDeleteCountry:(aCountryName$) :22
+	WldNumberOfCities&: :23
+	WldNumberOfCountries&: :24
+	WldDataFileSave: :25
+	WldDataFileRevert: :26
+END DECLARE

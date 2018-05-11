@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE cshproj SYSTEM "/epoc32/tools/cshlpcmp/dtd/CSHproj.dtd">
+<?xml:stylesheet href="/epoc32/tools/cshlpcmp/xsl/CSHproj.xsl" title="CS-Help project" type="text/xsl"?>
+<cshproj>
+<helpfileUID>0x1000913C</helpfileUID>
+<directories>
+	<input>..\..\DemoOPL\Help\</input>
+	<output>\Symbian\6.0\NokiaCPP\epoc32\wins\c\OPL\DemoApp\SupportFiles\</output>
+	<graphics>..\..\DemoOPL\Help\</graphics>
+	<working>\Symbian\6.0\NokiaCPP\epoc32\wins\c\System\Temp\</working>
+</directories>
+<files>
+<source>
+	<file>Help.rtf</file>
+</source>
+	<destination>DemoOPL.hlp</destination>
+<customization>..\..\DemoOPL\Help\DefaultCustomisation.xml</customization>
+</files>
+</cshproj>

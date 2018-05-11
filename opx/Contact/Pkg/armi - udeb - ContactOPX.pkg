@@ -1,0 +1,16 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"Contacts OPX © Symbian Ltd"}, (0x10003ED7), 0, 40, 116, TYPE=SY
+;
+; Files
+;
+"\epoc32\release\armi\udeb\Contact.opx"-"!:\System\OPX\Contact.opx", FF
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 00, 129, {"OPL Runtime © Symbian Ltd"}

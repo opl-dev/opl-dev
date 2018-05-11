@@ -1,0 +1,83 @@
+proc donotrun:
+
+	print "Do not run this module"
+	print "It is for use with OPX callback testing"
+	pause 30
+
+endp
+
+proc simple:
+	print "Hello"
+endp
+
+proc fourargs%:(a%,b&,c,d$)
+	local res
+
+	rem check passed correct parameter values
+	if a%<>1 : raise 2 : endif
+	if b&<>2 : raise 3 : endif
+	if c<>3.4 : raise 4 : endif
+	if d$<>"Hello" : raise 5 : endif
+	
+	res=intf(a%)+intf(b&)+c
+	print "The sum of the numbers is ";res
+	if res<>6.4 : raise 6 : endif
+	
+	print "The string is "+d$
+	pause 10
+	return a%
+endp
+
+proc fourargs&:(a%,b&,c,d$)
+	local res
+
+	rem check passed correct parameter values
+	if a%<>1 : raise 2 : endif
+	if b&<>2 : raise 3 : endif
+	if c<>3.4 : raise 4 : endif
+	if d$<>"Hello" : raise 5 : endif
+	
+	res=intf(a%)+intf(b&)+c
+	print "The sum of the numbers is ";res
+	if res<>6.4 : raise 6 : endif
+	
+	print "The string is "+d$
+	pause 10
+	return &1
+endp
+
+proc fourargs:(a%,b&,c,d$)
+	local res
+
+	rem check passed correct parameter values
+	if a%<>1 : raise 2 : endif
+	if b&<>2 : raise 3 : endif
+	if c<>3.4 : raise 4 : endif
+	if d$<>"Hello" : raise 5 : endif
+	
+	res=intf(a%)+intf(b&)+c
+	print "The sum of the numbers is ";res
+	if res<>6.4 : raise 6 : endif
+	
+	print "The string is "+d$
+	pause 10
+	return 1.0
+endp
+
+proc fourargs$:(a%,b&,c,d$)
+	local res
+
+	rem check passed correct parameter values
+	if a%<>1 : raise 2 : endif
+	if b&<>2 : raise 3 : endif
+	if c<>3.4 : raise 4 : endif
+	if d$<>"Hello" : raise 5 : endif
+	
+	res=intf(a%)+intf(b&)+c
+	print "The sum of the numbers is ";res
+	if res<>6.4 : raise 6 : endif
+	
+	print "The string is "+d$
+	pause 10
+	return d$
+endp

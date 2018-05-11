@@ -1,0 +1,196 @@
+OPLTOOLS 
+========
+
+300 
+Changes:
+ Added a workround for [1206638] Unable to build OPLTRAN with Nokia 7710 SDK.
+ The workround is to use a version of OPLTRAN from another OPL developer 
+ kit. e.g 9210, 9500.
+ Note: each version of the developers kit contains its own OPLTRAN. As the 
+ translator is identical for all versions, any working OPLTRAN.EXE can be 
+ used with any other version.
+ However, there is one problem: the EPOCROOT value is not used to create 
+ the OPL .APP filename when translating an OPL APP, so OPL apps would end
+ up in the wrong place. This change fixes that problem by adding a new 
+ command line argument "-epocroot%EPOCROOT%" to allow the opltran batch file
+ to pass the epocroot value to the tool.
+ [Unable to use the Windows getenv("EPOCROOT") function, as it always 
+ returned NULL.]
+ To prepare a working OPLTRAN.EXE tool for central (remote) use, 
+ assuming d:\rtools\ is your tools folder in your PATH.
+ 0. build/install OPLTRAN.EXE.
+ 1. mkdir d:\rtools\opltran\ folder.
+ 2. copy \epoc32\release\winc\udeb\ contents to opltran\ including subfolders.
+ 3. copy \epoc32\release\wins\udeb\z\system\data\eikcore.rsc resource file 
+     to opltran\z\system\data\ folder.
+ 4. copy opltran-remote.bat file to d:\rtools\opltran.bat.
+ 5. modify that opltran.bat file so that it uses d:\rtools\opltran\opltran.exe
+
+210 (released as ?????? by ????, ????)
+Changes:
+ PhilS: Added in HRH2OPH to convert UIQ help compiler HRH files to OPH include files
+
+209 (released as v1.22 by Rick, 26/05/2003)
+Changes:
+ Fixed bug 743653 allowing OPLTRAN to handle relative paths.
+
+208 (released as 140887 by Rick, 20/12/2001)
+Changes:
+ Fixed OPLTRAN failing with file extensions longer than 3 characters
+
+ Changed all _L() to _LIT()
+
+207 (released as 115660 by Rick, 23/08/2001)
+Changes:
+ Added TSG/OSG (resource file output) as knwon types to convert between
+
+ Added RSG2OSG folder and files - this is a BAT and small Perl script
+ which will take an RSG file from the resource compiler, parse it to
+ replace "#define " with "CONST " and also "0x" with "=&", save the new
+ file with a TSG extension and then send that TSG to OPLTRAN to convert
+ to an OSG for inclusion in OPL programs [the BAT and .PL are listed
+ under PRJ_EXPORTS too]
+
+206 (released as ????? by Rick, 24 July 00)
+Changes:
+ Use NearestLanguageFile() to pick up .R01 files in place of RSC.
+
+205 (released as 41656 by Rick, 19 May 00)
+ Changes to support EPOCROOT envvar for "Emulation Enhancements" work.
+
+204 (released as 27340 by Rick, 31 March 00)
+Changes:
+ Moved target location of OPL APP files from ROM (Z:) to C:\System to fix 
+ defect EDNPSPR-4HDMXR "Change OPLTran output location for APP files"
+ Removed old PVCS stuff.
+
+*** REMEMBER TO USE 'MAKMAKE OPLTRAN VC5WINC' ***
+
+OPLTOOLS 201
+============
+* Switched from oplr resource file to opltran's own. This prevents a cyclic
+  build dependancy [opltran needs oplt and oplr which needs opltran...]
+  Note: any changes to the OPLR resource file need to be reflected here.
+
+OPLTOOLS 200
+============
+(Released by Steve 15 Sept 99)
+Uses: Crystal
+Changes:
+* Fixed the bug where the floppy drive was being scanned by changing Charconv calls to 
+ConvertFromUnicodeToNative16Bit() etc.
+* Unicode batch file is now OPLTRAN.BAT rather than OPLTRANU.BAT since builds only have to 
+support unicode from now on.
+* Removed a couple of build warnings (new build chain).
+* Cmdline switches may now be delimited by either "-" or "/" and are case insensitive.
+
+ **************************************************************************************
+ ********** //!!TODO NEED TO MOVE CHARCONV.DLL INTO \RELEASE\WINC\UDEB MANUALLY
+ ********** Ditto: etext.dll, field.dll, oplt.dll
+ ********** Until such time as the relevant components build for WINC
+ **************************************************************************************
+
+OPLTOOLS 150
+============
+(Released by Rick 05 July 99)
+Uses: ER5u dependencies
+ Moved to new ETEXT (new line delim character breaks all existing Unicode EPOC OPL source files).
+ Moved from Eikon to Uikon.
+ Tidied code by removing unused portions for OPLT CONSOLE use.
+ Stopped releasing narrow OPLTRAN.
+
+OPLTOOLS 100
+============
+(Released by Rick 23 January 99)
+Uses: ER5 dependencies.
+Based on 003, but for ER5.
+Uses ebld and mnt valid.
+Added -s option, for 'silent' -- only errors are reported on the command line, successful translations
+are not reported.
+Removed -convU option as the Unicode opltran now imports ASCII text.
+Added Unicode release of opltran. The opltranu.bat file handles the unicode version.
+
+OPLTOOLS 003
+============
+(Released by Rick 19 Oct 98)
+Uses: ER3 dependencies as before.
+
+Added convertor functionality, supporting:
+ -conv  Convert between ASCII and EPOC, and back
+ -convU Convert between ASCII and Unicode EPOC, and back.
+
+Note that there is no Unicode release of Opltran yet.
+
+Version 1.00.002
+================
+(Released by RickA 30 June 98)
+Uses: Platform 003 releases as before.
+
+Changes to fix the following bugs:
+1) EPOC Software Problems SW1-113 "Opltran can't handle errors in large 
+   ASCII opl files."
+2) EPCO Software Problems SW1-114 "Opltran uses incorrect output directory 
+   with multiple files"
+
+And rebadged copyright line to "Symbian Ltd".
+
+Version 1.00.001
+================
+(Released by RickA on 10 June 98)
+Uses: Platform 003 releases as before.
+
+Based on previous version of OPLTRAN except the source has moved from the OPLT
+group to a new group: OPLTOOLS.
+
+Added testcode - tests available via MNT.CMD - all tests run correctly.
+
+Created OPLTRAN.MMP, and added EBLD.BAT which is a bit sparse (+ will need 
+more work esp. when other tools are added to the group).
+
+Version 0.01.041
+================
+(Released by RickA on 07 April 98)
+Uses: Platform 003 releases as before.
+
+Identical to 038 except that the WINC translator tool now 
+
+* has error format to match ODE (use new command line option -e to use alternate
+  error output as per MS Dev etc)
+* can recognise native EPOC32-format files as well as ASCII format.
+* checks \Epoc32\Winc\Opl directory for include header files.
+* returns an errorlevel of -1 if a translation error was found.
+
+Version 0.01.040
+================
+(Released by RickA on 5 March 98)
+Uses: Platform 003 releases as before.
+
+Identical to 038 except that the WINC translator tool now reads the current Windows working directory which is used as a default for OPL file locations.
+Also, the translator error output is produced using Windows printf() which allows development tools/editors to pick up the source file and position the cursor at the error; or it can redirected to an error file etc.
+
+Added an undocumented debug command line argument "-v" that gives verbose feedback as the command line is parsed, showing the input and output paths that will be used etc.
+
+NB. Edit \epoc32\tools\opltran.bat and change the drive from c: if this is not your WINC installation drive.
+
+Version 0.01.039
+================
+(Released bu Howard on 2 March 1998)
+Uses: Platform 003 releases: apparc=077 bafl=077 bitgdi=060 e32=121 e32tools=083 eiktools=122 eikon=216 f32=090 fbserv=074 fntstore=044 fonts=077
+gdi=056 oplr=048 store=046 wserv=093
+
+This release is the same as 038 apart from a new WINC translator tool to translate text files on the PC (courtesy of Rick Andrews).
+If you have a WINC environment you can get the new components as follows:
+
+cd \Epoc32\Tools
+pkunzip -o r:\oplt\zip\opltranb.039
+cd \Epoc32\release\winc\deb
+pkunzip -o r:\oplt\zip\opltran.039
+
+NB. Edit \epoc32\tools\opltran.bat to set _opltDrv to your WINC installation drive.
+
+The command-line for opltran.bat is:
+opltran opl-filename [-iinclude-path] [-ooutput-path] [-s]
+where opl-filename should include the full path of the source filename. All paths must be fully qualified including drive letter.
+The -s option produces symbolic debugging information in the OPO or APP file, as well as a .SYM files providing the symbol tables.
+
+MNT VALID not required - old components released unchanged.

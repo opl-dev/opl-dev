@@ -1,0 +1,33 @@
+// OPLWRAPPER2.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+
+target		HelloWorld.APP
+targettype	APP
+targetpath	\SYSTEM\APPS\HelloWorld
+UID			0x100039CE 0x090069ac // test uid
+
+
+SOURCEPATH	..\OPLWRAPPER2
+
+document	helloworldaif.rss
+source		OPLAPPWRAPPER2.CPP 
+
+
+resource	..\oplwrapper2\helloworld_caption.rss 
+resource	..\oplwrapper2\helloworld.rss
+LANG     	SC
+
+systeminclude	..\INC \EPOC32\INCLUDE  
+userinclude		..\src
+
+USERINCLUDE . ..\inc
+
+LIBRARY oplr.lib
+LIBRARY euser.lib 
+LIBRARY apparc.lib 
+LIBRARY eikcore.lib
+LIBRARY avkon.lib
+
+AIF helloworld.aif ..\oplwrapper2 helloworldaif.rss c8 icon2_large.bmp mask2_large.bmp icon_small.bmp mask_small.bmp

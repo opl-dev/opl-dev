@@ -1,0 +1,32 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"UIQ OPX bundle"}, (0x01005235), 0, 54, 001, TYPE=SY
+;
+(0x101F617B),2,0,0,{"UIQ20ProductID"}
+;
+; Files
+;
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\agenda.opx"-"!:\System\OPX\agenda.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\alarm.opx"-"!:\System\OPX\alarm.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\bmp.opx"-"!:\System\OPX\bmp.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\buffer.opx"-"!:\System\OPX\buffer.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\contact.opx"-"!:\System\OPX\contact.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\convert.opx"-"!:\System\OPX\convert.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\data.opx"-"!:\System\OPX\data.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\date.opx"-"!:\System\OPX\date.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\dbase.opx"-"!:\System\OPX\dbase.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\locale.opx"-"!:\System\OPX\locale.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\mediaserveropx.opx"-"!:\System\OPX\mediaserveropx.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\printer.opx"-"!:\System\OPX\printer.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\scomms.opx"-"!:\System\OPX\scomms.opx"
+"\Symbian\UIQ_21\epoc32\release\thumb\urel\sendas.opx"-"!:\System\OPX\sendas.opx"
+
+;
+; SHOULD depend on OPL.sis being installed
+;
+;(0x1000904D), 1, 00, 129, {"OPL Runtime"}

@@ -1,0 +1,24 @@
+// T_STACK.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+TARGET		t_stack.exe
+TARGETTYPE	exe
+
+#include "..\..\opl-target.mmpi"
+
+SOURCEPATH	.
+
+SOURCE		t_stack.cpp
+
+SYSTEMINCLUDE	..\inc \epoc32\include
+
+LIBRARY		oplt.lib euser.lib
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+#endif
+#endif
+

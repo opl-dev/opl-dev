@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>OPXs from the OPL view</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<table width="100%" cellspacing="4">
+  <tr valign="top"> 
+          <td> <h1><b><font face="Arial, Helvetica, sans-serif" color="#FF9900">OPXs from the OPL view </font></b></h1>
+<p>An OPX&nbsp;procedure behaves like an OPL language keyword and looks like a 
+  user defined OPL procedure. For example:</p>
+<blockquote> 
+  <p><font face="Courier New, Courier, mono" size="2">IsReadOnly&amp;:(file$)</font></p>
+</blockquote>
+<p>This is an OPX procedure from the System OPX which is present in the ER5 device's 
+  ROM. The procedure takes a file name as a string argument, <font face="Courier New, Courier, mono" size="2">file$</font>, 
+  and returns a long integer, as specified by the <font face="Courier New, Courier, mono" size="2">&amp;</font>. 
+  This long integer would be -1 if the file specified is read only or 0 if it 
+  isn't.</p>
+<p>To use this procedure you would need to include System OPX's header file at 
+  the very top of your OPL program, as follows:</p>
+<blockquote> 
+  <p><font face="Courier New, Courier, mono" size="2">INCLUDE &quot;system.oxh&quot;</font></p>
+</blockquote>
+<p>This is all the knowledge that is needed to use OPX procedures.</p>
+<p>There are many OPX procedures in the four 
+  different OPXs which can be found in a Symbian OS v5 device's ROM. All of these 
+  procedures have been documented in the SDK 
+  in the same manner as OPL language keywords.</p>
+<p>The OXH (header) files are Symbian OS text files which can be written in the Series 
+  5 Program Editor. The System.oxh 
+  header file contains approximately 80 definitions. If you wished to use only 
+  the <font face="Courier New, Courier, mono" size="2">ISREADONLY&amp;:(file$)</font> 
+  procedure then you could write an alternative header file like this:</p>
+<blockquote> 
+  <pre>DECLARE OPX SYSTEM,&amp;1000025C,$100
+   IsReadOnly&amp;:(file$) : 17
+END DECLARE</pre>
+</blockquote>
+<p>You could even just type this code into the top of your OPL program.</p>
+<p>Not using the standard header file, System.oxh, would merely save time during 
+  translation.</p>
+<p>&amp;1000025c is the OPX's unique id and $100 is the OPX's version number.</p>
+<p>The number 17 is an ordinal which is necessary in locating this procedure in 
+  the <font face="Courier New, Courier, mono" size="2">System.opx</font> &nbsp;DLL. 
+  The name of the procedure is not important but the &amp; and file$ are important 
+  as these tell the OPL translator which data types are passed and returned.</p>
+        
+<BR><BR>
+<A HREF="../index.html">Back to opl-dev project homepage</A>
+<BR><BR>
+
+<A HREF="http://sourceforge.net"><IMG SRC="http://sourceforge.net/sflogo.php?group_id=76695&amp;type=1" WIDTH="88" HEIGHT="31" BORDER="0" ALIGN=right ALT="SourceForge.net Logo" /></A> <A HREF="http://www.symbian.com/"><IMG SRC="../symbian.png" ALT="Symbian logo" ALIGN=left /></A>
+</td>
+  </tr>
+</table>
+</body>
+</html>

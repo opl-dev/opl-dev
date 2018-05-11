@@ -1,0 +1,53 @@
+// BLD.INF
+//
+// Copyright (c) 1999-2002 Symbian Ltd. All rights reserved.
+
+#include "..\..\opl-target.mmpi"
+
+PRJ_PLATFORMS
+#if defined(__UIQ_MMP__)
+WINSCW THUMB
+#else
+WINS THUMB
+#endif
+#if defined(__UIQ_MMP_WINS_TOO__)
+WINS
+#endif
+
+PRJ_EXPORTS
+..\bwins\opx.def         \epoc32\release\wins\opx.def
+..\bmarm\opx.def         \epoc32\release\marm\opx.def
+#if !defined(__SERIES60_MMP__)
+..\inc60\bldvariant.hrh
+#endif
+
+PRJ_MMPFILES
+..\Agenda\Agenda.mmp
+..\Alarm\Alarm.mmp
+..\AppFrame\AppFrame.mmp
+..\Array\Array.mmp
+..\Bmp\Bmp.mmp
+..\Buffer\Buffer.mmp
+#if defined(__CRYSTAL_MMP__) && !defined(__S80_DP2_0_MMP__)
+..\CellTrack\CellTrack.mmp
+#endif
+..\Contact\Contact.mmp
+..\Convert\Convert.mmp
+..\Data\Data.mmp
+..\Date\Date.mmp
+..\DBase\DBase.mmp
+..\Locale\Locale.mmp
+..\MediaServerOPX\MediaServerOPX.mmp
+..\Printer\Printer.mmp
+..\SComms\SComms.mmp
+..\SendAs\SendAs.mmp
+#if !defined(__UIQ_MMP__) && !defined(__S80_DP2_0_MMP__)
+..\Spell\Spell.mmp
+#endif
+..\System\System.mmp
+MAKEFILE ..\GROUP\OPX.MK
+
+PRJ_TESTMMPFILES
+..\TOPX\TOPX.mmp
+..\TOPXPRN\TOPXPRN.mmp
+MAKEFILE ..\GROUP\TEST.MK

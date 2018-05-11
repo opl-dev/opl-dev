@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE cshcust SYSTEM "/epoc32/tools/cshlpcmp/dtd/CSHcust.dtd">
+<?xml:stylesheet href="/epoc32/tools/cshlpcmp/xsl/cshcust.xsl" title="CS Help customization" type="text/xsl"?>
+<cshcust>
+<bodystyle fontstyle="sansserif" size="10"/>
+<titlestyle fontstyle="sansserif" size="14"/>
+<listbullet1style bulletchar="149"/>
+<listbullet2style bulletchar="149"/>
+<tipeffects leftindent="36"><b>Tip:</b></tipeffects>
+<noteeffects leftindent="36"><b>Note:</b></noteeffects >
+
+<importanteffects leftindent="60"><b>Important:</b></importanteffects>
+
+</cshcust>

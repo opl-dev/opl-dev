@@ -1,0 +1,1 @@
+pkzip \opx\%1\%1.zip -P @\opx\%1\makezip.txt

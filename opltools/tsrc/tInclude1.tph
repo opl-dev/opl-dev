@@ -1,0 +1,4 @@
+REM tinclude1.tph
+REM A test file for Opltran
+
+CONST Ktinclude1%=3

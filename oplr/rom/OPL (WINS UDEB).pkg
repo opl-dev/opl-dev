@@ -1,0 +1,35 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"OPL Runtime © Symbian Ltd [WINS]"}, (0x1000904D), 1, 00, 129, TYPE=SA
+;
+; Warning file
+;
+;"\oplr\rom\Alpha-Warning.txt"-"",FT,TA
+"\oplr\rom\Release-Readme.txt"-"",FT,TA
+;
+; Dependencies
+;
+; Core OPL Files
+;
+"\epoc32\release\wins\udeb\z\system\apps\opl\opl.app"-"!:\System\Apps\Opl\Opl.app"
+"\epoc32\release\wins\udeb\z\system\apps\opl\opl.acl"-"!:\System\Apps\Opl\Opl.aif"
+"\epoc32\release\wins\udeb\z\system\data\oplr.rsc"-"!:\System\Data\Oplr.rsc"
+"\epoc32\release\wins\udeb\oplr.dll"-"!:\System\Libs\Oplr.dll"
+"\epoc32\release\wins\udeb\oplt.dll"-"!:\System\Libs\Oplt.dll"
+"\epoc32\release\wins\udeb\z\system\recogs\recopl.rdl"-"!:\System\Recogs\RecOpl.rdl"
+;
+; Font Support
+; Note: 14/03/2002 we now install Eon14.gdr into \System\**Libs**\ so it does not
+; cause problems with the system by being available to all apps from \System\Fonts\
+;
+"\epoc32\data\z\system\fonts\eon14.gdr"-"!:\System\Libs\Eon14.gdr"
+;
+; Core OPXs
+@"\epoc32\release\wins\udeb\AppFrameOPX.sis",(0x10005235)
+@"\epoc32\release\wins\udeb\SendAsOPX.sis",(0x100055BF)
+@"\epoc32\release\wins\udeb\SystemOPX.sis",(0x1000025C)

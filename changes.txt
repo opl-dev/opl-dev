@@ -1,0 +1,418 @@
+v1.56 16 June 06 ricka@users.sourceforge.net and arjenb@users.sourceforge.net
+
+OPLT:
+* arjenb: Added new graphics command gXBORDER32 - see OPLR
+
+OPLR:
+* arjenb: Fixed bug [1507068] Runtime with active menu freezes when focus switches 
+* arjenb: New functionality to fix bug [1172574] gXBORDER only draws one border type
+  gXBORDER32 command was added that draws the new Symbian ER6 style borders,
+  addding OpCode::gXBorder32() and modifying CONST.TPH. See Developer note #1 below 
+  for details.
+
+NOTE FOR DEVELOPERS:
+1. New graphics command: gXBORDER32
+gXBORDER32 draws the new Symbian ER6 style borders. Since the new flag constants for these type
+of borders exceed the size of an integer and the old gXBORDER command only accepts a integer flag,
+the new command was introduced. The syntax of gXBORDER32 is almost identical to the old gXBORDER 
+command, but the first parameter is no longer present and the second parameter has been changed to 
+a longint.
+
+Usage: gXBORDER32 flags&[,w%,h%]
+
+Constants for the different border types are included in CONST.OPH.
+
+The following example draws a Window-type border around the current drawable:
+   gXBORDER32 KgXBorder32Window&
+---
+v1.55 10 June 06 ricka@users.sourceforge.net and arjenb@users.sourceforge.net
+
+GENERAL:
+* arjenb: Added self signed certificate to all 92xx/9300/9500 .pkg files
+* arjenb: Fixed bug [1160930] SIS files are missing Series80ProductID
+* arjenb: AppFrame.opx, SendAs.opx and System.opx are now included as files in the OPL runtime 
+  installation and are no longer available as separate sis-files. This to prevent the user from
+  seeing 4 installation warnings when installing the runtime and to prevent reinstallation 
+  problems on Nokia 9300/9500 Communicators.
+
+OPLT:
+* arjenb: Fixed bug [911620] Stale .AIF files left in \System\Temp
+* arjenb: Added new graphics command gPIXEL - see OPLR
+* arjenb: Added optional third argument for LOC - see OPLR
+
+OPLR:
+* arjenb: New functionality for feature [734702] Graphics commands
+  gPIXEL command was added which returns the RGB color value of the specified pixel,
+  addding FuncOpCode::gPixel(). See Developer note #1 below for details.
+* arjenb: Fixed bug and added new functionality for feature [1499213] LOC partially broken
+  The LOC function was changed to use language independent case insensitive searching.
+  Additionally, an optional 3rd argument for LOC was added, to allow specification of the 
+  search mode (normal, folded and collapsed), adding FuncOpCode::LocWithCase() and modifying 
+  const.tph. See Developer note #2 below for details.
+* arjenb: Fixed bug [0934352] MPOPUP crashes.
+* arjenb: Fixed bug [1493931] Runtime crashes.
+* arjenb: Fixed bug [1404558] CBA update problems in OPL dialogs
+* arjenb: Fixed bug [1245819] No scrollbar in OPL dialogs
+* arjenb: Fixed bug [1500819] PEEK$ sometimes doesn't work
+* arjenb: Fixed bug [1299716] Status field not updated correctly
+
+OPX:
+* arjenb: Added Array.OPX for handling C++ style dynamic length arrays in OPL.
+  See \opl\opx\array\ArrayOPX.rtf in the OPL source package for more info.
+* arjenb: Fixed bug [0897032] Agenda.opx problem on 9200
+* arjenb: Fixed bug [1086304] SyGetPhoneInfo$: panics in System.OPX.
+* arjenb: Fixed bug [1404558] Declaration errors in System.oxh
+* arjenb: Fixed bug [1158074] Application title bar casts shadow in AppFrame.OPX
+* ricka:  Fixed bug [1167022] AppFrame OPX doesn't support AddToDesk on 9500
+* arjenb: Restored irListen functionality in Appframe.opx (AFToggleIrDA function)
+
+TEXTED:
+* arjenb: Fixed bug [1103100] Find/Replace skips first find
+* arjenb: Fixed bug [1103109] Replace missing from Texted editor
+* ricka:  Fixed bug [1103547] Texted doesn't use AddToDesk on 9500
+* arjenb: Find/replace now also always starts at the current cursor position on a 9300/9500
+* arjenb: Goto dialog CBA-buttons restructured (instead a single "Close" button, the dialog 
+  now has a "Go to" and "Cancel" button)
+
+OPLTOOLS:
+* ricka:  Fixed bug [1043920] OPLTRAN.EXE panics on 9500 SDK
+* ricka:  Added workaround for [1206638] Unable to build OPLTRAN with Nokia 7710 SDK
+  See \opl\opltools\group\release.txt for details on workround.
+
+DEMOOPL:
+* ricka:  Fixed bug [1079304] Further changes to demoopl.mk makefile to cleanly build demoopl.app
+
+GENERAL:
+* ricka:  Fixed bug [1101203] HRH2OPH missing from Dev Pack
+* ricka:  Got OPL building for Nokia 7710, formally known as Series 90. 
+  Changed over to the 7710 SDK for WINS, rather than WINSCW version. !!TODO add warning about no FEP.
+* ricka:  Added details of bugfixes to SDK build files, to build OPL. !!TODO /dev Is this meant to be released?	
+
+NOTES FOR DEVELOPERS:
+1. New graphics command: gPIXEL
+gPIXEL returns the RGB color value of a pixel in the current drawable.
+
+Usage: rgb&=gPIXEL(xpos%,ypos%)
+
+RGB values are returned as longints and can be converted to red, green and blue values using the KRgbRedPosition&, 
+KRgbGreenPosition&, KRgbBluePosition& and KRgbColorMask& constants (specified in CONST.OPH). 
+
+The following example retrieves the RGB values of a horizontal line of 15 pixels starting at position 4,6 
+in the specified window and prints the retrieved RGB values in the default window:
+
+PROC GetPixelDemo:(DrawableID%)
+LOCAL I%,P&,R&,G&,B&
+  I% = 0
+  WHILE I% < 15
+    gUSE DrawableID%
+    P& = gPIXEL(4+I%,6)
+    R& = P& / KRgbRedPosition& AND KRgbColorMask&
+    G& = P& / KRgbGreenPosition& AND KRgbColorMask&
+    B& = P& / KRgbBluePosition& AND KRgbColorMask&
+    gUSE 1
+    PRINT "Pixel at (" + NUM$(4+I%,2) + ",6)= R:" + NUM$(R&,3) + ",G:" + NUM$(G&,3) + ",B:" + NUM$(B&,3)
+    I%=I%+1
+  ENDWH
+ENDP
+
+2. Changes to the LOC function
+LOC is now implemented using a locale *independent* case insensitive search. The previous version of LOC
+used a locale *dependent* case insensitive search. The problem with the locale dependent version was that
+it did not find non-printable characters (like CHR$(0)), and incorrectly reported them as found at the first 
+position of the string. It also mapped most extended characters to their collated counterparts before starting
+the search (e.g. ß becomes S), which could lead to incorrect results.
+
+The LOC function has also been extended with an optional third argument, allowing you to specify the search mode. 
+LOC is now able to do a case sensitive search, a language dependent case insensitive search and a language 
+independent case insensitive search. For this purpose three new constants have been added to CONST.OPH:
+KLocFindExact%       does a case sensitive search
+KLocFindCollated%    does a case insensitive search (locale dependent)
+KLocFindFolded%      does a case insensitive search (locale independent), same effect as LOC with two arguments
+
+In the event that your application relies on the fact that LOC uses the language dependent search (for example 
+if your code expects that a ß-character is considered equal to an S or the degree symbol (°) is equal to 
+the O-character), you need to use LOC's new optional third argument with the value KLocFindCollated%.
+
+---
+v1.54 11 January 05 ricka@users.sourceforge.net and phil.spencer@symbian.com
+
+TEXTED:
+* Minor corrections to libraries included in the mmp file.
+* Corrected the HorizontalScrollBar state test for the Program menu.
+* Minor change to UIQ Program menu separator bar for Edit pane.
+* Removed Find from UIQ menu - bug [910920] Find doesn't work on UIQ editor.
+* Started a solution for bug [1095527] Search and Replace doesn't work in TextEd
+  on 9200 and 9500 phones.
+
+---
+v1.53 24 December 04 ricka@users.sourceforge.net and phil.spencer@symbian.com
+
+GENERAL:
+* Added an extra build flag __UIQ_MMP_WINS_TOO__ in opl-target.mmpi include file
+  to re-instate some WINS support under UIQ.
+* Fixed bug [911000] Files missing from UIQ dev pack.
+  Const.oph and various .oxh files now present in the UIQ developer pack.
+* Added new makeopl.bat file to rebuild all opl components from a single script.
+
+OPLR:
+* Fixed bug [922555] UIQ: dINIT Problems with Buttons
+  Changed UIQ dialog RSS file to just contain an OK button by default, no need for
+  full ALERT dialog keys on dialogs where no dBUTTONS is used.
+
+* Fixed bug [908415] dButton Command - Four buttons as default on UIQ (p800)
+  Changed dBUTTONS construction so that on UIQ (like on ER5) only used buttons are
+  added, removing the problem of unsightly blank buttons which was a hangover from
+  the Crystal CBA way of doing things.
+
+* Fixed bug [851520] Unguarded RDebug::Print
+  All calls to RDebug::Print() are now guarded for _DEBUG builds only.
+  Note: this required changes to OPX mediaserveropx too.
+
+* Added some S80_DP2_0 (Nokia 9300/9500)-specific changes for dDate's AddDateEditorL().
+
+OPLTOOLS:
+* Added HRH2OPH to help convert UIQ help compiler files to OPL include files.
+
+OPX:
+* Removed some of the unsupported configurable features of Appframe.OPX from the
+  S80_SP2_0 (Nokia 9300/9500) version. e.g. Add To Desk, IR Listen.
+  Ditto for System.OPX's access to system timers, ETEL and PLP remote link.
+
+TEXTED:
+* Changed some UIQ menus and dialogs to make it look and behave more like a UIQ
+  application.
+
+* Fixed bug [910311] No horizontal scrollbar in TextEd
+  While the scroll bar should appear automatically, like the vertical scroll bar, 
+  there seems to be some underlying problem which stops this happening. So the Editor
+  menu now allows the choice of whether you want the horizontal scroll bar visible or
+  not. It's off by default.
+  Also, there's a (related?) problem with the width of the document - the scroll bar
+  action gives the impression that the document is approx. 2000 chars wide! This is
+  most obvious when dragging the scroll bar thumb, which means this action isn't very
+  useful. However, tapping on the scroll bar arrow heads (or the bar between the
+  thumb and the arrow head) works quite well. 
+  (Incidently, this is not a UIQ problem, a test version of the Editor app built for
+  the 9210 exhibits the same weird horizontal scroll bar too.)
+  See the sourceforge bug report for more details.
+
+* Fixed bug [980744] Missing print setup on phone stops editor
+  Cleaned up the print setup problem first seen in the v0.50 release.
+  The fix is to trap a leaving function (iEikonEnv->NewDefaultPrintSetupL()) and use
+  null, as the editor is designed to handle this optional feature.
+
+DEMOOPL:
+* Partial fix for bug [1079304] "DemoOPL.mk modifies src folder" where the custom
+  makefile was building the DemoIcon.mbm file incorrectly.
+
+---
+v1.52 19 June 04 ricka@users.sourceforge.net
+
+OPLR:
+* Partial solution for bug [910981] gFONT doesn't work on UIQ, picking up the 
+  SwissA font in graphics windows for the beta release of OPL for UIQ.
+  Added CONST KFontUiqSwissABeta&=&017B4B0D
+* Corrected a build problem from the v1.51 for Series 60 OPL.APP, regarding
+  included .mmpi files.
+* Added details to the oplwrapper0 readme.txt file.
+* Corrected some problems with opltest, the OPL test harness.
+* Added tOpxVersionNumber.tpl which shows how to confirm your OPL app is using the 
+  right OPX version.
+
+General
+* Changed the baseline of the source code to the CVS version - some minor differences
+  in the cases of filenames - to improve CVS submissions.
+
+---
+v1.51 29 February 04 ricka@users.sourceforge.net
+
+OPLTOOLS:
+* Removed a couple of build warnings.
+
+OPLR:
+* Fixed a problem with profile menu pane on Nokia 9500. (In the Nokia 9500 beta SDK, 
+  the location of ProfileAutoMenu.dll has moved, compared to Nokia 9200. The runtime
+  now looks in both locations.)
+
+OPX:
+* Tidied up Celltrack OPX release.
+* Fixed a bug in Crystal AppFrame OPX, introduced during UIQ integration.
+
+TEXTED:
+* Fixed a minor build problem with the Crystal build, introduced during UIQ
+  integration.
+
+DEMOOPL:
+* Fixed the DemoOPL help build for Crystal, and added the help file back into the 
+  .SIS file.
+
+WEBSITE:
+* Removed ALEPPO.ZIP - at 3MB, it's too big to be part of the src code zip file.
+
+---
+v1.50 22 February 04 ricka@users.sourceforge.net
+
+OPLT:
+* Minor changes to support multi-compiler build, and fix a CodeWarrior compiler
+  warning. Now builds cleanly for both MS Dev and CW.
+
+OPLTOOLS:
+* There is no OPLTRAN for UIQ yet. OPLTRAN is a WINC tool, and WINC is not 
+  supported on the UIQ SDK.
+  The short-term solution is to use a version of OPLTRAN from another SDK 
+  e.g. Nokia 9200. 
+
+OPLR:
+* Integrated Lar's UIQ changes for the runtime. Added support for multi-compiler
+  build.
+* For UIQ, OPLR supports the EQuartzKeyConfirm button (Jog Dial press) for menus.
+
+OPX:
+* Integrated Lar's changes to AppFrame, SendAs, System OPXs to support UIQ.
+* Spell not available for UIQ (no lexicon libraries).
+* Added CellTrack OPX (for CRYSTAL only initially).
+* Minor changes for multi-compiler build.
+
+TEXTED:
+* Included Lar's changes for UIQ.
+
+
+---
+v1.30 27 November 03 ricka@users.sourceforge.net
+
+OPLR:
+* Further changes to cascade menus.
+* Fixed priority key halt for Series 60 emulator, as a workround for
+  OnStopping() not being called.
+* Fixed defect 817867 "reset the default window" so the default OPL console is 
+  full screen, with the screen furniture behind the OPL console.
+* Fixed defect 844681 "OPO filename too long" by making the length for chars, 
+  not bytes.
+
+OPX:
+* Released an alpha version on Contact OPX for testing with Series 60.
+  No major changes to the source code, but the test code modified as Series 60
+  only supports one contact db, and the original test code was better suited to
+  the 9210's support for many databases.
+
+---
+v1.26a 5 October 03 ricka@users.sourceforge.net
+(Not released externally)
+
+OPLR:
+* The runtime now derived from MCoeFepAwareTextEditor for FEP interaction.
+  This means a new export for S60, #167.
+* Also calls OfferKeyEvent() on the FEP
+* Test version of GET, INPUT$ etc. Numberic mode only at the moment.
+* Fixes to MENU for FEP.
+  And KCommandIdOffset is 0x8000 to prevent interaction with 0x4000 used by FEP.
+* Cleaned up a WINS CFrame dtor problem.
+* Added a makezip.bat file for oplwrapper0 and updated its readme.txt file.
+* Added menu test opl source to opltest\Series60\
+
+---
+v1.25 27 July 03 ricka@users.sourceforce.net
+
+OPLR:
+* Added the Series60 font ids to Const.tph file - see KFontS60...
+  Added oplr\opltest\series60\gfontdemo61.tpl test code to exercise the consts.
+* Using the default font id &9A now gives you Latin Plain 12 on Series 60 runtime.
+  This fixes defect 735621.
+* Adjusted the console window width to better fit a non-proportional font.
+  Goes a long way to fixing 740298.
+* Added oplr\oplwrapper0 - a canonical Series60 wrapper. Start with this version
+  if you want to roll your own C++ app wrapper. See oplr\oplwrapper0\readme.txt.
+  As it stands, Oplwrapper0 builds a C++ wrapper for OplTestS60, a test harness 
+  which can be used to test .OPO files located in C:\OplTest\.
+  See the OPL source code oplr\oplwrapper0\opltests60.tpl for more info.
+
+OPX:
+* Released an alpha version of AppFrame OPX to switch the status pane on/off.
+  This fixes defect 745071.
+  To use, call AfSetStatusVisible%:(0) for off, 1 for on.
+  Note that no other OPX APIs have been tested.
+* Added some mediaserveropx test code progs missing from earlier releases.
+
+Other:
+* Added set of 6.1 logs giving examples of good Series 60 builds. See \logs6.1.
+
+---
+v1.24 15 June 03 ricka@users.sourceforge.net
+
+Added scripts for building the 9200 public (runtime) and developer packages.
+Added copies of the build logs in \opl\logs\ for comparision purposes.
+
+---
+v1.23 26 May 03 ricka@users.sourceforge.net
+
+OPLT: Improved OPLT casting - changes from Keita 
+  http://www.hi-ho.ne.jp/~ktkawabe/densha_e.html
+  See oplt\stran\ot_utl.cpp for more details.
+* Added a new test to the OPLT test suite in ttran\.
+
+---
+v1.22 26 May 03 ricka@users.sourceforge.net
+
+All components:
+* Fix THUMB builds for building with Nokia 9200 Communicator Series 
+  SDK v1.2.
+  Basically adding new librarys to ensure that THUMB builds are
+  complete with this SDK. 
+  - egcclib with edll.lib and edllstub.lib
+
+OPLT: 
+* Build from relative location.
+* Fixed the test suite so that it runs for 9210.
+* Got tmodtran test working again.
+* Export the test suite data to \c\topt\.
+  (It was building for z:\data\).
+* Added a makefile 'preptest.mk' to build the suite code.
+* Corrected a couple of typo's while debugging the suite.
+
+OPLR: 
+* Added thumb build libs to oplr and recopl.
+
+OPLTOOLS:
+* Fixed bug 743653 "OPLTRAN can't handle relative filenames" in opltran.cpp
+* Upped the version number to 2.09 accordingly.
+
+OPX: 
+* Got the OPX code building with a relative location.
+* And using EPOCROOT.
+
+Other minor changes:
+* Removed some distribution.policy files.
+* Changed the name of this src zip from 'opl-dev' to 'opl', matching the 
+  sourceForge.net CVS details.
+
+---
+v1.21 05 May 03 ricka@users.sourceforge.net
+
+OPLR: Added support for Series 60 phones on Symbian OS 6.1 
+* Added conditional framework in .mmp files for .def, src and libs
+* Major mods to opl runtime startup.
+* Disabled FEP interaction for now.
+
+Plus other minor source changes:
+* Made oplt use a relative build, no longer has to be \oplt.
+* Ditto for oplr.
+* Removed distribution.policy files - we don't need them any longer.
+* Removed monochrome oplr\aif icons.
+* Renamed colour oplr\aifc icon folder to oplr\aif.
+* Removed some old stuff from oplr\group.
+* Renamed oplr\aif\opl.rss to oplaif.rss - or we'd have two version of opl.rss.
+* Moved Symbian OS 6.0-only versions into <name>60 subdirs:
+    inc60 - dummy bldvariant.hrh file. Keeps 6.0 builds happy.
+    opl60 - 6.0 version of opl.app. I was having major problems with __SERIES60_
+      definitions in resource files (and this was panicking the S60 emulator
+      at startup!), so I split the subdir in two. :-(
+* Added a readme.txt file
+
+Note: this is only a half-way house and not suitable for porting to new
+versions of the OS. We need to do something like move the core OPL functions
+to some new core library, and get each OPL UI to link to the core.
+
+---
+v1.20 23 April 03
+
+Initial upload of OPL for SourceForge.net

@@ -1,0 +1,55 @@
+// TEXTED.HRH
+//
+// Copyright (c) 1997-2002 Symbian Ltd. All rights reserved.
+
+#ifndef __TEXTED_HRH__
+#define __TEXTED_HRH__
+
+// Title id
+#define ETextEdTitleBarId 0x1000
+#define ETextEdShowProcListId 0x1001
+
+enum ETextEdCommands
+	{
+	ETextEdCmdFileName=1,
+	ETextEdCmdPageSetup,
+	ETextEdCmdMenuGoTo,
+	ETextEdCmdToolBarGoTo,
+	ETextEdCmdIndentation,
+	ETextEdCmdSetPreferences,
+	ETextEdCmdTranslate,
+	ETextEdCmdRun,
+	ETextEdCmdIRReceive,
+	ETextEdCmdShowLastError,
+	ETextEdCmdTranslateDebug,
+	ETextEdCmdLog,
+	ETextEdCmdCycleScrollBars,
+	ETextEdCmdScrollBarNone,
+	ETextEdCmdScrollBarVertical,
+	ETextEdCmdScrollBarHorizontal,
+	ETextEdCmdScrollBarBoth,
+	ETextEdCmdAddToHome,
+	ETextEdCmdDelete,
+	ETextEdCmdFullScreen,
+	ETextEdCmdShowTitleBar,
+	ETextEdCmdPrintingCascade,
+	ETextEdCmdShowHorizScrollBar,
+
+	ETextEdCmdSend=0xA000
+	// The SendUi framework uses commandIds starting from here, so
+	// don't add any additional command Ids here.
+	};
+
+#define ETxedCidSetPrefsAllowPropFonts	1
+#define ETxedCidShowTab					2
+#define ETxedCidShowSpaces				3
+#define ETxedCidShowParaEnds			4
+#define ETxedCidAutoIndent				5
+#define ETxedCidSetPrefsExportOptions   6
+
+#define ETxedCidTabSetting				1
+
+// Preference dialog
+#define ETextEdBidClose					1
+
+#endif // __TEXTED_HRH__

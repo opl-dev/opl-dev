@@ -1,0 +1,57 @@
+proc main:
+
+	print "Testing the same OPX can be loaded and unloaded many times in one module"
+	print
+	
+	loadm "topxcbp"
+
+	loadm "testopx"
+	TAddFLtToInt:
+	unloadm "testopx"
+
+
+	loadm "testopx"
+	TAddFLtToInt:
+	unloadm "testopx"
+
+	loadm "testopx"
+	TAdd4:
+	unloadm "testopx"
+
+	loadm "testopx"
+	TStrToFlt:
+	unloadm "testopx"
+
+	loadm "testopx"
+	TFltToStr:
+	unloadm "testopx"
+
+	loadm "testopx"
+	TMult316:
+	unloadm "testopx"
+
+	loadm "testopx"
+	TMult332:
+	unloadm "testopx"
+
+	loadm "t_util"
+	loadm "testopx"
+	TCallProc:
+	unloadm "testopx"
+	
+	loadm "testopx"
+	onerr load2
+	loadm "testopx"
+	onerr off
+	raise 1
+load2::
+	onerr off 
+	if err<>-104 : raise 2 : endif
+	
+	unloadm "topxcbp"
+	unloadm "t_util"
+	
+	print
+	print "Finished OK"
+
+endp

@@ -1,0 +1,34 @@
+// RECOPL.MMP
+//
+// Copyright (c) 1997-1999 Symbian Ltd.  All rights reserved.
+//
+
+TARGET		recopl.rdl
+TARGETTYPE	dll
+TARGETPATH	\system\recogs
+UID	0x10003A37 0x10000148
+
+#include "..\..\opl-target.mmpi"
+
+SOURCEPATH	.
+
+SOURCE		recopl.cpp
+
+SYSTEMINCLUDE ..\inc \epoc32\include
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+LIBRARY		apparc.lib euser.lib
+
+DEFFILE		recopl.def
+
+START WINS
+	BASEADDRESS	0x44700000
+END
+

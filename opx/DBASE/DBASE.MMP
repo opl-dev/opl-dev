@@ -1,0 +1,29 @@
+// DBASE.MMP
+//
+// Copyright (c) 1997-2000 Symbian Ltd. All rights reserved.
+
+TARGET		DBase.opx
+TARGETTYPE	dll
+TARGETPATH	\System\OPX
+UID			0x10003A7B 0x1000025b
+
+#include "..\..\opl-target.mmpi"
+
+#if defined(__CRYSTAL_MMP__)
+#if defined(MARM)
+//9210 THUMB only
+STATICLIBRARY		egcc.lib
+LIBRARY		edll.lib edllstub.lib
+#endif
+#endif
+
+SOURCEPATH		..\DBase
+
+SOURCE       	DBaseopx.cpp
+DOCUMENT     	DBase.txh
+
+SYSTEMINCLUDE	\epoc32\include
+
+LIBRARY      	euser.lib oplr.lib edbms.lib efsrv.lib estor.lib
+
+DEFFILE      	OPX.DEF

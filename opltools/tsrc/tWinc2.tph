@@ -1,0 +1,4 @@
+REM twinc2.tph
+REM A test include file for Opltran
+
+CONST Ktwinc2%=6

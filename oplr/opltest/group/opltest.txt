@@ -1,0 +1,19 @@
+Opltest harness
+
+This version:
+
+ * has 298 tests.
+ * runs under an ER5 (16 gray screen) device.
+ * takes about 11.5 minutes to run on ER5 from Drive C:
+ * has 0 errors.
+
+It uses the following directory structure:
+
+ opltest\
+	automatic\   	Location of actual opltest test code and scripts.
+	interactive\	Test programs launched and controlled by above scripts.
+	harness\	Contains test harness utility library and OplTest app.
+	data\		Misc data files used by test code.
+
+	benchmark\	Example speed benchmarking code (not used).
+	crytest\	Er6 code (not used).

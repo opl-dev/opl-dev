@@ -1,0 +1,16 @@
+;
+; Languages
+;
+&EN
+;
+; Header
+;
+#{"Array OPX © Arjen Broeze"}, (0x10204D05), 1, 00, 116, TYPE=SY
+;
+; Files
+;
+"\epoc32\release\armi\urel\Array.opx"-"!:\System\OPX\Array.opx", FF
+;
+; Depends on OPL.sis being installed
+;
+(0x1000904D), 1, 00, 129, {"OPL Runtime © Symbian Ltd"}

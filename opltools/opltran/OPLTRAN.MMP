@@ -1,0 +1,27 @@
+// OPLTRAN.MMP
+//
+// Copyright (c) 1997-2001 Symbian Ltd. All rights reserved.
+
+TARGET			opltran.exe
+TARGETTYPE		exe
+
+#include "..\..\opl-target.mmpi"
+
+SOURCEPATH		..\group
+
+DOCUMENT		release.txt bld.inf
+
+SOURCEPATH		.
+SYSTEMRESOURCE	opltran.rss
+SOURCE			opltran.cpp opltrant.cpp winutil.cpp
+DOCUMENT		opltran.bat
+
+SYSTEMINCLUDE	\epoc32\include
+
+LIBRARY			fbscli.lib
+LIBRARY			apparc.lib bafl.lib efsrv.lib
+LIBRARY			estor.lib etext.lib euser.lib oplt.lib
+
+start WINC
+WIN32_LIBRARY	kernel32.lib libc.lib
+end
